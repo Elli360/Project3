@@ -46,6 +46,7 @@ ReactDOM.render(
       />
       <Redirect from="/" to="/components" />
     </Switch>
-  </BrowserRouter>,
+  </BrowserRouter>
+ ,
   document.getElementById("root")
 );
