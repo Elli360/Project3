@@ -5,3 +5,12 @@
 2) Tools you want: a connection or api would be combined with this database to get ad revenue or sponsorship. sers can shop for tools they want by requesting it on the app. 
 3) Tools that you lent your friends(to whom and where): This way you will not be searching for hours for a tool you do not have! Future Dev: The user would ask the borrower to also download the app, there would be a secure connection between both apps, and the borrower could verify and confirm that he/she borrowed said tool. There could also be a limit of time and usage to said tool that is agreed upon during this step.
 
+## Technologies
+(enter here)
+
+## Team
+The Number 8
+Shalom
+Danielli
+Troy
+Luis
