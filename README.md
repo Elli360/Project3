@@ -10,7 +10,8 @@
 
 ## Team
 The Number 8
-Shalom
-Danielli
-Troy
+
+Shalom,
+Danielli,
+Troy,
 Luis
