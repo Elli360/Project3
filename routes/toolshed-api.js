@@ -91,7 +91,7 @@ module.exports = function(app) {
           {
             model: db.tool,
             nested: true,
-            attributes: ["name", "description","price"]
+            attributes: ["id","name", "description","price","available"]
           }
         ]
       })
