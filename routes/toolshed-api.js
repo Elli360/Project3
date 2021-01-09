@@ -16,13 +16,6 @@ module.exports = function(app) {
     });
   });
 
-    //ADD A CATEGORY TO THE SYSTEM
-    app.post("/api/category/add", (req, res) => {
-      db.category.create(req.body).then(item => {
-        res.json(item);
-      });
-    });
-
   //GET A SINGLE MENU TOOL
   app.get("/api/tools/:id", (req, res) => {
     db.tool
@@ -30,10 +23,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      //include: [{ all: true, nested: false }]
       include: [
-        //{ model: db.orderMenuItem, nested: true },
-
         {
           model: db.category,
           nested: true,
@@ -45,6 +35,33 @@ module.exports = function(app) {
         res.json(item);
       });
   });
+
+
+  //CATGEORIES :
+      
+  //ADD A CATEGORY TO THE SYSTEM
+      app.post("/api/category/add", (req, res) => {
+        db.category.create(req.body).then(item => {
+          res.json(item);
+        });
+      });
+
+        //GET ALL TOOLS
+  app.get("/api/category", (req, res) => {
+    db.category.findAll({ 
+
+      include: [
+      {
+        model: db.tool,
+        nested: true,
+        attributes: ["name", "description"]
+      }
+    ]
+    }).then(items => {
+      res.json(items);
+    });
+  });
+  
 
  /*
 
@@ -73,8 +90,6 @@ module.exports = function(app) {
         res.json(item);
       });
   });
-  
-
   
   app.post("/api/menuitems", (req, res) => {
     db.menuItem.create(req.body).then(item => {

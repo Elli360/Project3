@@ -14,6 +14,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-
+  category.associate = function(models) {
+    category.hasMany(models.tool);
+  };
   return category;
 };
