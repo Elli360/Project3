@@ -37,7 +37,7 @@ module.exports = function(app) {
   });
 
 
-  //CATGEORIES :
+  //CATEGORIES :
       
   //ADD A CATEGORY TO THE SYSTEM
       app.post("/api/category/add", (req, res) => {

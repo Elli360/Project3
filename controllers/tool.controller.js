@@ -2,12 +2,14 @@ const db = require("../models");
 const Tool = db.tool;
 const Op = db.Sequelize.Op;
 
+//THIS FILE IS CURRENTLY NOT BEING USED - THIS COULD BE REMOVED
+
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   
 };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all Tutorials from the database..
 exports.findAll = (req, res) => {
 
 };
