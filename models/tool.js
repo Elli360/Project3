@@ -12,16 +12,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    /*category: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },*/
     price: {
       type: DataTypes.DECIMAL(10, 2)
     }
   });
-
-  //associations come next
 
   tool.associate = function(models) {
     tool.belongsTo(models.category);

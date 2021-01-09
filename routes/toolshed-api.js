@@ -49,18 +49,31 @@ module.exports = function(app) {
         //GET ALL TOOLS
   app.get("/api/category", (req, res) => {
     db.category.findAll({ 
-
-      include: [
-      {
-        model: db.tool,
-        nested: true,
-        attributes: ["name", "description"]
-      }
-    ]
     }).then(items => {
       res.json(items);
     });
   });
+
+    //GET A SINGLE MENU CATEGORY
+    app.get("/api/category/:id", (req, res) => {
+      db.category
+      .findOne({
+        where: {
+          id: req.params.id
+        },
+        include: [
+          {
+            model: db.tool,
+            nested: true,
+            attributes: ["name", "description","price"]
+          }
+        ]
+      })
+        .then(item => {
+          res.json(item);
+        });
+    });
+  
   
 
  /*
