@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 module.exports = function(app) {
+
   //GET ALL TOOLS
   app.get("/api/tools", (req, res) => {
     db.tool.findAll({}).then(items => {
@@ -15,21 +16,37 @@ module.exports = function(app) {
     });
   });
 
-  /*
-  //GET A SINGLE MENU ITEM
+    //ADD A CATEGORY TO THE SYSTEM
+    app.post("/api/category/add", (req, res) => {
+      db.category.create(req.body).then(item => {
+        res.json(item);
+      });
+    });
+
+  //GET A SINGLE MENU TOOL
   app.get("/api/tools/:id", (req, res) => {
-    db.tools
-      .findOne({
-        where: {
-          id: req.params.id
+    db.tool
+    .findOne({
+      where: {
+        id: req.params.id
+      },
+      //include: [{ all: true, nested: false }]
+      include: [
+        //{ model: db.orderMenuItem, nested: true },
+
+        {
+          model: db.category,
+          nested: true,
+          attributes: ["name", "description"]
         }
-      })
+      ]
+    })
       .then(item => {
         res.json(item);
       });
   });
 
- 
+ /*
 
   //UPDATE AN ITEM
   app.put("/api/tools/:id/update", (req, res) => {

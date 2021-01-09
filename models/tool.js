@@ -12,22 +12,20 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    category: {
+    /*category: {
       type: DataTypes.STRING,
       allowNull: true
-    },
+    },*/
     price: {
       type: DataTypes.DECIMAL(10, 2)
     }
   });
 
   //associations come next
-/*
-  menuItem.associate = function(models) {
-    menuItem.belongsToMany(models.order, {
-      through: models.orderMenuItem
-    });
-  };*/
+
+  tool.associate = function(models) {
+    tool.belongsTo(models.category);
+  };
 
   return tool;
 };

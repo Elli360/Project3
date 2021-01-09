@@ -14,13 +14,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  //associations come next
-/*
-  menuItem.associate = function(models) {
-    menuItem.belongsToMany(models.order, {
-      through: models.orderMenuItem
-    });
-  };*/
 
   return category;
 };

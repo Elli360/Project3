@@ -9,7 +9,7 @@ const db = require("./models");
 
 
 //FORCE SYNC WHILE IN DEV
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ alter:true  }).then(() => {
     console.log("Drop and re-sync db.");
   });
 
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 // Requiring our routes
-require("./routes/tool-api.js")(app);
+require("./routes/toolshed-api.js")(app);
 
 
 // set port, listen for requests
