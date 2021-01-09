@@ -16,7 +16,20 @@ module.exports = function(app) {
     });
   });
 
-  //GET A SINGLE MENU TOOL
+  //UPDATE A TOOL:
+    app.put("/api/tools/:id/update", (req, res) => {
+      db.tool
+        .update(req.body, {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(item => {
+          res.json(item);
+        });
+    });
+
+  //GET A SINGLE  TOOL
   app.get("/api/tools/:id", (req, res) => {
     db.tool
     .findOne({
@@ -36,6 +49,19 @@ module.exports = function(app) {
       });
   });
 
+    //DELETE A TOOL 
+    app.delete("/api/tools/:id/delete", (req, res) => {
+      db.tool
+        .destroy({
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(item => {
+          res.json(item);
+        });
+    });
+    
 
   //CATEGORIES :
       
@@ -74,43 +100,4 @@ module.exports = function(app) {
         });
     });
   
-  
-
- /*
-
-  //UPDATE AN ITEM
-  app.put("/api/tools/:id/update", (req, res) => {
-    db.tools
-      .update(req.body, {
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(item => {
-        res.json(item);
-      });
-  });
-
-  //DELETE AN ITEM FROM THE MENU
-  app.delete("/api/tools/:id/delete", (req, res) => {
-    db.tools
-      .destroy({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(item => {
-        res.json(item);
-      });
-  });
-  
-  app.post("/api/menuitems", (req, res) => {
-    db.menuItem.create(req.body).then(item => {
-      res.json(item);
-    });
-  });
-
-  */
-  
-
 };
