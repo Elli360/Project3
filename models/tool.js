@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     price: {
       type: DataTypes.DECIMAL(10, 2)
     }
+
   });
 
   tool.associate = function(models) {
