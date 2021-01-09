@@ -25,10 +25,6 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// success setup
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Toolshed application." });
-});
 
 // Requiring our routes
 require("./routes/toolshed-api.js")(app);
