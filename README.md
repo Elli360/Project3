@@ -1,230 +1,57 @@
-# [Blk• Design  System React](https://demos.creative-tim.com/blk-design-system-react) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Material%20Kit%20PRO%20is%20a%20Bootstrap%20UI%20Kit%20with%20a%20fresh,%20new%20design%20inspired%20by%20Google's%20Material%20Design%20%E2%9D%A4%EF%B8%8Fhttps%3A//demos.creative-tim.com/material-kit-pro/presentation.html%20%23bootstrap%20%23material%20%23design%20%23uikit%20%23premium%20%20via%20%40CreativeTim)
+![](https://camo.githubusercontent.com/0999ec20f1112070c606e117f61dd21177179f9b40d4f66b94adbb3978adeabb/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4769746875622d3138313731373f7374796c653d666c61742d737175617265266c6f676f3d476974487562266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/3b0aa009716b20018a683fea7d5babb79de77fdb40279cbb1f8e862a813900b1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d56697375616c25323053747564696f253230436f64652d3233413946323f7374796c653d666c61742d737175617265266c6f676f3d56697375616c25323053747564696f253230436f6465266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/e61cf3e57f9e13e971a157885cbe3464a0a63a7602cd8e2464594866f14bca65/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4e504d2d4342333833373f7374796c653d666c61742d737175617265266c6f676f3d4e504d266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/a2e06d523388c52257c599dbc3a629e0af1564a123a662a6c20fbccfdb83d15e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d536c61636b2d4530313536333f7374796c653d666c61742d737175617265266c6f676f3d536c61636b266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/591bad6b337378a164bc0239d9259f266f2ed01d3aa3006c68bef1336731d051/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5f2d4769742d3239326533333f7374796c653d666c61742d737175617265266c6f676f3d676974266c6f676f436f6c6f723d666666)
+
+# Tool Shed
+<img src="https://www.colourbox.com/preview/36242522-constructions-tools-icon-set.jpg" width = "200" length="200"/>
+
+![](https://img.shields.io/badge/Made%20with-Javascript-green)
+![](https://camo.githubusercontent.com/0c3a16a22ae058cfe38a06dc9ea16404cf006409262f547c9ccfa3ec8b30f71e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d48544d4c352d4533344632363f7374796c653d666c61742d737175617265266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)
+![](https://camo.githubusercontent.com/2435c2a64789b8a71c701a1a593b4a6e6869789bfb0626e515dc2a6b6dffa6c5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f7374796c653d666c61742d737175617265266c6f676f3d63737333)
+![](https://camo.githubusercontent.com/118db644beb6a0a51235005c7050e02759203dd52f820f1c3483e2928edcc01e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4865726f6b752d3433303039383f7374796c653d666c61742d737175617265266c6f676f3d6865726f6b75)
+![](https://camo.githubusercontent.com/cec92673ea713fa89ba2ae2033daf5851f6f39393ff5b93231aa707d424638d9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4e6f64656a732d626c61636b3f7374796c653d666c61742d737175617265266c6f676f3d4e6f64652e6a73)
 
 
-![version](https://img.shields.io/badge/version-1.2.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/blk-design-system-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/blk-design-system-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/blk-design-system-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/blk-design-system-react/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim-general/Lobby) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+## Table of contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Screenshots](#Screenshots)
+- [Contributors](#Contributors)
+- [Repository Link](#Repositories)
+
+## Description 
+A digital tool shed to store, lend, categorize, and structure data about your most necessary tools. The `Tool Shed` app uses both the frontend and the backend to manage obtained tools and the ones needed. There are multiple ways to utilize this app. The storing of the tools is one. A laborer could use this personally to keep track of all the tools bought. There will be an option to save the tools wanted, such as a wish list. These tools will be organized based on categories that fits that particular tool best. Lastly, the ability to lend tools to your most trusted (or mistrusted) comrade is no longer a problem. This app grants the user the ability to track who and when the tool was lend out. No more forgetting what happen to your tools with this app made by `The Number 8`.
 
 
-![Product Presentation Image](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/blk-design-system-react.jpg?raw=true)
+## Installation
 
-**[Blk• Design  System React](http://demos.creative-tim.com/blk-design-system-react/)** is a responsive Bootstrap 4 kit, developed using [React](https://reactjs.org/), [Reactstrap](https://reactstrap.github.io/) and [create-react-app](https://facebook.github.io/create-react-app/), and it is provided for free by Creative Tim. It is a beautiful cross-platform UI kit featuring over 70 elements and 3 templates.
+#### NPM install the following
+![](https://img.shields.io/badge/Dependencies-Express-brightgreen)
+![](https://camo.githubusercontent.com/e1840b4e176feb06e47500d5d74d65041ac3f193192174097956f2bea2ceea5f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4d7953514c2d4632393131313f7374796c653d666c61742d737175617265266c6f676f3d4d7953514c266c6f676f436f6c6f723d7768697465)
+![](https://img.shields.io/badge/-mysql2-red)
+![](https://img.shields.io/badge/-sequelize-orange)
+![](https://camo.githubusercontent.com/4e4a3b5c3e9c00501ec866e2f2466c5a6032f838aca5f2cf3b14450e39e8a2f0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742532302d2532333230323332612e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)
 
-Blk• Design  System React will help you create a clean and simple website that is a perfect fit for today's black design. It is built using the 12 column grid system, with components designed to fit together perfectly. It makes use of bold colours, beautiful typography, clear photography and spacious arrangements.
+## Usage
+Use this app to organize, lend tools and more...
 
-## Complex Documentation
-
-Each element is well presented in a very complex documentation. You can read more about the idea behind this design system here. You can check the components here and the foundation here.
-
-## Bootstrap 4 Support
-
-Blk• Design System React is built on top of the much awaited Bootstrap 4 (Reactstrap). This makes starting a new project very simple. It also provides benefits if you are already working on a Bootstrap 4 or Reactstrap project; you can just import the Blk• Design System React style over it. Most of the elements have been redesigned; but if you are using an element we have not touched, it will fall back to the Bootstrap default.
-
-
-## Table of Contents
-
-* [Versions](#versions)
-* [PRO Versions](#pro-versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
+## Screenshots
+![]()
 
 
-## Versions
+## Contributors
+[MrDawit Shalom Dawit](https://github.com/MrDawit)
+<br>
+[Danielli Franquim](https://github.com/Elli360)
+<br>
+[Troy](https://github.com/troylochner)
+<br>
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system?ref=blkdsr-readme)[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system-react?ref=blkdsr-readme)[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system-angular?ref=blkdsr-readme)
+[lcalderin12 Luis Calderin](https://github.com/lcalderin12)
 
-
-| HTML | React | Angular |
-| --- | --- | --- |
-| [![BLK Design System  HTML](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system/opt_blk_thumbnail.jpg?raw=true)](https://www.creative-tim.com/product/blk-design-system)  | [![BLK Design System  React](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/blk-design-system-react/blk-design-system-react.jpg)](https://www.creative-tim.com/product/blk-design-system-react)  | [![BLK Design System  Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/blk-design-system-angular/opt_blk_angular_thumbnail.jpg)](https://www.creative-tim.com/product/blk-design-system-angular) |
-
-
-## PRO Versions
-
-[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system-pro?ref=blkdsr-readme)[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system-pro-react?ref=blkdsr-readme)[<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/blk-design-system-pro-angular?ref=blkdsr-readme)
-
-
-| HTML | React | Angular |
-| --- | --- | --- |
-| [![BLK Design System PRO HTML](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-pro/opt_blkp_thumbnail.jpg?raw=true)](https://www.creative-tim.com/product/blk-design-system-pro)  | [![BLK Design System PRO React](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/blk-design-system-pro-react/blk-design-system-pro-react.jpg)](https://www.creative-tim.com/product/blk-design-system-react)  | [![BLK Design System PRO Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/blk-design-system-pro-angular/opt_blkp_angular_thumbnail.jpg)](https://www.creative-tim.com/product/blk-design-system-angular) |
-
-
-## Demo
-
-| Buttons | Inputs | Navbars  |
-| --- | --- | ---  |
-| [![Buttons](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/buttons.png?raw=true)](https://demos.creative-tim.com/blk-design-system-react/#/)  | [![Inputs](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/inputs.png?raw=true)](https://demos.creative-tim.com/blk-design-system-react/#/)  | [![Navbar](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/navbars.png?raw=true)](https://demos.creative-tim.com/blk-design-system-react/#/)  
-
-| Login Page | Landing Page | Profile Page  |
-| --- | --- | ---  |
-| [![Register Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/blk-design-system-react/register-page.png)](https://demos.creative-tim.com/blk-design-system-react/#/register-page)  | [![Landing Page](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/landing-page.png?raw=true)](https://demos.creative-tim.com/blk-design-system-react/#/landing-page)  | [![Profile Page](https://github.com/creativetimofficial/public-assets/blob/main/blk-design-system-react/profile-page.png?raw=true)](https://demos.creative-tim.com/blk-design-system-react/#/profile-page)  
-
-[View More](https://demos.creative-tim.com/blk-design-system-react)
-
-
-## Quick start
-
-- `npm i blk-design-system-react`
-- [Download from Github](https://github.com/creativetimofficial/blk-design-system-react/archive/main.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/blk-design-system-react).
-- Install with [Bower](https://bower.io/): ```bower install blk-design-system-react```.
-- Clone the repo: `git clone https://github.com/creativetimofficial/blk-design-system-react.git`.
-
-
-## Documentation
-The documentation for the BLK Design System React is hosted at our [website](https://demos.creative-tim.com/blk-design-system-react/#/documentation/overview).
-
-
-## File Structure
-Within the download you'll find the following directories and files:
-
-```
-Blk• Design System React
-.
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
-├── README.md
-├── package.json
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── index.js
-    ├── variables
-    │   └── charts.js
-    ├── assets
-    │   ├── css
-    │   │   ├── blk-design-system-react.css
-    │   │   ├── blk-design-system-react.css.map
-    │   │   ├── blk-design-system-react.min.css
-    │   │   └── nucleo-icons.css
-    │   ├── demo
-    │   │   └── demo.css
-    │   ├── fonts
-    │   │   ├── nucleo.eot
-    │   │   ├── nucleo.ttf
-    │   │   ├── nucleo.woff
-    │   │   └── nucleo.woff2
-    │   ├── img
-    │   └── scss
-    │       ├── blk-design-system-react
-    │       │   ├── bootstrap
-    │       │   │   ├── mixins
-    │       │   │   └── utilities
-    │       │   ├── custom
-    │       │   │   ├── cards
-    │       │   │   ├── mixins
-    │       │   │   ├── sections
-    │       │   │   ├── utilities
-    │       │   │   └── vendor
-    │       │   └── react
-    │       │       └── react-differences.scss
-    │       └── blk-design-system-react.scss
-    ├── components
-    │   ├── Footer
-    │   │   └── Footer.js
-    │   ├── Navbars
-    │   │   ├── ComponentsNavbar.js
-    │   │   └── ExamplesNavbar.js
-    │   └── PageHeader
-    │       └── PageHeader.js
-    └── views
-        ├── Index.js
-        ├── IndexSections
-        │   ├── Basics.js
-        │   ├── Download.js
-        │   ├── Examples.js
-        │   ├── JavaScript.js
-        │   ├── Navbars.js
-        │   ├── Notifications.js
-        │   ├── NucleoIcons.js
-        │   ├── Pagination.js
-        │   ├── Signup.js
-        │   ├── Tabs.js
-        │   └── Typography.js
-        └── examples
-            ├── LandingPage.js
-            ├── ProfilePage.js
-            └── RegisterPage.js
-```
-
-
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-| Chrome | Firefox | Edge | Safari | Opera |
-| :---: | :---: | :---: | :---: | :---: |
-|<img src="https://github.com/creativetimofficial/public-assets/blob/main/logos/chrome-logo.png?raw=true" width="64" height="64">|<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/main/logos/firefox-logo.png" width="64" height="64">|<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/main/logos/edge-logo.png" width="64" height="64">|<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/main/logos/safari-logo.png" width="64" height="64"> |<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/main/logos/opera-logo.png" width="64" height="64">|
-
-
-
-## Resources
-- Demo: <https://demos.creative-tim.com/blk-design-system-react/#/>
-- Download Page: <https://www.creative-tim.com/product/blk-design-system-react>
-- Documentation: <https://demos.creative-tim.com/blk-design-system-react/#/documentation/overview>
-- License Agreement: <https://www.creative-tim.com/license>
-- Support: <https://www.creative-tim.com/contact-us>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/blk-design-system-react/issues)
-- **FREE Dashboards:**
-
-| HTML | React | Vue  |
-| --- | --- | ---  |
-| [![Black Dashboard  HTML](https://github.com/creativetimofficial/public-assets/blob/main/black-dashboard/black-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/black-dashboard) | [![Black Dashboard  React](https://github.com/creativetimofficial/public-assets/blob/main/black-dashboard-react/black-dashboard-react.jpg?raw=true)](https://www.creative-tim.com/product/black-dashboard-react) | [![Vue Black Dashboard](https://github.com/creativetimofficial/public-assets/blob/main/vue-black-dashboard/vue-black-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/vue-black-dashboard)  |
-
-| Angular | Laravel | Django | Nuxt |
-| --- | --- | --- | --- |
-| [![Black Dashboard Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-angular/opt_bd_angular_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-angular)  | [![Black Dashboard Laravel](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-laravel/opt_blk_laravel_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-laravel)  | [![Black Dashboard Django](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-django/opt_bdfree_django_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-django)  | [![Nuxt Dashboard Django](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/nuxt-black-dashboard/opt_bd_nuxjs_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-django)  |
-
-- **PRO Dashboards:**
-
-| React | Vue | Nuxt |
-| --- | --- | ---  |
-| [![Black Dashboard PRO React](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-pro-react/black-dashboard-pro-react.jpg)](https://www.creative-tim.com/product/black-dashboard-pro-react) | [![Vue Black Dashboard PRO](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/vue-black-dashboard-pro/vue-black-dashboard-pro.jpg)](https://www.creative-tim.com/product/vue-black-dashboard-pro) | [![Nuxt Black Dashboard PRO](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/nuxt-black-dashboard-pro/opt_bdp_nuxt_thumbnail.jpg)](https://www.creative-tim.com/product/nuxt-black-dashboard-pro)  |
-
-| Angular | Django | Django |
-| --- | --- | ---  |
-| [![Black Dashboard PRO Angular](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-pro-angular/opt_bdp_angular_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-pro-angular) | [![Black Dashboard PRO Laravel](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-pro-laravel/opt_blkp_laravel_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-pro-laravel)  | [![Black Dashboard PRO Django](https://raw.githubusercontent.com/creativetimofficial/public-assets/main/black-dashboard-pro-django/opt_bdp_django_thumbnail.jpg)](https://www.creative-tim.com/product/black-dashboard-pro-django)  |
-
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the BLK Design System. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the BLK Design System. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/?ref=blkdsr-readme).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Licensing
-
-- Copyright 2020 Creative Tim (https://www.creative-tim.com/?ref=blkdsr-readme)
-
-- Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
-
-## Useful Links
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
-- [Blog Creative Tim](http://blog.creative-tim.com/)
-- [Free Products](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
-- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium) from Creative Tim
-- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes) from Creative Tim
-- [Angular Products](https://www.creative-tim.com/bootstrap-themes/angular-themes) from Creative Tim
-- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes) from Creative Tim
-- [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
-- Check our Bundles [here](https://www.creative-tim.com/bundles?ref="mk-github-readme")
-
-### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
+## Repositories
+- [Heroku Deployed Link]()
+- [Project Repo](https://github.com/Elli360/Project3)
