@@ -26,7 +26,8 @@ module.exports = function(sequelize, DataTypes) {
 
   tool.associate = function(models) {
     tool.belongsTo(models.category);
-    tool.belongsTo(models.User)
+    //tool.belongsTo(models.User)
+    //tool.belongsToMany(models.user, {through:models.userRental})
   };
 
   return tool;
