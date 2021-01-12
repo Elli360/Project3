@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const userRental = sequelize.define("userRental", {
+    const rental = sequelize.define("rental", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes) {
     });
     
 
-    userRental.associate = function(models) {
-      userRental.belongsTo(models.toolbox);
-      userRental.belongsTo(models.tool);
+    rental.associate = function(models) {
+      rental.belongsTo(models.toolbox);
+      rental.belongsTo(models.tool);
       //userRental.belongsTo(models.User);
     };
 
 
   
-    return userRental;
+    return rental;
   };
   

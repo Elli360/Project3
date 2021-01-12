@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   toolbox.associate = function(models) {
     toolbox.belongsTo(models.User);
     toolbox.hasMany(models.tool)
-    toolbox.hasMany(models.userRental);
+    toolbox.hasMany(models.rental);
     //tool.belongsTo(models.User)
     //tool.belongsToMany(models.user, {through:models.userRental})
   };
