@@ -27,6 +27,19 @@ A digital tool shed to store, lend, categorize, and structure data about your mo
 
 
 ## Installation
+## SETUP WILL GO HERE....
+1. IN MYSQL
+
+DROP DATABASE IF EXISTS toolshed;
+CREATE DATABASE toolshed;
+USE toolshed;
+
+2. node server.js
+3. Stop server
+4. npm run seed
+5. node server.js OR npm start
+
+
 
 #### NPM install the following
 ![](https://img.shields.io/badge/Dependencies-Express-brightgreen)
