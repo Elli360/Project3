@@ -40,17 +40,17 @@ export default function Footer() {
           <Col md="3">
             <Nav>
               <NavItem>
-                <NavLink href="linkedin.com/in/danielli-franquim-85224570">
+                <NavLink href="https://linkedin.com/in/danielli-franquim-85224570">
                   Contact: Danielli
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="https://www.linkedin.com/in/shalom-dawit-a0a5a4126">
+                <NavLink href="https://www.linkedin.com/in/shalom-dawit-a0a5a4126">
                   Contact: Shalom
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="https://www.linkedin.com/in/troylochner/">
+                <NavLink href="https://www.linkedin.com/in/troylochner/">
                   Contact: Troy
                 </NavLink>
               </NavItem>
