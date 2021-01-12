@@ -34,10 +34,10 @@ DROP DATABASE IF EXISTS toolshed;
 CREATE DATABASE toolshed;
 USE toolshed;
 
-2. node server.js
-3. Stop server
-4. npm run seed
-5. node server.js OR npm start
+2. node server.js - intialize the seqluelize process - sets up tables / fields. 
+3. Stop server 
+4. npm run seed --- populates the database.
+5. node server.js OR npm start 
 
 
 
