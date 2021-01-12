@@ -9,8 +9,9 @@ module.exports = function(sequelize, DataTypes) {
     
 
     userRental.associate = function(models) {
+      userRental.belongsTo(models.toolbox);
       userRental.belongsTo(models.tool);
-      userRental.belongsTo(models.User);
+      //userRental.belongsTo(models.User);
     };
 
 

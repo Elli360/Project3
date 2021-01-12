@@ -153,25 +153,82 @@ module.exports = function(app) {
         });
     });
 
-    //GET A SINGLE MENU CATEGORY
-    app.get("/api/user/:id/rentals", (req, res) => {
-      db.userRental
-      .findOne({
+      //CREATE A USER TOOLBOX
+      app.post("/api/toolbox/new", (req, res) => {
+        db.toolbox.create(req.body).then(item => {
+          res.json(item);
+        });
+      });
+    
+
+    //get all the toolboxes of a user.
+    app.get("/api/user/:id/toolboxes", (req, res) => {
+      db.toolbox
+      .findAll({
         where: {
           UserId: req.params.id
         },
-        include: [
+        /*include: [
           {
-            model: db.tool,
+            model: db.toolbox,
             nested: true,
-            attributes: ["id","name","description"]
+            //attributes: ["id","name","description"]
           }
-        ]
+        ]*/
       })
         .then(item => {
           res.json(item);
         });
     });
+
+       //SHOW A TOOLBOX
+       app.get("/api/user/:uid/toolboxes/:id", (req, res) => {
+        db.toolbox
+        .findOne({
+          where: {
+            UserId: req.params.uid,
+            id: req.params.id
+          },
+         
+          include: [
+            {
+              model: db.userRental,
+              nested: true,
+              attributes: ["id"],
+              include:[
+                {
+                  model: db.tool,
+                  attributes: ["id","name","description","price"]
+                }
+              ]
+            
+            }
+          ]
+        })
+          .then(item => {
+            res.json(item);
+          });
+      });
+  
+      //ADD TOOL TO A TOOLBOX
+      app.post("/api/user/:uid/toolboxes/:id/add", (req, res) => {
+        db.userRental
+        .create({
+          toolboxId:req.params.id,
+          toolId:req.body.toolId
+        })
+          .then(item => {
+            res.json(item);
+          });
+      });
+  
+
+        //ADD A CATEGORY TO THE SYSTEM
+        app.post("/api/category/add", (req, res) => {
+          db.category.create(req.body).then(item => {
+            res.json(item);
+          });
+        });
 
 
   
