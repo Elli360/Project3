@@ -35,28 +35,32 @@ export default function Footer() {
       <Container>
         <Row>
           <Col md="3">
-            <h1 className="title">BLK•</h1>
+
+            <h1 className="title">Team Eight</h1>
+
           </Col>
           <Col md="3">
             <Nav>
               <NavItem>
-                <NavLink to="/" tag={Link}>
-                  Home
+
+                <NavLink href="https://linkedin.com/in/danielli-franquim-85224570">
+                  Contact: Danielli
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/landing-page" tag={Link}>
-                  Landing
+                <NavLink href="https://www.linkedin.com/in/shalom-dawit-a0a5a4126">
+                  Contact: Shalom
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/register-page" tag={Link}>
-                  Register
+                <NavLink href="https://www.linkedin.com/in/troylochner/">
+                  Contact: Troy
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/profile-page" tag={Link}>
-                  Profile
+                <NavLink href="https://www.linkedin.com/in/luis-calderin-a3b06112b/">
+                  Contact: Luis
+
                 </NavLink>
               </NavItem>
             </Nav>
@@ -64,18 +68,25 @@ export default function Footer() {
           <Col md="3">
             <Nav>
               <NavItem>
-                <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
-                  Contact Us
+
+                <NavLink to="/home" tag={Link}>
+                  Home
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://creative-tim.com/about-us?ref=blkdsr-footer">
-                  About Us
+                <NavLink to="/loaned" tag={Link}>
+                  Loaned Out
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://creative-tim.com/blog?ref=blkdsr-footer">
-                  Blog
+                <NavLink to="/#borrowed" tag={Link}>
+                  Borrowed
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/#search" tag={Link}>
+                  Search For
+
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -86,43 +97,62 @@ export default function Footer() {
             </Nav>
           </Col>
           <Col md="3">
-            <h3 className="title">Follow us:</h3>
+
+            <h3 className="title">Follow us on GitHub:</h3>
+
             <div className="btn-wrapper profile">
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://twitter.com/creativetim"
+
+                href="https://github.com/elli360/"
                 id="tooltip622135962"
                 target="_blank"
               >
-                <i className="fab fa-twitter" />
+                <i className="fab fa-github" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip622135962">
-                Follow us
+                Follow Danielli on GitHub
+
               </UncontrolledTooltip>
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://www.facebook.com/creativetim"
+
+                href="https://github.com/mrdawit"
                 id="tooltip230450801"
                 target="_blank"
               >
-                <i className="fab fa-facebook-square" />
+                <i className="fab fa-github" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip230450801">
-                Like us
+                Follow Shalom on GitHub
+
               </UncontrolledTooltip>
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://dribbble.com/creativetim"
+
+                href="https://github.com/troylochner"
                 id="tooltip318450378"
                 target="_blank"
               >
-                <i className="fab fa-dribbble" />
+                <i className="fab fa-github" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip318450378">
-                Follow us
+                Follow Troy on GitHub
+              </UncontrolledTooltip>  <Button
+                className="btn-icon btn-neutral btn-round btn-simple"
+                color="default"
+                href="https://github.com/lcalderin12"
+                id="tooltip318450378"
+                target="_blank"
+              >
+                <i className="fab fa-github" />
+              </Button>
+              <UncontrolledTooltip delay={0} target="tooltip318450378">
+                Follow Luis on GitHub
+
               </UncontrolledTooltip>
             </div>
           </Col>

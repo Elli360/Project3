@@ -34,7 +34,9 @@ export default function PageHeader() {
         <div className="content-center brand">
           <h1 className="h1-seo">BLK• React</h1>
           <h3 className="d-none d-sm-block">
+
             GROUP 8 THIS WILL BE OUR TOOLSHED APP
+
           </h3>
         </div>
       </Container>
