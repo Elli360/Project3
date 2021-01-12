@@ -79,16 +79,7 @@ export default function Loaned() {
         ps = new PerfectScrollbar(tables[i]);
       }
     }
-    document.body.classList.toggle("profile-page");
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.documentElement.className += " perfect-scrollbar-off";
-        document.documentElement.classList.remove("perfect-scrollbar-on");
-      }
-      document.body.classList.toggle("profile-page");
-    };
+
   }, []);
   return (
     <>
@@ -105,293 +96,299 @@ export default function Loaned() {
             className="path"
             src={require("assets/img/path4.png").default}
           />
-        <div className="section">
-          <Container>
-            <Row>
-              <Button
-              href="/#slidingDrawer"
-             
-              >MENU</Button>
-            </Row>
-          </Container>
-          <Container>
-            <Row className="justify-content-between">
-              <Col md="6">
-                <Row className="justify-content-between align-items-center">
-                  <UncontrolledCarousel items={carouselItems} />
-                </Row>
-              </Col>
-              <Col md="5">
-                <h1 className="profile-title text-left">Tools</h1>
-                <h5 className="text-on-back">Loaned</h5>
-                <p className="profile-description text-left">
-                  Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
+          <div className="section">
+            <Container>
+              <Row>
+                <Button
+                  href="/#slidingDrawer"
+
+                >MENU</Button>
+              </Row>
+            </Container>
+            <Container>
+              <Row className="justify-content-between">
+                <Col md="6">
+                  <Row className="justify-content-between align-items-center">
+                    <UncontrolledCarousel items={carouselItems} />
+                  </Row>
+                </Col>
+                <Col md="5">
+                  <h1 className="profile-title text-left">Tools</h1>
+                  <h5 className="text-on-back">Loaned</h5>
+                  <p className="profile-description text-left">
+                    Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
                 </p>
-                <div className="btn-wrapper pt-3">
+                  <div className="btn-wrapper pt-3">
+                    <div className="btn-wrapper">
+                      <div className="button-container">
+                        <Button
+                          className="btn-icon btn-simple btn-round btn-neutral"
+                          color="success" id="tooltip20" onClick={() => setFormModal(true)}>
+                          <i className="tim-icons icon-simple-add" />
+                        </Button>
+                        <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
+                          Add Loaned Tool
+                        </UncontrolledTooltip>
+                        {/* Start Add Form Modal */}
+                        <Modal
+                          modalClassName="modal-black"
+                          isOpen={formModal}
+                          toggle={() => setFormModal(false)}
+                        >
+                          <div className="modal-header justify-content-center">
+                            <button className="close" onClick={() => setFormModal(false)}>
+                              <i className="tim-icons icon-simple-remove text-white" />
+                            </button>
+                            <div className="text-muted text-center ml-auto mr-auto">
+                              <h3 className="mb-0">Add to Your Loaned Tools</h3>
+                            </div>
+                          </div>
+                          <div className="modal-body">
+                            <div className="btn-wrapper text-center">
 
-                  <Button
-                    className="btn-simple"
-                    color="info"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="tim-icons icon-bulb-63" /> Search It!
+                            </div>
+                            <div className="text-center text-muted mb-4 mt-3">
+                              <small>What are the details to this newly loaned tool?</small>
+                            </div>
+                            <Form role="addForm">
+                              <FormGroup className="mb-3">
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Name:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Name"
+                                    aria-label="Tool Name"
+                                    aria-describedby="basic-addon1"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Category:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Category"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Description:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Description"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Price:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Price"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Loaned To:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="User Name"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Promise Date:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Expected Return Date"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+
+                              <div className="text-center">
+                                <Button className="my-4" color="primary" type="button">
+                                  ADD TOOL
+                                </Button>
+                              </div>
+                            </Form>
+                          </div>
+                        </Modal>
+                        {/* End Add Form Modal */}
+
+
+                        <Button
+                          className="btn-icon btn-simple btn-round btn-neutral"
+                          color="success" id="tooltip21" onClick={() => setFormModal(true)}>
+                          <i className="tim-icons icon-zoom-split" />
+                        </Button>
+                        <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
+                          Search Loaned Tools
+                        </UncontrolledTooltip>
+                        {/* Start Search Form Modal */}
+                        <Modal
+                          modalClassName="modal-black"
+                          isOpen={formModal}
+                          toggle={() => setFormModal(false)}
+                        >
+                          <div className="modal-header justify-content-center">
+                            <button className="close" onClick={() => setFormModal(false)}>
+                              <i className="tim-icons icon-simple-remove text-white" />
+                            </button>
+                            <div className="text-muted text-center ml-auto mr-auto">
+                              <h3 className="mb-0">Search Your Loaned Tools</h3>
+                            </div>
+                          </div>
+                          <div className="modal-body">
+                            <div className="btn-wrapper text-center">
+
+                            </div>
+                            <div className="text-center text-muted mb-4 mt-3">
+                              <small>Describe what you are looking for in this directory</small>
+                            </div>
+                            <Form role="addForm">
+                              <FormGroup className="mb-3">
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Name:
+                                  </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Name"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Category:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Category"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Description:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Description"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Price:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Tool Price"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Loaned To:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="User Name"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <FormGroup>
+                                <InputGroup>
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      Promise Date:
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Expected Return Date"
+                                    type="text"
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+
+
+                              <div className="text-center">
+                                <Button className="my-4" color="primary" type="button">
+                                  Search TOOL
+                                </Button>
+                              </div>
+                            </Form>
+                          </div>
+                        </Modal>
+                        {/* End Search Form Modal */}
+                      </div>
+                      <Button
+                        className="btn-simple"
+                        color="info"
+                        href="#pablo"
+                        id="tooltip22"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <i className="tim-icons icon-bulb-63" /> Search It!
                   </Button>
-
-                  <div className="btn-wrapper">
-                  <div className="button-container">
-             
-                   
-            <Button 
-            className="btn-icon btn-simple btn-round btn-neutral"
-            color="success" onClick={() => setFormModal(true)}>
-              <i className="tim-icons icon-simple-add" />
-            </Button>
-          {/* Start Add Form Modal */}
-          <Modal
-            modalClassName="modal-black"
-            isOpen={formModal}
-            toggle={() => setFormModal(false)}
-          >
-            <div className="modal-header justify-content-center">
-              <button className="close" onClick={() => setFormModal(false)}>
-                <i className="tim-icons icon-simple-remove text-white" />
-              </button>
-              <div className="text-muted text-center ml-auto mr-auto">
-                <h3 className="mb-0">Add to Your Loaned Tools</h3>
-              </div>
-            </div>
-            <div className="modal-body">
-              <div className="btn-wrapper text-center">
-                
-              </div>
-              <div className="text-center text-muted mb-4 mt-3">
-                <small>What are the details to this newly loaned tool?</small>
-              </div>
-              <Form role="addForm">
-                <FormGroup className="mb-3">
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Name: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Name"
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Category: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Category"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Description: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Description"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Price: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Price"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Loaned To: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="User Name"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Promise Date: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Expected Return Date"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-               
-                <div className="text-center">
-                  <Button className="my-4" color="primary" type="button">
-                    ADD TOOL
-                  </Button>
-                </div>
-              </Form>
-            </div>
-          </Modal>
-          {/* End Add Form Modal */}
-
-
-          <Button 
-            className="btn-icon btn-simple btn-round btn-neutral"
-            color="success" onClick={() => setFormModal(true)}>
-              <i className="tim-icons icon-zoom-split" />
-            </Button>
-          {/* Start Search Form Modal */}
-          <Modal
-            modalClassName="modal-black"
-            isOpen={formModal}
-            toggle={() => setFormModal(false)}
-          >
-            <div className="modal-header justify-content-center">
-              <button className="close" onClick={() => setFormModal(false)}>
-                <i className="tim-icons icon-simple-remove text-white" />
-              </button>
-              <div className="text-muted text-center ml-auto mr-auto">
-                <h3 className="mb-0">Search Your Loaned Tools</h3>
-              </div>
-            </div>
-            <div className="modal-body">
-              <div className="btn-wrapper text-center">
-                
-              </div>
-              <div className="text-center text-muted mb-4 mt-3">
-                <small>Describe what you are looking for in this directory</small>
-              </div>
-              <Form role="addForm">
-                <FormGroup className="mb-3">
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Name: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Name"
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Category: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Category"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Description: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Description"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Price: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Price"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Loaned To: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="User Name"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Promise Date: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Expected Return Date"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-             
-               
-                <div className="text-center">
-                  <Button className="my-4" color="primary" type="button">
-                    Search TOOL
-                  </Button>
-                </div>
-              </Form>
-            </div>
-          </Modal>
-          {/* End Search Form Modal */}
+                      <UncontrolledTooltip delay={0} placement="bottom" target="tooltip22">
+                        Search Outside of Directory
+              </UncontrolledTooltip>
+                    </div>
 
 
                   </div>
-                </div>
-              
+                </Col>
+              </Row>
 
-                </div>
-              </Col>
-            </Row>
+              <Row>
+                <Col lg="6" md="6">
+                  <h2 className="profile-title text-left">Michelle Fairbanks</h2>
+                  <h4 className="text-on-back">UserName</h4>
+                </Col>
+              </Row>
+            </Container>
 
-            <Row>
-            <Col lg="6" md="6">
-              <h2 className="profile-title text-left">Michelle Fairbanks</h2>
-              <h4 className="text-on-back">UserName</h4>
-            </Col>
-          </Row>
-          </Container>
-
-        </div>
+          </div>
 
         </div>
 
@@ -433,7 +430,6 @@ export default function Loaned() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -442,7 +438,10 @@ export default function Loaned() {
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="primary">
-                      Move to ToolShed
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove
                     </Button>
                   </CardFooter>
                 </Card>
@@ -467,7 +466,6 @@ export default function Loaned() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -476,7 +474,10 @@ export default function Loaned() {
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="success">
-                      Move to ToolShed
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove
                     </Button>
                   </CardFooter>
                 </Card>
@@ -501,7 +502,6 @@ export default function Loaned() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -510,7 +510,10 @@ export default function Loaned() {
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="info">
-                      Move to ToolShed
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove
                     </Button>
                   </CardFooter>
                 </Card>
