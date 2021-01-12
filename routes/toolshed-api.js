@@ -154,8 +154,12 @@ module.exports = function(app) {
     });
 
       //CREATE A USER TOOLBOX
-      app.post("/api/toolbox/new", (req, res) => {
-        db.toolbox.create(req.body).then(item => {
+      app.post("/api/user/:uid/toolbox/add", (req, res) => {
+        db.toolbox
+        .create({
+          UserId:req.params.uid
+        })
+        .then(item => {
           res.json(item);
         });
       });
@@ -222,14 +226,5 @@ module.exports = function(app) {
           });
       });
   
-
-        //ADD A CATEGORY TO THE SYSTEM
-        app.post("/api/category/add", (req, res) => {
-          db.category.create(req.body).then(item => {
-            res.json(item);
-          });
-        });
-
-
   
 };
