@@ -52,7 +52,7 @@ export default function LandingPage() {
       <ExamplesNavbar />
       <div className="wrapper">
         <div className="page-header">
-         
+
           <img
             alt="..."
             className="path"
