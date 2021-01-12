@@ -1,4 +1,3 @@
-
 module.exports = function(sequelize, DataTypes) {
   const tool = sequelize.define("tool", {
     name: {
@@ -27,9 +26,9 @@ module.exports = function(sequelize, DataTypes) {
 
   tool.associate = function(models) {
     tool.belongsTo(models.category);
-    tool.belongsTo(models.User)
+    //tool.belongsTo(models.User)
+    tool.belongsToMany(models.toolbox, {through:models.rental})
   };
 
   return tool;
 };
-
