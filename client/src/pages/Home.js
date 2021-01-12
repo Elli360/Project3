@@ -59,8 +59,6 @@ import bigChartData from "variables/charts.js";
 export default function Home() {
   
   const [formModal, setFormModal] = React.useState(false);
-  const [emailFocus, setEmailFocus] = React.useState(false);
-  const [passwordFocus, setPasswordFocus] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
