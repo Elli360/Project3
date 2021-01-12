@@ -1,3 +1,4 @@
+
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -49,3 +50,4 @@ passport.deserializeUser((obj, cb) => {
 
 // Exporting our configured passport
 module.exports = passport;
+

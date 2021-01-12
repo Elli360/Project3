@@ -1,6 +1,8 @@
 {
+
   "short_name": "the ToolShed",
   "name": "the ToolShed",
+
   "icons": [
     {
       "src": "favicon.ico",

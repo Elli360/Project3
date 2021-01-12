@@ -1,4 +1,5 @@
 
+
 {
   "development": {
     "username": "test_user",
@@ -18,4 +19,5 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
+
 }

@@ -70,11 +70,13 @@ export default function ExamplesNavbar() {
       <Container>
         <div className="navbar-translate">
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
+
             <span>the ToolShed </span>
             Team Eight
           </NavbarBrand>
           <UncontrolledTooltip placement="bottom" target="navbar-brand">
             by Team Eight
+
           </UncontrolledTooltip>
           <button
             aria-expanded={collapseOpen}
@@ -97,7 +99,9 @@ export default function ExamplesNavbar() {
             <Row>
               <Col className="collapse-brand" xs="6">
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
+
                   the ToolShed
+
                 </a>
               </Col>
               <Col className="collapse-close text-right" xs="6">
@@ -115,6 +119,7 @@ export default function ExamplesNavbar() {
             <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
+
                 href="https://github.com/elli360/project3"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -122,6 +127,7 @@ export default function ExamplesNavbar() {
               >
                 <i className="fab fa-github" />
                 <p className="d-lg-none d-xl-none">GitHub</p>
+
               </NavLink>
             </NavItem>
             <NavItem>
@@ -132,15 +138,18 @@ export default function ExamplesNavbar() {
                 href="#Login"
               >
                 <i className="tim-icons icon-spaceship" /> Login
+
               </Button>
             </NavItem>
             <NavItem>
               <NavLink tag={Link} to="/">
+
                 Back to Home
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/Elli360/Project3/issues">
+
                 Have an issue?
               </NavLink>
             </NavItem>
