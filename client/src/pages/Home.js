@@ -57,7 +57,7 @@ import Footer from "components/Footer/Footer.js";
 import bigChartData from "variables/charts.js";
 
 export default function Home() {
-  
+
   const [formModal, setFormModal] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
@@ -128,190 +128,196 @@ export default function Home() {
                 </div>
                 <div className="btn-wrapper">
                   <div className="button-container">
-             
-                   
-            <Button 
-            className="btn-icon btn-simple btn-round btn-neutral"
-            color="success" onClick={() => setFormModal(true)}>
-              <i className="tim-icons icon-simple-add" />
-            </Button>
-          {/* Start Add Form Modal */}
-          <Modal
-            modalClassName="modal-black"
-            isOpen={formModal}
-            toggle={() => setFormModal(false)}
-          >
-            <div className="modal-header justify-content-center">
-              <button className="close" onClick={() => setFormModal(false)}>
-                <i className="tim-icons icon-simple-remove text-white" />
-              </button>
-              <div className="text-muted text-center ml-auto mr-auto">
-                <h3 className="mb-0">Add to Your ToolShed</h3>
-              </div>
-            </div>
-            <div className="modal-body">
-              <div className="btn-wrapper text-center">
-                
-              </div>
-              <div className="text-center text-muted mb-4 mt-3">
-                <small>What are the details to this newly added tool?</small>
-              </div>
-              <Form role="addForm">
-                <FormGroup className="mb-3">
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Name: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Name"
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Category: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Category"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Description: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Description"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Price: 
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Price"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                
-             
-               
-                <div className="text-center">
-                  <Button className="my-4" color="primary" type="button">
-                    ADD TOOL
-                  </Button>
-                </div>
-              </Form>
-            </div>
-          </Modal>
-          {/* End Add Form Modal */}
 
 
-          <Button 
-            className="btn-icon btn-simple btn-round btn-neutral"
-            color="success" onClick={() => setFormModal(true)}>
-              <i className="tim-icons icon-zoom-split" />
-            </Button>
-          {/* Start Search Form Modal */}
-          <Modal
-            modalClassName="modal-black"
-            isOpen={formModal}
-            toggle={() => setFormModal(false)}
-          >
-            <div className="modal-header justify-content-center">
-              <button className="close" onClick={() => setFormModal(false)}>
-                <i className="tim-icons icon-simple-remove text-white" />
-              </button>
-              <div className="text-muted text-center ml-auto mr-auto">
-                <h3 className="mb-0">Search Your ToolShed</h3>
-              </div>
-            </div>
-            <div className="modal-body">
-              <div className="btn-wrapper text-center">
-                
-              </div>
-              <div className="text-center text-muted mb-4 mt-3">
-                <small>Describe what you are looking for in your ToolShed</small>
-              </div>
-              <Form role="addForm">
-                <FormGroup className="mb-3">
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Name: 
+                    <Button
+                      className="btn-icon btn-simple btn-round btn-neutral"
+                      color="success" id="tooltip10" onClick={() => setFormModal(true)}>
+                      <i className="tim-icons icon-simple-add" />
+                    </Button>
+                    <UncontrolledTooltip delay={0} placement="left" target="tooltip10">
+                      Add to ToolShed
+                    </UncontrolledTooltip>
+                    {/* Start Add Form Modal */}
+                    <Modal
+                      modalClassName="modal-black"
+                      isOpen={formModal}
+                      toggle={() => setFormModal(false)}
+                    >
+                      <div className="modal-header justify-content-center">
+                        <button className="close" onClick={() => setFormModal(false)}>
+                          <i className="tim-icons icon-simple-remove text-white" />
+                        </button>
+                        <div className="text-muted text-center ml-auto mr-auto">
+                          <h3 className="mb-0">Add to Your ToolShed</h3>
+                        </div>
+                      </div>
+                      <div className="modal-body">
+                        <div className="btn-wrapper text-center">
+
+                        </div>
+                        <div className="text-center text-muted mb-4 mt-3">
+                          <small>What are the details to this newly added tool?</small>
+                        </div>
+                        <Form role="addForm">
+                          <FormGroup className="mb-3">
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Name:
                       </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Name"
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Category: 
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Name"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Category:
                       </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Category"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Description: 
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Category"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Description:
                       </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Description"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        Price: 
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Description"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Price:
                       </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Tool Price"
-                      type="text"
-                       />
-                  </InputGroup>
-                </FormGroup>
-                
-             
-               
-                <div className="text-center">
-                  <Button className="my-4" color="primary" type="button">
-                    Search TOOL
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Price"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+
+
+
+                          <div className="text-center">
+                            <Button className="my-4" color="primary" type="button">
+                              ADD TOOL
                   </Button>
-                </div>
-              </Form>
-            </div>
-          </Modal>
-          {/* End Search Form Modal */}
+                          </div>
+                        </Form>
+                      </div>
+                    </Modal>
+                    {/* End Add Form Modal */}
+
+
+                    <Button
+                      className="btn-icon btn-simple btn-round btn-neutral"
+                      color="success" id="tooltip121" onClick={() => setFormModal(true)}>
+                      <i className="tim-icons icon-zoom-split" />
+                    </Button>
+                    <UncontrolledTooltip placement="right" target="tooltip121">
+                      Search Through the ToolShed
+                    </UncontrolledTooltip>
+                    {/* Start Search Form Modal */}
+                    <Modal
+                      modalClassName="modal-black"
+                      isOpen={formModal}
+                      toggle={() => setFormModal(false)}
+                    >
+                      <div className="modal-header justify-content-center">
+                        <button className="close" onClick={() => setFormModal(false)}>
+                          <i className="tim-icons icon-simple-remove text-white" />
+                        </button>
+                        <div className="text-muted text-center ml-auto mr-auto">
+                          <h3 className="mb-0">Search Your ToolShed</h3>
+                        </div>
+                      </div>
+                      <div className="modal-body">
+                        <div className="btn-wrapper text-center">
+
+                        </div>
+                        <div className="text-center text-muted mb-4 mt-3">
+                          <small>Describe what you are looking for in your ToolShed</small>
+                        </div>
+                        <Form role="addForm">
+                          <FormGroup className="mb-3">
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Name:
+                      </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Name"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Category:
+                      </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Category"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Description:
+                      </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Description"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  Price:
+                      </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Tool Price"
+                                type="text"
+                              />
+                            </InputGroup>
+                          </FormGroup>
+
+
+
+                          <div className="text-center">
+                            <Button className="my-4" color="primary" type="button">
+                              Search TOOL
+                  </Button>
+                          </div>
+                        </Form>
+                      </div>
+                    </Modal>
+                    {/* End Search Form Modal */}
 
 
                   </div>
@@ -370,16 +376,18 @@ export default function Home() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
-                        <ListGroupItem>Date Loaned Out</ListGroupItem>
-                        <ListGroupItem>Return Promise</ListGroupItem>
+                        <ListGroupItem>Price</ListGroupItem>
+                        <ListGroupItem>Available?</ListGroupItem>
                       </ListGroup>
                     </Row>
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="primary">
-                      Move/Remove
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove from ToolShed
                     </Button>
                   </CardFooter>
                 </Card>
@@ -404,16 +412,18 @@ export default function Home() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
-                        <ListGroupItem>Date Loaned Out</ListGroupItem>
-                        <ListGroupItem>Return Promise</ListGroupItem>
+                        <ListGroupItem>Price</ListGroupItem>
+                        <ListGroupItem>Available?</ListGroupItem>
                       </ListGroup>
                     </Row>
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="success">
-                      Move/Remove
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove from ToolShed
                     </Button>
                   </CardFooter>
                 </Card>
@@ -438,16 +448,18 @@ export default function Home() {
                     <Row>
                       <ListGroup>
                         {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
-                        <ListGroupItem>Category</ListGroupItem>
                         <ListGroupItem>Description</ListGroupItem>
-                        <ListGroupItem>Date Loaned Out</ListGroupItem>
-                        <ListGroupItem>Return Promise</ListGroupItem>
+                        <ListGroupItem>Price</ListGroupItem>
+                        <ListGroupItem>Available?</ListGroupItem>
                       </ListGroup>
                     </Row>
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button className="btn-simple" color="info">
-                      Move/Remove
+                      Edit
+                    </Button>
+                    <Button className="btn-simple" color="danger">
+                      Remove from ToolShed
                     </Button>
                   </CardFooter>
                 </Card>
