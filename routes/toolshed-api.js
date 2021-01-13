@@ -26,7 +26,13 @@ module.exports = function (app) {
   //---------------------TOOLS --------------------//   
   //GET ALL TOOLS
   app.get("/api/tools", (req, res) => {
-    db.tool.findAll({}).then(items => {
+    db.tool.findAll({
+      include: [{
+        model: db.category,
+        nested: true,
+        attributes: ["name","id"]
+      }]
+    }).then(items => {
       res.json(items);
     });
   });
@@ -82,10 +88,46 @@ module.exports = function (app) {
       });
   });
 
+  //GET A SPECIFIC TOOL TOOLS
+  app.post("/api/tools/find", (req, res) => {
+    
+    const {Op} = require("sequelize");
+    db.tool.findAll({
+
+      where :{ [Op.or]: [
+        {
+          name: {
+            [Op.like]:  `%` + req.body.name + `%`       }
+        },
+        {
+          description: {
+            [Op.like]: req.body.description
+          }
+        }
+      ]},
+    
+      include: [{
+        model: db.category,
+        nested: true,
+        attributes: ["name", "id"]
+        //where : {name : {[Op.like]: req.body.category}}
+      }]
+
+    }).then(items => {
+      res.json(items);
+    });
+  });
+
   //---------------------CATEGORIES --------------------//   
   //GET ALL CATEGORIES
   app.get("/api/category", (req, res) => {
-    db.category.findAll({}).then(items => {
+    db.category.findAll({
+      include: [{
+        model: db.tool,
+        nested: true,
+        attributes: ["id", "name", "description", "price", "available"]
+      }]
+    }).then(items => {
       res.json(items);
     });
   });

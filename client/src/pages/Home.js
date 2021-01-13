@@ -22,9 +22,10 @@ import classnames from "classnames";
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
 
+
 // reactstrap components
 import {
-  Button,
+    Button,
   Card,
   CardHeader,
   CardBody,
@@ -54,7 +55,10 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
+import ToolCard from "components/ToolCard/Toolcard.js"
+
 import bigChartData from "variables/charts.js";
+
 
 export default function Home() {
   
@@ -68,6 +72,8 @@ export default function Home() {
   }, []);
   return (
     <>
+    
+    
       <ExamplesNavbar />
       <div className="wrapper">
         <div className="page-header">
@@ -116,6 +122,15 @@ export default function Home() {
                   <p className="category text-success d-inline">
                     Open the door to your ToolShed
                   </p>
+
+                  <div>
+
+                        <ToolCard/>
+
+                  </div>
+
+
+
                   <Button
                     className="btn-link"
                     color="success"
