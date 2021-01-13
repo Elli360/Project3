@@ -499,3 +499,12 @@
   content: "";
   background: rgba(0, 0, 0, .5);
 }
+
+#toolshed {
+  opacity:0.2;
+  border-radius: 50px 50px 100px 100px;
+}
+/* change to react on toolshed button instead */
+#toolshed:hover {
+  opacity:1;
+}
