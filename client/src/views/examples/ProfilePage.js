@@ -160,7 +160,9 @@ export default function ProfilePage() {
                     <img
                       alt="..."
                       className="img-center img-fluid rounded-circle"
+
                       src={require("assets/img/hands-grabbing-tools.jpg").default}
+
                     />
                     <h4 className="title">Transactions</h4>
                   </CardHeader>

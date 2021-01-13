@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
   const category = sequelize.define("category", {
     name: {
@@ -19,3 +20,4 @@ module.exports = function(sequelize, DataTypes) {
   };
   return category;
 };
+

@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
   const tool = sequelize.define("tool", {
     name: {
@@ -31,3 +32,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return tool;
 };
+

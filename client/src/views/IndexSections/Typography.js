@@ -192,7 +192,9 @@ export default function Typography() {
               <img
                 alt="..."
                 className="img-fluid rounded-circle shadow-lg"
+
                 src={require("assets/img/hands-grabbing-tools.jpg").default}
+
                 style={{ width: "150px" }}
               />
             </Col>
