@@ -25,6 +25,7 @@ module.exports = function (app) {
 
   //---------------------TOOLS --------------------//   
   //GET ALL TOOLS
+
   app.get("/api/tools", (req, res) => {
     db.tool.findAll({
       include: [{
@@ -36,6 +37,7 @@ module.exports = function (app) {
       res.json(items);
     });
   });
+
 
   //ADD A TOOL TO THE SYSTEM
   app.post("/api/tools/add", (req, res) => {
@@ -96,13 +98,10 @@ module.exports = function (app) {
 
       where :{ [Op.or]: [
         {
-          name: {
-            [Op.like]:  `%` + req.body.name + `%`       }
+          name: {[Op.like]:  `%` + req.body.name + `%`}
         },
         {
-          description: {
-            [Op.like]: req.body.description
-          }
+          description: {[Op.like]: `%` + req.body.description + `%`}
         }
       ]},
     
@@ -170,7 +169,7 @@ module.exports = function (app) {
       .then(item => {
         res.json(item);
       });
-  });
+  }); 
 
 
   //SHOW ALL TOOLBOXES OF A USER
@@ -255,6 +254,7 @@ module.exports = function (app) {
         res.json(item);
       });
   });
+  
 
   //---------------------UNUSED --------------------//   
   /*
@@ -292,6 +292,4 @@ module.exports = function (app) {
         });
       
       */
-
-
 };
