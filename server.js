@@ -9,7 +9,7 @@ const db = require("./models");
 
 
 //FORCE SYNC WHILE IN DEV
-db.sequelize.sync({ alter:true  }).then(() => {
+db.sequelize.sync({ /*alter:true*/  }).then(() => {
     console.log("Drop and re-sync db.");
   });
 
