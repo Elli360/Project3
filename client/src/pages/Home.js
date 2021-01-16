@@ -22,6 +22,7 @@ import classnames from "classnames";
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
 
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -41,6 +42,7 @@ import {
   UncontrolledPopover,
   PopoverBody,
   PopoverHeader,
+  NavLink,
   Modal,
   Form,
   Input,
@@ -62,14 +64,14 @@ import bigChartData from "variables/charts.js";
 
 export default function Home() {
 
-  const [formModal, setFormModal] = React.useState(false);
+   const [formModal, setFormModal] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
     return function cleanup() {
       document.body.classList.toggle("landing-page");
     };
-  }, []);
+   }, []);
   return (
     <>
     
@@ -122,35 +124,31 @@ export default function Home() {
                   <p className="category text-success d-inline">
                     Open the door to your ToolShed
                   </p>
-
-                  <div>
-
-                        <ToolCard/>
-
-                  </div>
-
-
-
+                 
                   <Button
                     className="btn-link"
                     color="success"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
+                    to="/home#alltools"
+                    id="tooltip10"
+                    tag={Link}
                     size="sm"
                   >
                     <i className="tim-icons icon-minimal-right" />
                   </Button>
+                  <UncontrolledTooltip placement="bottom" target="tooltip10">
+                      ToolShed
+                    </UncontrolledTooltip>
                 </div>
+
+
                 <div className="btn-wrapper">
                   <div className="button-container">
-
-
                     <Button
                       className="btn-icon btn-simple btn-round btn-neutral"
-                      color="success" id="tooltip10" onClick={() => setFormModal(true)}>
+                      color="success" id="tooltip11" onClick={() => setFormModal(true)}>
                       <i className="tim-icons icon-simple-add" />
                     </Button>
-                    <UncontrolledTooltip delay={0} placement="left" target="tooltip10">
+                    <UncontrolledTooltip placement="left" target="tooltip11">
                       Add to ToolShed
                     </UncontrolledTooltip>
                     {/* Start Add Form Modal */}
@@ -232,7 +230,7 @@ export default function Home() {
                           <div className="text-center">
                             <Button className="my-4" color="primary" type="button">
                               ADD TOOL
-                  </Button>
+                      </Button>
                           </div>
                         </Form>
                       </div>
@@ -242,10 +240,10 @@ export default function Home() {
 
                     <Button
                       className="btn-icon btn-simple btn-round btn-neutral"
-                      color="success" id="tooltip121" onClick={() => setFormModal(true)}>
+                      color="success" id="tooltip12" onClick={() => setFormModal(true)}>
                       <i className="tim-icons icon-zoom-split" />
                     </Button>
-                    <UncontrolledTooltip placement="right" target="tooltip121">
+                    <UncontrolledTooltip placement="right" target="tooltip12">
                       Search Through the ToolShed
                     </UncontrolledTooltip>
                     {/* Start Search Form Modal */}
@@ -269,7 +267,7 @@ export default function Home() {
                         <div className="text-center text-muted mb-4 mt-3">
                           <small>Describe what you are looking for in your ToolShed</small>
                         </div>
-                        <Form role="addForm">
+                        <Form role="searchForm">
                           <FormGroup className="mb-3">
                             <InputGroup>
                               <InputGroupAddon addonType="prepend">
@@ -352,6 +350,13 @@ export default function Home() {
       </div>
 
       <div>
+
+<ToolCard
+/>
+
+</div>
+
+      <div id="alltools">
 
         {/* ToolChest list section */}
         <section className="section section-lg section-coins">
