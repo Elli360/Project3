@@ -22,7 +22,6 @@ import classnames from "classnames";
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
 
-import { Link } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -42,7 +41,6 @@ import {
   UncontrolledPopover,
   PopoverBody,
   PopoverHeader,
-  NavLink,
   Modal,
   Form,
   Input,
@@ -70,14 +68,13 @@ import React , { useEffect, useState } from "react";
 
 export default function Home() {
 
-   const [formModal, setFormModal] = React.useState(false);
+  const [formModal, setFormModal] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
     return function cleanup() {
       document.body.classList.toggle("landing-page");
     };
-
   }, []);
 
 //==============================================
@@ -198,31 +195,26 @@ useEffect(()=>{
 
 
 
-
                   <Button
                     className="btn-link"
                     color="success"
-                    to="/home#alltools"
-                    id="tooltip10"
-                    tag={Link}
+                    href="#pablo"
+                    onClick={(e) => e.preventDefault()}
                     size="sm"
                   >
                     <i className="tim-icons icon-minimal-right" />
                   </Button>
-                  <UncontrolledTooltip placement="bottom" target="tooltip10">
-                      ToolShed
-                    </UncontrolledTooltip>
                 </div>
-
-
                 <div className="btn-wrapper">
                   <div className="button-container">
+
+
                     <Button
                       className="btn-icon btn-simple btn-round btn-neutral"
-                      color="success" id="tooltip11" onClick={() => setFormModal(true)}>
+                      color="success" id="tooltip10" onClick={() => setFormModal(true)}>
                       <i className="tim-icons icon-simple-add" />
                     </Button>
-                    <UncontrolledTooltip placement="left" target="tooltip11">
+                    <UncontrolledTooltip delay={0} placement="left" target="tooltip10">
                       Add to ToolShed
                     </UncontrolledTooltip>
 
@@ -277,12 +269,11 @@ useEffect(()=>{
 
                     <Button
                       className="btn-icon btn-simple btn-round btn-neutral"
-                      color="success" id="tooltip12" onClick={() => setFormModal(true)}>
+                      color="success" id="tooltip121" onClick={() => setFormModal(true)}>
                       <i className="tim-icons icon-zoom-split" />
                     </Button>
                     <UncontrolledTooltip placement="right" target="tooltip121">
                       Add to the ToolShed
-
                     </UncontrolledTooltip>
                     {/* Start Search Form Modal */}
                     <Modal
@@ -341,10 +332,6 @@ useEffect(()=>{
                         </FormBtn>
                       </form>
               {/* ======================================= */}
-
-
-
-
                       </div>
 
 
@@ -371,13 +358,6 @@ useEffect(()=>{
       </div>
 
       <div>
-
-<ToolCard
-/>
-
-</div>
-
-      <div id="alltools">
 
         {/* ToolChest list section */}
         <section className="section section-lg section-coins">

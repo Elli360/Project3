@@ -28,7 +28,6 @@ import Index from "views/Index.js";
 import Home from "pages/Home.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import Loaned from "pages/Loaned.js";
-import Borrowed from "pages/Borrowed.js";
 
 
 ReactDOM.render(
@@ -49,11 +48,6 @@ ReactDOM.render(
 
         path="/loaned"
         render={(props) => <Loaned {...props} />}
-      />
-      <Route
-
-        path="/borrowed"
-        render={(props) => <Borrowed {...props} />}
       />
       <Redirect from="/" to="/home" />
     </Switch>
