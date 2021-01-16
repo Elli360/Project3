@@ -2,8 +2,8 @@
 
 {
   "development": {
-    "username": "root",
-    "password": "Apollo12.mysql",
+    "username": "test_user",
+    "password": "testPW",
     "database": "toolshed",
     "host": "localhost",
     "port":3306,
