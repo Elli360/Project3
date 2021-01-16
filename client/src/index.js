@@ -52,9 +52,9 @@ ReactDOM.render(
       />
       <Route
 
-        path="/borrowed"
-        render={(props) => <Borrowed {...props} />}
-      />
+path="/borrowed"
+render={(props) => <Borrowed {...props} />}
+/>
       <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,
