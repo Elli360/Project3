@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+// import React from "react";
 // react plugin used to create charts
 import { Line } from "react-chartjs-2";
 import classnames from "classnames";
@@ -61,6 +61,12 @@ import ToolCard from "components/ToolCard/Toolcard.js"
 
 import bigChartData from "variables/charts.js";
 
+// ====================== post import
+import { Inputs, TextArea, FormBtn } from "../components/Form";
+import API from 'utils/toolshed-api';
+import React , { useEffect, useState } from "react";
+
+//==========================
 
 export default function Home() {
 
@@ -71,7 +77,66 @@ export default function Home() {
     return function cleanup() {
       document.body.classList.toggle("landing-page");
     };
-   }, []);
+
+  }, []);
+
+//==============================================
+const [tools,setTools]=useState([]);
+
+
+function loadTools(){
+  API.getCategories().then(res=>setTools(res.data)).catch(err=>console.log(err))
+};
+
+useEffect(()=>{
+  loadTools()
+},[])
+
+
+  // Handles updating component state when the user types into the input field
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.name && formObject.categoryId) {
+      API.saveTool({
+        name: formObject.name,
+        description: formObject.description,
+        categoryId: formObject.categoryId,
+        price: formObject.price
+        // price: formObject.price,
+        // available:formObject.available
+      })
+        .then(() => setFormObject({
+          name: "",
+          description: "",
+          price:0,
+          categoryId: 0
+          // price: "",
+          // available:null
+          }))
+        .then(() => loadTools())
+        .catch(err => console.log(err));
+        }
+
+  };
+
+  const [formObject, setFormObject] = useState({
+    name:"",
+    description:"",
+    price:[],
+    categoryId: []
+  });
+
+  
+//==============================================
+
+
+
+
   return (
     <>
     
@@ -124,7 +189,16 @@ export default function Home() {
                   <p className="category text-success d-inline">
                     Open the door to your ToolShed
                   </p>
-                 
+
+                  <div>
+
+                        <ToolCard categories={tools}/>
+
+                  </div>
+
+
+
+
                   <Button
                     className="btn-link"
                     color="success"
@@ -151,8 +225,10 @@ export default function Home() {
                     <UncontrolledTooltip placement="left" target="tooltip11">
                       Add to ToolShed
                     </UncontrolledTooltip>
+
+  {/* ======================================================================== */}
                     {/* Start Add Form Modal */}
-                    <Modal
+                    {/* <Modal
                       modalClassName="modal-black"
                       isOpen={formModal}
                       toggle={() => setFormModal(false)}
@@ -166,85 +242,47 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="modal-body">
-                        <div className="btn-wrapper text-center">
-
-                        </div>
-                        <div className="text-center text-muted mb-4 mt-3">
-                          <small>What are the details to this newly added tool?</small>
-                        </div>
-                        <Form role="addForm">
-                          <FormGroup className="mb-3">
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Name:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Name"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Category:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Category"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Description:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Description"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Price:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Price"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-
-
-
-                          <div className="text-center">
-                            <Button className="my-4" color="primary" type="button">
-                              ADD TOOL
-                      </Button>
-                          </div>
-                        </Form>
-                      </div>
-                    </Modal>
+          {/* ====== mod==================================*/}
+                      {/* <form>
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="title"
+                          placeholder="Title (required)"
+                          value={formObject.title}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="author"
+                          placeholder="Author (required)"
+                          value={formObject.author}
+                        />
+                        <TextArea
+                          onChange={handleInputChange}
+                          name="synopsis"
+                          placeholder="Synopsis (Optional)"
+                          value={formObject.synopsis}
+                        />
+                        <FormBtn
+                          disabled={!(formObject.author && formObject.title)}
+                          onClick={handleFormSubmit}
+                        >
+                          Submit Book
+                        </FormBtn>
+                      </form>
+              {/* ======================================= */}
+                      {/* </div>
+                    </Modal> */} 
                     {/* End Add Form Modal */}
-
+{/* =================================================================== */}
 
                     <Button
                       className="btn-icon btn-simple btn-round btn-neutral"
                       color="success" id="tooltip12" onClick={() => setFormModal(true)}>
                       <i className="tim-icons icon-zoom-split" />
                     </Button>
-                    <UncontrolledTooltip placement="right" target="tooltip12">
-                      Search Through the ToolShed
+                    <UncontrolledTooltip placement="right" target="tooltip121">
+                      Add to the ToolShed
+
                     </UncontrolledTooltip>
                     {/* Start Search Form Modal */}
                     <Modal
@@ -257,7 +295,7 @@ export default function Home() {
                           <i className="tim-icons icon-simple-remove text-white" />
                         </button>
                         <div className="text-muted text-center ml-auto mr-auto">
-                          <h3 className="mb-0">Search Your ToolShed</h3>
+                          <h3 className="mb-0">Add to the ToolShed</h3>
                         </div>
                       </div>
                       <div className="modal-body">
@@ -267,73 +305,56 @@ export default function Home() {
                         <div className="text-center text-muted mb-4 mt-3">
                           <small>Describe what you are looking for in your ToolShed</small>
                         </div>
-                        <Form role="searchForm">
-                          <FormGroup className="mb-3">
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Name:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Name"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Category:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Category"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Description:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Description"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
-                          <FormGroup>
-                            <InputGroup>
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                  Price:
-                      </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                placeholder="Tool Price"
-                                type="text"
-                              />
-                            </InputGroup>
-                          </FormGroup>
+                        <div>
+          {/* ====== mod==================================*/}
+          <form>
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="name"
+                          placeholder="name (required)"
+                          value={formObject.name}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="description"
+                          placeholder="description (required)"
+                          value={formObject.description}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="price"
+                          placeholder="price (Optional)"
+                          value={formObject.price}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="categoryId"
+                          placeholder="id (Mandatory)"
+                          value={formObject.categoryId}
+                        />
+
+                        <FormBtn
+                          disabled={!(formObject.name && formObject.categoryId)}
+                          onClick={handleFormSubmit}
+                        >
+                          Submit Tool
+                        </FormBtn>
+                      </form>
+              {/* ======================================= */}
 
 
 
-                          <div className="text-center">
-                            <Button className="my-4" color="primary" type="button">
-                              Search TOOL
-                  </Button>
-                          </div>
-                        </Form>
+
                       </div>
+
+
+                        </div>
                     </Modal>
                     {/* End Search Form Modal */}
-
-
                   </div>
+
+
+
                 </div>
               </Col>
               <Col lg="4" md="5">

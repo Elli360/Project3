@@ -38,7 +38,7 @@ module.exports = function (app) {
   });
 
   //ADD A TOOL TO THE SYSTEM
-  app.post("/api/tools/add", (req, res) => {
+  app.post("/api/tools", (req, res) => {
     db.tool.create(req.body).then(item => {
       res.json(item);
     });
