@@ -79,7 +79,7 @@ export default function Footer() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/#borrowed" tag={Link}>
+                <NavLink to="/borrowed" tag={Link}>
                   Borrowed
                 </NavLink>
               </NavItem>
