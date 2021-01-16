@@ -2,21 +2,20 @@ import React , { useEffect, useState } from "react";
 import API from "../../utils/toolshed-api";
 
 
-function ToolCard () {
+function ToolCard ({categories}) {
 
-const [tools,setTools]=useState([]);
+// const [categories,setCategories]=useState([]);
 
-
-useEffect(()=>{
-    loadTools()
-},[])
-
-
-function loadTools(){
-  API.getCategories().then(res=>setTools(res.data)).catch(err=>console.log(err))
-};
+// // useEffect(()=>{
+// //     // loadTools()
+// // },[])
 
 
+// function loadTools(){
+//   API.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
+// };
+
+  console.log(categories);
 
     return (
 
@@ -25,31 +24,31 @@ function loadTools(){
                  <h2>Hello world !</h2>
                   
 
-                   {tools.length ? (
+                   {categories.length ? (
               <ul>
-                {tools.map(tool => {
+                {categories.map(category => {
                   return (
-                    <p key={tool.id}>
-                      <a href={"/tools/" + tool.id}>{tool.name}</a>
+                    <div key={category.id}>
+                      <a href={"/tools/" + category.id}>{category.name}</a>
                       
-                      <table>                     
+                      <ul>                     
                     
                       <div className="toolDetail" >
-                      {tool.tools.map(tool=>{
+                      {category.tools.map(tool=>{
                         
                     
                         return(
-                          <tr>
-                        <li><td>{tool.name}</td></li>
+                          
+                        <li key= {tool.id}>{tool.name}</li>
                       
-                        </tr>
+                      
                         )
                         
                       })
                       }
                       </div>
-                      </table>
-                    </p> 
+                      </ul>
+                    </div> 
                    
                     );
                 }
