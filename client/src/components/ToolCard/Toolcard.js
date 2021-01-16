@@ -2,20 +2,21 @@ import React , { useEffect, useState } from "react";
 import API from "../../utils/toolshed-api";
 
 
-function ToolCard ({categories}) {
+function ToolCard () {
 
-// const [categories,setCategories]=useState([]);
-
-// // useEffect(()=>{
-// //     // loadTools()
-// // },[])
+const [tools,setTools]=useState([]);
 
 
-// function loadTools(){
-//   API.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
-// };
+useEffect(()=>{
+    loadTools()
+},[])
 
-  console.log(categories);
+
+function loadTools(){
+  API.getCategories().then(res=>setTools(res.data)).catch(err=>console.log(err))
+};
+
+
 
     return (
 
@@ -24,31 +25,31 @@ function ToolCard ({categories}) {
                  <h2>Hello world !</h2>
                   
 
-                   {categories.length ? (
+                   {tools.length ? (
               <ul>
-                {categories.map(category => {
+                {tools.map(tool => {
                   return (
-                    <div key={category.id}>
-                      <a href={"/tools/" + category.id}>{category.name}</a>
+                    <p key={tool.id}>
+                      <a href={"/tools/" + tool.id}>{tool.name}</a>
                       
-                      <ul>                     
+                      <table>                     
                     
                       <div className="toolDetail" >
-                      {category.tools.map(tool=>{
+                      {tool.tools.map(tool=>{
                         
                     
                         return(
-                          
-                        <li key= {tool.id}>{tool.name}</li>
+                          <tr>
+                        <li><td>{tool.name}</td></li>
                       
-                      
+                        </tr>
                         )
                         
                       })
                       }
                       </div>
-                      </ul>
-                    </div> 
+                      </table>
+                    </p> 
                    
                     );
                 }
