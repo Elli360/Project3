@@ -53,7 +53,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import ToolCard from "components/ToolCard/Toolcard.js"
 // ====================== post import
@@ -141,7 +141,7 @@ export default function Loaned() {
 
   return (
     <>
-      <ExamplesNavbar />
+      <ToolShedNavbar />
       <div className="wrapper">
         <div className="page-header">
           <img

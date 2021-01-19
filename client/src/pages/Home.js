@@ -52,7 +52,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
 import ToolCard from "components/ToolCard/Toolcard.js"
@@ -139,7 +139,7 @@ export default function Home() {
     <>
 
 
-      <ExamplesNavbar />
+      <ToolShedNavbar />
       <div className="wrapper">
         <div className="page-header">
           <img
