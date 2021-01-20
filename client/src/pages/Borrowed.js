@@ -33,30 +33,15 @@ import {
   Row,
   Col,
   Button,
-  Label,
-  FormGroup,
-  Form,
-  Input,
-  FormText,
-  NavItem,
-  NavLink,
-  Nav,
-  Table,
-  TabContent,
-  TabPane,
-  UncontrolledTooltip,
   UncontrolledCarousel,
-  Modal,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
 } from "reactstrap";
 
 // core components
 import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
 import AddBtnBorrowed from "components/AddBtnBorrowed/AddBtnBorrowed.js";
 import Footer from "components/Footer/Footer.js";
-
+import SearchBtnBorrowed from "components/SearchBtnBorrowed/SearchBtnBorrowed";
+import SearchOutNetwork from "components/SearchOutNetwork/SearchOutNetwork";
 const carouselItems = [
   {
     src: require("assets/img/borrow-tools.jpg").default,
@@ -69,8 +54,6 @@ const carouselItems = [
 let ps = null;
 
 export default function Borrowed() {
-  const [formModal, setFormModal] = React.useState(false);
-  const [tabs, setTabs] = React.useState(1);
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -122,140 +105,13 @@ export default function Borrowed() {
                   <div className="btn-wrapper pt-3">
                     <div className="btn-wrapper">
                       <div className="button-container">
-                        <AddBtnBorrowed/>
 
+                        <AddBtnBorrowed />
 
-                        <Button
-                          className="btn-icon btn-simple btn-round btn-neutral"
-                          color="success" id="tooltip21" onClick={() => setFormModal(true)}>
-                          <i className="tim-icons icon-zoom-split" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
-                          Search Borrowed Tools
-                        </UncontrolledTooltip>
-                        {/* Start Search Form Modal */}
-                        <Modal
-                          modalClassName="modal-black"
-                          isOpen={formModal}
-                          toggle={() => setFormModal(false)}
-                        >
-                          <div className="modal-header justify-content-center">
-                            <button className="close" onClick={() => setFormModal(false)}>
-                              <i className="tim-icons icon-simple-remove text-white" />
-                            </button>
-                            <div className="text-muted text-center ml-auto mr-auto">
-                              <h3 className="mb-0">Search Your Borrowed Tools</h3>
-                            </div>
-                          </div>
-                          <div className="modal-body">
-                            <div className="btn-wrapper text-center">
+                        <SearchBtnBorrowed />
 
-                            </div>
-                            <div className="text-center text-muted mb-4 mt-3">
-                              <small>Describe what you are looking for in this directory</small>
-                            </div>
-                            <Form role="addForm">
-                              <FormGroup className="mb-3">
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Name:
-                                  </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Name"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Category:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Category"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Description:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Description"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Price:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Price"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Borrowed From:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="User Name"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Promise Date:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Expected Return Date"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-
-
-                              <div className="text-center">
-                                <Button className="my-4" color="primary" type="button">
-                                  Search TOOL
-                                </Button>
-                              </div>
-                            </Form>
-                          </div>
-                        </Modal>
-                        {/* End Search Form Modal */}
                       </div>
-                      <Button
-                        className="btn-simple"
-                        color="info"
-                        href="#pablo"
-                        id="tooltip22"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className="tim-icons icon-bulb-63" /> Search It!
-                      </Button>
-                      <UncontrolledTooltip delay={0} placement="bottom" target="tooltip22">
-                        Search Outside of Directory
-                      </UncontrolledTooltip>
+                     <SearchOutNetwork />
                     </div>
 
 
