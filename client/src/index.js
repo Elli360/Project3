@@ -33,7 +33,7 @@ import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
 
 //ADD OKTA
-import { Security } from '@okta/okta-react';
+import { Security, LoginCallback } from '@okta/okta-react';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 
@@ -46,19 +46,19 @@ const config = {
   pkce: true
 };
 
-//CALLBACK ROUTE TO BE USED BY OKTA
-const CALLBACK_PATH = '/login/callback';
 
 //ANOTHER OKTA CONST
 const oktaAuth = new OktaAuth(config);
 
+//CALLBACK ROUTE TO BE USED BY OKTA
+const CALLBACK_PATH = '/login/callback';
 
 
 ReactDOM.render(
   <BrowserRouter>
-  <Security>
+  <Security oktaAuth={oktaAuth} >
     <Switch>
-      <Route path={CALLBACK_PATH} />
+    <Route path={CALLBACK_PATH} component={LoginCallback} />
       <Route path="/components" render={(props) => <Index {...props} />} />
       <Route
 
