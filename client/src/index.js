@@ -32,8 +32,26 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
 
+//ADD OKTA
+import { Security } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
+
+
+//OKTA CONFIG OBJECT
+const config = {
+  clientId: '0oa42h5f7fiKOVaP25d6',
+  issuer: 'https://dev-6188860.okta.comDashboard/oauth2/default',
+  redirectUri: 'http://localhost:3000/login/callback',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
+};
+
 //CALLBACK ROUTE TO BE USED BY OKTA
 const CALLBACK_PATH = '/login/callback';
+
+//ANOTHER OKTA CONST
+const oktaAuth = new OktaAuth(config);
+
 
 
 ReactDOM.render(
