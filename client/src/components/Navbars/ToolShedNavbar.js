@@ -70,12 +70,12 @@ export default function ToolShedNavbar() {
       <Container>
         <div className="navbar-translate">
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
-
-            <span>the ToolShed </span>
-            Team Eight
+            {/* <img src="../../assets/img/toolshed logo.jpg"/> */}
+            <span>The ToolShed </span>
+            
           </NavbarBrand>
           <UncontrolledTooltip placement="bottom" target="navbar-brand">
-            by Team Eight
+            by Number Eight
 
           </UncontrolledTooltip>
           <button
@@ -100,7 +100,7 @@ export default function ToolShedNavbar() {
               <Col className="collapse-brand" xs="6">
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
 
-                  the ToolShed
+                Tthe ToolShed
 
                 </a>
               </Col>
