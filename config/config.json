@@ -3,7 +3,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Df140303!",
+    "password": "password",
     "database": "toolshed",
     "host": "localhost",
     "port":3306,
