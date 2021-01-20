@@ -5,6 +5,8 @@
 ![](https://camo.githubusercontent.com/591bad6b337378a164bc0239d9259f266f2ed01d3aa3006c68bef1336731d051/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5f2d4769742d3239326533333f7374796c653d666c61742d737175617265266c6f676f3d676974266c6f676f436f6c6f723d666666)
 
 # Tool Shed
+
+<img src="../../assets/img/toolshed logo.jpg" width = "200" length="400"/>
 <img src="https://www.colourbox.com/preview/36242522-constructions-tools-icon-set.jpg" width = "200" length="200"/>
 
 ![](https://img.shields.io/badge/Made%20with-Javascript-green)
