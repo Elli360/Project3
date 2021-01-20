@@ -56,6 +56,7 @@ const oktaAuth = new OktaAuth(config);
 
 ReactDOM.render(
   <BrowserRouter>
+  <Security>
     <Switch>
       <Route path={CALLBACK_PATH} />
       <Route path="/components" render={(props) => <Index {...props} />} />
@@ -81,6 +82,7 @@ ReactDOM.render(
       />
       <Redirect from="/" to="/home" />
     </Switch>
+    </Security>
   </BrowserRouter>,
 
   document.getElementById("root")
