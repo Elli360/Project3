@@ -70,8 +70,9 @@ export default function ToolShedNavbar() {
       <Container>
         <div className="navbar-translate">
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
-            {/* <img src="../../assets/img/toolshed logo.jpg"/> */}
-            <span>The ToolShed </span>
+            {/* <img src="../../assets/img/toolshed-logo.jpg"/> */}
+            <img src={require("assets/img/toolshed-logo.jpg").default} width = "200" length="300"/>
+            {/* <span>The ToolShed </span> */}
             
           </NavbarBrand>
           <UncontrolledTooltip placement="bottom" target="navbar-brand">
