@@ -64,12 +64,21 @@ import { Inputs, TextArea, FormBtn } from "../components/Form";
 import API from 'utils/toolshed-api';
 import React, { useEffect, useState } from "react";
 
+//IMPORT SECURITY PARTS
+import { useOktaAuth } from '@okta/okta-react';
+
 //==========================
 
 export default function Home() {
 
   const [formModalAdd, setFormModalAdd] = React.useState(false);
   const [formModalSearch, setFormModalSearch] = React.useState(false);
+
+  const { authState, authService } = useOktaAuth();
+  const login = () => authService.login('/profile');
+
+
+
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
@@ -131,8 +140,19 @@ export default function Home() {
 
 
   //==============================================
+  //ADDED MORE OKTA COMPONENTS --> THIS WILL RENDER LOGIN BUTTON
 
-
+  if( authState.isPending ) {
+    return (
+      <div>Loading authentication...</div>
+    );
+  } else if( !authState.isAuthenticated ) {
+    return (
+      <div>
+        <a onClick={login}>Login</a>
+      </div>
+    );
+  }
 
 
   return (
@@ -140,6 +160,12 @@ export default function Home() {
 
 
       <ToolShedNavbar />
+
+      
+
+
+
+
       <div className="wrapper">
         <div className="page-header">
           <img
