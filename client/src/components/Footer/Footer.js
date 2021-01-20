@@ -36,7 +36,7 @@ export default function Footer() {
         <Row>
           <Col md="3">
 
-            <h1 className="title">The Number 8</h1>
+            <h2 className="title">The Number 8</h2>
 
           </Col>
           <Col md="3">
