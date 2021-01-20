@@ -100,7 +100,7 @@ export default function ToolShedNavbar() {
               <Col className="collapse-brand" xs="6">
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
 
-                Tthe ToolShed
+                The ToolShed
 
                 </a>
               </Col>
