@@ -31,21 +31,45 @@ import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
 
 
+//IMPORT AUTHENTICATION
+import { OktaAuth } from '@okta/okta-auth-js';
+import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
+import Login from "pages/Login"
+
+const oktaAuth = new OktaAuth({
+  issuer: 'https://dev-6188860.okta.com/oauth2/default	',
+  clientId: '0oa3yqzblodYlFC705d6',
+  redirectUri: window.location.origin + '/callback'
+});
+
+
 ReactDOM.render(
   <BrowserRouter>
+  <Security oktaAuth={oktaAuth}>
+
     <Switch>
+    <Route path="/callback" component={LoginCallback}/>
       <Route path="/components" render={(props) => <Index {...props} />} />
-      <Route
+
+      <SecureRoute
+
+        path="/login"
+        render={(props) => <Login {...props} />}
+
+      />
+
+
+      <SecureRoute
 
         path="/home"
         render={(props) => <Home {...props} />}
 
       />
-      <Route
+      <SecureRoute
         path="/register-page"
         render={(props) => <RegisterPage {...props} />}
       />
-      <Route
+      <SecureRoute
 
         path="/loaned"
         render={(props) => <Loaned {...props} />}
@@ -57,6 +81,7 @@ ReactDOM.render(
       />
       <Redirect from="/" to="/home" />
     </Switch>
+    </Security>
   </BrowserRouter>,
 
   document.getElementById("root")
