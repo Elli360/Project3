@@ -19,145 +19,145 @@ import { useState } from "react";
 export default function AddBtnLoaned() {
     const [formModalAdd, setFormModalAdd] = React.useState(false);
 
-   // Handles updating component state when the user types into the input field
-   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value })
-  };
+    // Handles updating component state when the user types into the input field
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({ ...formObject, [name]: value })
+    };
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.name && formObject.categoryId) {
-      API.saveTool({
-        name: formObject.name,
-        description: formObject.description,
-        categoryId: formObject.categoryId,
-        price: formObject.price
-        // price: formObject.price,
-        // available:formObject.available
-      })
-        .then(() => setFormObject({
-          name: "",
-          description: "",
-          price: 0,
-          categoryId: 0
-          // price: "",
-          // available:null
-        }))
-        .then(() => loadTools())
-        .catch(err => console.log(err));
-    }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.name && formObject.categoryId) {
+            API.saveTool({
+                name: formObject.name,
+                description: formObject.description,
+                categoryId: formObject.categoryId,
+                price: formObject.price
+                // price: formObject.price,
+                // available:formObject.available
+            })
+                .then(() => setFormObject({
+                    name: "",
+                    description: "",
+                    price: 0,
+                    categoryId: 0
+                    // price: "",
+                    // available:null
+                }))
+                .then(() => loadTools())
+                .catch(err => console.log(err));
+        }
 
-  };
+    };
 
-  const [ setTools] = useState([]);
+    const [setTools] = useState([]);
 
 
-  function loadTools() {
-    API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
-  };
+    function loadTools() {
+        API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+    };
 
-  const [formObject, setFormObject] = useState({
-    name: "",
-    description: "",
-    price: [],
-    categoryId: []
-  });
-  
+    const [formObject, setFormObject] = useState({
+        name: "",
+        description: "",
+        price: [],
+        categoryId: []
+    });
+
     return (
         <>
-     <Button
-                        className="btn-icon btn-simple btn-round btn-neutral"
-                        color="success" id="tooltip20" onClick={() => setFormModalAdd(true)}>
-                        <i className="tim-icons icon-simple-add" />
-                      </Button>
-                      <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
-                        Add Loaned Tool
+            <Button
+                className="btn-icon btn-simple btn-round btn-neutral"
+                color="success" id="tooltip20" onClick={() => setFormModalAdd(true)}>
+                <i className="tim-icons icon-simple-add" />
+            </Button>
+            <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
+                Add Loaned Tool
                       </UncontrolledTooltip>
-                      {/* Start Add Form Modal */}
-                      <Modal
-                        modalClassName="modal-black"
-                        isOpen={formModalAdd}
-                        toggle={() => setFormModalAdd(false)}
-                      >
-                        <div className="modal-header justify-content-center">
-                          <button className="close" onClick={() => setFormModalAdd(false)}>
-                            <i className="tim-icons icon-simple-remove text-white" />
-                          </button>
-                          <div className="text-muted text-center ml-auto mr-auto">
-                            <h3 className="mb-0">Add to Your Loaned Tools</h3>
-                          </div>
-                        </div>
-                        <div className="modal-body">
-                          <div className="btn-wrapper text-center">
+            {/* Start Add Form Modal */}
+            <Modal
+                modalClassName="modal-black"
+                isOpen={formModalAdd}
+                toggle={() => setFormModalAdd(false)}
+            >
+                <div className="modal-header justify-content-center">
+                    <button className="close" onClick={() => setFormModalAdd(false)}>
+                        <i className="tim-icons icon-simple-remove text-white" />
+                    </button>
+                    <div className="text-muted text-center ml-auto mr-auto">
+                        <h3 className="mb-0">Add to Your Loaned Tools</h3>
+                    </div>
+                </div>
+                <div className="modal-body">
+                    <div className="btn-wrapper text-center">
 
-                          </div>
-                          <div className="text-center text-muted mb-4 mt-3">
-                            <small>What are the details to this newly loaned tool?</small>
-                          </div>
-                          <Form role="addForm">
-                            <FormGroup className="mb-3">
-                              <InputGroup>
+                    </div>
+                    <div className="text-center text-muted mb-4 mt-3">
+                        <small>What are the details to this newly loaned tool?</small>
+                    </div>
+                    <Form role="addForm">
+                        <FormGroup className="mb-3">
+                            <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-                                    Name:
+                                    <InputGroupText>
+                                        Name:
                                   </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
-                                  onChange={handleInputChange}
-                                  name="name"
-                                  placeholder="name (required)"
-                                  value={formObject.name}
-                                  aria-describedby="basic-addon1"
+                                    onChange={handleInputChange}
+                                    name="name"
+                                    placeholder="name (required)"
+                                    value={formObject.name}
+                                    aria-describedby="basic-addon1"
                                 />
-                              </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                              <InputGroup>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-                                    Category:
+                                    <InputGroupText>
+                                        Category:
                                   </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
-                                  onChange={handleInputChange}
-                                  name="categoryId"
-                                  placeholder="id (Mandatory)"
-                                  value={formObject.categoryId}
+                                    onChange={handleInputChange}
+                                    name="categoryId"
+                                    placeholder="id (Mandatory)"
+                                    value={formObject.categoryId}
                                 />
-                              </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                              <InputGroup>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-                                    Description:
+                                    <InputGroupText>
+                                        Description:
                                   </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
-                                   onChange={handleInputChange}
-                                   name="description"
-                                   placeholder="description (required)"
-                                   value={formObject.description}
+                                    onChange={handleInputChange}
+                                    name="description"
+                                    placeholder="description (required)"
+                                    value={formObject.description}
                                 />
-                              </InputGroup>
-                            </FormGroup>
-                            <FormGroup>
-                              <InputGroup>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                  <InputGroupText>
-                                    Price:
+                                    <InputGroupText>
+                                        Price:
                                   </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
-                                  onChange={handleInputChange}
-                                  name="price"
-                                  placeholder="price (Optional)"
-                                  value={formObject.price}
+                                    onChange={handleInputChange}
+                                    name="price"
+                                    placeholder="price (Optional)"
+                                    value={formObject.price}
                                 />
-                              </InputGroup>
-                            </FormGroup>
-                            {/* <FormGroup>
+                            </InputGroup>
+                        </FormGroup>
+                        {/* <FormGroup>
                               <InputGroup>
                                 <InputGroupAddon addonType="prepend">
                                   <InputGroupText>
@@ -189,21 +189,21 @@ export default function AddBtnLoaned() {
                               </InputGroup>
                             </FormGroup> */}
 
-                            <div className="text-center">
-                              <Button 
-                              className="my-4" 
-                              color="primary" 
-                              type="button" 
-                              disabled={!(formObject.name && formObject.categoryId)}
-                              onClick={handleFormSubmit}
-                              >
+                        <div className="text-center">
+                            <Button
+                                className="my-4"
+                                color="primary"
+                                type="button"
+                                disabled={!(formObject.name && formObject.categoryId)}
+                                onClick={handleFormSubmit}
+                            >
                                 ADD TOOL
                               </Button>
-                            </div>
-                          </Form>
                         </div>
-                      </Modal>
-                      {/* End Add Form Modal */}
+                    </Form>
+                </div>
+            </Modal>
+            {/* End Add Form Modal */}
         </>
     )
 }
