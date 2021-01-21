@@ -51,15 +51,14 @@ ReactDOM.render(
     <Route path="/callback" component={LoginCallback}/>
       <Route path="/components" render={(props) => <Index {...props} />} />
 
-      <SecureRoute
+      <Route
 
         path="/login"
         render={(props) => <Login {...props} />}
 
       />
 
-
-      <SecureRoute
+      <Route
 
         path="/home"
         render={(props) => <Home {...props} />}
