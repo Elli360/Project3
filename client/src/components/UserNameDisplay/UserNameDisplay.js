@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Row,
     Col,
-  } from "reactstrap";
+} from "reactstrap";
 
 
 export default function UserNameDisplay() {

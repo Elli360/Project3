@@ -2,8 +2,8 @@
 
 {
   "development": {
-    "username": "test_user",
-    "password": "testPW",
+    "username": "root",
+    "password": "password",
     "database": "toolshed",
     "host": "localhost",
     "port":3306,

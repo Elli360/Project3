@@ -22,7 +22,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import {
 
- 
+
   Container,
   Row,
   Col,
@@ -81,7 +81,7 @@ export default function Loaned() {
     loadTools()
   }, [])
 
-  
+
   return (
     <>
       <ToolShedNavbar />
@@ -145,7 +145,7 @@ export default function Loaned() {
 
               </Row>
 
-             <UserNameDisplay/>
+              <UserNameDisplay />
 
             </Container>
 

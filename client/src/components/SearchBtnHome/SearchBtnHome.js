@@ -31,15 +31,15 @@ export default function SearchBtnLoaned() {
 
     return (
         <>
-
             <Button
                 className="btn-icon btn-simple btn-round btn-neutral"
-                color="success" id="tooltip21" onClick={() => setFormModalSearch(true)}>
+                color="success" id="tooltip121" onClick={() => setFormModalSearch(true)}>
                 <i className="tim-icons icon-zoom-split" />
             </Button>
-            <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
-                Search Loaned Tools
-                      </UncontrolledTooltip>
+            <UncontrolledTooltip placement="right" target="tooltip121">
+                Add to the ToolShed
+            </UncontrolledTooltip>
+
             {/* Start Search Form Modal */}
             <Modal
                 modalClassName="modal-black"
@@ -67,7 +67,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Name:
-                                  </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     onChange={handleInputChange}
@@ -82,7 +82,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Category:
-                                </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     placeholder="Tool Category"
@@ -95,7 +95,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Description:
-                                  </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     placeholder="Tool Description"
@@ -108,7 +108,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Price:
-                                  </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     placeholder="Tool Price"
@@ -121,7 +121,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Loaned To:
-                                  </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     placeholder="User Name"
@@ -134,7 +134,7 @@ export default function SearchBtnLoaned() {
                                 <InputGroupAddon addonType="prepend">
                                     <InputGroupText>
                                         Promise Date:
-                                  </InputGroupText>
+                                    </InputGroupText>
                                 </InputGroupAddon>
                                 <Input
                                     placeholder="Expected Return Date"
@@ -147,7 +147,7 @@ export default function SearchBtnLoaned() {
                         <div className="text-center">
                             <Button className="my-4" color="primary" type="button">
                                 Search TOOL
-                              </Button>
+                            </Button>
                         </div>
                     </Form>
                 </div>
