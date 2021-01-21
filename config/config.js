@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 module.exports = {
   "development": {
-    "username": "root"/*process.env.MYSQL_USER*/,
-    "password": "password"/*process.env.MYSQL_KEY*/,
+    "username": "test_user"/*process.env.MYSQL_USER*/,
+    "password": "testPW"/*process.env.MYSQL_KEY*/,
     "database": "toolshed"/*process.env.MYSQL_DBNAME*/,
     "host": "127.0.0.1"/*process.env.MYSQL_HOST*/,
     "dialect": "mysql"
