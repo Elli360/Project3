@@ -6,7 +6,6 @@
 
 # Tool Shed
 
-<img src="../../assets/img/toolshed logo.jpg" width = "200" length="400"/>
 <img src="https://www.colourbox.com/preview/36242522-constructions-tools-icon-set.jpg" width = "200" length="200"/>
 
 ![](https://img.shields.io/badge/Made%20with-Javascript-green)
