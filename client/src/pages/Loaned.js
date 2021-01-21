@@ -145,7 +145,7 @@ export default function Loaned() {
 
               </Row>
 
-              <UserNameDisplay />
+              <UserNameDisplay/>
 
             </Container>
 

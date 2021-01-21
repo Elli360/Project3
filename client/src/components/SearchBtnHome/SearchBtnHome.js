@@ -13,7 +13,7 @@ import {
 
 import { useState } from "react";
 
-export default function SearchBtnLoaned() {
+export default function SearchBtnHome() {
     const [formModalSearch, setFormModalSearch] = React.useState(false);
 
     // Handles updating component state when the user types into the input field
@@ -153,6 +153,71 @@ export default function SearchBtnLoaned() {
                 </div>
             </Modal>
             {/* End Search Form Modal */}
+
+            
+                    {/* Start Search Form Modal */}
+                    {/* <Modal
+                      modalClassName="modal-black"
+                      isOpen={formModalSearch}
+                      toggle={() => setFormModalSearch(false)}
+                    >
+                      <div className="modal-header justify-content-center">
+                        <button className="close" onClick={() => setFormModalSearch(false)}>
+                          <i className="tim-icons icon-simple-remove text-white" />
+                        </button>
+                        <div className="text-muted text-center ml-auto mr-auto">
+                          <h3 className="mb-0">Add to the ToolShed</h3>
+                        </div>
+                      </div>
+                      <div className="modal-body">
+                        <div className="btn-wrapper text-center">
+
+                        </div>
+                        <div className="text-center text-muted mb-4 mt-3">
+                          <small>Describe what you are looking for in your ToolShed</small>
+                        </div>
+                        <div>
+                          {/* ====== mod==================================*/}
+                    {/*  <form>
+                            <Inputs
+                              onChange={handleInputChange}
+                              name="name"
+                              placeholder="name (required)"
+                              value={formObject.name}
+                            />
+                            <Inputs
+                              onChange={handleInputChange}
+                              name="description"
+                              placeholder="description (required)"
+                              value={formObject.description}
+                            />
+                            <Inputs
+                              onChange={handleInputChange}
+                              name="price"
+                              placeholder="price (Optional)"
+                              value={formObject.price}
+                            />
+                            <Inputs
+                              onChange={handleInputChange}
+                              name="categoryId"
+                              placeholder="id (Mandatory)"
+                              value={formObject.categoryId}
+                            />
+
+                            <FormBtn
+                              disabled={!(formObject.name && formObject.categoryId)}
+                              onClick={handleFormSubmit}
+                            >
+                              Submit Tool
+                        </FormBtn>
+                          </form>
+                          {/* ======================================= */}
+                    {/* </div>
+
+
+                      </div>
+                    </Modal> */}
+                    {/* End Search Form Modal */}
         </>
 
     )
