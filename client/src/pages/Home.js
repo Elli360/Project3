@@ -139,7 +139,7 @@ export default function Home() {
                 <img id="toolshed"
                   alt="..."
                   className="img-fluid"
-                  src={require("assets/img/shedpic.jpg").default}
+                  src={require("assets/img/toolshedpicd.jpg").default}
 
                 />
               </Col>
