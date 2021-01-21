@@ -25,7 +25,7 @@ module.exports = function (app) {
 
   //---------------------TOOLS --------------------//   
   //GET ALL TOOLS
-  app.get("/api/tools", (req, res) => {
+  app.get("/api/tools/all", (req, res) => {
     db.tool.findAll({
       include: [{
         model: db.category,
@@ -117,6 +117,28 @@ module.exports = function (app) {
       res.json(items);
     });
   });
+
+  //GET TOOLS BY STATUS
+  app.get("/api/tools/status/:status", (req, res) => {
+    //HAVE TO BOOLEANIZE THE STATUS
+    var status ;
+    if (req.params.status === 'true') {
+      status = true;
+    } else {
+      status = false;
+    }
+  
+    db.tool
+      .findAll({
+        where: {
+          available: status
+        }
+      })
+      .then(item => {
+        res.json(item);
+      });
+  });
+    
 
   //---------------------CATEGORIES --------------------//   
   //GET ALL CATEGORIES
@@ -255,43 +277,6 @@ module.exports = function (app) {
         res.json(item);
       });
   });
-
-  //---------------------UNUSED --------------------//   
-  /*
-          //RENT A TOOL :
-         //ADD A TOOL TO THE SYSTEM
-     app.post("/api/rental/add", (req, res) => {
-      db.userRental.create(req.body).then(item => {
-        res.json(item);
-      });
-    });
-
-        //GET A SINGLE MENU CATEGORY
-        app.get("/api/rental/:id", (req, res) => {
-          db.userRental
-          .findOne({
-            where: {
-              id: req.params.id
-            },
-            include: [
-              {
-                model: db.User,
-                nested: true,
-                attributes: ["id","email"]
-              },
-              {
-                model: db.tool,
-                nested: true,
-                attributes: ["id","name","description"]
-              }
-            ]
-          })
-            .then(item => {
-              res.json(item);
-            });
-        });
-      
-      */
 
 
 };
