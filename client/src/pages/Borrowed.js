@@ -137,7 +137,9 @@ export default function Borrowed() {
                 </h1>
               </Col>
             </Row>
+
             <ExampleToolList />
+  
           </Container>
         </section>
         <Footer />

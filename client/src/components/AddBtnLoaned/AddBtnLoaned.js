@@ -14,7 +14,7 @@ import {
 
 import API from 'utils/toolshed-api';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function AddBtnLoaned() {
     const [formModalAdd, setFormModalAdd] = React.useState(false);
@@ -50,7 +50,7 @@ export default function AddBtnLoaned() {
 
   };
 
-  const [tools, setTools] = useState([]);
+  const [ setTools] = useState([]);
 
 
   function loadTools() {
