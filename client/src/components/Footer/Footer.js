@@ -35,9 +35,8 @@ export default function Footer() {
       <Container>
         <Row>
           <Col md="3">
-
-            <h2 className="title">The Number 8</h2>
-
+            <h2 className="title">Team</h2>
+            <h3 className="title">The Number 8</h3>
           </Col>
           <Col md="3">
             <Nav>
