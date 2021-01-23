@@ -118,6 +118,25 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/tools/status/:status", (req, res) => {
+    //HAVE TO BOOLEANIZE THE STATUS
+    var status ;
+    if (req.params.status === 'true') {
+      status = true;
+    } else {
+      status = false;
+    }
+    db.tool
+      .findAll({
+        where: {
+          available: status
+        }
+      })
+      .then(item => {
+        res.json(item);
+      });
+  });
+
   //---------------------CATEGORIES --------------------//   
   //GET ALL CATEGORIES
   app.get("/api/category", (req, res) => {
