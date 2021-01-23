@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
+require('dotenv').config(); // this is important!
+
 module.exports = {
   "development": {
-    "username": "root"/*process.env.MYSQL_USER*/,
-    "password": "Apollo12.mysql"/*process.env.MYSQL_KEY*/,
-    "database": "toolshed"/*process.env.MYSQL_DBNAME*/,
-    "host": "127.0.0.1"/*process.env.MYSQL_HOST*/,
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_KEY,
+    "database": process.env.MYSQL_DBNAME,
+    "host": process.env.MYSQL_HOST,
     "dialect": "mysql"
   },
   "test": {

@@ -35,9 +35,8 @@ export default function Footer() {
       <Container>
         <Row>
           <Col md="3">
-
-            <h1 className="title">Team Eight</h1>
-
+            <h2 className="title">Team</h2>
+            <h3 className="title">The Number 8</h3>
           </Col>
           <Col md="3">
             <Nav>
@@ -79,7 +78,7 @@ export default function Footer() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/#borrowed" tag={Link}>
+                <NavLink to="/borrowed" tag={Link}>
                   Borrowed
                 </NavLink>
               </NavItem>

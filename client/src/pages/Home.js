@@ -27,34 +27,17 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // reactstrap components
 import {
-    Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  ListGroupItem,
-  ListGroup,
   Container,
   Row,
   Col,
-  FormGroup,
-  UncontrolledTooltip,
-  UncontrolledPopover,
-  PopoverBody,
-  PopoverHeader,
-  Modal,
-  Form,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Label,
-  UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
+import DisplayAllHome from "components/DisplayAllHome/DisplayAllHome.js";
+import AddBtnHome from "components/AddBtnHome/AddBtnHome.js";
+import SearchBtnHome from "components/SearchBtnHome/SearchBtnHome.js";
+import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay.js";
 import Footer from "components/Footer/Footer.js";
 
 import ToolCard from "components/ToolCard/Toolcard.js"
@@ -62,9 +45,9 @@ import ToolCard from "components/ToolCard/Toolcard.js"
 import bigChartData from "variables/charts.js";
 
 // ====================== post import
-import { Inputs, TextArea, FormBtn } from "../components/Form";
 import API from 'utils/toolshed-api';
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import ExampleToolList from "components/ExampleToolList/ExampleToolList";
 
 
 import DeleteCard from "components/ToolCard/DeleteCard.js";
@@ -87,7 +70,6 @@ import NotAvailable from "../components/ToolCard/NotAvailable";
 
 export default function Home() {
 
-  const [formModal, setFormModal] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
@@ -96,23 +78,12 @@ export default function Home() {
     };
   }, []);
 
-//==============================================
-const [tools,setTools]=useState([]);
+  //==============================================
+  const [tools, setTools] = useState([]);
 
 
-function loadTools(){
-  API.getCategories().then(res=>setTools(res.data)).catch(err=>console.log(err))
-};
-
-useEffect(()=>{
-  loadTools()
-},[])
-
-
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
+  function loadTools() {
+    API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
   };
 
   function handleFormSubmit(event) {
@@ -304,17 +275,26 @@ useEffect(()=>{
                 <img id="toolshed"
                   alt="..."
                   className="img-fluid"
-                  src={require("assets/img/toolshed.jpg").default}
+                  src={require("assets/img/toolshedpicd.jpg").default}
 
                 />
               </Col>
             </Row>
+
           </div>
         </div>
+        <UserNameDisplay />
       </div>
       </Router>
 
       <div>
+        {/*Dynamic rendering of tools db */}
+        <div>
+
+          <ToolCard categories={tools} />
+
+        </div>
+
 
         {/* ToolChest list section */}
 

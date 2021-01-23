@@ -22,32 +22,24 @@ import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import {
 
-
   Container,
   Row,
   Col,
   Button,
-  UncontrolledCarousel
+  UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
 import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
-import AddBtnLoaned from "components/AddBtnLoaned/AddBtnLoaned.js";
-import SearchBtnLoaned from "components/SearchBtnLoaned/SearchBtnLoaned.js";
-import SearchOutNetwork from "components/SearchOutNetwork/SearchOutNetwork.js";
-import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay.js";
-import ExampleToolList from "components/ExampleToolList/ExampleToolList.js";
+import AddBtnBorrowed from "components/AddBtnBorrowed/AddBtnBorrowed.js";
 import Footer from "components/Footer/Footer.js";
-import ToolCard from "components/ToolCard/Toolcard.js";
-// ====================== post import
-import API from 'utils/toolshed-api';
-import { useEffect, useState } from "react";
-
-//==========================
-
+import SearchBtnBorrowed from "components/SearchBtnBorrowed/SearchBtnBorrowed";
+import SearchOutNetwork from "components/SearchOutNetwork/SearchOutNetwork";
+import ExampleToolList from "components/ExampleToolList/ExampleToolList";
+import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay";
 const carouselItems = [
   {
-    src: require("assets/img/hands-grabbing-tools.jpg").default,
+    src: require("assets/img/borrow-tools.jpg").default,
     altText: "Slide 1",
     caption: "",
   },
@@ -56,8 +48,7 @@ const carouselItems = [
 
 let ps = null;
 
-export default function Loaned() {
-
+export default function Borrowed() {
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -69,19 +60,6 @@ export default function Loaned() {
     }
 
   }, []);
-
-  const [tools, setTools] = useState([]);
-
-
-  function loadTools() {
-    API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
-  };
-
-  useEffect(() => {
-    loadTools()
-  }, [])
-
-
   return (
     <>
       <ToolShedNavbar />
@@ -106,60 +84,42 @@ export default function Loaned() {
                 >MENU</Button>
               </Row>
             </Container>
-
             <Container>
-
               <Row className="justify-content-between">
-
                 <Col md="6">
                   <Row className="justify-content-between align-items-center">
                     <UncontrolledCarousel items={carouselItems} />
                   </Row>
                 </Col>
-
                 <Col md="5">
-                  <h5 className="text-on-back">Loaned</h5>
                   <h1 className="profile-title text-left">Tools</h1>
+                  <h5 className="text-on-back">Borrowed</h5>
                   <p className="profile-description text-left">
-                    Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
+                    Someone asking about a tool? Check here to see if you borrowed it.
                   </p>
-
                   <div className="btn-wrapper pt-3">
+                    <div className="btn-wrapper">
+                      <div className="button-container">
 
-                    <div className="button-container">
+                        <AddBtnBorrowed />
 
-                      <AddBtnLoaned />
+                        <SearchBtnBorrowed />
 
-
-                      <SearchBtnLoaned />
-                    </div>
-
-                    <div className="button-container">
+                      </div>
                       <SearchOutNetwork />
                     </div>
 
 
                   </div>
-
                 </Col>
-
               </Row>
 
-              <UserNameDisplay/>
-
+              <UserNameDisplay />
             </Container>
 
           </div>
 
         </div>
-
-
-        <div>
-
-          <ToolCard categories={tools} />
-
-        </div>
-
 
         <section className="section section-lg section-coins">
           <img
@@ -172,17 +132,16 @@ export default function Loaned() {
               <Col md="4">
                 <hr className="line-info" />
                 <h1>
-                  Loaned Out{" "}
-                  <span className="text-info">Please return as received</span>
+                  Borrowed{" "}
+                  <span className="text-info">Be curtious to Ur Neighbor</span>
                 </h1>
               </Col>
             </Row>
-            {/* Loaned Tools list section */}
+
             <ExampleToolList />
 
           </Container>
         </section>
-
         <Footer />
       </div>
     </>
