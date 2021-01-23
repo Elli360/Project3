@@ -33,6 +33,8 @@
     "blk-design-system-react"
   ],
   "dependencies": {
+    "@okta/okta-auth-js": "^4.6.1",
+    "@okta/okta-react": "^4.1.0",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.2.2",
