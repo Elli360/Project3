@@ -21,6 +21,8 @@ import { Line } from "react-chartjs-2";
 import classnames from "classnames";
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 
 // reactstrap components
@@ -47,6 +49,23 @@ import API from 'utils/toolshed-api';
 import React, { useEffect, useState } from "react";
 import ExampleToolList from "components/ExampleToolList/ExampleToolList";
 
+
+import DeleteCard from "components/ToolCard/DeleteCard.js";
+// import DeleteCard from "../components/ToolCard/DeleteCard"
+// import DeleteBtn from "../components/DeleteBtn";
+// import { List, ListItem } from "../components/List";
+import Select from "react-dropdown-select";
+import Categories from "../components/Categories/Categories";
+import Intro from "../components/Intro/Intro";
+import AllCard from "../components/ToolCard/AllCard";
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import UpdateCard from "../components/ToolCard/UpdateCard"
+import Available from "../components/ToolCard/Available";
+import NotAvailable from "../components/ToolCard/NotAvailable";
+
+
+
 //==========================
 
 export default function Home() {
@@ -67,16 +86,44 @@ export default function Home() {
     API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
   };
 
-  useEffect(() => {
-    loadTools()
-  }, [])
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.name && formObject.categoryId) {
+      API.saveTool({
+        name: formObject.name,
+        description: formObject.description,
+        categoryId: formObject.categoryId,
+        price: formObject.price
+        // price: formObject.price,
+        // available:formObject.available
+      })
+        .then(() => setFormObject({
+          name: "",
+          description: "",
+          price:0,
+          categoryId: 0
+          // price: "",
+          // available:null
+          }))
+        .then(() => loadTools())
+        .catch(err => console.log(err));
+        }
+        setFormModal(false);
+  };
+
+  const [formObject, setFormObject] = useState({
+    name:"",
+    description:"",
+    price:[],
+    categoryId: []
+  });
 
 
   return (
     <>
-
-
-      <ToolShedNavbar />
+    
+    <Router>
+      <ExamplesNavbar />
       <div className="wrapper">
         <div className="page-header">
           <img
@@ -112,24 +159,113 @@ export default function Home() {
           <div className="content-center">
             <Row className="row-grid justify-content-between align-items-center text-left">
               <Col lg="6" md="6">
-                <h1 className="text-white">
-                  Welcome to the ToolShed! <br />
-                  <span className="text-white"></span>
-                </h1>
-                <p className="text-white mb-3">
-                  Where you can add, edit and LOAN tools from your inventory.
-                  Where you can search for NEW tools and borrow from other users' inventories!...
-                </p>
-                <DisplayAllHome />
-                <div className="btn-wrapper">
+
+              <Route exact path="/home" component={Intro} />
+
+                  <div className="btn-wrapper">
                   <div className="button-container">
+                    <Button
+                      className="btn-icon btn-simple btn-round btn-neutral"
+                      color="success" id="tooltip10" onClick={() => setFormModal(true)}>
+                      <i className="tim-icons icon-simple-add" />
+                    </Button>
+                    <UncontrolledTooltip delay={0} placement="left" target="tooltip10">
+                      Add to ToolShed
+                    </UncontrolledTooltip>
+             
+
+  {/* ======================================================================== */}
+                    {/* Start Add Form Modal */}
+                    <Modal
+                      modalClassName="modal-black"
+                      isOpen={formModal}
+                      toggle={() => setFormModal(false)}
+                    >
+                      <div className="modal-header justify-content-center">
+                        <button className="close" onClick={() => setFormModal(false)}>
+                          <i className="tim-icons icon-simple-remove text-white" />
+                        </button>
+                        <div className="text-muted text-center ml-auto mr-auto">
+                          <h3 className="mb-0">Add to Your ToolShed</h3>
+                        </div>
+                      </div>
+                      <div className="modal-body">
+          {/* ====== mod==================================*/}
+          <form>
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="name"
+                          placeholder="name (required)"
+                          value={formObject.name}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="description"
+                          placeholder="description (required)"
+                          value={formObject.description}
+                        />
+                        <Inputs
+                          onChange={handleInputChange}
+                          name="price"
+                          placeholder="price (Optional)"
+                          value={formObject.price}
+                        />
 
 
-                    <AddBtnHome />
+                                
+                               {/* <label>
+                                  Tool Category:
+                                  <select value={formObject.categoryId} name="categoryId" onChange={handleInputChange}>
+                                    <option name ={1}>Power Tools</option>
+                                    <option value="lime">Lime</option>
+                                    <option value="coconut">Coconut</option>
+                                    <option value="mango">Mango</option>
+                                  </select>
+                                </label>
+                                                         */}
 
-                    <SearchBtnHome />
+                              <Inputs
+                                  onChange={handleInputChange}
+                                  name="categoryId"
+                                  placeholder="Category Id (Mandatory)"
+                                  value={formObject.categoryId}
+                                />
 
-                  </div>
+
+
+]                        <FormBtn
+                          disabled={!(formObject.name)}
+                          onClick={handleFormSubmit}
+                        >
+                          Submit Tool
+                        </FormBtn>
+                      </form>
+              {/* ======================================= */}
+                      </div>
+                    </Modal>
+                    {/* End Add Form Modal */}
+{/* =================================================================== */}
+
+
+                         </div>
+
+                     {/* <div>
+
+                        <ToolCard categories={tools}/>
+
+
+                  </div> */}
+
+                    <Route exact path="/delete" component={DeleteCard} />
+                    <Route exact path="/AllCard" component={AllCard} />
+                    <Route exact path="/update" component={UpdateCard} />
+                    <Route exact path="/available" component={Available} />
+                    <Route exact path="/loaned" component={NotAvailable} />
+
+
+                        {/* <div>
+                          <DeleteCard/>
+                        </div> */}
 
 
 
@@ -149,6 +285,7 @@ export default function Home() {
         </div>
         <UserNameDisplay />
       </div>
+      </Router>
 
       <div>
         {/*Dynamic rendering of tools db */}
@@ -159,20 +296,13 @@ export default function Home() {
         </div>
 
 
-        <section className="section section-lg section-coins">
-          <img
-            alt="..."
-            className="path"
-            src={require("assets/img/path3.png").default}
-          />
-          <Container>
-            {/* ToolChest list section */}
-            <ExampleToolList />
-          </Container>
-        </section>
+        {/* ToolChest list section */}
+
+        <Categories/>
 
         <Footer />
       </div>
+
     </>
   );
 }

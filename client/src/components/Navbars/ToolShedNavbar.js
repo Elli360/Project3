@@ -143,11 +143,44 @@ export default function ToolShedNavbar() {
               </Button>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/">
+              <NavLink tag={Link} to="/home">
 
                 Back to Home
               </NavLink>
             </NavItem>
+
+            <NavItem>
+              <NavLink tag={Link} to="/AllCard">
+                All Tools
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={Link} to="/delete">
+                Delete Tools
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={Link} to="/available">
+                Available
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={Link} to="/loaned">
+                Loaned
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink tag={Link} to="/update">
+                Update
+              </NavLink>
+            </NavItem>
+
+
+
             <NavItem>
               <NavLink href="https://github.com/Elli360/Project3/issues">
 
