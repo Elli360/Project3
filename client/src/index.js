@@ -30,27 +30,61 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import Loaned from "pages/Loaned.js";
 
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/components" render={(props) => <Index {...props} />} />
-      <Route
+//IMPORT AUTHENTICATION
+import { OktaAuth } from '@okta/okta-auth-js';
+import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
+import AdminLogin from "pages/AdminLogin"
 
+const oktaAuth = new OktaAuth({
+  issuer: 'https://dev-6188860.okta.com/oauth2/default',
+  clientId: '0oa3yqzblodYlFC705d6',
+  redirectUri: window.location.origin + '/callback'
+});
+//TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
+//ITEMS SHOULD USE THE <SecureRoute/>
+
+//CHECK USER
+
+
+
+
+ReactDOM.render(
+  
+  <BrowserRouter>
+  <Security oktaAuth={oktaAuth}>
+  
+
+    <Switch>
+    <Route path="/callback" component={LoginCallback}/>
+      <Route path="/components" render={(props) => <Index {...props} />} />
+
+      <Route
+        path="/login"
+        render={(props) => <AdminLogin {...props} />}
+      />
+
+      <Route
         path="/home"
         render={(props) => <Home {...props} />}
-
       />
+  
+
       <Route
         path="/register-page"
         render={(props) => <RegisterPage {...props} />}
       />
       <Route
-
         path="/loaned"
         render={(props) => <Loaned {...props} />}
       />
+     
+
       <Redirect from="/" to="/home" />
+
     </Switch>
+    </Security>
+    
+
   </BrowserRouter>,
 
   document.getElementById("root")

@@ -26,7 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ADDED API ROUTE
 require("./routes/toolshed-api.js")(app);
 
-//CONFIGURE FOR HEROKU DEPLYMENT
+
+//CONFIGURE FOR HEROKU DEPLoYMENT
+
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
