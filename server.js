@@ -16,7 +16,7 @@ db.sequelize.sync({ /*alter:true*/  }).then(() => {
 var corsOptions = {
   origin: "http://localhost:8081"
 };
-
+//COMMENT FOR THE SAKE OF COMMENT
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
