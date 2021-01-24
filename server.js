@@ -26,6 +26,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ADDED API ROUTE
 require("./routes/toolshed-api.js")(app);
 
+//CONFIGURE FOR HEROKU DEPLoYMENT
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+// Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
+
 // set port, listen for requests
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
