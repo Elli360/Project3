@@ -212,6 +212,26 @@ module.exports = function (app) {
       });
   });
 
+  //ADDING A DO NOTHING ROUTE
+  app.get("/api/user/:id/", (req, res) => {
+    db.User
+      .findById({
+        where: {
+          UserId: req.params.id
+        },
+        /*include: [
+          {
+            model: db.toolbox,
+            nested: true,
+            //attributes: ["id","name","description"]
+          }
+        ]*/
+      })
+      .then(item => {
+        res.json(item);
+      });
+  });
+
   //SHOW A SPECIFIC TOOLBOX (BY USER + ID)
   app.get("/api/user/:uid/toolboxes/:id", (req, res) => {
     db.toolbox
@@ -276,14 +296,9 @@ module.exports = function (app) {
   });
 
   //---------------------UNUSED --------------------//   
-  /*
-          //RENT A TOOL :
-         //ADD A TOOL TO THE SYSTEM
-     app.post("/api/rental/add", (req, res) => {
-      db.userRental.create(req.body).then(item => {
-        res.json(item);
-      });
-    });
+  
+
+    /*
 
         //GET A SINGLE MENU CATEGORY
         app.get("/api/rental/:id", (req, res) => {
