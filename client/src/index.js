@@ -52,27 +52,28 @@ ReactDOM.render(
   
   <BrowserRouter>
   <Security oktaAuth={oktaAuth}>
+  
 
     <Switch>
     <Route path="/callback" component={LoginCallback}/>
       <Route path="/components" render={(props) => <Index {...props} />} />
 
       <Route
-        path="/admin-login"
+        path="/login"
         render={(props) => <AdminLogin {...props} />}
       />
 
-      <SecureRoute
+      <Route
         path="/home"
         render={(props) => <Home {...props} />}
       />
   
 
-      <SecureRoute
+      <Route
         path="/register-page"
         render={(props) => <RegisterPage {...props} />}
       />
-      <SecureRoute
+      <Route
         path="/loaned"
         render={(props) => <Loaned {...props} />}
       />
@@ -82,6 +83,7 @@ ReactDOM.render(
 
     </Switch>
     </Security>
+    
 
   </BrowserRouter>,
 
