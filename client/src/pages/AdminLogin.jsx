@@ -23,8 +23,8 @@ import {
 } from "reactstrap";
 
 // core components
-import ToolShedNavbar from "components/Navbars/ToolShedNavbar.js";
-import Footer from "components/Footer/Footer.js";
+
+
 
 async function checkUser() {
   if (this.props.authState.isAuthenticated && !this.state.userInfo) {
@@ -76,7 +76,7 @@ export default withOktaAuth(class Home extends Component {
       <div className="App">
         <div className="wrapper">
 
-          <ToolShedNavbar/>
+    
 
           <div className="wrapper">
           <div className="page-header">
@@ -104,12 +104,7 @@ export default withOktaAuth(class Home extends Component {
                 </div>
               </Col>
               <Col lg="4" md="5">
-                <img id="toolshed"
-                  alt="..."
-                  className="img-fluid"
-                  src={require("assets/img/toolshedpicd.jpg").default}
-
-                />
+                
               </Col>
               </Row>
 
@@ -117,7 +112,7 @@ export default withOktaAuth(class Home extends Component {
 
           </div>
         
-        <Footer />
+    
         
         </div>
         </div>
