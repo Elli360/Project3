@@ -42,11 +42,14 @@ const oktaAuth = new OktaAuth({
 });
 //TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
 //ITEMS SHOULD USE THE <SecureRoute/>
-//END OKTA COMPONENTS
+
+//CHECK USER
+
 
 
 
 ReactDOM.render(
+  
   <BrowserRouter>
   <Security oktaAuth={oktaAuth}>
 
@@ -59,7 +62,7 @@ ReactDOM.render(
         render={(props) => <AdminLogin {...props} />}
       />
 
-      <Route
+      <SecureRoute
         path="/home"
         render={(props) => <Home {...props} />}
       />

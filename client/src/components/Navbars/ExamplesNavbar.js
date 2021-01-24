@@ -134,10 +134,9 @@ export default function ExamplesNavbar() {
               <Button
                 className="nav-link d-none d-lg-block"
                 color="primary"
-                target="_blank"
-                href="#Login"
+                href="/admin-Login"
               >
-                <i className="tim-icons icon-spaceship" /> Login
+                <i className="tim-icons icon-spaceship" /> Logout
 
               </Button>
             </NavItem>
