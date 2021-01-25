@@ -24,7 +24,9 @@ function AllCard () {
     return (
                       <div>
                                 
-                      <h2>All world !</h2>
+                      <h2>All tools in the shop...</h2>
+                      <hr></hr>
+            
                       
 
                         {tools.length ? (

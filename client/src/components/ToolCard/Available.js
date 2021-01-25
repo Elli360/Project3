@@ -24,7 +24,8 @@ function Available () {
     return (
                       <div>
                                 
-                      <h2>Availalbe world !</h2>
+                      <h2>Currently available tools...</h2>
+                      <hr></hr>
                       
 
                         {tools.length ? (

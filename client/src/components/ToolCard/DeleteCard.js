@@ -32,7 +32,8 @@ function DeleteCard () {
     return (
                       <div>
                                 
-                      <h2>Delete world !</h2>
+                      <h2>Remove a tool from the inventory...</h2>
+                      <hr></hr>
                       
 
                         {tools.length ? (

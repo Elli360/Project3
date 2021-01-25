@@ -24,7 +24,9 @@ function Available () {
     return (
                       <div>
                                 
-                      <h2>Borrowed world !</h2>
+                      <h2>Tools which have been loaned out...</h2>
+                      <hr></hr>
+
                       
 
                         {tools.length ? (
