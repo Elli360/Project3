@@ -24,7 +24,7 @@ function AllCard () {
     return (
                       <div>
                                 
-                      <h2>Delete world !</h2>
+                      <h2>All world !</h2>
                       
 
                         {tools.length ? (

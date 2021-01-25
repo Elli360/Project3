@@ -236,34 +236,36 @@ useEffect(()=>{
                         <Inputs
                           onChange={handleInputChange}
                           name="price"
-                          placeholder="price (Optional)"
+                          placeholder="price (required)"
                           value={formObject.price}
                         />
 
 
                                 
-                               {/* <label>
+                               <label>
                                   Tool Category:
                                   <select value={formObject.categoryId} name="categoryId" onChange={handleInputChange}>
-                                    <option name ={1}>Power Tools</option>
-                                    <option value="lime">Lime</option>
-                                    <option value="coconut">Coconut</option>
-                                    <option value="mango">Mango</option>
+                                    <option value={1}>Power Tools</option>
+                                    <option value={2}>Handtools</option>
+                                    <option value={3}>Outdoor</option>
+                                    <option value={4}>Workshop tools</option>
+                                    <option value={5}>Hardware</option>
+
                                   </select>
                                 </label>
-                                                         */}
+                                                        
 
-                              <Inputs
+                              {/* <Inputs
                                   onChange={handleInputChange}
                                   name="categoryId"
                                   placeholder="Category Id (Mandatory)"
                                   value={formObject.categoryId}
-                                />
+                                /> */}
 
 
 
 ]                        <FormBtn
-                          disabled={!(formObject.name)}
+                          disabled={!(formObject.name && formObject.description && formObject.price && formObject.categoryId)}
                           onClick={handleFormSubmit}
                         >
                           Submit Tool
