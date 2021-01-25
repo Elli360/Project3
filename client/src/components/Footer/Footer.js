@@ -36,7 +36,7 @@ export default function Footer() {
         <Row>
           <Col md="3">
 
-            <h1 className="title">Team Eight</h1>
+            <h2 className="title">Team Number Eight</h2>
 
           </Col>
           <Col md="3">
@@ -65,37 +65,7 @@ export default function Footer() {
               </NavItem>
             </Nav>
           </Col>
-          <Col md="3">
-            <Nav>
-              <NavItem>
-
-                <NavLink to="/home" tag={Link}>
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/loaned" tag={Link}>
-                  Loaned Out
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/#borrowed" tag={Link}>
-                  Borrowed
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/#search" tag={Link}>
-                  Search For
-
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://opensource.org/licenses/MIT">
-                  License
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Col>
+          
           <Col md="3">
 
             <h3 className="title">Follow us on GitHub:</h3>

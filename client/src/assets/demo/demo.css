@@ -501,8 +501,8 @@
 }
 
 #toolshed {
-  opacity:0.2;
-  border-radius: 50px 50px 100px 100px;
+  opacity:.8;
+  border-radius: 10px 10px 10px 10px;
 }
 /* change to react on toolshed button instead */
 #toolshed:hover {
