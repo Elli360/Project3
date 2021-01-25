@@ -1,6 +1,7 @@
 
 import {Button} from "reactstrap";
 
+
 function Intro(){
     return(
         <div>
@@ -17,10 +18,11 @@ function Intro(){
           Open the door to add to your ToolShed 
         </p>
 
+
         <Button
           className="btn-link"
           color="success"
-          href="#pablo"
+          href="/AllCard"
           onClick={(e) => e.preventDefault()}
           size="sm"
         >
