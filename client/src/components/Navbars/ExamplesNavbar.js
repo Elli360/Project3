@@ -71,8 +71,10 @@ export default function ExamplesNavbar() {
         <div className="navbar-translate">
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
-            <span>the ToolShed </span>
-            Team Eight
+           
+            <img src={require("../../assets/img/toolshed_logo.jpg").default}></img>
+            
+            
           </NavbarBrand>
           <UncontrolledTooltip placement="bottom" target="navbar-brand">
             by Team Eight
