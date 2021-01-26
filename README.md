@@ -68,5 +68,5 @@ Use this app to organize, lend tools and more...
 [Luis Calderin](https://github.com/lcalderin12)
 
 ## Repositories
-- [Heroku Deployed Link]()
+- [Heroku Deployed Link](https://toolshed-app-team8.herokuapp.com/)
 - [Project Repo](https://github.com/Elli360/Project3)
