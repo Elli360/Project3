@@ -71,8 +71,10 @@ export default function ExamplesNavbar() {
         <div className="navbar-translate">
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
-            <span>the ToolShed </span>
-            Team Eight
+           
+            <img src={require("../../assets/img/toolshed_logo.jpg").default}></img>
+            
+            
           </NavbarBrand>
           <UncontrolledTooltip placement="bottom" target="navbar-brand">
             by Team Eight
@@ -130,32 +132,23 @@ export default function ExamplesNavbar() {
 
               </NavLink>
             </NavItem>
-            <NavItem>
-              <Button
-                className="nav-link d-none d-lg-block"
-                color="primary"
-                href="/login"
-              >
-                <i className="tim-icons icon-spaceship" /> Login
-
-              </Button>
-            </NavItem>
+            
             <NavItem>
               <NavLink tag={Link} to="/home">
 
-                Back to Home
+                Home
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink tag={Link} to="/AllCard">
-                All Tools
+                Inventory
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink tag={Link} to="/delete">
-                Delete Tools
+                Remove
               </NavLink>
             </NavItem>
 
@@ -181,10 +174,21 @@ export default function ExamplesNavbar() {
 
             <NavItem>
               <NavLink href="https://github.com/Elli360/Project3/issues">
-
-                Have an issue?
+                Support
               </NavLink>
             </NavItem>
+
+            <NavItem>
+              <Button
+                className="nav-link d-none d-lg-block"
+                color="primary"
+                href="/login"
+              >
+                <i className="tim-icons icon-spaceship" /> Auth
+
+              </Button>
+            </NavItem>
+            
           </Nav>
         </Collapse>
       </Container>

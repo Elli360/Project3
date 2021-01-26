@@ -79,7 +79,8 @@ function UpdateCard () {
     return (
                       <div>
                                 
-                      <h2>Update world !</h2>
+                      <h2>Sign a tool out...</h2>
+                      <hr></hr>
                       
 
                         {tools.length ? (

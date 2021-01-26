@@ -306,7 +306,7 @@ useEffect(()=>{
                 <img id="toolshed"
                   alt="..."
                   className="img-fluid"
-                  src={require("assets/img/toolshed.jpg").default}
+                  src={require("assets/img/shedicon.jpg").default}
 
                 />
               </Col>
