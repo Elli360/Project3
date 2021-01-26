@@ -63,7 +63,7 @@ ReactDOM.render(
         render={(props) => <AdminLogin {...props} />}
       />
 
-      <SecureRoute
+      <Route
         path="/home"
         render={(props) => <Home {...props} />}
       />

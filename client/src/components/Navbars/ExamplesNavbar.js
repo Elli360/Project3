@@ -184,7 +184,7 @@ export default function ExamplesNavbar() {
                 color="primary"
                 href="/login"
               >
-                <i className="tim-icons icon-spaceship" /> Login
+                <i className="tim-icons icon-spaceship" /> Auth
 
               </Button>
             </NavItem>
