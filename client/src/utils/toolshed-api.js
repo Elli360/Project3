@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default {
+export  default {
   // Gets all tool
   getTools: function () {
     return axios.get("/api/tools");
