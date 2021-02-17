@@ -1,38 +1,39 @@
 import {
-    Button,
+    
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  CardTitle,
-  ListGroupItem,
-  ListGroup,
   Container,
   Row,
   Col,
-  FormGroup,
-  UncontrolledTooltip,
-  UncontrolledPopover,
-  PopoverBody,
-  PopoverHeader,
-  Modal,
-  Form,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Label,
-  UncontrolledCarousel,
+  // Button,
+  // CardTitle,
+  // ListGroupItem,
+  // ListGroup,
+  // FormGroup,
+  // UncontrolledTooltip,
+  // UncontrolledPopover,
+  // PopoverBody,
+  // PopoverHeader,
+  // Modal,
+  // Form,
+  // Input,
+  // InputGroup,
+  // InputGroupAddon,
+  // InputGroupText,
+  // Label,
+  // UncontrolledCarousel,
 } from "reactstrap";
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import PowerTools from "./PowerTools";
-import HandTools from "./HandTools";
-import OutdoorTools from "./OutdoorTools";
-import WorkshopTools from "./WorkshopTools";
-import Hardware from "./Hardware"
+import PowerTools from "../PowerTools";
+import HandTools from "../HandTools";
+import OutdoorTools from "../OutdoorTools";
+import WorkshopTools from "../WorkshopTools";
+import Hardware from "../Hardware"
 
 
 
@@ -47,7 +48,7 @@ function Categories() {
           className="path"
           src={require("assets/img/path3.png").default}
         />
-                    <Router>
+                    
         <Container>
           <Row>
             <Col md="4">
@@ -58,6 +59,8 @@ function Categories() {
               </h1>
             </Col>
           </Row>
+          
+          <Router>
           <Row>
 
 {/* ========================= 1st category */}
@@ -299,8 +302,9 @@ function Categories() {
  */}
 
           </Row>
+          </Router>
         </Container>
-        </Router>
+        
 
       </section>
 

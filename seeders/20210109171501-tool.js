@@ -21,7 +21,7 @@ module.exports = {
         categoryId:1
       },
       {
-        name: "Router",
+        name: "Routter",
         description: 'Lorem ipsum',
         createdAt: new Date(),
         updatedAt: new Date(),

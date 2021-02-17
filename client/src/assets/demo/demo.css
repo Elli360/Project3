@@ -501,10 +501,44 @@
 }
 
 #toolshed {
-  opacity:.8;
-  border-radius: 10px 10px 10px 10px;
+  opacity: 0.2;
+  border-radius: 50px 50px 100px 100px;
 }
 /* change to react on toolshed button instead */
 #toolshed:hover {
   opacity:1;
+}
+
+/* copied here to set presedent */
+.path {
+  max-width: 65%;
+  right: 0;
+  top: 30px;
+}
+.path2 {
+position: absolute;
+opacity: 0.02;
+max-width: 41%;
+right: -60px;
+top: -50px;
+}
+.triangle {
+  top: 35%;
+  left: 5%;
+  max-height: 200px;
+}
+.wave {
+  top: 45%;
+  right: 30%;
+  max-height: 90px;
+}
+.squares {
+  top: 50%;
+  right: 18%;
+  max-height: 200px;
+}
+.circle {
+  top: 20%;
+  right: 36%;
+  max-height: 75px;
 }

@@ -28,29 +28,29 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // reactstrap components
 import {
   Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  ListGroupItem,
-  ListGroup,
-  Container,
   Row,
   Col,
-  FormGroup,
-  UncontrolledTooltip,
-  UncontrolledPopover,
-  PopoverBody,
-  PopoverHeader,
-  Modal,
-  Form,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Label,
-  UncontrolledCarousel,
+  // Card,
+  // CardHeader,
+  // CardBody,
+  // CardFooter,
+  // CardTitle,
+  // ListGroupItem,
+  // ListGroup,
+  // Container,
+  // FormGroup,
+  // UncontrolledTooltip,
+  // UncontrolledPopover,
+  // PopoverBody,
+  // PopoverHeader,
+  // Modal,
+  // Form,
+  // Input,
+  // InputGroup,
+  // InputGroupAddon,
+  // InputGroupText,
+  // Label,
+  // UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
@@ -72,40 +72,51 @@ import DeleteCard from "components/ToolCard/DeleteCard.js";
 // import DeleteBtn from "../components/DeleteBtn";
 // import { List, ListItem } from "../components/List";
 import Select from "react-dropdown-select";
-import Categories from "../components/Categories/Categories";
-import Intro from "../components/Intro/Intro";
+import Categories from "../components/Categories";
+// import Intro from "../components/Intro";
 import AllCard from "../components/ToolCard/AllCard";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import UpdateCard from "../components/ToolCard/UpdateCard"
 import Available from "../components/ToolCard/Available";
 import NotAvailable from "../components/ToolCard/NotAvailable";
-import AddTool from "../components/AddTool";
-
+import AddTool from "../components/AddToolBtnHome";
+import SearchBtnHome from "../components/SearchBtnHome";
 
 //==========================
 
 export default function Home() {
-
-  React.useEffect(() => {
-    document.body.classList.toggle("landing-page");
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      document.body.classList.toggle("landing-page");
-    };
-  }, []);
+//  var displayAllByCategory=true;
+   const [displayAllByCategory, setDisplayAllByCategory] = useState( false);
+   //let click=false;
+  const handleClick =()=> {
+  //  if (displayAllByCategory) {
+    //  useEffect(() => {
+      //  loadTools();
+    //  }, [])
+    setDisplayAllByCategory(true);
+  //  }
+ };
+//  handleClick();
+// React.useEffect(() => {
+//     document.body.classList.toggle("landing-page");
+//     // Specify how to clean up after this effect:
+//     return function cleanup() {
+//       document.body.classList.toggle("landing-page");
+//     };
+//   }, []);  
 
   //==============================================
-  const [tools, setTools] = useState([]);
+  //const [tools, setTools] = useState([]);
 
 
-  function loadTools() {
-    API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
-  };
+ // function loadTools() {
+ //   API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+ // };
 
-  useEffect(() => {
-    loadTools()
-  }, [])
+  // useEffect(() => {
+  //   loadTools()
+  // }, [])
 
 
 
@@ -151,11 +162,39 @@ export default function Home() {
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
 
-                  <Route exact path="/home" component={Intro} />
+                  {/* <Route exact path="/home" component={Intro} /> */}
+                  <div>
+        <h1 className="text-white">
+        Welcome to the ToolShed! <br />
+        <span className="text-white"></span>
+      </h1>
+      <p className="text-white mb-3">
+        Where you can add, edit and LOAN tools from your inventory.
+        Where you can search for NEW tools and borrow from other users' inventories!...
+      </p>
+      <div className="btn-wrapper mb-3">
+        <p className="category text-success d-inline">
+          Open the door to your ToolShed 
+        </p>
 
+
+        <Button
+          className="btn-link"
+          color="success"
+          // href="/AllCard"
+        //  onClick={setDisplayAllByCategory(true)}
+         onClick={handleClick}
+          size="sm"
+        >
+          <i className="tim-icons icon-minimal-right" />
+        </Button>
+      </div>
+      </div>
+                    {/* <Intro /> */}
                   <div className="btn-wrapper">
                     <div className="button-container">
                    <AddTool />
+                   <SearchBtnHome />
                     </div>
 
                     {/* <div>
@@ -184,7 +223,7 @@ export default function Home() {
                   <img id="toolshed"
                     alt="..."
                     className="img-fluid"
-                    src={require("assets/img/shedicon.jpg").default}
+                    src={require("assets/img/shedpic.jpg").default}
 
                   />
                 </Col>
@@ -194,11 +233,24 @@ export default function Home() {
         </div>
       </Router>
 
+
+  {/*Dynamic rendering of tools db 
+  <div>
+
+<ToolCard categories={tools} />
+
+</div>*/}
+
       <div>
 
         {/* ToolChest list section */}
+      {/* Pre-render alter
+        <Categories /> */}
 
-        <Categories />
+{ displayAllByCategory && 
+<Categories />
+ } 
+
 
         <Footer />
       </div>

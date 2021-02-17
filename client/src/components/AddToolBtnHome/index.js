@@ -1,7 +1,7 @@
 import API from 'utils/toolshed-api';
 import React, { useEffect, useState } from "react";
-import { Inputs, TextArea, FormBtn } from "../../components/Form";
-import { List, ListItem } from "../../components/List";
+import { Inputs, TextArea, FormBtn } from "../Form";
+import { List, ListItem } from "../List";
 import {
     Button,
     UncontrolledTooltip,
