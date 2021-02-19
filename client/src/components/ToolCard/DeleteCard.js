@@ -1,5 +1,5 @@
 import React , { useEffect, useState } from "react";
-import API from "../../utils/toolshed-api";
+import api from "../../utils/api";
 import DeleteBtn from "../../components/DeleteBtn";
 
 import { List, ListItem } from "../../components/List";
@@ -14,13 +14,13 @@ function DeleteCard () {
   
 
   function loadTools(){
-    API.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+    api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
   };
   
 //================================deleting
   // Deletes a tool from the database with a given id, then reloads books from the db
   function deleteTool(id) {
-    API.deleteTool(id)
+    api.deleteTool(id)
       .then(res => loadTools())
       .catch(err => console.log(err));
   }

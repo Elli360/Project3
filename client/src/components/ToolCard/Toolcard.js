@@ -1,5 +1,5 @@
 import React , { useEffect, useState } from "react";
-import API from "../../utils/toolshed-api";
+import api from "../../utils/api";
 
 
 function ToolCard ({categories}) {

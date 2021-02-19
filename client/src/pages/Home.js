@@ -57,13 +57,13 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
-import ToolCard from "components/ToolCard/Toolcard.js"
+// import ToolCard from "components/ToolCard/Toolcard.js"
 
-import bigChartData from "variables/charts.js";
+// import bigChartData from "variables/charts.js";
 
-// ====================== post import
-import { Inputs, TextArea, FormBtn } from "../components/Form";
-import API from 'utils/toolshed-api';
+// // ====================== post import
+// import { Inputs, TextArea, FormBtn } from "../components/Form";
+import api from 'utils/api';
 import React, { useEffect, useState } from "react";
 
 
@@ -71,61 +71,68 @@ import DeleteCard from "components/ToolCard/DeleteCard.js";
 // import DeleteCard from "../components/ToolCard/DeleteCard"
 // import DeleteBtn from "../components/DeleteBtn";
 // import { List, ListItem } from "../components/List";
-import Select from "react-dropdown-select";
-import Categories from "../components/Categories";
+//import Select from "react-dropdown-select";
+import AllToolsByCategory from "../components/AllToolsByCategory";
 // import Intro from "../components/Intro";
 import AllCard from "../components/ToolCard/AllCard";
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
+//import DropdownButton from 'react-bootstrap/DropdownButton';
+//import Dropdown from 'react-bootstrap/Dropdown';
 import UpdateCard from "../components/ToolCard/UpdateCard"
 import Available from "../components/ToolCard/Available";
-import NotAvailable from "../components/ToolCard/NotAvailable";
+//import NotAvailable from "../components/ToolCard/NotAvailable";
 import AddTool from "../components/AddToolBtnHome";
 import SearchBtnHome from "../components/SearchBtnHome";
-
+//import Loaned from "./Loaned";
 //==========================
 
 export default function Home() {
-//  var displayAllByCategory=true;
-   const [displayAllByCategory, setDisplayAllByCategory] = useState( false);
-   //let click=false;
-  const handleClick =()=> {
-  //  if (displayAllByCategory) {
-    //  useEffect(() => {
-      //  loadTools();
-    //  }, [])
+  //  var displayAllByCategory=true;
+  let [displayAllByCategory, setDisplayAllByCategory] = useState(false);
+  let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  let handleClick = () => {
     setDisplayAllByCategory(true);
-  //  }
- };
-//  handleClick();
-// React.useEffect(() => {
-//     document.body.classList.toggle("landing-page");
-//     // Specify how to clean up after this effect:
-//     return function cleanup() {
-//       document.body.classList.toggle("landing-page");
-//     };
-//   }, []);  
+    //  }
+  };
+  let close = () => {
+    setDisplayAllByCategory(false);
+  }
+//onHover of button, changes opacity of toolshed image (NOT WORKING)
+  let handleHover=()=>{
+setToolshedImgOpacity(1);
+  }
+  let handleHover2=()=>{
+    setToolshedImgOpacity(0.2);
+      }
+  //  handleClick();    
+  React.useEffect(() => {
+      document.body.classList.toggle("landing-page");
+      // Specify how to clean up after this effect:
+      return function cleanup() {
+        document.body.classList.toggle("landing-page");
+      };
+    }, []);  
 
   //==============================================
-  //const [tools, setTools] = useState([]);
+  let [tools, setTools] = useState([]);
 
 
- // function loadTools() {
- //   API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
- // };
+  function loadTools() {
+   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+  };
 
-  // useEffect(() => {
-  //   loadTools()
-  // }, [])
+  useEffect(() => {
+    loadTools()
+  }, [])
 
 
 
 
   return (
     <>
-
+<ExamplesNavbar />
       <Router>
-        <ExamplesNavbar />
+      
+        {/* <ExamplesNavbar /> */}
         <div className="wrapper">
           <div className="page-header">
             <img
@@ -164,37 +171,39 @@ export default function Home() {
 
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
-        <h1 className="text-white">
-        Welcome to the ToolShed! <br />
-        <span className="text-white"></span>
-      </h1>
-      <p className="text-white mb-3">
-        Where you can add, edit and LOAN tools from your inventory.
-        Where you can search for NEW tools and borrow from other users' inventories!...
+                    <h1 className="text-white">
+                      Welcome to the ToolShed! <br />
+                      <span className="text-white"></span>
+                    </h1>
+                    <p className="text-white mb-3">
+                      Where you can add, edit and LOAN tools from your inventory.
+                      Where you can search for NEW tools and borrow from other users' inventories!...
       </p>
-      <div className="btn-wrapper mb-3">
-        <p className="category text-success d-inline">
-          Open the door to your ToolShed 
+                    <div className="btn-wrapper mb-3">
+                      <p className="category text-success d-inline">
+                        Open the door to your ToolShed
         </p>
 
 
-        <Button
-          className="btn-link"
-          color="success"
-          // href="/AllCard"
-        //  onClick={setDisplayAllByCategory(true)}
-         onClick={handleClick}
-          size="sm"
-        >
-          <i className="tim-icons icon-minimal-right" />
-        </Button>
-      </div>
-      </div>
-                    {/* <Intro /> */}
+                      <Button
+                        className="btn-link"
+                        color="success"
+                        onClick={handleClick}
+                        // onHover={handleHover}
+                        onMouseOver={()=>handleHover} 
+                        onMouseOut={()=>handleHover2}
+
+                        size="sm"
+                      >
+                        <i className="tim-icons icon-minimal-right" />
+                      </Button>
+                    </div>
+                  </div>
+                  {/* <Intro /> */}
                   <div className="btn-wrapper">
                     <div className="button-container">
-                   <AddTool />
-                   <SearchBtnHome />
+                      <AddTool />
+                      <SearchBtnHome />
                     </div>
 
                     {/* <div>
@@ -208,8 +217,8 @@ export default function Home() {
                     <Route exact path="/AllCard" component={AllCard} />
                     <Route exact path="/update" component={UpdateCard} />
                     <Route exact path="/available" component={Available} />
-                    <Route exact path="/loaned" component={NotAvailable} />
-
+                    {/* <Route exact path="/loaned" component={NotAvailable} /> */}
+                    {/* <Route exact path="/loaned" component={Loaned} /> */}
 
                     {/* <div>
                           <DeleteCard/>
@@ -221,10 +230,10 @@ export default function Home() {
                 </Col>
                 <Col lg="4" md="5">
                   <img id="toolshed"
-                    alt="..."
+                    alt="toolshed"
                     className="img-fluid"
                     src={require("assets/img/shedpic.jpg").default}
-
+                    opacity= {toolshedImgOpacity}
                   />
                 </Col>
               </Row>
@@ -234,7 +243,7 @@ export default function Home() {
       </Router>
 
 
-  {/*Dynamic rendering of tools db 
+      {/*Dynamic rendering of tools db 
   <div>
 
 <ToolCard categories={tools} />
@@ -242,15 +251,22 @@ export default function Home() {
 </div>*/}
 
       <div>
-
+      <section className="section section-lg section-coins">
         {/* ToolChest list section */}
-      {/* Pre-render alter
+        {/* Pre-render alter
         <Categories /> */}
-
-{ displayAllByCategory && 
-<Categories />
- } 
-
+        {displayAllByCategory && <Button
+          className="button"
+          color="danger"
+          onClick={close}
+          size="lg"
+        >Close The Door
+          </Button>}
+          
+        {displayAllByCategory &&
+          <AllToolsByCategory />
+        }
+</section>
 
         <Footer />
       </div>

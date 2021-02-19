@@ -1,5 +1,5 @@
 import React , { useEffect, useState } from "react";
-import API from "../../utils/toolshed-api";
+import api from "../../utils/api";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Inputs, TextArea, FormBtn } from "../../components/Form";
 import { List, ListItem } from "../../components/List";
@@ -7,7 +7,7 @@ import UpdateTool from '../UpdateTool';
 
 function UpdateCard () {
 
-  const [tools,setTools]=useState([]);
+  const [tools,setTools]=useState("");
 
   useEffect(()=>{
     loadTools()
@@ -15,13 +15,13 @@ function UpdateCard () {
   
 
   function loadTools(){
-    API.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+    api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
   };
   
 
   function handleFormSubmit(event) {
     event.preventDefault();
-      API.updateTool({
+      api.updateTool({
         // name: formObject.name,
         // description: formObject.description,
         // categoryId: formObject.categoryId,
@@ -57,7 +57,7 @@ function UpdateCard () {
       // event.preventDefault();
       // const { name, value } = event.target;
       // setFormObject({...formObject, [name]: value})
-      API.updateTool(id,{available})
+      api.updateTool(id,{available})
       .then(res => loadTools())
       .catch(err => console.log(err));
 
@@ -66,7 +66,7 @@ function UpdateCard () {
 //================================deleting
   // Deletes a tool from the database with a given id, then reloads books from the db
   function updateTool(id) {
-    API.updateTool(id)
+    api.updateTool(id)
       .then(res => loadTools())
       .catch(err => console.log(err));
   }

@@ -1,10 +1,20 @@
-// import {useState} from "react";
+//  import {useState} from "react";
 // import {Button} from "reactstrap";
 
 
-// function Intro(){
-//   const [ setDisplayAllByCategory] = useState(false);
-  
+// function Intro({handleClick},{close}){
+//   const [displayAllByCategory, setDisplayAllByCategory] = useState( false);
+//   const handleClick =()=> {
+//     //  if (displayAllByCategory) {
+//       //  useEffect(() => {
+//         //  loadTools();
+//       //  }, [])
+//       setDisplayAllByCategory(true);
+//     //  }
+//    };
+//    const close =()=> {
+//      setDisplayAllByCategory(false);
+//    }
 //     return(
 //       <>
 //         <div>
@@ -25,8 +35,7 @@
 //         <Button
 //           className="btn-link"
 //           color="success"
-//           href="/AllCard"
-//           onClick={setDisplayAllByCategory(true)}
+//           onClick={handleClick}
 //           size="sm"
 //         >
 //           <i className="tim-icons icon-minimal-right" />

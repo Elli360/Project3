@@ -1,5 +1,5 @@
 import React , { useEffect, useState } from "react";
-import API from "../../utils/toolshed-api";
+import api from "../../utils/api";
 import DeleteBtn from "../DeleteBtn";
 
 import { List, ListItem } from "../List";
@@ -14,7 +14,7 @@ function AllCard () {
   
 
   function loadTools(){
-    API.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+    api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
   };
   
 

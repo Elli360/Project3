@@ -1,4 +1,4 @@
-import API from 'utils/toolshed-api';
+import api from 'utils/api';
 import React, { useEffect, useState } from "react";
 import { Inputs, TextArea, FormBtn } from "../Form";
 import { List, ListItem } from "../List";
@@ -22,11 +22,11 @@ export default function UpdateTool({tool, handleAvailChange}){
     }, []);
   
     //==============================================
-    const [tools, setTools] = useState([]);
+    const [tools, setTools] = useState("");
   
   
     function loadTools() {
-      API.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+      api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
     };
   
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function UpdateTool({tool, handleAvailChange}){
     function handleFormSubmit(event) {
       event.preventDefault();
       if (formObject.name && formObject.categoryId) {
-        API.saveTool({
+        api.saveTool({
           name: formObject.name,
           description: formObject.description,
           categoryId: formObject.categoryId,

@@ -1,5 +1,5 @@
 import React , { useEffect, useState } from "react";
-import API from "../../utils/toolshed-api";
+import api from "../../utils/api";
 
 
 function OutdoorTools () {
@@ -12,7 +12,7 @@ useEffect(()=>{
 
 
 function loadTools(){
-  API.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
+  api.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
 };
 
   console.log(categories);

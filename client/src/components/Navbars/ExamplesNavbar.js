@@ -72,7 +72,7 @@ export default function ExamplesNavbar() {
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
            
-            <img src={require("../../assets/img/toolshed_logo.jpg").default}></img>
+            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default}></img>
             
             
           </NavbarBrand>

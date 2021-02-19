@@ -15,20 +15,21 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import api from 'utils/api';
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import {
 
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  ListGroupItem,
-  ListGroup,
+  // Card,
+  // CardHeader,
+  // CardBody,
+  // CardFooter,
+  // CardTitle,
+  // ListGroupItem,
+  // ListGroup,
   Container,
   Row,
   Col,
@@ -37,13 +38,13 @@ import {
   FormGroup,
   Form,
   Input,
-  FormText,
-  NavItem,
-  NavLink,
-  Nav,
-  Table,
-  TabContent,
-  TabPane,
+  // FormText,
+  // NavItem,
+  // NavLink,
+  // Nav,
+  // Table,
+  // TabContent,
+  // TabPane,
   UncontrolledTooltip,
   UncontrolledCarousel,
   Modal,
@@ -55,6 +56,7 @@ import {
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
+import LoanedToolsByCategory from "components/LoanedToolsByCategory";
 
 const carouselItems = [
   {
@@ -68,6 +70,22 @@ const carouselItems = [
 let ps = null;
 
 export default function Loaned() {
+   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
+   const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  let handleClick = () => {
+    setDisplayLoanedByCategory(true);
+    //  }
+  };
+  let close = () => {
+    setDisplayLoanedByCategory(false);
+  }
+  let handleHover=()=>{
+    setToolshedImgOpacity(1);
+      }
+      let handleHover2=()=>{
+        setToolshedImgOpacity(0.2);
+          }
+
   const [formModal, setFormModal] = React.useState(false);
   const [tabs, setTabs] = React.useState(1);
   React.useEffect(() => {
@@ -79,8 +97,17 @@ export default function Loaned() {
         ps = new PerfectScrollbar(tables[i]);
       }
     }
-
   }, []);
+  const [tools, setTools] = useState([]);
+
+
+  function loadTools() {
+   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+  };
+
+  useEffect(() => {
+    loadTools()
+  }, [])
   return (
     <>
       <ExamplesNavbar />
@@ -97,14 +124,8 @@ export default function Loaned() {
             src={require("assets/img/path4.png").default}
           />
           <div className="section">
-            <Container>
-              <Row>
-                <Button
-                  href="/#slidingDrawer"
-
-                >MENU</Button>
-              </Row>
-            </Container>
+            {/* Placehoder */}
+          <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container>
             <Container>
               <Row className="justify-content-between">
                 <Col md="6">
@@ -121,6 +142,18 @@ export default function Loaned() {
                   <div className="btn-wrapper pt-3">
                     <div className="btn-wrapper">
                       <div className="button-container">
+                      <Button
+                        className="btn-link"
+                        color="success"
+                        onClick={handleClick}
+                        // onHover={handleHover}
+                        onMouseOver={()=>handleHover} 
+                        onMouseOut={()=>handleHover2}
+
+                        size="sm"
+                      >
+                        <i className="tim-icons icon-minimal-right" />
+                      </Button>
                         <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="success" id="tooltip20" onClick={() => setFormModal(true)}>
@@ -399,7 +432,19 @@ export default function Loaned() {
             className="path"
             src={require("assets/img/path3.png").default}
           />
-          <Container>
+      {displayLoanedByCategory && <Button
+          className="button"
+          color="danger"
+          onClick={close}
+          size="lg"
+        >Close The Door
+          </Button>}
+          
+        {displayLoanedByCategory &&
+          <LoanedToolsByCategory />
+        }
+
+          {/* <Container>
             <Row>
               <Col md="4">
                 <hr className="line-info" />
@@ -429,7 +474,7 @@ export default function Loaned() {
                     </Row>
                     <Row>
                       <ListGroup>
-                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
+                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> 
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -465,7 +510,7 @@ export default function Loaned() {
                     </Row>
                     <Row>
                       <ListGroup>
-                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
+                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> 
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -501,7 +546,7 @@ export default function Loaned() {
                     </Row>
                     <Row>
                       <ListGroup>
-                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> */}
+                        {/* <ListGroupItem>Category: {{category}}</ListGroupItem> 
                         <ListGroupItem>Description</ListGroupItem>
                         <ListGroupItem>Date Loaned Out</ListGroupItem>
                         <ListGroupItem>Return Promise</ListGroupItem>
@@ -519,11 +564,13 @@ export default function Loaned() {
                 </Card>
               </Col>
             </Row>
-          </Container>
+          </Container> */}
+
+
         </section>
 
         <Footer />
       </div>
     </>
-  );
+  )
 }

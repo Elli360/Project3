@@ -1,6 +1,8 @@
 import axios from "axios";
 
-export  default {
+//Assign object to a variable before exporting as module default (not really necessary but fix when have time)
+//  const API = ()=>( {
+  export default {
   // Gets all tool
   getTools: function () {
     return axios.get("/api/tools");
@@ -24,5 +26,7 @@ export  default {
   updateTool: function (id, toolData) {
     return axios.put("/api/tools/" + id, toolData);
   },
+  };
+// });
 
-}
+// export default API;

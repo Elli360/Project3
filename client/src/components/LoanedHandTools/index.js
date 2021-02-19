@@ -1,0 +1,80 @@
+
+
+    import React , { useEffect, useState } from "react";
+    import api from "../../utils/api";
+    
+    //make category.id # a prop so the # of components can be divided by 5
+    function LoanedHandTools () {
+    
+    const [categories,setCategories]=useState([]);
+  //  const [tools,setTools]=useState([]);
+
+    useEffect(()=>{
+        loadTools()
+    },[])
+    
+    
+    function loadTools(){
+      api.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
+    //  api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+    };
+ 
+    
+      console.log(categories);
+    
+        return (
+    
+                    <div>
+                       {categories.length ? (
+                  <ul>
+                    {categories.map( (category) => {
+                        
+                        if(category.id===2 ){
+                      return (
+                        <div key={category.id}>
+                          {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
+                          
+                          <ul>                     
+                        
+                          <div className="toolDetail" >
+                          {category.tools.map(tool=>{
+                            
+                          if( tool.available === false){
+                            return(
+                              
+                            <li key= {tool.id}>{tool.name}</li>
+                          
+                          
+                            )
+                          }
+                          })
+                          }
+                          </div>
+                          </ul>
+                        </div> 
+                       
+                        );
+                        }
+                    }
+                    
+                    )}
+                  </ul>
+                ) : (
+                  <h3>No Tools were found.</h3>
+                )}
+                  
+                    </div>
+    
+    
+                
+           
+        )
+    }
+    
+    export default LoanedHandTools;
+
+
+    
+    
+    
+

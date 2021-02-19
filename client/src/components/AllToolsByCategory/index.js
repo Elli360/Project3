@@ -38,11 +38,11 @@ import Hardware from "../Hardware"
 
 
 
-function Categories() {
+function AllToolsByCategory() {
     const location = useLocation();
 
     return(
-        <section className="section section-lg section-coins">
+       <>
         <img
           alt="..."
           className="path"
@@ -305,10 +305,9 @@ function Categories() {
           </Router>
         </Container>
         
-
-      </section>
+</>
 
     )
 }
 
-export default Categories;
+export default AllToolsByCategory;

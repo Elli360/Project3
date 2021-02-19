@@ -16,7 +16,7 @@ import bigChartData from "variables/charts.js";
 
 // ====================== post import
 // import {Inputs, FormBtn } from "../Form";
-import API from '../../utils/toolshed-api';
+import api from '../../utils/api';
 import React , { useEffect, useState } from "react";
 
 
@@ -48,7 +48,7 @@ function PostModal(props){
     function handleFormSubmit(event) {
       event.preventDefault();
       if (formObject.name && formObject.categoryId) {
-        API.saveTool({
+        api.saveTool({
           name: formObject.name,
           description: formObject.description,
           categoryId: formObject.categoryId,

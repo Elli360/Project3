@@ -1,8 +1,8 @@
 import React , { useEffect, useState } from "react";
 import api from "../../utils/api";
 
-
-function HandTools () {
+//make category.id # a prop so the # of components can be divided by 5
+function LoanedOutdoorTools () {
 
 const [categories,setCategories]=useState([]);
 
@@ -24,7 +24,7 @@ function loadTools(){
                    {categories.length ? (
               <ul>
                 {categories.map(category => {
-                    if(category.id===2){
+                    if(category.id===3){
                   return (
                     <div key={category.id}>
                       {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
@@ -35,12 +35,14 @@ function loadTools(){
                       {category.tools.map(tool=>{
                         
                     
-                        return(
+                        if( tool.available === false){
+                            return(
+                              
+                            <li key= {tool.id}>{tool.name}</li>
                           
-                        <li key= {tool.id}>{tool.name}</li>
-                      
-                      
-                        )
+                          
+                            )
+                          }
                         
                       })
                       }
@@ -66,6 +68,4 @@ function loadTools(){
     )
 }
 
-export default HandTools;
-
-
+export default LoanedOutdoorTools;
