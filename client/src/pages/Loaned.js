@@ -152,8 +152,14 @@ export default function Loaned() {
 
                         size="sm"
                       >
-                        <i className="tim-icons icon-minimal-right" />
+                        <i className="tim-icons icon-minimal-left" />   
+                       
                       </Button>
+                      <p className="category text-success d-inline">
+                      View Loaned Tools
+        </p>
+        <div className="btn-wrapper">
+                    <div className="button-container">
                         <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="success" id="tooltip20" onClick={() => setFormModal(true)}>
@@ -409,6 +415,8 @@ export default function Loaned() {
                     </div>
 
 
+                  </div>
+                  </div>
                   </div>
                 </Col>
               </Row>

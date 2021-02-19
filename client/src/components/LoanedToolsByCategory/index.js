@@ -18,6 +18,7 @@ import {
   import LoanedHardware from "../LoanedHardware"
   import LoanedHandTools from "../LoanedHandTools"
   
+  import "./style.css";
   
   
   function LoanedToolsByCategory() {
@@ -31,13 +32,13 @@ import {
             src={require("assets/img/path3.png").default}
           />
                       
-          <Container>
+          <Container id="loaned_by_cat">
             <Row>
-              <Col md="4">
+              <Col md="4" >
                 <hr className="line-info" />
-                <h1>
-                  Tools{" "}
-                  <span className="text-info">in the ToolShed</span>
+                 <h1>
+                  Loaned Out{" "}
+                  <span className="text-info">Please return as received</span>
                 </h1>
               </Col>
             </Row>
