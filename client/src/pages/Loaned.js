@@ -17,6 +17,8 @@
 */
 import api from 'utils/api';
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -39,9 +41,10 @@ import {
   Form,
   Input,
   // FormText,
-  // NavItem,
-  // NavLink,
-  // Nav,
+   NavItem,
+  NavLink,
+   Nav,
+   Navbar,
   // Table,
   // TabContent,
   // TabPane,
@@ -57,6 +60,9 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import LoanedToolsByCategory from "components/LoanedToolsByCategory";
+import UpdateTool from 'components/AddToolBtnHome';
+//import TestNavbar from "components/TestNavbar";
+import UpdateCard from "components/ToolCard/UpdateCard";
 
 const carouselItems = [
   {
@@ -111,6 +117,7 @@ export default function Loaned() {
   return (
     <>
       <ExamplesNavbar />
+      <Router>
       <div className="wrapper">
         <div className="page-header">
           <img
@@ -160,16 +167,25 @@ export default function Loaned() {
         </p>
         <div className="btn-wrapper">
                     <div className="button-container">
-                        <Button
+                        {/* <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="success" id="tooltip20" onClick={() => setFormModal(true)}>
                           <i className="tim-icons icon-simple-add" />
-                        </Button>
+                         
+                        </Button> */}
+                       
+                          <Button 
+                          className="btn-icon btn-simple btn-round btn-neutral"
+                          color="success" id="tooltip20"
+                             tag={Link} to="/update">
+                            <i className="tim-icons icon-simple-add" />
+                          </Button>
+                   
                         <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
-                          Add Loaned Tool
+                          Add Loaned Tool from Tool Directory
                         </UncontrolledTooltip>
                         {/* Start Add Form Modal */}
-                        <Modal
+                        {/* <Modal
                           modalClassName="modal-black"
                           isOpen={formModal}
                           toggle={() => setFormModal(false)}
@@ -277,10 +293,9 @@ export default function Loaned() {
                               </div>
                             </Form>
                           </div>
-                        </Modal>
+                        </Modal> */}
                         {/* End Add Form Modal */}
-
-
+                    
                         <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="success" id="tooltip21" onClick={() => setFormModal(true)}>
@@ -433,6 +448,29 @@ export default function Loaned() {
 
         </div>
 
+        <div>
+       {/* <Router>
+         <TestNavbar/> 
+          <NavItem>
+              <NavLink tag={Link} to="/update">
+                Update
+              </NavLink>
+            </NavItem>  */}
+         <Route exact path="/update" component={UpdateCard} />
+       {/* </Router> */}
+           
+                   {/* <NavItem>
+         <NavLink tag={Link} to="/update">
+           Update
+         </NavLink>
+       </NavItem>
+        <Router>          
+               <div>
+
+               </div>
+</Router> */}
+        </div>
+
         {/* Loaned Tools list section */}
         <section className="section section-lg section-coins">
           <img
@@ -579,6 +617,7 @@ export default function Loaned() {
 
         <Footer />
       </div>
+      </Router>
     </>
   )
 }

@@ -1,71 +1,71 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 
 //make category.id # a prop so the # of components can be divided by 5
-function LoanedWorkshopTools () {
+function LoanedWorkshopTools() {
 
-const [categories,setCategories]=useState([]);
+  const [categories, setCategories] = useState([]);
 
-useEffect(()=>{
+  useEffect(() => {
     loadTools()
-},[])
+  }, [])
 
 
-function loadTools(){
-  api.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
-};
+  function loadTools() {
+    api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
+  };
 
   console.log(categories);
 
-    return (
+  return (
 
-                <div>                  
-                   {categories.length ? (
-              <ul>
-                {categories.map(category => {
-                    if(category.id===4){
-                  return (
-                    <div key={category.id}>
-                      {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
-                      
-                      <ul>                     
-                    
-                      <div className="toolDetail" >
-                      {category.tools.map(tool=>{
-                        
-                    
-                        if( tool.available === false){
-                            return(
-                              
-                            <li key= {tool.id}>{tool.name}</li>
-                          
-                          
-                            )
-                          }
-                        
+    <div>
+      {categories.length ? (
+        <ul>
+          {categories.map(category => {
+            if (category.id === 4) {
+              return (
+                <div key={category.id}>
+                  {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
+
+                  <ul>
+
+                    <div className="toolDetail" >
+                      {category.tools.map(tool => {
+
+
+                        if (tool.available === false) {
+                          return (
+
+                            <li key={tool.id}>{tool.name}</li>
+
+
+                          )
+                        };
+
                       })
-                      }
-                      </div>
-                      </ul>
-                    </div> 
-                   
-                    );
-                    }
-                }
-                
-                )}
-              </ul>
-            ) : (
-              <h3>No Tools were found.</h3>
-            )}
-              
+                      };
+                    </div>
+                  </ul>
                 </div>
 
+              );
+            };
+          }
 
-            
-       
-    )
-}
+          )}
+        </ul>
+      ) : (
+          <h3>No Tools were found.</h3>
+        )}
+
+    </div>
+
+
+
+
+  )
+};
 
 export default LoanedWorkshopTools;
 
