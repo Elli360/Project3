@@ -28,7 +28,7 @@ import Index from "views/Index.js";
 import Home from "pages/Home.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import Loaned from "pages/Loaned.js";
-
+import Borrowed from "pages/Borrowed.js";
 
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -76,6 +76,11 @@ ReactDOM.render(
       <Route
         path="/loaned"
         render={(props) => <Loaned {...props} />}
+      />
+      
+      <Route
+        path="/borrowed"
+        render={(props) => <Borrowed {...props} />}
       />
      
 

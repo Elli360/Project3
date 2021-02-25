@@ -1,20 +1,4 @@
-/*!
 
-=========================================================
-* BLK Design System React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import api from 'utils/api';
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -132,7 +116,7 @@ export default function Loaned() {
           />
           <div className="section">
             {/* Placehoder */}
-          <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container>
+          {/* <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container> */}
             <Container>
               <Row className="justify-content-between">
                 <Col md="6">
@@ -456,7 +440,14 @@ export default function Loaned() {
                 Update
               </NavLink>
             </NavItem>  */}
-         <Route exact path="/update" component={UpdateCard} />
+            <Container>
+              <Row>
+                <Col lg="6" md="6"> 
+                <Route exact path="/update" component={UpdateCard} />
+            </Col>
+            </Row>
+            </Container>
+        
        {/* </Router> */}
            
                    {/* <NavItem>

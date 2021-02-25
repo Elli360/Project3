@@ -29,6 +29,7 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
+import "./style.css";
 export default function Footer() {
   return (
     <footer className="footer">
@@ -36,30 +37,33 @@ export default function Footer() {
         <Row>
           <Col md="3">
 
-            <h2 className="title">Team Number Eight</h2>
+            <h2 className="title">Team Eight</h2>
 
           </Col>
           <Col md="3">
             <Nav>
+            Contacts:
+            <NavItem>
+            <img className="contact_icon" id="linkedinIcon" alt="LinkedIn_Image" src={require("../../assets/img/icon-linkedin.png").default} /> 
+            </NavItem>
               <NavItem>
-
                 <NavLink href="https://linkedin.com/in/danielli-franquim-85224570">
-                  Contact: Danielli
+                   Danielli
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://www.linkedin.com/in/shalom-dawit-a0a5a4126">
-                  Contact: Shalom
+                   Shalom
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://www.linkedin.com/in/troylochner/">
-                  Contact: Troy
+                   Troy
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://www.linkedin.com/in/luis-calderin-a3b06112b/">
-                  Contact: Luis
+                   Luis
 
                 </NavLink>
               </NavItem>
@@ -115,12 +119,12 @@ export default function Footer() {
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
                 href="https://github.com/lcalderin12"
-                id="tooltip318450378"
+                id="tooltip318450379"
                 target="_blank"
               >
                 <i className="fab fa-github" />
               </Button>
-              <UncontrolledTooltip delay={0} target="tooltip318450378">
+              <UncontrolledTooltip delay={0} target="tooltip318450379">
                 Follow Luis on GitHub
 
               </UncontrolledTooltip>
