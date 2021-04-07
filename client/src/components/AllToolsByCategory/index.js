@@ -79,7 +79,7 @@ function AllToolsByCategory() {
 
                     
                       <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here</span>
+                        <span>Click Here To Show</span>
                         <h4 className="text-uppercase">Power Tools</h4>
                       </Link>
                       <span>Category 1</span>
@@ -123,7 +123,7 @@ function AllToolsByCategory() {
                     <Col className="text-center" md="12">
                     
                       <Link to="/handtools" className={location.pathname === "/handtools" ? "nav-link active" : "nav-link"} >
-                      <span>Click Here</span>
+                      <span>Click Here To Show</span>
                       <h4 className="text-uppercase">Hand Tools</h4>
                       </Link>
                       <span>Category 2</span>
@@ -162,7 +162,7 @@ function AllToolsByCategory() {
 
                     
                       <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"} >
-                      <span>Click Here</span>
+                      <span>Click Here To Show</span>
                       <h4 className="text-uppercase">Outdoor Tools</h4>
                       </Link>
                       <Route  path="/outdoortools" component={OutdoorTools} />
@@ -199,7 +199,7 @@ function AllToolsByCategory() {
                     <Col className="text-center" md="12">
                     
                       <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"} >
-                      <span>Click Here</span>
+                      <span>Click Here To Show</span>
                       <h4 className="text-uppercase">Workshop Tools</h4>
                       </Link>
                       <span>Category 4</span>
@@ -234,7 +234,7 @@ function AllToolsByCategory() {
                   <Row>
                     <Col className="text-center" md="12">
                       <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} >
-                      <span>Click Here</span>
+                      <span>Click Here To Show</span>
                       <h4 className="text-uppercase"> Hardware</h4>
                       </Link>
                       <span>Category 5</span>
