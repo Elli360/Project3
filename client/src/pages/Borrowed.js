@@ -38,7 +38,8 @@ import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed
 import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "../components/Navbars/ExamplesNavbar.js";
+import Spacer from "../components/Spacer/index.js";
 const carouselItems = [
   {
     src: require("assets/img/borrow-tools.jpg").default,
@@ -80,10 +81,11 @@ export default function Borrowed() {
           <div className="section">
             <Container>
               <Row>
-                <Button
+                {/* <Button
                   href="/#slidingDrawer"
 
-                >MENU</Button>
+                >MENU</Button> */}
+                <Spacer/>
               </Row>
             </Container>
             <Container>
