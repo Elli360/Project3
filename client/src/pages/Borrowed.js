@@ -96,8 +96,9 @@ export default function Borrowed() {
                   </Row>
                 </Col>
                 <Col md="5">
-                  <h1 className="profile-title text-left">Tools</h1>
+                  {/* <h1 className="profile-title text-left">Tools</h1> */}
                   <h5 className="text-on-back">Borrowed</h5>
+                  <h1 className="profile-title text-left">Tools</h1>
                   <p className="profile-description text-left">
                     Someone asking about a tool? Check here to see if you borrowed it.
                   </p>

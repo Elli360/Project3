@@ -47,7 +47,7 @@ import LoanedToolsByCategory from "components/LoanedToolsByCategory";
 import UpdateTool from 'components/AddToolBtnHome';
 //import TestNavbar from "components/TestNavbar";
 import UpdateCard from "components/ToolCard/UpdateCard";
-
+import Spacer from "components/Spacer";
 const carouselItems = [
   {
     src: require("assets/img/hands-grabbing-tools.jpg").default,
@@ -115,6 +115,15 @@ export default function Loaned() {
             src={require("assets/img/path4.png").default}
           />
           <div className="section">
+          <Container>
+              <Row>
+                {/* <Button
+                  href="/#slidingDrawer"
+
+                >MENU</Button> */}
+                <Spacer/>
+              </Row>
+            </Container>
             {/* Placehoder */}
           {/* <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container> */}
             <Container>
@@ -125,8 +134,9 @@ export default function Loaned() {
                   </Row>
                 </Col>
                 <Col md="5">
-                  <h1 className="profile-title text-left">Tools</h1>
+                  {/* <h1 className="profile-title text-left">Tools</h1> */}
                   <h5 className="text-on-back">Loaned</h5>
+                  <h1 className="profile-title text-left">Tools</h1>
                   <p className="profile-description text-left">
                     Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
                 </p>
