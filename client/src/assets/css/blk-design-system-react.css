@@ -2882,7 +2882,7 @@ input[type="button"].btn-block {
   margin-left: -1px; }
 
 .input-group-text {
-  display: flex;
+   display: flex; 
   align-items: center;
   padding: 0.5rem 0.7rem;
   margin-bottom: 0;
@@ -2890,6 +2890,7 @@ input[type="button"].btn-block {
   font-weight: 400;
   line-height: 1.42857;
   color: #adb5bd;
+  color:yellowgreen !important;
   text-align: center;
   white-space: nowrap;
   background-color: transparent;
@@ -16720,3 +16721,7 @@ td.rdtYear:hover {
 #toolshed {
   opacity:0.1 !important;
 } 
+
+.input-group-text {
+  color:yellowgreen !important;
+}

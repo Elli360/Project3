@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import {
     Button,
     Modal,
@@ -11,7 +11,7 @@ import {
     UncontrolledTooltip,
 } from "reactstrap";
 
-import { useState } from "react";
+import  "./style.css";
 
 export default function SearchBtnHome() {
     const [formModalSearch, setFormModalSearch] = React.useState(false);
@@ -37,7 +37,7 @@ export default function SearchBtnHome() {
                 <i className="tim-icons icon-zoom-split" />
             </Button>
             <UncontrolledTooltip placement="right" target="tooltip121">
-                Add to the ToolShed
+                Dig through the ToolShed
             </UncontrolledTooltip>
 
             {/* Start Search Form Modal */}
@@ -65,7 +65,7 @@ export default function SearchBtnHome() {
                         <FormGroup className="mb-3">
                             <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
+                                    <InputGroupText classname="form-addon">
                                         Name:
                                     </InputGroupText>
                                 </InputGroupAddon>

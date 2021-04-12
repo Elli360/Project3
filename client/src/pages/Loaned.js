@@ -62,9 +62,11 @@ let ps = null;
 export default function Loaned() {
    const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
    const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+
+   //display Loaned Tools by category
   let handleClick = () => {
     setDisplayLoanedByCategory(true);
-    //  }
+   
   };
   let close = () => {
     setDisplayLoanedByCategory(false);
@@ -75,7 +77,7 @@ export default function Loaned() {
       let handleHover2=()=>{
         setToolshedImgOpacity(0.2);
           }
-
+//for the search modal(on the search button) that is not connected to db yet
   const [formModal, setFormModal] = React.useState(false);
   const [tabs, setTabs] = React.useState(1);
   React.useEffect(() => {
@@ -88,6 +90,7 @@ export default function Loaned() {
       }
     }
   }, []);
+
   const [tools, setTools] = useState([]);
 
 
@@ -319,7 +322,7 @@ export default function Loaned() {
                             <div className="text-center text-muted mb-4 mt-3">
                               <small>Describe what you are looking for in this directory</small>
                             </div>
-                            <Form role="addForm">
+                            <Form role="searchForm">
                               <FormGroup className="mb-3">
                                 <InputGroup>
                                   <InputGroupAddon addonType="prepend">

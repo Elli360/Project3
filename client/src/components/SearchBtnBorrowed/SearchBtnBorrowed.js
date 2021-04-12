@@ -45,7 +45,7 @@ export default function SearchBtnBorrowed() {
                     <div className="text-center text-muted mb-4 mt-3">
                         <small>Describe what you are looking for in this directory</small>
                     </div>
-                    <Form role="addForm">
+                    <Form role="searchForm">
                         <FormGroup className="mb-3">
                             <InputGroup>
                                 <InputGroupAddon addonType="prepend">

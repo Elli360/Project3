@@ -21,7 +21,7 @@ function ToolCard ({categories}) {
 
                 <div>
                  
-                 <h2>Hello world !</h2>
+                 <h2>Ok !</h2>
                   
 
                    {categories.length ? (
@@ -56,7 +56,7 @@ function ToolCard ({categories}) {
                 )}
               </ul>
             ) : (
-              <h3>No books were found.</h3>
+              <h3>None were found.</h3>
             )}
               
                 </div>
