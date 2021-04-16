@@ -343,10 +343,12 @@ textarea.form-control{
 }
 
 .input-group-text {
-    color:yellowgreen !important;
+    // color:yellow !important;
     //  margin-bottom: -5px !important;
+    text-emphasis: none;
   }
 
-  .form-control {
-      color:yellow !important;
-  }
+   .form-control {
+//       color:purple !important;
+   margin-bottom: 5px !important;
+   }

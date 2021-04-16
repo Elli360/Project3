@@ -2890,7 +2890,6 @@ input[type="button"].btn-block {
   font-weight: 400;
   line-height: 1.42857;
   color: #adb5bd;
-  color:yellowgreen !important;
   text-align: center;
   white-space: nowrap;
   background-color: transparent;
@@ -16722,4 +16721,9 @@ td.rdtYear:hover {
   opacity:0.1 !important;
 } 
 
-
+/* input-group-text{
+  font-size:1rem;
+} */
+/* .form-control {
+     margin-bottom: 5px !important;
+     } */

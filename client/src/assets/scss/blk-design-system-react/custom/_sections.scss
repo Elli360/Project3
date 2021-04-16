@@ -1004,7 +1004,7 @@
     font-weight: 600;
     line-height: 10px;
     display: inline-block;
-    float: left;
+    // float:left;
     margin: 5px 10px 0 0;
     padding: 2px 4px;
     letter-spacing: .05em;
@@ -1026,10 +1026,17 @@
 }
 
 
-.form-control {
-    color:yellow !important;
-}
 
+.input-group-text {
+    color:yellow !important;
+    //  margin-bottom: -5px !important;
+  }
+  
+//controls .form-control
+  .form-control {
+    color:rgb(65, 204, 247) !important;
+    margin-bottom: 5px !important;
+}
 
 //
 @import 'sections/_headers';
