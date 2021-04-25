@@ -17,7 +17,8 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.2.0";
@@ -50,7 +51,7 @@ const oktaAuth = new OktaAuth({
 
 ReactDOM.render(
   
-  <BrowserRouter>
+   <Router>
   <Security oktaAuth={oktaAuth}>
   
 
@@ -90,7 +91,7 @@ ReactDOM.render(
     </Security>
     
 
-  </BrowserRouter>,
+  </Router>,
 
   document.getElementById("root")
 );
