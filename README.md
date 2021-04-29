@@ -53,7 +53,7 @@ Use this app to organize, lend tools and more...
 
 ## Screenshots
 ![](client/src/assets/img/toolshed screenshot.png)
-
+<img src="./client/src/assets/img/toolshed screenshot.png" />
 
 
 ## Contributors
