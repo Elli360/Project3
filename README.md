@@ -52,7 +52,7 @@ USE toolshed;
 Use this app to organize, lend tools and more...
 
 ## Screenshots
-![](./client/src/assets/img/toolshed screenshot.png)
+![](client/src/assets/img/toolshed screenshot.png)
 
 
 
