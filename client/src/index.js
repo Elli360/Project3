@@ -17,7 +17,7 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
 // import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import "assets/css/nucleo-icons.css";
@@ -32,7 +32,7 @@ import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
 
 //IMPORT AUTHENTICATION
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import AdminLogin from "pages/AdminLogin"
 
@@ -49,49 +49,72 @@ const oktaAuth = new OktaAuth({
 
 
 
-ReactDOM.render(
+// ReactDOM.render(
   
-   <Router>
-  <Security oktaAuth={oktaAuth}>
-  
-
-    <Switch>
-    <Route path="/callback" component={LoginCallback}/>
-      <Route path="/components" render={(props) => <Index {...props} />} />
-
-      <Route
-        path="/login"
-        render={(props) => <AdminLogin {...props} />}
-      />
-
-      <Route
-        path="/home"
-        render={(props) => <Home {...props} />}
-      />
+//    <Router>
+//   <Security oktaAuth={oktaAuth}>
   
 
-      <Route
-        path="/register-page"
-        render={(props) => <RegisterPage {...props} />}
-      />
-      <Route
-        path="/loaned"
-        render={(props) => <Loaned {...props} />}
-      />
+//     <Switch>
+//     <Route path="/callback" component={LoginCallback}/>
+//       <Route path="/components" render={(props) => <Index {...props} />} />
+
+//       <SecureRoute
+//         path="/login"
+//         render={(props) => <AdminLogin {...props} />}
+//       />
+
+//       <SecureRoute
+//         path="/home"
+//         render={(props) => <Home {...props} />}
+//       />
+  
+
+//       <SecureRoute
+//         path="/register-page"
+//         render={(props) => <RegisterPage {...props} />}
+//       />
+//       <SecureRoute
+//         path="/loaned"
+//         render={(props) => <Loaned {...props} />}
+//       />
       
-      <Route
-        path="/borrowed"
-        render={(props) => <Borrowed {...props} />}
-      />
+//       <SecureRoute
+//         path="/borrowed"
+//         render={(props) => <Borrowed {...props} />}
+//       />
      
 
-      <Redirect from="/" to="/home" />
+//       <Redirect from="/" to="/home" />
 
-    </Switch>
-    </Security>
+//     </Switch>
+//     </Security>
     
 
-  </Router>,
+//   </Router>,
 
-  document.getElementById("root")
+//   document.getElementById("root")
+// );
+
+const App = () => {
+  const history = useHistory();
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri, window.location.origin));
+  };
+
+  return (
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+      <Route path='/' exact={true} component={Home} />
+      <SecureRoute path='/Loaned' component={Loaned} />
+      <Route path='/login/callback' component={LoginCallback} />
+    </Security>
+  );
+};
+
+const AppWithRouterAccess = () => (
+  <Router>
+    <App />
+  </Router>
 );
+
+export default AppWithRouterAccesss;
