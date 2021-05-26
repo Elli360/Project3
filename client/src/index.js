@@ -37,8 +37,8 @@ import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import AdminLogin from "pages/AdminLogin"
 
 const oktaAuth = new OktaAuth({
-  issuer: 'https://dev-6188860.okta.com/oauth2/default',
-  clientId: '0oa3yqzblodYlFC705d6',
+  issuer: process.env.REACT_APP_OKTA_ISSUER,
+  clientId: process.env.REACT_APP_OKTA_CLIENT_ID,
   redirectUri: window.location.origin + '/callback'
 });
 //TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
