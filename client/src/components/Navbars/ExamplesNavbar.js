@@ -17,6 +17,7 @@
 */
 import React from "react";
 import { Link } from "react-router-dom";
+import { useOktaAuth } from '@okta/okta-react';
 // reactstrap components
 import {
   Button,
@@ -65,6 +66,22 @@ export default function ExamplesNavbar() {
   const onCollapseExited = () => {
     setCollapseOut("");
   };
+
+  //const and if-elseif statement are test for okta
+  // const { authState, oktaAuth } = useOktaAuth();
+  // const login = () => oktaAuth.signInWithRedirect({originalUri: '/home'});
+  // if( !authState ) {
+  //   return (
+  //     <div>Loading authentication...</div>
+  //   );
+  // } else if( !authState.isAuthenticated ) {
+  //   return (
+  //     <div>
+  //       <a onClick={login}>Login</a>
+  //     </div>
+  //   );
+  // }
+
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
       <Container>

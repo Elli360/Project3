@@ -17,8 +17,8 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
-// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import { HashRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
 
 import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.2.0";
@@ -33,88 +33,93 @@ import Borrowed from "pages/Borrowed.js";
 
 //IMPORT AUTHENTICATION
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
+import { LoginCallback, Security, ImplicitCallBack, SecureRoute } from '@okta/okta-react';
 import AdminLogin from "pages/AdminLogin"
 
 const oktaAuth = new OktaAuth({
-  issuer: process.env.REACT_APP_OKTA_ISSUER,
-  clientId: process.env.REACT_APP_OKTA_CLIENT_ID,
-  redirectUri: window.location.origin + '/callback'
+  // issuer: process.env.REACT_APP_OKTA_ISSUER,
+  // clientId: process.env.REACT_APP_OKTA_CLIENT_ID,
+  issuer: 'https://dev-11624122.okta.com/oauth2/',
+  clientId: '0oa16k2i3m8hQDTpK5d7',
+  // redirectUri: window.location.origin + '/login/callback'
+  redirectUri: window.location
+  // redirectUri: 'http://localhost:3000/',
 });
+
+// const oktaAuth = new OktaAuth({
+//   issuer: 'https://dev-6188860.okta.com/oauth2/default',
+//   clientId: '0oa3yqzblodYlFC705d6',
+//   // redirectUri: window.location.origin + '/callback'
+//   redirectUri: window.location.origin +'/callback/home'
+// });
 //TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
 //ITEMS SHOULD USE THE <SecureRoute/>
 
 //CHECK USER
-
-
-
-
-// ReactDOM.render(
-  
-//    <Router>
-//   <Security oktaAuth={oktaAuth}>
-  
-
-//     <Switch>
-//     <Route path="/callback" component={LoginCallback}/>
-//       <Route path="/components" render={(props) => <Index {...props} />} />
-
-//       <SecureRoute
-//         path="/login"
-//         render={(props) => <AdminLogin {...props} />}
-//       />
-
-//       <SecureRoute
-//         path="/home"
-//         render={(props) => <Home {...props} />}
-//       />
-  
-
-//       <SecureRoute
-//         path="/register-page"
-//         render={(props) => <RegisterPage {...props} />}
-//       />
-//       <SecureRoute
-//         path="/loaned"
-//         render={(props) => <Loaned {...props} />}
-//       />
-      
-//       <SecureRoute
-//         path="/borrowed"
-//         render={(props) => <Borrowed {...props} />}
-//       />
-     
-
-//       <Redirect from="/" to="/home" />
-
-//     </Switch>
-//     </Security>
-    
-
-//   </Router>,
-
-//   document.getElementById("root")
-// );
-
-const App = () => {
-  const history = useHistory();
-  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    history.replace(toRelativeUrl(originalUri, window.location.origin));
-  };
-
-  return (
-    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-      <Route path='/' exact={true} component={Home} />
-      <SecureRoute path='/Loaned' component={Loaned} />
-      <Route path='/login/callback' component={LoginCallback} />
-    </Security>
-  );
+const history = useHistory();
+const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+  history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
 };
 
-const AppWithRouterAccess = () => (
-  <Router>
-    <App />
-  </Router>
+
+
+ReactDOM.render(
+  
+   <Router>
+  {/* <Security oktaAuth={oktaAuth}> */}
+  
+  <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+    <Switch>
+    <Route
+        path="/home"
+        exact={true}
+        render={(props) => <Home {...props} />}
+      />
+  
+   
+      <Route 
+        path="/loaned"
+        exact={true}
+        render={(props) => <Loaned {...props} />}
+      />
+      
+      <Route 
+        path="/borrowed"
+        exact={true}
+        render={(props) => <Borrowed {...props} />}
+      />
+     
+     <Redirect from="/" to="/home" />
+
+    </Switch>
+    </Security>
+    
+
+  </Router>,
+
+  document.getElementById("root")
 );
 
-export default AppWithRouterAccesss;
+// const App = () => {
+//   const history = useHistory();
+//   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+//     history.replace(toRelativeUrl(originalUri, window.location.origin));
+//   };
+
+//   return (
+//     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+//       <Route path='/' exact={true} component={Home} />
+//      <SecureRoute path='/Loaned' component={Loaned} />
+//       <Route path='/login/callback' component={LoginCallback} />
+//     </Security>
+//   );
+// };
+
+// const AppWithRouterAccess = () => (
+//   <Router>
+//     <App />
+//   </Router>
+// );
+
+// export default AppWithRouterAccess;
+
