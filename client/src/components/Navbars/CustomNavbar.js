@@ -1,7 +1,8 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useOktaAuth } from '@okta/okta-react';
+
 // reactstrap components
 import {
   Button,
@@ -18,6 +19,12 @@ import {
 } from "reactstrap";
 
 export default function CustomNavbar() {
+  //for okta
+  const history = useHistory();
+  const { authState, oktaAuth } = useOktaAuth();
+  const login = async () => history.push('/login');
+  const logout = async () => oktaAuth.signOut();
+  //end
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
   const [color, setColor] = React.useState("navbar-transparent");
@@ -73,7 +80,7 @@ export default function CustomNavbar() {
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
 
-            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default}  width = "200" length="300"/>
+            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default} width="200" length="300" />
 
 
           </NavbarBrand>
@@ -186,6 +193,16 @@ export default function CustomNavbar() {
               </NavLink>
             </NavItem>
 
+            {/* Okta */}
+            {authState.isAuthenticated && (
+              <NavItem id="profile-button">
+                <Link to="/profile">Profile</Link>
+              </NavItem>
+            )}
+            {authState.isAuthenticated && <NavItem id="logout-button" onClick={logout}>Logout</NavItem>}
+            {!authState.isPending && !authState.isAuthenticated && <NavItem onClick={login}>Login</NavItem>}
+            {/* Okta end */}
+            
             {/* <NavItem>
               <Button
                 className="nav-link d-none d-lg-block"

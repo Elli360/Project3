@@ -6,18 +6,20 @@ import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.2.0";
 import "assets/demo/demo.css";
 
-import Index from "views/Index.js";
+// import Index from "views/Index.js";
 
 import Home from "pages/Home.js";
-import RegisterPage from "views/examples/RegisterPage.js";
+// import RegisterPage from "views/examples/RegisterPage.js";
 import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
-import Login from "pages/Login.js";
+// import Login from "pages/Login.js";
+import CustomLoginComponent from './Login';
 
 //IMPORT AUTHENTICATION
-// import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import  { SecureRoute, Security, LoginCallback} from '@okta/okta-react';
-import AdminLogin from "pages/AdminLogin"
+import { OktaAuth } from '@okta/okta-auth-js';
+import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import config from './config';
+// import AdminLogin from "pages/AdminLogin"
 
 // const oktaAuth = new OktaAuth({
 //   // issuer: process.env.REACT_APP_OKTA_ISSUER,
@@ -43,37 +45,43 @@ import AdminLogin from "pages/AdminLogin"
 // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
 //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
 // };
-function onAuthRequired({history}){
-    history.push('/login')
-}
+const oktaAuth = new OktaAuth(config.oidc);
 
 function App() {
-    //     const history = useHistory();
+  
     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     // };
+    const history = useHistory();
+const onAuthRequired= () => {
+    // Redirect to the /login page that has a CustomLoginComponent
+    history.push('/login');
+  };
     return (
         <Router>
             <Security
-                issuer='https://dev-11624122.okta.com/oauth2/default'
-                client_id='0oa16k2i3m8hQDTpK5d7'
-                redirec_uri={window.location.origin + '/implicit/callback'}
+                // issuer='https://dev-11624122.okta.com/oauth2/default'
+                // client_id='0oa16k2i3m8hQDTpK5d7'
+                // redirec_uri={window.location.origin + '/implicit/callback'}
                 onAuthRequired={onAuthRequired}
+                oktaAuth={oktaAuth}
             >
 
                 {/* <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}> */}
                 <Switch>
-                    <Route 
+                    {/* <Route 
                     path='/login'
                     render={() => <Login baseUrl='https://dev-11624122.okta.com'/>}
-                    />
-                    <Route 
+                    /> */}
+                    {/* <Route 
                     path='implicit/callback'
                     component={LoginCallback}
-                    />
-                    
+                    /> */}
+                    <Route path="/login/callback" component={LoginCallback} />
+                    <Route path="/login" component={CustomLoginComponent} />
+
                     <Route
-                        path="/home"
+                        path="/"
                         exact={true}
                         render={(props) => <Home {...props} />}
                     />
@@ -91,7 +99,7 @@ function App() {
                         render={(props) => <Borrowed {...props} />}
                     />
 
-                    <Redirect from="/" to="/home" />
+                    {/* <Redirect from="/" to="/home" /> */}
 
                 </Switch>
             </Security>

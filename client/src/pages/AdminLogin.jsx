@@ -3,21 +3,7 @@ import { withOktaAuth } from '@okta/okta-react';
 
 // reactstrap components
 import {
-  // Button,
-  // Card,
-  // CardHeader,
-  // CardBody,
-  // CardFooter,
-  // CardImg,
-  // CardTitle,
-  // Label,
-  // FormGroup,
-  // Form,
-  // Input,
-  // InputGroupAddon,
-  // InputGroupText,
-  // InputGroup,
-  // Container,
+
   Row,
   Col,
 } from "reactstrap";
