@@ -13,7 +13,8 @@ import Home from "pages/Home.js";
 import Loaned from "pages/Loaned.js";
 import Borrowed from "pages/Borrowed.js";
 // import Login from "pages/Login.js";
-import CustomLoginComponent from './Login';
+import CustomLoginComponent from './Login.jsx';
+import Welcome from "pages/Welcome.js";
 
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -48,17 +49,18 @@ import config from './config';
 const oktaAuth = new OktaAuth(config.oidc);
 
 function App() {
-  
+
     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     // };
     const history = useHistory();
-const onAuthRequired= () => {
-    // Redirect to the /login page that has a CustomLoginComponent
-    history.push('/login');
-  };
+    const onAuthRequired = () => {
+
+        // Redirect to the /login page that has a CustomLoginComponent
+        history.push('/login');
+    };
     return (
-        <Router>
+        //moving Router to index.js cleared logout and history.push issue
             <Security
                 // issuer='https://dev-11624122.okta.com/oauth2/default'
                 // client_id='0oa16k2i3m8hQDTpK5d7'
@@ -77,25 +79,27 @@ const onAuthRequired= () => {
                     path='implicit/callback'
                     component={LoginCallback}
                     /> */}
+                    <Route path="/" exact component={Welcome} />
                     <Route path="/login/callback" component={LoginCallback} />
+
                     <Route path="/login" component={CustomLoginComponent} />
 
-                    <Route
-                        path="/"
-                        exact={true}
+                    <SecureRoute
+                        path="/home"
+                        exact={false}
                         render={(props) => <Home {...props} />}
                     />
 
 
-                    <Route
+                    <SecureRoute
                         path="/loaned"
-                        exact={true}
+                        exact={false}
                         render={(props) => <Loaned {...props} />}
                     />
 
                     <SecureRoute
                         path="/borrowed"
-                        exact={true}
+                        exact={false}
                         render={(props) => <Borrowed {...props} />}
                     />
 
@@ -105,7 +109,7 @@ const onAuthRequired= () => {
             </Security>
 
 
-        </Router>
+       
     )
 }
 
