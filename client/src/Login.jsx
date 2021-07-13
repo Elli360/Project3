@@ -67,10 +67,15 @@ const Login = () => {
 
   return (
     <div>
+      <div>
       <div style={{color:"pink",fontSize:"25px", fonttWeight:"bold", textDecoration:"underline"}} >Choices:</div>
-      <div style={{color:"yellow",fontSize:"25Px"}} >A. CREATE a NEW user, B. USE an already created user email and password, or C. USE this predefined Login:</div>
-      <div style={{color:"white",fontSize:"25px"}} >email: Shalom.Dawit@gmail.com // password: Password1</div>
-      <div ref={widgetRef} />
+      <div style={{color:"white",fontSize:"20Px"}} >CREATE a NEW user(link at the bottom) or USE an already created account.</div>
+      <div style={{color:"white",fontSize:"20px"}} >User Credentials----EMAIL:<span style={{color:"yellow"}}>Shalom.Dawit@gmail.com</span>----PASSWORD: <span style={{color:"yellow"}}>TestPassword1</span></div>
+      </div>
+{/* add image background */}
+      <div> 
+        <div ref={widgetRef} />
+      </div>
     </div>
   );
 };
