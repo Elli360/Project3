@@ -1,7 +1,13 @@
-const CLIENT_ID = process.env.CLIENT_ID || '0oa16k2i3m8hQDTpK5d7';
-const ISSUER = process.env.ISSUER || 'https://dev-11624122.okta.com/oauth2/default';
+// const CLIENT_ID = process.env.CLIENT_ID || '0oa16k2i3m8hQDTpK5d7';
+// const ISSUER = process.env.ISSUER || 'https://dev-11624122.okta.com/oauth2/default';
+// require("dotenv").config();
+const ISSUER= process.env.ISSUER;
+const CLIENT_ID = process.env.CLIENT_ID;
+//  const ISSUER = `https://${process.env.ISSUER}/oauth2/default`;
 const OKTA_TESTING_DISABLEHTTPSCHECK = process.env.OKTA_TESTING_DISABLEHTTPSCHECK || false;
 const REDIRECT_URI = `${window.location.origin}/login/callback`;
+
+
 
 const config = {
     oidc: {

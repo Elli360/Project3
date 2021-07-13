@@ -15,17 +15,40 @@ import Welcome from "pages/Welcome.js";
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
-import config from './config';
+// import config from './config';
 // import AdminLogin from "pages/AdminLogin"
-
-
+// require("dotenv")
 //TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
 //ITEMS SHOULD USE THE <SecureRoute/>
 
+const ISSUER= process.env.REACT_APP_ISSUER 
+const CLIENT_ID =process.env.REACT_APP_CLIENT_ID 
+const REDIRECT_URI = `${window.location.origin}/login/callback`;
+const OKTA_TESTING_DISABLEHTTPSCHECK = process.env.OKTA_TESTING_DISABLEHTTPSCHECK || false;
+let USE_INTERACTION_CODE = false;
+// if (process.env.REACT_APP_USE_INTERACTION_CODE === 'true') {
+//   USE_INTERACTION_CODE = true;
+// }
+
+const config= {
+    oidc: {
+        clientId: CLIENT_ID,
+        issuer: ISSUER,
+        redirectUri: REDIRECT_URI,
+        scopes: ['openid', 'profile', 'email'],
+        pkce: true,
+        disableHttpsCheck: OKTA_TESTING_DISABLEHTTPSCHECK,
+        useInteractionCode: USE_INTERACTION_CODE,
+      }
+  };
+  
+
+//   const oktaAuth = new OktaAuth(config);
 const oktaAuth = new OktaAuth(config.oidc);
 
 function App() {
-
+    // require("dotenv");
+    // require("dotenv").config();
     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     // };
@@ -43,8 +66,8 @@ function App() {
             >
 
                 <Switch>
-          
-                    <Route path="/" exact component={Welcome} />
+                {/* <Route path="/" exact component={Welcome} /> */}
+        <Route path="/" exact component={Welcome} >{console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)}</Route>
                     <Route path="/login/callback" component={LoginCallback} />
                     <Route path="/login" component={CustomLoginComponent} />
                     <SecureRoute
@@ -72,4 +95,5 @@ function App() {
     )
 }
 
-export default App
+export { App, config}
+//export default App
