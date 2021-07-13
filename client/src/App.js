@@ -46,7 +46,9 @@ function App() {
 
                 <Switch>
                 {/* <Route path="/" exact component={Welcome} /> */}
-        <Route path="/" exact component={Welcome} >{console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)} </Route>
+        <Route path="/" exact component={Welcome} >
+            {/* {console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)}  */}
+            </Route>
                     <Route path="/login/callback" component={LoginCallback} />
                     <Route path="/login" component={CustomLoginComponent} />
                     <SecureRoute
