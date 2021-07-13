@@ -14,8 +14,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import * as OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
-// import config from './config';
-import {config} from './App';
+import config from './config';
+// import {config} from './App';
 
 const Login = () => {
   const { oktaAuth } = useOktaAuth();
@@ -48,6 +48,7 @@ const Login = () => {
         scopes,
       },
       useInteractionCodeFlow: false, // Set to true, if your org is OIE enabled
+      features: { registration:true },//self-service registration on widget
     });
 
     widget.renderEl(
@@ -66,6 +67,9 @@ const Login = () => {
 
   return (
     <div>
+      <div style={{color:"pink",fontSize:"25px", fonttWeight:"bold", textDecoration:"underline"}} >Choices:</div>
+      <div style={{color:"yellow",fontSize:"25Px"}} >A. CREATE a NEW user, B. USE an already created user email and password, or C. USE this predefined Login:</div>
+      <div style={{color:"white",fontSize:"25px"}} >email: Shalom.Dawit@gmail.com // password: Password1</div>
       <div ref={widgetRef} />
     </div>
   );
