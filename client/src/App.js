@@ -18,8 +18,8 @@ import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import config from './config';
 // import AdminLogin from "pages/AdminLogin"
 // require("dotenv")
-//TO UTILIZE IN PRODUCTION --> ANYTHING WRAPPED IN  <Security oktaAuth={oktaAuth}> </Security>
-//ITEMS SHOULD USE THE <SecureRoute/>
+//TO UTILIZE IN PRODUCTION --> 1)Remember to change redirect settings on okta.com when deploying. 
+// 2)HashRouter only works in deployed environment.Change to BrowserRouter in development environment. 
 
 
 //   const oktaAuth = new OktaAuth(config);
@@ -46,7 +46,7 @@ function App() {
 
                 <Switch>
                 {/* <Route path="/" exact component={Welcome} /> */}
-        <Route path="/" exact component={Welcome} >{console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)}</Route>
+        <Route path="/" exact component={Welcome} >{console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)} </Route>
                     <Route path="/login/callback" component={LoginCallback} />
                     <Route path="/login" component={CustomLoginComponent} />
                     <SecureRoute
