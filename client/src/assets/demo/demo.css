@@ -543,6 +543,9 @@ top: -50px;
   max-height: 75px;
 }
 
-.welcome{
- 
+.welcome_image {
+ background-repeat:repeat;
+ background-size:auto 15vw;
+ height:15vw;
+ opacity: 1;
 }
