@@ -549,3 +549,10 @@ top: -50px;
  height:15vw;
  opacity: 1;
 }
+.welcome_image:hover{
+opacity:0.6;
+}
+
+#welcome_text:hover{
+color: rgb(55, 55, 122);
+}

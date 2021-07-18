@@ -10,7 +10,7 @@ export default function Welcome() {
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div style={{ "text-decoration": "underline", "font-size": "10vw" }}>
+                <div id="welcome_text" style={{ "text-decoration": "underline", "font-size": "10vw" }}>
                     Welcome!
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
