@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const path = require('path');
 const app = express();
 
 //ADD DB MODEL
@@ -29,14 +29,14 @@ require("./routes/toolshed-api.js")(app);
 
 //CONFIGURE FOR HEROKU DEPLoYMENT
 
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static('client/build'));
 // Handle React routing, return all requests to React app
   app.get('/', function(req, res) {
     res.sendFile('client/build', 'index.html');
   });
-}
+// }
 
 
 // set port, listen for requests

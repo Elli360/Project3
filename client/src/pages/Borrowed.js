@@ -1,20 +1,4 @@
-/*!
 
-=========================================================
-* BLK Design System React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
@@ -38,7 +22,7 @@ import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed
 import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
-import ExamplesNavbar from "../components/Navbars/ExamplesNavbar.js";
+import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
 const carouselItems = [
   {
@@ -65,7 +49,7 @@ export default function Borrowed() {
   }, []);
   return (
     <>
-      <ExamplesNavbar />
+      <CustomNavbar />
       <div className="wrapper">
         <div className="page-header">
           <img

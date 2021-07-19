@@ -41,7 +41,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import CustomNavbar from "components/Navbars/CustomNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import LoanedToolsByCategory from "components/LoanedToolsByCategory";
 import UpdateTool from 'components/AddToolBtnHome';
@@ -103,7 +103,7 @@ export default function Loaned() {
   }, [])
   return (
     <>
-      <ExamplesNavbar />
+      <CustomNavbar />
       <Router>
       <div className="wrapper">
         <div className="page-header">

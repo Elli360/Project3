@@ -34,6 +34,7 @@
   "dependencies": {
     "@okta/okta-auth-js": "^4.6.1",
     "@okta/okta-react": "^4.1.0",
+    "@okta/okta-signin-widget": "^5.8.2",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.2.2",
@@ -41,6 +42,7 @@
     "bootstrap": "^4.5.3",
     "chart.js": "2.9.4",
     "classnames": "2.2.6",
+    "dotenv": "^8.2.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "moment": "2.29.1",

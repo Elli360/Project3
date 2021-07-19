@@ -1,22 +1,8 @@
-/*!
 
-=========================================================
-* BLK Design System React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { useOktaAuth } from '@okta/okta-react';
+
 // reactstrap components
 import {
   Button,
@@ -32,7 +18,13 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-export default function ExamplesNavbar() {
+export default function CustomNavbar() {
+  //for okta
+  const history = useHistory();
+  const { authState, oktaAuth } = useOktaAuth();
+  const login = async () => history.push('/login');
+  const logout = async () => oktaAuth.signOut();
+  //end
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
   const [color, setColor] = React.useState("navbar-transparent");
@@ -65,6 +57,22 @@ export default function ExamplesNavbar() {
   const onCollapseExited = () => {
     setCollapseOut("");
   };
+
+  //const and if-elseif statement are test for okta
+  // const { authState, oktaAuth } = useOktaAuth();
+  // const login = () => oktaAuth.signInWithRedirect({originalUri: '/home'});
+  // if( !authState ) {
+  //   return (
+  //     <div>Loading authentication...</div>
+  //   );
+  // } else if( !authState.isAuthenticated ) {
+  //   return (
+  //     <div>
+  //       <a onClick={login}>Login</a>
+  //     </div>
+  //   );
+  // }
+
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
       <Container>
@@ -72,7 +80,7 @@ export default function ExamplesNavbar() {
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
 
-            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default}  width = "200" length="300"/>
+            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default} width="200" length="300" />
 
 
           </NavbarBrand>
@@ -185,6 +193,16 @@ export default function ExamplesNavbar() {
               </NavLink>
             </NavItem>
 
+            {/* Okta */}
+            {authState.isAuthenticated && (
+              <NavItem id="profile-button">
+                <Link to="/profile">Profile</Link>
+              </NavItem>
+            )}
+            {authState.isAuthenticated && <NavItem id="logout-button" onClick={logout}>Logout</NavItem>}
+            {!authState.isPending && !authState.isAuthenticated && <NavItem onClick={login}>Login</NavItem>}
+            {/* Okta end */}
+            
             {/* <NavItem>
               <Button
                 className="nav-link d-none d-lg-block"
