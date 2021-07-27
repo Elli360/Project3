@@ -23,7 +23,13 @@ export default function CustomNavbar() {
 
 
   //for okta
-  const history = useHistory();
+  const history = useHistory({
+    // basename: "", // The base URL of the app (see below)
+    // forceRefresh: false, // Set true to force full page refreshes
+    // keyLength: 6, // The length of location.key
+    // // A function to use to confirm navigation with the user (see below)
+    // getUserConfirmation: (message, callback) => callback(window.confirm(message))
+});
   const { authState, oktaAuth } = useOktaAuth();
   const login = async () => history.push('/login');
   const logout = async () => oktaAuth.signOut();
@@ -188,8 +194,8 @@ export default function CustomNavbar() {
                 <Link to="/profile">Profile</Link>
               </NavItem>
             )}
-            {authState.isAuthenticated && <NavItem id="logout-button" onClick={logout}>Logout</NavItem>}
-            {!authState.isPending && !authState.isAuthenticated && <NavItem onClick={login}>Login</NavItem>}
+            {authState.isAuthenticated && <NavItem><Button id="logout-button" onClick={logout}>Logout</Button></NavItem>}
+            {!authState.isPending && !authState.isAuthenticated && <NavItem><Button onClick={login}>Login</Button></NavItem>}
             {/* Okta end */}
             
             {/* <NavItem>
