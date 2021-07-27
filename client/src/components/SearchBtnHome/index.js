@@ -65,7 +65,7 @@ export default function SearchBtnHome() {
                         <FormGroup className="mb-3">
                             <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                    <InputGroupText classname="form-addon">
+                                    <InputGroupText className="form-addon">
                                         Name:
                                     </InputGroupText>
                                 </InputGroupAddon>

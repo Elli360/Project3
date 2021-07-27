@@ -1,8 +1,8 @@
 
-// import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
 import { Line } from "react-chartjs-2";
-import classnames from "classnames";
+// import classnames from "classnames";
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -47,8 +47,9 @@ import Footer from "components/Footer/Footer.js";
 
 // // ====================== post import
 // import { Inputs, TextArea, FormBtn } from "../components/Form";
-import api from 'utils/api';
-import React, { useEffect, useState, useRef } from "react";
+
+// import api from 'utils/api';
+
 
 
 import DeleteCard from "components/ToolCard/DeleteCard.js";
@@ -74,54 +75,54 @@ export default function Home() {
   //  var displayAllByCategory=true;
   let [displayAllByCategory, setDisplayAllByCategory] = useState(false);
   let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+
   let handleClick = () => {
     setDisplayAllByCategory(true);
-    // window.location.replace("/#home/#toolsByCategory");
-    
     toolsByCategory.current.scrollIntoView({
       behavior: "smooth",
     });
-    //  }
+   
   };
+
   let close = () => {
     setDisplayAllByCategory(false);
   }
-//onHover of button, changes opacity of toolshed image (NOT WORKING)
-  let handleHover=()=>{
-setToolshedImgOpacity(1);
+  //onHover of button, changes opacity of toolshed image (NOT WORKING)
+  let handleHover = () => {
+    setToolshedImgOpacity(1);
   }
-  let handleHover2=()=>{
+  let handleHover2 = () => {
     setToolshedImgOpacity(0.2);
-      }
+  }
   //  handleClick();    
-  React.useEffect(() => {
+ useEffect(() => {
+    document.body.classList.toggle("landing-page");
+    // Specify how to clean up after this effect:
+    return function cleanup() {
       document.body.classList.toggle("landing-page");
-      // Specify how to clean up after this effect:
-      return function cleanup() {
-        document.body.classList.toggle("landing-page");
-      };
-    }, []);  
+    };
+  }, []);
 
   //==============================================
-  let [tools, setTools] = useState([]);
+  // let [tools, setTools] = useState([]);
 
 
-  function loadTools() {
-   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
-  };
+  // function loadTools() {
+  //   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+  // };
 
-  useEffect(() => {
-    loadTools()
-  }, [])
+  // useEffect(() => {
+  //   loadTools()
+  // }, [])
 
-  
+
 
 
   return (
     <>
-<CustomNavbar />
+      <CustomNavbar />
       <Router>
-      
+
         {/* <ExamplesNavbar /> */}
         <div className="wrapper">
           <div className="page-header">
@@ -168,11 +169,11 @@ setToolshedImgOpacity(1);
                     <p className="text-white mb-3">
                       Where you can add, edit and LOAN tools from your inventory.
                       Where you can search for NEW tools and borrow from other users' inventories!...
-      </p>
+                    </p>
                     <div className="btn-wrapper mb-3">
                       <p className="category text-success d-inline">
                         Open the door to your ToolShed
-        </p>
+                      </p>
 
 
                       <Button
@@ -180,8 +181,8 @@ setToolshedImgOpacity(1);
                         color="success"
                         onClick={handleClick}
                         // onHover={handleHover}
-                        onMouseOver={()=>handleHover} 
-                        onMouseOut={()=>handleHover2}
+                        onMouseOver={() => handleHover}
+                        onMouseOut={() => handleHover2}
 
                         size="sm"
                       >
@@ -223,7 +224,7 @@ setToolshedImgOpacity(1);
                     alt="toolshed"
                     className="img-fluid"
                     src={require("assets/img/shedpic.jpg").default}
-                    opacity= {toolshedImgOpacity}
+                    opacity={toolshedImgOpacity}
                   />
                 </Col>
               </Row>
@@ -241,24 +242,25 @@ setToolshedImgOpacity(1);
 </div>*/}
 
       <div>
-      <section className="section section-lg section-coins">
-        {/* ToolChest list section */}
-        {/* Pre-render alter
+        <section className="section section-lg section-coins">
+          {/* ToolChest list section */}
+          {/* Pre-render alter
         <Categories /> */}
-        {displayAllByCategory && <Button
-          className="button"
-          color="danger"
-          onClick={close}
-          size="lg"
-        >Close The Door
+          {displayAllByCategory && <Button
+            className="button"
+            color="danger"
+            onClick={close}
+            size="lg"
+          >Close The Door
           </Button>}
-          
-        {displayAllByCategory &&
-          <AllToolsByCategory />
-        }
-</section>
-<div ref={toolsByCategory}/>
-        <Footer/>
+
+          {displayAllByCategory &&
+            <AllToolsByCategory/>
+            // <AllToolsByCategory toolsByCategory={toolsByCategory}/>
+          }
+        </section>
+        <div ref={toolsByCategory} />
+        <Footer />
       </div>
 
     </>

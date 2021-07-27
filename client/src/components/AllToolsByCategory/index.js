@@ -38,15 +38,17 @@ import Hardware from "../Hardware"
 
 
 
-function AllToolsByCategory() {
+function AllToolsByCategory(props) {
     const location = useLocation();
 
     return(
        <>
+       {/* <div ref={props.toolsByCategory}/> */}
         <img
           alt="..."
           className="path"
           src={require("assets/img/path3.png").default}
+          
         />
                     
         <Container>
