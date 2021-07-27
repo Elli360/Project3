@@ -19,6 +19,9 @@ import {
 } from "reactstrap";
 
 export default function CustomNavbar() {
+
+
+
   //for okta
   const history = useHistory();
   const { authState, oktaAuth } = useOktaAuth();
@@ -58,20 +61,6 @@ export default function CustomNavbar() {
     setCollapseOut("");
   };
 
-  //const and if-elseif statement are test for okta
-  // const { authState, oktaAuth } = useOktaAuth();
-  // const login = () => oktaAuth.signInWithRedirect({originalUri: '/home'});
-  // if( !authState ) {
-  //   return (
-  //     <div>Loading authentication...</div>
-  //   );
-  // } else if( !authState.isAuthenticated ) {
-  //   return (
-  //     <div>
-  //       <a onClick={login}>Login</a>
-  //     </div>
-  //   );
-  // }
 
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">

@@ -14,15 +14,17 @@ export default function UpdateTool({tool, handleAvailChange}){
 
 return(
     <ListItem>
-    <a href={"/tools/" + tool.id}>
-      <strong>
+      {/* create modal(s) or page(s) for tool.id, then uncomment the anchor element */}
+    {/* <a href={"/tools/" + tool.id}> */}
+      <strong style={{color:"black"}}>
         Name: {tool.name}
       </strong>
-      <strong>
+      <strong style={{color:"purple"}}>
        | Available: {tool.available.toString()}
       </strong>
       
-    </a>
+    {/* </a> */}
+    
     {/* <input
     type='text'
     onChange={(e)=> {
