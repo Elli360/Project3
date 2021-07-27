@@ -1,9 +1,9 @@
 
-import api from 'utils/api';
-import React, { useEffect, useState } from "react";
+// import api from 'utils/api';
+import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import classnames from "classnames";
+// import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
@@ -25,10 +25,10 @@ import {
   Form,
   Input,
   // FormText,
-   NavItem,
+  NavItem,
   NavLink,
-   Nav,
-   Navbar,
+  Nav,
+  Navbar,
   // Table,
   // TabContent,
   // TabPane,
@@ -60,27 +60,35 @@ const carouselItems = [
 let ps = null;
 
 export default function Loaned() {
-   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
-   const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
-
-   //display Loaned Tools by category
+  const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
+  const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  const toolsByCategory = useRef();
+  const loanedUpdate = useRef();
+  //display Loaned Tools by category
   let handleClick = () => {
     setDisplayLoanedByCategory(true);
-   
+    toolsByCategory.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+  let handleClickAdd = () => {
+    loanedUpdate.current.scrollIntoView({
+      behavior: "smooth",
+    });
   };
   let close = () => {
     setDisplayLoanedByCategory(false);
   }
-  let handleHover=()=>{
+  let handleHover = () => {
     setToolshedImgOpacity(1);
-      }
-      let handleHover2=()=>{
-        setToolshedImgOpacity(0.2);
-          }
-//for the search modal(on the search button) that is not connected to db yet
+  }
+  let handleHover2 = () => {
+    setToolshedImgOpacity(0.2);
+  }
+  //for the search modal(on the search button) that is not connected to db yet
   const [formModal, setFormModal] = React.useState(false);
   const [tabs, setTabs] = React.useState(1);
-  React.useEffect(() => {
+  useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
       document.documentElement.classList.remove("perfect-scrollbar-off");
@@ -91,287 +99,288 @@ export default function Loaned() {
     }
   }, []);
 
-  const [tools, setTools] = useState([]);
+  // const [tools, setTools] = useState([]);
 
 
-  function loadTools() {
-   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
-  };
+  // function loadTools() {
+  //  api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
+  // };
 
-  useEffect(() => {
-    loadTools()
-  }, [])
+  // useEffect(() => {
+  //   loadTools()
+  // }, [])
   return (
     <>
       <CustomNavbar />
       <Router>
-      <div className="wrapper">
-        <div className="page-header">
-          <img
-            alt="..."
-            className="dots"
-            src={require("assets/img/dots.png").default}
-          />
-          <img
-            alt="..."
-            className="path"
-            src={require("assets/img/path4.png").default}
-          />
-          <div className="section">
-          <Container>
-              <Row>
-                {/* <Button
+        <div className="wrapper">
+          <div className="page-header">
+            <img
+              alt="..."
+              className="dots"
+              src={require("assets/img/dots.png").default}
+            />
+            <img
+              alt="..."
+              className="path"
+              src={require("assets/img/path4.png").default}
+            />
+            <div className="section">
+              <Container>
+                <Row>
+                  {/* <Button
                   href="/#slidingDrawer"
 
                 >MENU</Button> */}
-                <Spacer/>
-              </Row>
-            </Container>
-            {/* Placehoder */}
-          {/* <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container> */}
-            <Container>
-              <Row className="justify-content-between">
-                <Col md="6">
-                  <Row className="justify-content-between align-items-center">
-                    <UncontrolledCarousel items={carouselItems} />
-                  </Row>
-                </Col>
-                <Col md="5">
-                  {/* <h1 className="profile-title text-left">Tools</h1> */}
-                  <h5 className="text-on-back">Loaned</h5>
-                  <h1 className="profile-title text-left">Tools</h1>
-                  <p className="profile-description text-left">
-                    Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
-                </p>
-                  <div className="btn-wrapper pt-3">
-                    <div className="btn-wrapper">
-                      <div className="button-container">
-                      <Button
-                        className="btn-link"
-                        color="success"
-                        onClick={handleClick}
-                        // onHover={handleHover}
-                        onMouseOver={()=>handleHover} 
-                        onMouseOut={()=>handleHover2}
+                  <Spacer />
+                </Row>
+              </Container>
+              {/* Placehoder */}
+              {/* <Container><Row><Col>Move Image Down</Col></Row><Row><Col>Move Image Down</Col></Row></Container> */}
+              <Container>
+                <Row className="justify-content-between">
+                  <Col md="6">
+                    <Row className="justify-content-between align-items-center">
+                      <UncontrolledCarousel items={carouselItems} />
+                    </Row>
+                  </Col>
+                  <Col md="5">
+                    {/* <h1 className="profile-title text-left">Tools</h1> */}
+                    <h5 className="text-on-back">Loaned</h5>
+                    <h1 className="profile-title text-left">Tools</h1>
+                    <p className="profile-description text-left">
+                      Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
+                    </p>
+                    <div className="btn-wrapper pt-3">
+                      <div className="btn-wrapper">
+                        <div className="button-container">
+                          <Button
+                            className="btn-link"
+                            color="success"
+                            onClick={handleClick}
+                            // onHover={handleHover}
+                            onMouseOver={() => handleHover}
+                            onMouseOut={() => handleHover2}
 
-                        size="sm"
-                      >
-                        <i className="tim-icons icon-minimal-left" />   
-                       
-                      </Button>
-                      <p className="category text-success d-inline">
-                      View Loaned Tools
-        </p>
-        <div className="btn-wrapper">
-                    <div className="button-container">
-                        {/* <Button
+                            size="sm"
+                          >
+                            <i className="tim-icons icon-minimal-left" />
+
+                          </Button>
+                          <p className="category text-success d-inline">
+                            View Loaned Tools
+                          </p>
+                          <div className="btn-wrapper">
+                            <div className="button-container">
+                              {/* <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="success" id="tooltip20" onClick={() => setFormModal(true)}>
                           <i className="tim-icons icon-simple-add" />
                          
                         </Button> */}
-                       
-                          <Button 
-                          className="btn-icon btn-simple btn-round btn-neutral"
-                          color="success" id="tooltip20"
-                             tag={Link} to="/update">
-                            <i className="tim-icons icon-simple-add" />
-                          </Button>
-                   
-                        <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
-                          Add Loaned Tool from Tool Directory
-                        </UncontrolledTooltip>
-    
-                    
-                        <Button
-                          className="btn-icon btn-simple btn-round btn-neutral"
-                          color="success" id="tooltip21" onClick={() => setFormModal(true)}>
-                          <i className="tim-icons icon-zoom-split" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
-                          Search Loaned Tools
-                        </UncontrolledTooltip>
-                        {/* Start Search Form Modal */}
-                        <Modal
-                          modalClassName="modal-black"
-                          isOpen={formModal}
-                          toggle={() => setFormModal(false)}
-                        >
-                          <div className="modal-header justify-content-center">
-                            <button className="close" onClick={() => setFormModal(false)}>
-                              <i className="tim-icons icon-simple-remove text-white" />
-                            </button>
-                            <div className="text-muted text-center ml-auto mr-auto">
-                              <h3 className="mb-0">Search Your Loaned Tools</h3>
+
+                              <Button
+                                className="btn-icon btn-simple btn-round btn-neutral"
+                                color="success" id="tooltip20"
+                                tag={Link} to="/update"
+                                onClick={handleClickAdd}>
+                                <i className="tim-icons icon-simple-add" />
+                              </Button>
+
+                              <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
+                                Add Loaned Tool from Tool Directory
+                              </UncontrolledTooltip>
+
+
+                              <Button
+                                className="btn-icon btn-simple btn-round btn-neutral"
+                                color="success" id="tooltip21" onClick={() => setFormModal(true)}>
+                                <i className="tim-icons icon-zoom-split" />
+                              </Button>
+                              <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
+                                Search Loaned Tools
+                              </UncontrolledTooltip>
+                              {/* Start Search Form Modal */}
+                              <Modal
+                                modalClassName="modal-black"
+                                isOpen={formModal}
+                                toggle={() => setFormModal(false)}
+                              >
+                                <div className="modal-header justify-content-center">
+                                  <button className="close" onClick={() => setFormModal(false)}>
+                                    <i className="tim-icons icon-simple-remove text-white" />
+                                  </button>
+                                  <div className="text-muted text-center ml-auto mr-auto">
+                                    <h3 className="mb-0">Search Your Loaned Tools</h3>
+                                  </div>
+                                </div>
+                                <div className="modal-body">
+                                  <div className="btn-wrapper text-center">
+
+                                  </div>
+                                  <div className="text-center text-muted mb-4 mt-3">
+                                    <small>Describe what you are looking for in this directory</small>
+                                  </div>
+                                  <Form role="searchForm">
+                                    <FormGroup className="mb-3">
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Name:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="Tool Name"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Category:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="Tool Category"
+                                          type="text"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Description:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="Tool Description"
+                                          type="text"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Price:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="Tool Price"
+                                          type="text"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Loaned To:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="User Name"
+                                          type="text"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <InputGroup>
+                                        <InputGroupAddon addonType="prepend">
+                                          <InputGroupText>
+                                            Promise Date:
+                                          </InputGroupText>
+                                        </InputGroupAddon>
+                                        <Input
+                                          placeholder="Expected Return Date"
+                                          type="text"
+                                        />
+                                      </InputGroup>
+                                    </FormGroup>
+
+
+                                    <div className="text-center">
+                                      <Button className="my-4" color="primary" type="button">
+                                        Search TOOL
+                                      </Button>
+                                    </div>
+                                  </Form>
+                                </div>
+                              </Modal>
+                              {/* End Search Form Modal */}
                             </div>
+                            <Button
+                              className="btn-simple"
+                              color="info"
+                              href="#pablo"
+                              id="tooltip22"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              <i className="tim-icons icon-bulb-63" /> Search It!
+                            </Button>
+                            <UncontrolledTooltip delay={0} placement="bottom" target="tooltip22">
+                              Search Outside of Directory
+                            </UncontrolledTooltip>
                           </div>
-                          <div className="modal-body">
-                            <div className="btn-wrapper text-center">
-
-                            </div>
-                            <div className="text-center text-muted mb-4 mt-3">
-                              <small>Describe what you are looking for in this directory</small>
-                            </div>
-                            <Form role="searchForm">
-                              <FormGroup className="mb-3">
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Name:
-                                  </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Name"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Category:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Category"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Description:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Description"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Price:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Tool Price"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Loaned To:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="User Name"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <FormGroup>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      Promise Date:
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Expected Return Date"
-                                    type="text"
-                                  />
-                                </InputGroup>
-                              </FormGroup>
 
 
-                              <div className="text-center">
-                                <Button className="my-4" color="primary" type="button">
-                                  Search TOOL
-                                </Button>
-                              </div>
-                            </Form>
-                          </div>
-                        </Modal>
-                        {/* End Search Form Modal */}
+                        </div>
                       </div>
-                      <Button
-                        className="btn-simple"
-                        color="info"
-                        href="#pablo"
-                        id="tooltip22"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className="tim-icons icon-bulb-63" /> Search It!
-                  </Button>
-                      <UncontrolledTooltip delay={0} placement="bottom" target="tooltip22">
-                        Search Outside of Directory
-              </UncontrolledTooltip>
                     </div>
+                  </Col>
+                </Row>
 
+                <Row>
+                  <Col lg="6" md="6">
+                    <h2 className="profile-title text-left">Michelle Fairbanks</h2>
+                    <h4 className="text-on-back">UserName</h4>
+                  </Col>
+                </Row>
+              </Container>
 
-                  </div>
-                  </div>
-                  </div>
-                </Col>
-              </Row>
+            </div>
 
+          </div>
+          <div ref={loanedUpdate} />
+          <div >
+
+            <Container>
               <Row>
                 <Col lg="6" md="6">
-                  <h2 className="profile-title text-left">Michelle Fairbanks</h2>
-                  <h4 className="text-on-back">UserName</h4>
+                  <Route exact path="/update" component={UpdateCard} />
                 </Col>
               </Row>
             </Container>
 
           </div>
 
+          {/* Loaned Tools list section */}
+          <section className="section section-lg section-coins">
+            <img
+              alt="..."
+              className="path"
+              src={require("assets/img/path3.png").default}
+            />
+            {displayLoanedByCategory && <Button
+              className="button"
+              color="danger"
+              onClick={close}
+              size="lg"
+            >Close The Door
+            </Button>}
+
+            {displayLoanedByCategory &&
+              <LoanedToolsByCategory />
+            }
+
+
+
+          </section>
+          <div ref={toolsByCategory} />
+          <Footer />
         </div>
-
-        <div>
-
-            <Container>
-              <Row>
-                <Col lg="6" md="6"> 
-                <Route exact path="/update" component={UpdateCard} />
-            </Col>
-            </Row>
-            </Container>
-
-        </div>
-
-        {/* Loaned Tools list section */}
-        <section className="section section-lg section-coins">
-          <img
-            alt="..."
-            className="path"
-            src={require("assets/img/path3.png").default}
-          />
-      {displayLoanedByCategory && <Button
-          className="button"
-          color="danger"
-          onClick={close}
-          size="lg"
-        >Close The Door
-          </Button>}
-          
-        {displayLoanedByCategory &&
-          <LoanedToolsByCategory />
-        }
-
-  
-
-        </section>
-
-        <Footer />
-      </div>
       </Router>
     </>
   )

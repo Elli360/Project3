@@ -10,12 +10,12 @@ export default function Welcome() {
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div id="welcome_text" style={{ "text-decoration": "underline", "font-size": "10vw" }}>
+                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "10vw" }}>
                     Welcome!
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
             </div>
-            <div style={{ "font-family": "monospace", "font-size": "5vw", "color": "grey" }}>
+            <div style={{ fontFamily: "monospace", fontSize: "5vw", "color": "grey" }}>
                 Click the Login option above!
             </div>
             <div className="welcome" >
