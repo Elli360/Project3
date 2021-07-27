@@ -48,7 +48,7 @@ import Footer from "components/Footer/Footer.js";
 // // ====================== post import
 // import { Inputs, TextArea, FormBtn } from "../components/Form";
 import api from 'utils/api';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 
 import DeleteCard from "components/ToolCard/DeleteCard.js";
@@ -70,11 +70,17 @@ import SearchBtnHome from "../components/SearchBtnHome";
 //==========================
 
 export default function Home() {
+  const toolsByCategory = useRef();
   //  var displayAllByCategory=true;
   let [displayAllByCategory, setDisplayAllByCategory] = useState(false);
   let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
   let handleClick = () => {
     setDisplayAllByCategory(true);
+    // window.location.replace("/#home/#toolsByCategory");
+    
+    toolsByCategory.current.scrollIntoView({
+      behavior: "smooth",
+    });
     //  }
   };
   let close = () => {
@@ -108,7 +114,7 @@ setToolshedImgOpacity(1);
     loadTools()
   }, [])
 
-
+  
 
 
   return (
@@ -251,8 +257,8 @@ setToolshedImgOpacity(1);
           <AllToolsByCategory />
         }
 </section>
-
-        <Footer />
+<div ref={toolsByCategory}/>
+        <Footer/>
       </div>
 
     </>
