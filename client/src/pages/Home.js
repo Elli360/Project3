@@ -62,7 +62,7 @@ import AllToolsByCategory from "../components/AllToolsByCategory";
 import AllCard from "../components/ToolCard/AllCard";
 //import DropdownButton from 'react-bootstrap/DropdownButton';
 //import Dropdown from 'react-bootstrap/Dropdown';
-import UpdateCard from "../components/ToolCard/UpdateCard"
+// import UpdateCard from "../components/ToolCard/UpdateCard"
 import Available from "../components/ToolCard/Available";
 //import NotAvailable from "../components/ToolCard/NotAvailable";
 import AddTool from "../components/AddToolBtnHome";
@@ -206,7 +206,7 @@ export default function Home() {
 
                     <Route exact path="/delete" component={DeleteCard} />
                     <Route exact path="/AllCard" component={AllCard} />
-                    <Route exact path="/update" component={UpdateCard} />
+                    {/* <Route exact path="/update" component={UpdateCard} /> */}
                     <Route exact path="/available" component={Available} />
                     {/* <Route exact path="/loaned" component={NotAvailable} /> */}
                     {/* <Route exact path="/loaned" component={Loaned} /> */}

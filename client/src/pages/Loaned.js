@@ -60,6 +60,7 @@ const carouselItems = [
 let ps = null;
 
 export default function Loaned() {
+  const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
   const toolsByCategory = useRef();
@@ -72,10 +73,14 @@ export default function Loaned() {
     });
   };
   let handleClickAdd = () => {
+    setDisplayUpdateCard(true);
     loanedUpdate.current.scrollIntoView({
       behavior: "smooth",
     });
   };
+  let closeUpdateCard = () => {
+    setDisplayUpdateCard(false);
+  }
   let close = () => {
     setDisplayLoanedByCategory(false);
   }
@@ -345,14 +350,20 @@ export default function Loaned() {
           </div>
           <div ref={loanedUpdate} />
           <div >
-
-            <Container>
+          {displayUpdateCard && <Button
+              className="button"
+              color="danger"
+              onClick={closeUpdateCard}
+              size="lg"
+            >Close The Window
+            </Button>}
+            {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
                   <Route exact path="/update" component={UpdateCard} />
                 </Col>
               </Row>
-            </Container>
+            </Container>}
 
           </div>
 
