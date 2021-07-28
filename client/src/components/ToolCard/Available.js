@@ -1,6 +1,6 @@
 import React , { useEffect, useState } from "react";
 import api from "../../utils/api";
-import DeleteBtn from "../DeleteBtn";
+// import DeleteBtn from "../DeleteBtn";
 
 import { List, ListItem } from "../List";
 

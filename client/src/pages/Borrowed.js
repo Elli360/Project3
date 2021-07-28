@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useEffect} from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -9,7 +9,7 @@ import {
   Container,
   Row,
   Col,
-  Button,
+  // Button,
   UncontrolledCarousel,
 } from "reactstrap";
 
@@ -33,16 +33,19 @@ const carouselItems = [
 
 ];
 
-let ps = null;
+// let ps = null;
 
 export default function Borrowed() {
-  React.useEffect(() => {
+  
+  useEffect(() => {
+    
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
       document.documentElement.classList.remove("perfect-scrollbar-off");
       let tables = document.querySelectorAll(".table-responsive");
       for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
+        // ps = new PerfectScrollbar(tables[i]);
+         PerfectScrollbar(tables[i]);
       }
     }
 

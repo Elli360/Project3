@@ -20,15 +20,15 @@ import {
   Row,
   Col,
   Button,
-  Label,
+  // Label,
   FormGroup,
   Form,
   Input,
   // FormText,
-  NavItem,
-  NavLink,
-  Nav,
-  Navbar,
+  // NavItem,
+  // NavLink,
+  // Nav,
+  // Navbar,
   // Table,
   // TabContent,
   // TabPane,
@@ -44,7 +44,7 @@ import {
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import LoanedToolsByCategory from "components/LoanedToolsByCategory";
-import UpdateTool from 'components/AddToolBtnHome';
+// import UpdateTool from 'components/AddToolBtnHome';
 //import TestNavbar from "components/TestNavbar";
 import UpdateCard from "components/ToolCard/UpdateCard";
 import Spacer from "components/Spacer";
@@ -57,12 +57,13 @@ const carouselItems = [
 
 ];
 
-let ps = null;
+// let ps = null;
 
 export default function Loaned() {
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
-  const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  // const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  const [ setToolshedImgOpacity] = useState(0.2);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
   //display Loaned Tools by category
@@ -91,15 +92,17 @@ export default function Loaned() {
     setToolshedImgOpacity(0.2);
   }
   //for the search modal(on the search button) that is not connected to db yet
-  const [formModal, setFormModal] = React.useState(false);
-  const [tabs, setTabs] = React.useState(1);
+  const [formModal, setFormModal] = useState(false);
+  // const [tabs, setTabs] = useState(1);
+  
   useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
       document.documentElement.classList.remove("perfect-scrollbar-off");
       let tables = document.querySelectorAll(".table-responsive");
       for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
+        PerfectScrollbar(tables[i]);
+        // ps = new PerfectScrollbar(tables[i]);
       }
     }
   }, []);

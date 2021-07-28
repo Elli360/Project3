@@ -8,8 +8,8 @@ const [categories,setCategories]=useState([]);
 
 useEffect(()=>{
     loadTools()
-},[])
-
+})
+// },[])
 
 function loadTools(){
   api.getCategories().then(res=>setCategories(res.data)).catch(err=>console.log(err))
@@ -48,7 +48,7 @@ function loadTools(){
                       </ul>
                     </div> 
                    
-                    );
+                    )
                     }
                 }
                 

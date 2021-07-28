@@ -1,8 +1,9 @@
 import React , { useEffect, useState } from "react";
 import api from "../../../utils/api";
-import DeleteBtn from "../../DeleteBtn";
-import { Inputs, TextArea, FormBtn } from "../../Form";
-import { List, ListItem } from "../../List";
+// import DeleteBtn from "../../DeleteBtn";
+// import { Inputs, TextArea, FormBtn } from "../../Form";
+// import { List, ListItem } from "../../List";
+import { List } from "../../List";
 import UpdateTool from '../../UpdateTool';
 
 function UpdateCard () {

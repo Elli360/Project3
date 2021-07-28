@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 // import classnames from "classnames";
 // react plugin used to create datetimepicker
-import ReactDatetime from "react-datetime";
+// import ReactDatetime from "react-datetime";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 

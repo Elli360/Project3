@@ -1,5 +1,6 @@
 import React from "react";
-import {Route, Switch, Redirect, useHistory } from "react-router-dom";
+import {Route, Switch, useHistory } from "react-router-dom";
+// import {Route, Switch, Redirect, useHistory } from "react-router-dom";
 import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.2.0";
 import "assets/demo/demo.css";
@@ -46,7 +47,7 @@ function App() {
                 onAuthRequired={onAuthRequired}
                 oktaAuth={oktaAuth}
             >
-
+{/* {console.log(config.oidc.userContext.userinfo.name)} */}
                 <Switch>
                 {/* <Route path="/" exact component={Welcome} /> */}
         <Route path="/" exact component={Welcome} >
