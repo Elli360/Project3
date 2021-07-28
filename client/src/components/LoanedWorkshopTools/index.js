@@ -41,7 +41,10 @@ function LoanedWorkshopTools() {
 
 
                           )
-                        };
+                        }
+                        else {
+                          return null
+                        }
 
                       })
                       };
@@ -50,14 +53,17 @@ function LoanedWorkshopTools() {
                 </div>
 
               );
-            };
+            }
+            else {
+              return null
+            }
           }
 
           )}
         </ul>
       ) : (
-          <h3>No Tools were found.</h3>
-        )}
+        <h3>No Tools were found.</h3>
+      )}
 
     </div>
 
