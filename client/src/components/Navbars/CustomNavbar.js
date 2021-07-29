@@ -19,8 +19,17 @@ import {
 } from "reactstrap";
 
 export default function CustomNavbar() {
+
+
+
   //for okta
-  const history = useHistory();
+  const history = useHistory({
+    // basename: "", // The base URL of the app (see below)
+    // forceRefresh: false, // Set true to force full page refreshes
+    // keyLength: 6, // The length of location.key
+    // // A function to use to confirm navigation with the user (see below)
+    // getUserConfirmation: (message, callback) => callback(window.confirm(message))
+});
   const { authState, oktaAuth } = useOktaAuth();
   const login = async () => history.push('/login');
   const logout = async () => oktaAuth.signOut();
@@ -58,20 +67,6 @@ export default function CustomNavbar() {
     setCollapseOut("");
   };
 
-  //const and if-elseif statement are test for okta
-  // const { authState, oktaAuth } = useOktaAuth();
-  // const login = () => oktaAuth.signInWithRedirect({originalUri: '/home'});
-  // if( !authState ) {
-  //   return (
-  //     <div>Loading authentication...</div>
-  //   );
-  // } else if( !authState.isAuthenticated ) {
-  //   return (
-  //     <div>
-  //       <a onClick={login}>Login</a>
-  //     </div>
-  //   );
-  // }
 
   return (
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
@@ -199,8 +194,8 @@ export default function CustomNavbar() {
                 <Link to="/profile">Profile</Link>
               </NavItem>
             )}
-            {authState.isAuthenticated && <NavItem id="logout-button" onClick={logout}>Logout</NavItem>}
-            {!authState.isPending && !authState.isAuthenticated && <NavItem onClick={login}>Login</NavItem>}
+            {authState.isAuthenticated && <NavItem><Button id="logout-button" onClick={logout}>Logout</Button></NavItem>}
+            {!authState.isPending && !authState.isAuthenticated && <NavItem><Button onClick={login}>Login</Button></NavItem>}
             {/* Okta end */}
             
             {/* <NavItem>

@@ -1,8 +1,9 @@
 import React , { useEffect, useState } from "react";
 import api from "../../../utils/api";
-import DeleteBtn from "../../DeleteBtn";
-import { Inputs, TextArea, FormBtn } from "../../Form";
-import { List, ListItem } from "../../List";
+// import DeleteBtn from "../../DeleteBtn";
+// import { Inputs, TextArea, FormBtn } from "../../Form";
+// import { List, ListItem } from "../../List";
+import { List } from "../../List";
 import UpdateTool from '../../UpdateTool';
 
 function UpdateCard () {
@@ -19,37 +20,37 @@ function UpdateCard () {
   };
   
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-      api.updateTool({
-        // name: formObject.name,
-        // description: formObject.description,
-        // categoryId: formObject.categoryId,
-        // price: formObject.price,
-        available:formObject.available
-        // price: formObject.price,
-        // available:formObject.available
-      })
-        .then(() => setFormObject({
-          // name: "",
-          // description: "",
-          // price:0,
-          // categoryId: 0,
-          // price: "",
-          available:""
-          }))
-        .then(() => loadTools())
-        .catch(err => console.log(err));
+  // function handleFormSubmit(event) {
+  //   event.preventDefault();
+  //     api.updateTool({
+  //       // name: formObject.name,
+  //       // description: formObject.description,
+  //       // categoryId: formObject.categoryId,
+  //       // price: formObject.price,
+  //       available:formObject.available
+  //       // price: formObject.price,
+  //       // available:formObject.available
+  //     })
+  //       .then(() => setFormObject({
+  //         // name: "",
+  //         // description: "",
+  //         // price:0,
+  //         // categoryId: 0,
+  //         // price: "",
+  //         available:""
+  //         }))
+  //       .then(() => loadTools())
+  //       .catch(err => console.log(err));
         
-  };
+  // };
 
-  const [formObject, setFormObject] = useState({
-    // name:"",
-    // description:"",
-    // price:[],
-    // categoryId: 0,
-    available:true
-  });
+  // const [formObject, setFormObject] = useState({
+  //   // name:"",
+  //   // description:"",
+  //   // price:[],
+  //   // categoryId: 0,
+  //   available:true
+  // });
 
 
     // Handles updating component state when the user types into the input field
@@ -63,16 +64,6 @@ function UpdateCard () {
 
     };
   
-//================================deleting
-  // Deletes a tool from the database with a given id, then reloads books from the db
-  function updateTool(id) {
-    api.updateTool(id)
-      .then(res => loadTools())
-      .catch(err => console.log(err));
-  }
-
-
-
 
   console.log(tools);
 

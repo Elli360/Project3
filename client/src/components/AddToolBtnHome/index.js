@@ -1,7 +1,8 @@
 import api from 'utils/api';
 import React, { useEffect, useState } from "react";
-import { Inputs, TextArea, FormBtn } from "../Form";
-import { List, ListItem } from "../List";
+import { Inputs,  FormBtn } from "../Form";
+// import { Inputs, TextArea, FormBtn } from "../Form";
+// import { List, ListItem } from "../List";
 import {
     Button,
     UncontrolledTooltip,
@@ -22,8 +23,8 @@ export default function UpdateTool({tool, handleAvailChange}){
     }, []);
   
     //==============================================
-    const [tools, setTools] = useState("");
-  
+    // const [tools, setTools] = useState("");
+    const [ setTools] = useState("");
   
     function loadTools() {
       api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
@@ -31,8 +32,8 @@ export default function UpdateTool({tool, handleAvailChange}){
   
     useEffect(() => {
       loadTools()
-    }, [])
-  
+    })
+  // }, [])
   
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
