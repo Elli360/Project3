@@ -25,44 +25,49 @@ function LoanedOutdoorTools() {
         <ul>
           {categories.map(category => {
             if (category.id === 3) {
-              return (
-                <div key={category.id}>
-                  {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
+              // if (category.tools.available.length = 0) { return <h3>No Toolzz were found.</h3> }
+              // else {
 
-                  <ul>
+                return (
+                  <div key={category.id}>
+                    {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
 
-                    <div className="toolDetail" >
-                      {category.tools.map(tool => {
+                    <ul>
 
-
-                        if (tool.available === false) {
-                          return (
-
-                            <li key={tool.id}>{tool.name}</li>
+                      <div className="toolDetail" >
+                        {category.tools.map(tool => {
 
 
-                          )
+                          if (tool.available === false) {
+                            return (
+
+                              <li key={tool.id}>{tool.name}</li>
+
+
+                            )
+                          }
+                          else {
+                            return null
+                          }
+                        })
                         }
-                        else {
-                          return null
-                        }
-                      })
-                      }
-                    </div>
-                  </ul>
-                </div>
+                      </div>
+                    </ul>
+                  </div>
 
               );
             }
-            else {
-              return null
+          else {
+              return (
+          null
+          )
             }
           }
 
           )}
         </ul>
       ) : (
-        <h3>No Tools were found.</h3>
+        <h3>No Toolss were found.</h3>
       )}
 
     </div>

@@ -55,7 +55,9 @@ function LoanedWorkshopTools() {
               );
             }
             else {
-              return null
+              return (
+                null
+              )
             }
           }
 

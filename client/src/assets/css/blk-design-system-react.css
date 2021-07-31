@@ -16412,7 +16412,7 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
     display: inline-block;
     font: normal normal normal 1em/1 "Nucleo";
     vertical-align: middle;
-    speak: none;
+    /* speak: none; */
     text-transform: none;
     -webkit-font-smoothing: antialiased; }
   .rdtPicker th.rdtNext span,
@@ -16588,7 +16588,7 @@ td.rdtYear:hover {
     display: inline-block;
     font: normal normal normal 1em/1 "Nucleo";
     vertical-align: middle;
-    speak: none;
+    /* speak: none; */
     text-transform: none;
     -webkit-font-smoothing: antialiased;
     font-size: 1rem;
@@ -16613,7 +16613,7 @@ td.rdtYear:hover {
   display: inline-block;
   font: normal normal normal 1em/1 'Nucleo';
   vertical-align: middle;
-  speak: none;
+  /* speak: none; */
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   background-image: none; }
