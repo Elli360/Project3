@@ -48,7 +48,9 @@ function LoanedHandTools() {
                           )
                         }
                         else {
-                          return null
+                          return (
+                            null
+                          )
                         }
                       })
                       }
