@@ -20,7 +20,7 @@ function LoanedHandTools() {
   };
 
 
-  console.log(categories);
+  // console.log(categories);
 
   return (
 

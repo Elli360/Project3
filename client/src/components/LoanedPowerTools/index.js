@@ -15,7 +15,7 @@ function LoanedPowerTools() {
     api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
   };
 
-  console.log(categories);
+  // console.log(categories);
 
   return (
 

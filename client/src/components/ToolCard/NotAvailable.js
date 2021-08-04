@@ -19,7 +19,7 @@ function Available () {
   
 
 
-  console.log(tools);
+  // console.log(tools);
 
     return (
                       <div>

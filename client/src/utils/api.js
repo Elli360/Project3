@@ -1,7 +1,9 @@
+/* eslint-disable import/no-anonymous-default-export */
+
 import axios from "axios";
 
 //Assign object to a variable before exporting as module default (not really necessary but fix when have time)
-//  const API = ()=>( {
+    // const api = () => ( {
   export default {
   // Gets all tool
   getTools: function () {
@@ -11,6 +13,12 @@ import axios from "axios";
   getCategories: function (id) {
     return axios.get("/api/category/");
   },
+  getCategories3: function (id) {
+    return axios.get("/api/category/3");
+  },
+  // getAvailable: function (){
+  //   return axios.get("/api/available/");
+  // },
   // Deletes the tool with the given id
   deleteTool: function (id) {
     return axios.delete("/api/tools/" + id +"/delete");
@@ -27,6 +35,6 @@ import axios from "axios";
     return axios.put("/api/tools/" + id, toolData);
   },
   };
-// });
 
-// export default API;
+// });
+// export default api;
