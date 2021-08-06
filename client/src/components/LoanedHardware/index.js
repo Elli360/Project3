@@ -102,30 +102,55 @@ function LoanedHardware() {
     // </div>
 
 
+
+
     //simplied plus works sans the <div>NO tools</div>
-    <div>
-      {categories.length ? (
-        <ul>
-          <div className="toolDetail" >
-            {categories.map(tool => {
+    // <div>
+    //   {categories.length ? (
+    //     <ul>
+    //       <div className="toolDetail" >
+    //         {categories.map(tool => {
+    //           if (tool.available === false) {
+    //             return (
+    //               <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
+    //             )
+    //           }
+    //           else {
+    //             return null
+    //           }
+    //         })}
+    //       </div>
+    //     </ul>
+    //   ) : (
+        
+    //     <div>No toolz</div>
+    //   )
+    //   }
+    // </div>
+
+
+
+//simplied sans the <div>NO tools</div>
+    <div className="toolDetail" >
+      
+            {categories && categories.map(tool => {
               if (tool.available === false) {
                 return (
+                  <ul>
                   <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
+                  </ul>
                 )
               }
               else {
                 return null
               }
             })}
-          </div>
-        </ul>
-      ) : (
-        
-        <div>No toolz</div>
-      )
-      }
+       
     </div>
-
+        
+       
+  
+   
   )
 }
 
