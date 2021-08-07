@@ -47,9 +47,41 @@ function LoanedHardware() {
   // console.log(categories);
   // console.log(`HELLO WORLD=${categories[0].name}`)
 
-  return (
+  const toolsAvailable = categories && categories.map(tool => {
+    if (tool.available === false) {
+      return (
+        <ul>
+          <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
+        </ul>
+      )
+    }
+    else {
+      return null
+    }
+  })
 
-//works sans the <div>NO tools</div>
+ const toolsTrue=()=> { return (<div>{ toolsAvailable }</div>)}
+  const toolsFalse =()=>{return (<div>No more toolz</div>)}  
+    if (toolsAvailable) {
+       const renderTools = <toolsTrue/>
+    }else {const renderTools = <toolsFalse/>}
+
+ const ToolConditional =()=> {
+    
+      if (toolsAvailable) {
+        return { toolsAvailable }
+      }
+      return (<div>No more toolz</div>)
+  }
+
+console.log(`FIRST CHECK THIS: ${ToolConditional}`);
+  return (
+  //  { if (toolsAvailable) {
+  //     const renderTools = <toolsTrue/>
+  //  }
+  //  else {const renderTools = <toolsFalse/>}}
+
+    //works sans the <div>NO tools</div>
     // <div>
     //   {categories.length ? (
     //     <ul>
@@ -122,7 +154,7 @@ function LoanedHardware() {
     //       </div>
     //     </ul>
     //   ) : (
-        
+
     //     <div>No toolz</div>
     //   )
     //   }
@@ -130,27 +162,21 @@ function LoanedHardware() {
 
 
 
-//simplied sans the <div>NO tools</div>
+    //simplied sans the <div>NO tools</div>
     <div className="toolDetail" >
+
+      {/* {toolsAvailable} */}
+
+      {/* {ToolConditional} */}
       
-            {categories && categories.map(tool => {
-              if (tool.available === false) {
-                return (
-                  <ul>
-                  <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
-                  </ul>
-                )
-              }
-              else {
-                return null
-              }
-            })}
-       
+    
+{renderTools}
+{console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
     </div>
-        
-       
-  
-   
+
+
+
+
   )
 }
 
