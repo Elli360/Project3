@@ -56,31 +56,41 @@ function LoanedHardware() {
       )
     }
     else {
-      return null
+      // return null
+      return false
     }
   })
 
  const toolsTrue=()=> { return (<div>{ toolsAvailable }</div>)}
   const toolsFalse =()=>{return (<div>No more toolz</div>)}  
-    if (toolsAvailable) {
-       const renderTools = <toolsTrue/>
-    }else {const renderTools = <toolsFalse/>}
 
- const ToolConditional =()=> {
+    // if (toolsAvailable) {
+    //   //  const renderTools = <toolsTrue/>
+    //   const renderTools = <toolsTrue/>;
+    // }else {const renderTools = <toolsFalse/>;}
+
+//  const ToolConditional =()=> {
     
-      if (toolsAvailable) {
-        return { toolsAvailable }
-      }
-      return (<div>No more toolz</div>)
-  }
+//       if (toolsAvailable) {
+//         return { toolsAvailable }
+//       }
+//       return (<div>No more toolz</div>)
+//   }
 
-console.log(`FIRST CHECK THIS: ${ToolConditional}`);
+// console.log(`FIRST CHECK THIS: ${ToolConditional}`);
   return (
-  //  { if (toolsAvailable) {
-  //     const renderTools = <toolsTrue/>
-  //  }
-  //  else {const renderTools = <toolsFalse/>}}
-
+  
+    {if (toolsAvailable) {
+      const renderTools = <toolsTrue/>
+   }, 
+  //  else {const renderNoTools = <toolsFalse/>}}
+  if(!toolsAvailable) {const renderNoTools = <toolsFalse/>}}
+  <div>
+  {renderTools}
+  {renderNoTools}
+  {console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
+     
+  </div>
     //works sans the <div>NO tools</div>
     // <div>
     //   {categories.length ? (
@@ -163,20 +173,12 @@ console.log(`FIRST CHECK THIS: ${ToolConditional}`);
 
 
     //simplied sans the <div>NO tools</div>
-    <div className="toolDetail" >
+    // <div className="toolDetail" >
 
       {/* {toolsAvailable} */}
 
       {/* {ToolConditional} */}
       
-    
-{renderTools}
-{console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
-    </div>
-
-
-
-
   )
 }
 
