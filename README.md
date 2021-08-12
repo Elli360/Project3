@@ -6,6 +6,7 @@
 
 # Tool Shed
 [Heroku Deployed Link](https://toolshed-app-team8.herokuapp.com/)
+<br>
 <img src="https://www.colourbox.com/preview/36242522-constructions-tools-icon-set.jpg" width = "200" length="200"/>
 
 ![](https://img.shields.io/badge/Made%20with-Javascript-green)
@@ -16,12 +17,15 @@
 
 
 ## Table of contents
-- [Description](#Description)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Screenshots](#Screenshots)
-- [Contributors](#Contributors)
-- [Repository Link](#Repositories)
+- [Tool Shed](#tool-shed)
+  - [Table of contents](#table-of-contents)
+  - [Description](#description)
+  - [Installation](#installation)
+      - [NPM install the following](#npm-install-the-following)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+  - [Contributors](#contributors)
+  - [Repositories](#repositories)
 
 ## Description 
 A digital tool shed to store, lend, categorize, and structure data about your most necessary tools. The `Tool Shed` app uses both the frontend and the backend to manage obtained tools and the ones needed. There are multiple ways to utilize this app. The storing of the tools is one. A laborer could use this personally to keep track of all the tools bought. There will be an option to save the tools wanted, such as a wish list. These tools will be organized based on categories that fits that particular tool best. Lastly, the ability to lend tools to your most trusted (or mistrusted) comrade is no longer a problem. This app grants the user the ability to track who and when the tool was lend out. No more forgetting what happen to your tools with this app made by `The Number 8`.
@@ -53,6 +57,7 @@ Use this app to organize, lend tools and more...
 
 ## Screenshots
 ![](client/src/assets/img/toolshed-screenshot.png)
+![](client/src/assets/img/ToolshedPreview.mpg)
 
 
 ## Contributors

@@ -6,13 +6,24 @@ import api from "../../utils/api";
 function LoanedHardware() {
   // const [show, setShow] = useState(false);
   // const [categories, setCategories] = useState([]);
-  const [categories, setCategories] = useState('');
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
-    // loadTools()
+    const loadTools = async () => {
 
-    if (!categories) {
-      loadTools()
+      const first = await api.getCategories();
+      const res = await first.data[4].tools;
+      // console.log(`CONSOLE CHECK : ${res[3].id}`);
+      console.log(`CONSOLE CHECK : ${res[3].id}`);
+      console.log(toolsAvailable[22].name)
+      setCategories(res);
     }
+    
+    
+    loadTools()
+
+    // if (!categories) {
+    //   loadTools()
+    // }
 
 
     //        let timer1 = setTimeout(() => setShow(true), delay * 1000);
@@ -36,17 +47,18 @@ function LoanedHardware() {
   //   api.getCategories().then(res => setCategories(res.data)).then((categories)=>console.log(`LOVE ${categories[1]} PATH`))
   // };
 
-  const loadTools = async () => {
+  // const loadTools = async () => {
 
-    const first = await api.getCategories();
-    const res = await first.data[4].tools;
-    // console.log(`CONSOLE CHECK : ${res[3].id}`);
-    console.log(`CONSOLE CHECK : ${res[3].id}`);
-    setCategories(res);
-  }
+  //   const first = await api.getCategories();
+  //   const res = await first.data[4].tools;
+  //   // console.log(`CONSOLE CHECK : ${res[3].id}`);
+  //   console.log(`CONSOLE CHECK : ${res[3].id}`);
+  //   console.log(toolsAvailable)
+  //   setCategories(res);
+  // }
   // console.log(categories);
   // console.log(`HELLO WORLD=${categories[0].name}`)
-
+const toad =`TOAD`
   const toolsAvailable = categories && categories.map(tool => {
     if (tool.available === false) {
       return (
@@ -56,19 +68,34 @@ function LoanedHardware() {
       )
     }
     else {
-      // return null
-      return false
+      return null
+      // return false
     }
   })
 
  const toolsTrue=()=> { return (<div>{ toolsAvailable }</div>)}
   const toolsFalse =()=>{return (<div>No more toolz</div>)}  
 
-    // if (toolsAvailable) {
-    //   //  const renderTools = <toolsTrue/>
-    //   const renderTools = <toolsTrue/>;
-    // }else {const renderTools = <toolsFalse/>;}
-
+   const ToolsConditional = () => {
+      if (toolsAvailable) {
+      //  const renderTools = <toolsTrue/>
+      // const renderTools = <toolsTrue/>;
+      
+      return(
+        console.log(`Because I'm SAD!`), 
+        // renderTools
+        toolsTrue
+      )
+    }
+    else {
+      // const renderToolz = <toolsFalse/>;
+    return (
+      console.log(`Because I'm HAPPY!`),
+      // renderToolz   
+      toolsFalse 
+    )
+  }
+  }
 //  const ToolConditional =()=> {
     
 //       if (toolsAvailable) {
@@ -80,15 +107,17 @@ function LoanedHardware() {
 // console.log(`FIRST CHECK THIS: ${ToolConditional}`);
   return (
   
-    {if (toolsAvailable) {
-      const renderTools = <toolsTrue/>
-   }, 
-  //  else {const renderNoTools = <toolsFalse/>}}
-  if(!toolsAvailable) {const renderNoTools = <toolsFalse/>}}
-  <div>
-  {renderTools}
-  {renderNoTools}
-  {console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
+  //   {if (toolsAvailable) {
+  //     const renderTools = <toolsTrue/>
+  //  }, 
+  // //  else {const renderNoTools = <toolsFalse/>}}
+  // if(!toolsAvailable) {const renderNoTools = <toolsFalse/>}}
+  <div className="toolDetail" >
+    {ToolsConditional}
+   {/* {renderTools}
+   {renderNoTools} */}
+   {console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
+   {console.log(`Checking toolsAvailable: ${toad} and ToolConditional:${toad}`)}
      
   </div>
     //works sans the <div>NO tools</div>
@@ -175,9 +204,7 @@ function LoanedHardware() {
     //simplied sans the <div>NO tools</div>
     // <div className="toolDetail" >
 
-      {/* {toolsAvailable} */}
-
-      {/* {ToolConditional} */}
+   
       
   )
 }
