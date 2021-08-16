@@ -7,18 +7,21 @@ function LoanedHardware() {
   // const [show, setShow] = useState(false);
   // const [categories, setCategories] = useState([]);
   const [categories, setCategories] = useState([]);
+
+
+
   useEffect(() => {
+
     const loadTools = async () => {
 
       const first = await api.getCategories();
       const res = await first.data[4].tools;
       // console.log(`CONSOLE CHECK : ${res[3].id}`);
       console.log(`CONSOLE CHECK : ${res[3].id}`);
-      console.log(toolsAvailable[22].name)
+      // console.log(...toolsAvailable, `facts`)
       setCategories(res);
     }
-    
-    
+
     loadTools()
 
     // if (!categories) {
@@ -41,6 +44,8 @@ function LoanedHardware() {
     // // like this - [data]
     // // than clearTimeout will run every time
     // // this value changes (useEffect re-run)
+
+    // []);
     []);
 
   // function loadTools() {
@@ -58,68 +63,74 @@ function LoanedHardware() {
   // }
   // console.log(categories);
   // console.log(`HELLO WORLD=${categories[0].name}`)
-const toad =`TOAD`
+  const toad = `TOAD`
   const toolsAvailable = categories && categories.map(tool => {
-    if (tool.available === false) {
+    if (tool.available === true) {
       return (
-        <ul>
-          <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
-        </ul>
+        // <ul>
+        //   <li key={tool.id}>{tool.name}</li>
+        // </ul>
+        <ul>ToolsWork</ul>
       )
     }
     else {
-      return null
+      return <ul>ToolsWork</ul>
       // return false
     }
-  })
+  });
 
- const toolsTrue=()=> { return (<div>{ toolsAvailable }</div>)}
-  const toolsFalse =()=>{return (<div>No more toolz</div>)}  
+  //  const toolsTrue=()=> { return (<div>{toolsAvailable }</div>)}
+  //   const toolsFalse =()=>{return (<div>No more toolz</div>)}  
 
-   const ToolsConditional = () => {
-      if (toolsAvailable) {
+  const ToolsConditional = () => {
+    // const toolsTrue = () => { return (<div>{toolsAvailable}</div>) }
+    const toolsFalse = () => { return (<div>No more toolz</div>) }
+    if (categories) {
       //  const renderTools = <toolsTrue/>
       // const renderTools = <toolsTrue/>;
-      
-      return(
-        console.log(`Because I'm SAD!`), 
+
+      return (
+        // console.log(`Because I'm SAD!`),
         // renderTools
-        toolsTrue
-      )
+
+        // {toolsTrue}
+      <div>It Worked? </div>
+        )
     }
     else {
       // const renderToolz = <toolsFalse/>;
-    return (
-      console.log(`Because I'm HAPPY!`),
-      // renderToolz   
-      toolsFalse 
-    )
+      return (
+        // console.log(`Because I'm HAPPY!`),
+        // renderToolz   
+        {toolsFalse}
+      )
+    }
   }
-  }
-//  const ToolConditional =()=> {
-    
-//       if (toolsAvailable) {
-//         return { toolsAvailable }
-//       }
-//       return (<div>No more toolz</div>)
-//   }
+  //  const ToolConditional =()=> {
 
-// console.log(`FIRST CHECK THIS: ${ToolConditional}`);
+  //       if (toolsAvailable) {
+  //         return { toolsAvailable }
+  //       }
+  //       return (<div>No more toolz</div>)
+  //   }
+
+  // console.log(`FIRST CHECK THIS: ${ToolConditional}`);
   return (
-  
-  //   {if (toolsAvailable) {
-  //     const renderTools = <toolsTrue/>
-  //  }, 
-  // //  else {const renderNoTools = <toolsFalse/>}}
-  // if(!toolsAvailable) {const renderNoTools = <toolsFalse/>}}
-  <div className="toolDetail" >
-    {ToolsConditional}
-   {/* {renderTools}
+
+    //   {if (toolsAvailable) {
+    //     const renderTools = <toolsTrue/>
+    //  }, 
+    // //  else {const renderNoTools = <toolsFalse/>}}
+    // if(!toolsAvailable) {const renderNoTools = <toolsFalse/>}}
+    // <div className="toolDetail" >
+    <div>
+      {ToolsConditional}
+      {/* {renderTools}
    {renderNoTools} */}
-   {console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
-   {console.log(`Checking toolsAvailable: ${toad} and ToolConditional:${toad}`)}
-     
-  </div>
+      {console.log(`Checking toolsAvailable: ${toolsAvailable} and ToolConditional:${toolsAvailable}`)}
+      {console.log(`Checking toolsAvailable: ${toad} and ToolConditional:${toad}`)}
+
+    </div>
     //works sans the <div>NO tools</div>
     // <div>
     //   {categories.length ? (
@@ -204,8 +215,8 @@ const toad =`TOAD`
     //simplied sans the <div>NO tools</div>
     // <div className="toolDetail" >
 
-   
-      
+
+
   )
 }
 
