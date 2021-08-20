@@ -4,28 +4,34 @@ import api from "../../utils/api";
 
 function LoanedHardware() {
   const [categories, setCategories] = useState([]);
-  useEffect(() => {
+  const [count, setCount] = useState(0);
+    useEffect(() => {
 
     const loadTools = async () => {
 
       const first = await api.getCategories();
       const res = await first.data[4].tools;
+    
+      
       // console.log(`CONSOLE CHECK : ${res[3].id}`);
       console.log(`CONSOLE CHECK : ${res[3].id}`);
       // console.log(...toolsAvailable, `facts`)
       setCategories(res);
+    
     }
 
     loadTools()
-
+   
   },
     []);
-
-  const toolsAvailable = categories && categories.map(tool => {
+    
+  
+  const toolsAvailable = categories && categories.map((tool, index) => {
     if (tool.available === false) {
+      setCount(count+1);
       return (
         <ul>
-          <li key={tool.id}>{tool.name}</li>
+          <li key={tool.id}>{tool.name}{index}</li>
         </ul>
         // <ul>ToolsWork</ul>
       )
@@ -40,7 +46,7 @@ function LoanedHardware() {
 
   // const ToolsConditional = () => {
   //   // const toolsTrue = () => { return (<div>{toolsAvailable}</div>) }
-  //   const toolsFalse = () => { return (<div>No more toolz</div>) }
+    const toolsFalse = () => { return (<div>No more toolz</div>) }
   //   if (categories) {
   //     //  const renderTools = <toolsTrue/>
   //     // const renderTools = <toolsTrue/>;
@@ -59,7 +65,10 @@ function LoanedHardware() {
   //     )
   //   }
   // }
-
+  if (count === 0){
+    return toolsFalse
+  }
+  
   return (
 
     <div>

@@ -47,7 +47,7 @@ function LoanedWorkshopTools() {
                         }
 
                       })
-                      };
+                      }
                     </div>
                   </ul>
                 </div>
