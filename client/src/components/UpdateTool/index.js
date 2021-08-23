@@ -9,7 +9,7 @@ export default function UpdateTool({tool, handleAvailChange}){
 
     function handleChange(event){
         const check =event.target.checked;
-        console.log("i updated")
+        // console.log("i updated")
         handleAvailChange(tool.id, check)
     }
 

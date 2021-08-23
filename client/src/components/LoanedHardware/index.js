@@ -2,75 +2,125 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 
-//make category.id # a prop so the # of components can be divided by 5
 function LoanedHardware() {
-
+  // const [count, setCount] = useState(0);
   const [categories, setCategories] = useState([]);
 
+
+  const loadTools = async () => {
+
+    const first = await api.getCategories();
+    const res = await first.data[4].tools;
+    // console.log(`CONSOLE CHECK : ${res[3].id}`);
+    // console.log(...toolsAvailable, `facts`)
+    setCategories(res);
+
+  }
+
+
   useEffect(() => {
+
     loadTools()
-  }, [])
+
+  },
+    []);
+  // const nopeTools =(<div>No more tool3</div>)
+  const NopeTools = () => { return (<h3>No Available Tools</h3>) }
+  // let notAvailable=false
+  const toolsAvailable = categories.filter((row) => {
+    if (row.available === false) { return row } else {
+      return (
+        // notAvailable=true
+        null
+      )
+    }
+  }).map((tool) => {
+
+    // if (tool.available === false) {
+    // setCount(prevState => (prevState+1))
+    // setCount(count+1)
+    return (
+      <div className="toolDetail" >
+        <ul>
+          <li key={tool.id}>{tool.name}</li>
+        </ul>
+      </div>
+    )
+    // }
+    // else {
+    //   return (
+    //   // <ul><li>Tool Not Available</li></ul>
+    //   null
+    //   )
+    // }
+  })
 
 
-  function loadTools() {
-    api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
-  };
+  // const nopeTools =()=>{ if(notAvailable){return(<div>No more tool3</div>)}}
 
-  console.log(categories);
+  //   // if (count === 0){
+  //   //   return (<div>No more toolz</div>)
+  //   // }
+  // if( !categories.available){
+  //   return(nopeTools)
+  // }
+
+  // const notAvailable = () => {
+  //   return function(){return(toolsAvailable)}.then(console.log(`toolsAvailable:${toolsAvailable}`)).then(nopeTools)
+  //   }
+  // const notAvailable = async() => {
+  // const checkThis=await toolsAvailable
+  // // console.log(`CHECKTHIS: ${checkThis}`)
+  // console.log(`CHECKTHIS:`)
+  // if (checkThis===null){return (
+  //   <>
+  //   {nopeTools}
+  //   </>
+  // )}
+  // }
+  const DefaultNotAvailable = () => {
+    if (toolsAvailable == "")
+      return NopeTools();
+
+    return null;
+  }
 
   return (
 
     <div>
-      {categories.length ? (
-        <ul>
-          {categories.map(category => {
-            if (category.id === 5) {
-              return (
-                <div key={category.id}>
-                  {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
-
-                  <ul>
-
-                    <div className="toolDetail" >
-                      {category.tools.map(tool => {
-
-
-                        if (tool.available === false) {
-                          return (
-
-                            <li key={tool.id}>{tool.name}</li>
-
-
-                          )
-                        }
-                        else {
-                          return null
-                        }
-                      })
-                      }
-                    </div>
-                  </ul>
-                </div>
-
-              );
-            }
-            else {
-              return null
-            }
-          }
-
-          )}
-        </ul>
-      ) : (
-        <h3>No Tools were found.</h3>
-      )}
-
+      {toolsAvailable}
+      <DefaultNotAvailable />
     </div>
-
-
 
 
   )
 }
 
 export default LoanedHardware;
+
+
+
+
+//simplied plus works sans the <div>NO tools</div>
+    // <div>
+    //   {categories.length ? (
+    //     <ul>
+    //       <div className="toolDetail" >
+    //         {categories.map(tool => {
+    //           if (tool.available === false) {
+    //             return (
+    //               <li key={tool.id}>{tool.name}{console.log(tool.available)}</li>
+    //             )
+    //           }
+    //           else {
+    //             return null
+    //           }
+    //         })}
+    //       </div>
+    //     </ul>
+    //   ) : (
+
+    //     <div>No toolz</div>
+    //   )
+    //   }
+    // </div>

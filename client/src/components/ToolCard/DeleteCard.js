@@ -27,7 +27,7 @@ function DeleteCard () {
 
 
 
-  console.log(tools);
+  // console.log(tools);
 
     return (
                       <div>

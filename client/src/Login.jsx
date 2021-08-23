@@ -54,7 +54,7 @@ const Login = () => {
     widget.renderEl(
       { el: widgetRef.current },
       (res) => {
-        console.log(res);
+        // console.log(res);
         oktaAuth.handleLoginRedirect(res.tokens);
       },
       (err) => {

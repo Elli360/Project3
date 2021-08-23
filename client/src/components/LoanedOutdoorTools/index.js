@@ -13,21 +13,17 @@ function LoanedOutdoorTools() {
 
   function loadTools() {
     api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
+    // api.getAvailable().then(res => setCategories(res.data)).catch(err => console.log(err))
   };
-
-  console.log(categories);
-
   return (
-
-    <div>
-
-      {categories.length ? (
-        <ul>
-          {categories.map(category => {
-            if (category.id === 3) {
-              // if (category.tools.available.length = 0) { return <h3>No Toolzz were found.</h3> }
-              // else {
-
+    <>
+      <div>
+        {categories.length ? (
+          <ul>
+            {categories.map(category => {
+              if (category.id === 3) {
+                // if (category.tools.available.length = 0) { return <h3>No Toolzz were found.</h3> }
+                // else {
                 return (
                   <div key={category.id}>
                     {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
@@ -40,10 +36,7 @@ function LoanedOutdoorTools() {
 
                           if (tool.available === false) {
                             return (
-
-                              <li key={tool.id}>{tool.name}</li>
-
-
+                              <li key={tool.id}>{tool.name} {console.log(tool.name)}</li>
                             )
                           }
                           else {
@@ -54,27 +47,21 @@ function LoanedOutdoorTools() {
                       </div>
                     </ul>
                   </div>
-
-              );
+                );
+              }
+              else {
+                return (
+                  null
+                )
+              }
             }
-          else {
-              return (
-          null
-          )
-            }
-          }
-
-          )}
-        </ul>
-      ) : (
-        <h3>No Toolss were found.</h3>
-      )}
-
-    </div>
-
-
-
-
+            )}
+          </ul>
+        ) : (
+          <h3>No Tools were found.</h3>
+        )}
+      </div>
+    </>
   )
 }
 
