@@ -6,20 +6,20 @@ function LoanedHardware() {
 
   const [categories, setCategories] = useState([]);
 
-  const loadTools = async () => {
+  const LoadLoanableTools = async () => {
     const first = await api.getCategories();
     const res = await first.data[4].tools;
     setCategories(res);
   }
 
   useEffect(() => {
-    loadTools()
+    LoadLoanableTools()
   },
     []);
 
-  const NoTools = () => { return (<h3>No Available Tools</h3>) }
+  const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
 
-  const toolsAvailable = categories.filter((row) => {
+  const ToolsAvailable = () => categories.filter((row) => {
     if (row.available === false) { return row } else {
       return (
         null
@@ -36,18 +36,22 @@ function LoanedHardware() {
   })
 
   const DefaultNotAvailable = () => {
-    if (toolsAvailable == "")
-      return NoTools();
+    if (ToolsAvailable() == "")
+      return NoLoanableTools();
 
     return null;
   }
-
+  // (attempt to stop DefaultNotAvailable displaying before ToolsAvailable is finished running)
+  // const FirstOrder =()=>{return ToolsAvailable()};
+  // const  SecondOrder =()=>{
+  //   FirstOrder();
+  //   DefaultNotAvailable();
+  // }
   return (
     <>
-      {toolsAvailable}
+      {ToolsAvailable()}
       {DefaultNotAvailable()}
-      {/* also works a component */}
-      {/* <DefaultNotAvailable/> */}
+      {/* {SecondOrder()} */}
     </>
   )
 }
