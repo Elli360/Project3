@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 
@@ -41,17 +40,11 @@ function LoanedHardware() {
 
     return null;
   }
-  // (attempt to stop DefaultNotAvailable displaying before ToolsAvailable is finished running)
-  // const FirstOrder =()=>{return ToolsAvailable()};
-  // const  SecondOrder =()=>{
-  //   FirstOrder();
-  //   DefaultNotAvailable();
-  // }
+
   return (
     <>
       {ToolsAvailable()}
       {DefaultNotAvailable()}
-      {/* {SecondOrder()} */}
     </>
   )
 }
