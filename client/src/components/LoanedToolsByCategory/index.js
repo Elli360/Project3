@@ -53,7 +53,7 @@ import {
                     <img
                       alt="..."
                       className="img-center img-fluid"
-                      src={require("assets/img/mechanic-toolset.jpg").default}
+                      src={require("assets/img/power-tools.jpg").default}
                     />
                   </CardHeader>
                   <CardBody>
@@ -98,7 +98,7 @@ import {
                     <img
                       alt="..."
                       className="img-center img-fluid"
-                      src={require("assets/img/protective-gear.jpg").default}
+                      src={require("assets/img/mechanic-toolset.jpg").default}
                     />
                   </CardHeader>
                   <CardBody>
@@ -174,7 +174,7 @@ import {
                     <img
                       alt="..."
                       className="img-center img-fluid"
-                      src={require("assets/img/power-tools.jpg").default}
+                      src={require("assets/img/protective-gear.jpg").default}
                     />
                   </CardHeader>
                   <CardBody>
