@@ -6,69 +6,47 @@ function LoanedPowerTools() {
 
   const [categories, setCategories] = useState([]);
 
+  const LoadLoanableTools = async () => {
+    const first = await api.getCategories();
+    const res = await first.data[0].tools;
+    setCategories(res);
+  }
+
   useEffect(() => {
-    loadTools()
-  }, [])
+    LoadLoanableTools()
+  },
+    []);
 
+  const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
 
-  function loadTools() {
-    api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
-  };
+  const ToolsAvailable = () => categories.filter((row) => {
+    if (row.available === false) { return row } else {
+      return (
+        null
+      )
+    }
+  }).map((tool) => {
+    return (
+      <div className="toolDetail" >
+        <ul>
+          <li key={tool.id}>{tool.name}</li>
+        </ul>
+      </div>
+    )
+  })
 
-  // console.log(categories);
+  const DefaultNotAvailable = () => {
+    if (ToolsAvailable() == "")
+      return NoLoanableTools();
+
+    return null;
+  }
 
   return (
-
-    <div>
-      {categories.length ? (
-        <ul>
-          {categories.map(category => {
-            if (category.id === 1) {
-              return (
-                <div key={category.id}>
-                  {/* <a href={"/tools/" + category.id}>{category.name}</a> */}
-
-                  <ul>
-
-                    <div className="toolDetail" >
-                      {category.tools.map(tool => {
-
-
-                        if (tool.available === false) {
-                          return (
-
-                            <li key={tool.id}>{tool.name}</li>
-
-
-                          )
-                        }
-                        else {
-                          return null
-                        }
-                      })
-                      }
-                    </div>
-                  </ul>
-                </div>
-
-              );
-            }
-            else {
-              return null
-            }
-          }
-
-          )}
-        </ul>
-      ) : (
-        <h3>No Tools were found.</h3>
-      )}
-
-    </div>
-
-
-
-
+    <>
+      {ToolsAvailable()}
+      {DefaultNotAvailable()}
+    </>
   )
 }
 

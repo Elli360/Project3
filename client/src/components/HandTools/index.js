@@ -8,8 +8,7 @@ function HandTools() {
 
   useEffect(() => {
     loadTools()
-  })
-  // },[])
+  },[])
 
   function loadTools() {
     api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
@@ -38,8 +37,6 @@ function HandTools() {
                         return (
 
                           <li key={tool.id}>{tool.name}</li>
-
-
                         )
 
                       })
