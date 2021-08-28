@@ -148,8 +148,8 @@ import {
                         <span>Click Here To Show</span>
                         <h4 className="text-uppercase">Loaned Outdoor Tools</h4>
                         </Link>
-                        <Route  path="/outdoortools" component={LoanedOutdoorTools} />
                         <span>Category 3</span>
+                        <Route  path="/outdoortools" component={LoanedOutdoorTools} />
                         <hr className="line-info" />
                       </Col>
                     </Row>
@@ -187,6 +187,7 @@ import {
                         </Link>
                         <span>Category 4</span>
                         <Route  path="/workshoptools" component={LoanedWorkshopTools} />
+                        <hr className="line-danger" />
                       </Col>
                     </Row>
                     
@@ -222,7 +223,7 @@ import {
                         </Link>
                         <span>Category 5</span>
                         <Route  path="/hardware" component={LoanedHardware} />
-                      
+                        <hr className="line-primary" />
                       </Col>
                     </Row>
                     <Row>
