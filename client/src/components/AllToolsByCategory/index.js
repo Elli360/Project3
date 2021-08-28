@@ -72,7 +72,7 @@ function AllToolsByCategory(props) {
                   <img
                     alt="..."
                     className="img-center img-fluid"
-                    src={require("assets/img/mechanic-toolset.jpg").default}
+                    src={require("assets/img/power-tools.jpg").default} 
                   />
                 </CardHeader>
                 <CardBody>
@@ -117,7 +117,7 @@ function AllToolsByCategory(props) {
                   <img
                     alt="..."
                     className="img-center img-fluid"
-                    src={require("assets/img/protective-gear.jpg").default}
+                    src={require("assets/img/mechanic-toolset.jpg").default}
                   />
                 </CardHeader>
                 <CardBody>
@@ -129,9 +129,7 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Hand Tools</h4>
                       </Link>
                       <span>Category 2</span>
-
                       <Route path="/handtools" component={HandTools} />
-                    
                       <hr className="line-success" />
                     </Col>
                   </Row>
@@ -167,9 +165,9 @@ function AllToolsByCategory(props) {
                       <span>Click Here To Show</span>
                       <h4 className="text-uppercase">Outdoor Tools</h4>
                       </Link>
-                      <Route  path="/outdoortools" component={OutdoorTools} />
                       <span>Category 3</span>
-                      <hr className="line-info" />
+                      <Route  path="/outdoortools" component={OutdoorTools} />
+                       <hr className="line-info" />
                     </Col>
                   </Row>
                 
@@ -193,7 +191,7 @@ function AllToolsByCategory(props) {
                   <img
                     alt="..."
                     className="img-center img-fluid"
-                    src={require("assets/img/power-tools.jpg").default}
+                    src={require("assets/img/protective-gear.jpg").default}
                   />
                 </CardHeader>
                 <CardBody>
@@ -206,6 +204,7 @@ function AllToolsByCategory(props) {
                       </Link>
                       <span>Category 4</span>
                       <Route  path="/workshoptools" component={WorkshopTools} />
+                      <hr className="line-danger" />
                     </Col>
                   </Row>
                   
@@ -241,7 +240,7 @@ function AllToolsByCategory(props) {
                       </Link>
                       <span>Category 5</span>
                       <Route  path="/hardware" component={Hardware} />
-                    
+                      <hr className="line-primary" />
                     </Col>
                   </Row>
                   <Row>
