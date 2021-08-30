@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Button, NavItem, NavLink } from 'reactstrap';
+import { Link } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import shedPic from "../assets/img/shedpic.jpg"
 
 export default function Welcome() {
+    const [loginRedirect, setLoginRedirect] = useState(false);
+
     return (
         <>
             <CustomNavbar />
@@ -15,8 +19,13 @@ export default function Welcome() {
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
             </div>
-            <div style={{ fontFamily: "monospace", fontSize: "5vw", "color": "grey" }}>
-                Click the Login option above!
+            <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
+                <NavLink tag={Link} to="/login">
+                    <NavItem>
+                        <Button>Click Here</Button>
+                    </NavItem>
+                </NavLink> Or above to login!
+               
             </div>
             <div className="welcome" >
                 <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }} />
