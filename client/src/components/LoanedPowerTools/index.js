@@ -36,7 +36,7 @@ function LoanedPowerTools() {
   })
 
   const DefaultNotAvailable = () => {
-    if (ToolsAvailable() == "")
+    if (ToolsAvailable() === "" || [])
       return NoLoanableTools();
 
     return null;

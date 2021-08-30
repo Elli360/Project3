@@ -104,9 +104,7 @@ export default function CustomNavbar() {
             <Row>
               <Col className="collapse-brand" xs="6">
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-
                   the ToolShed
-
                 </a>
               </Col>
               <Col className="collapse-close text-right" xs="6">
@@ -125,7 +123,7 @@ export default function CustomNavbar() {
               <NavLink
                 data-placement="bottom"
 
-                href="https://github.com/elli360/project3"
+                href="https://github.com/MrDawit/ToolShed"
                 rel="noopener noreferrer"
                 target="_blank"
                 title="Our GitHub Repository"
