@@ -13,8 +13,7 @@ function LoanedHardware() {
 
   useEffect(() => {
     LoadLoanableTools()
-  },
-    []);
+  },[]);
 
   const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
 
@@ -35,7 +34,7 @@ function LoanedHardware() {
   })
 
   const DefaultNotAvailable = () => {
-    if (ToolsAvailable() == "")
+    if (ToolsAvailable() === "" || [])
       return NoLoanableTools();
 
     return null;
