@@ -1,35 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, NavItem, NavLink } from 'reactstrap';
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { useOktaAuth } from '@okta/okta-react';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import shedPic from "../assets/img/shedpic.jpg"
 
 export default function Welcome() {
-    const [loginRedirect, setLoginRedirect] = useState(false);
+    const history = useHistory({});
+    const { authState, oktaAuth } = useOktaAuth();
+    const login = async () => history.push('/login');
+    const logout = async () => oktaAuth.signOut();
 
     return (
         <>
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "10vw" }}>
-                    Welcome!
+                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "5vw" }}>
+                    Welcome!  <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" />
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
             </div>
+
+            {authState.isAuthenticated && 
             <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
-                <NavLink tag={Link} to="/login">
-                    <NavItem>
-                        <Button>Click Here</Button>
-                    </NavItem>
-                </NavLink> Or above to login!
-               
-            </div>
+            <NavItem>
+                Hope you are enjoying theToolshed! Return to Home with  
+                <Button>
+                    <NavLink tag={Link} to="/home" style={{ "color": "white" }}>
+                        Click Here
+                    </NavLink>
+                </Button> or the 'Home' link above or logout with
+                <Button onClick={logout} style={{ "color": "white" }}>
+                        Click Here
+                </Button>
+            </NavItem>
+            Or the 'Logout' link above!
+        </div>
+           }
+
+            {!authState.isPending && !authState.isAuthenticated && 
+            <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
+            <NavItem>
+                <Button style={{ "color": "white" }} onClick={login}>
+                        Click Here
+                </Button>
+            </NavItem>
+            Or above to login!
+        </div>
+            }
+
             <div className="welcome" >
                 <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }} />
-                {/* <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" /> */}
             </div>
             <Footer style={{ "max-height": "6vw" }} />
         </>
