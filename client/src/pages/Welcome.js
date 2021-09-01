@@ -18,8 +18,8 @@ export default function Welcome() {
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "10vw" }}>
-                    Welcome!
+                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "5vw" }}>
+                    Welcome!  <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" />
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
             </div>
@@ -27,12 +27,12 @@ export default function Welcome() {
             {authState.isAuthenticated && 
             <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
             <NavItem>
-                Hope you are enjoying theToolshed! Return to Home by  
+                Hope you are enjoying theToolshed! Return to Home with  
                 <Button>
                     <NavLink tag={Link} to="/home" style={{ "color": "white" }}>
                         Click Here
                     </NavLink>
-                </Button> or the 'Home' link above or logout by
+                </Button> or the 'Home' link above or logout with
                 <Button onClick={logout} style={{ "color": "white" }}>
                         Click Here
                 </Button>
@@ -54,7 +54,6 @@ export default function Welcome() {
 
             <div className="welcome" >
                 <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }} />
-                {/* <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" /> */}
             </div>
             <Footer style={{ "max-height": "6vw" }} />
         </>
