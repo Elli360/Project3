@@ -121,7 +121,14 @@ export default function Loaned() {
       });
     }
   }, [authState, oktaAuth]); // Update if authState changes
-
+  
+  if (!userInfo) {
+    return (
+      <div>
+        <p>Fetching user profile...</p>
+      </div>
+    );
+  }
 
   // const [tools, setTools] = useState([]);
 
