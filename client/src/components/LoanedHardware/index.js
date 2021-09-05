@@ -15,9 +15,9 @@ function LoanedHardware() {
     LoadLoanableTools()
   }, []);
 
-  const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
+  const NoLoanableTools = () => { return (<h3>All Tools are in the ToolShed &there4; Available</h3>) }
 
-  const toolsAvailable = categories.filter((row) => {
+  const ToolsNotAvailable = () => categories.filter((row) => {
     if (row.available === false) { return row } else {
       return (
         null
@@ -34,16 +34,23 @@ function LoanedHardware() {
   })
 
   const DefaultNotAvailable = () => {
-    if (toolsAvailable == "")
+    if (ToolsNotAvailable() == "")
       return NoLoanableTools();
 
     return null;
   }
-
+  //Does not affect component at all or in desired way
+  // if (!ToolsNotAvailable()) {
+  //   return (
+  //     <div>
+  //       <p>Fetching tool availablility...</p>
+  //     </div>
+  //   );
+  // }
   return (
     <>
-      {toolsAvailable}
-      {DefaultNotAvailable()}
+      {ToolsNotAvailable()}
+      {ToolsNotAvailable() && <DefaultNotAvailable/>}
     </>
   )
 }
