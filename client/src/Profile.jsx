@@ -79,6 +79,7 @@ const Profile = () => {
               );
             })}
           </tbody>
+          <tbody>{Object.values(userInfo)[4]} Hello</tbody>
         </Table>
       </div>
     </div>
