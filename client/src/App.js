@@ -13,7 +13,7 @@ import Borrowed from "pages/Borrowed.js";
 // import Login from "pages/Login.js";
 import CustomLoginComponent from "./Login.jsx";
 import Welcome from "pages/Welcome.js";
-// import Profile from "./Profile.jsx";
+import Profile from "./Profile.jsx";
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
@@ -70,11 +70,11 @@ function App() {
                         exact={false}
                         render={(props) => <Borrowed {...props} />}
                     />
-                     {/* <SecureRoute
+                     <SecureRoute
                         path="/profile"
                         exact={false}
                         render={(props) => <Profile {...props} />}
-                    /> */}
+                    />
                     {/* <Redirect from="/" to="/home" /> */}
 
                 </Switch>
