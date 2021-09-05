@@ -1,10 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 
 function LoanedHardware() {
 
   const [categories, setCategories] = useState([]);
-
   const LoadLoanableTools = async () => {
     const first = await api.getCategories();
     const res = await first.data[4].tools;
@@ -13,11 +13,11 @@ function LoanedHardware() {
 
   useEffect(() => {
     LoadLoanableTools()
-  },[]);
+  }, []);
 
   const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
 
-  const ToolsAvailable = () => categories.filter((row) => {
+  const toolsAvailable = categories.filter((row) => {
     if (row.available === false) { return row } else {
       return (
         null
@@ -34,7 +34,7 @@ function LoanedHardware() {
   })
 
   const DefaultNotAvailable = () => {
-    if (ToolsAvailable() === "" || [])
+    if (toolsAvailable == "")
       return NoLoanableTools();
 
     return null;
@@ -42,7 +42,7 @@ function LoanedHardware() {
 
   return (
     <>
-      {ToolsAvailable()}
+      {toolsAvailable}
       {DefaultNotAvailable()}
     </>
   )

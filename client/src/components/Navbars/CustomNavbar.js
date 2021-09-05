@@ -29,7 +29,7 @@ export default function CustomNavbar() {
     // keyLength: 6, // The length of location.key
     // // A function to use to confirm navigation with the user (see below)
     
-    getUserConfirmation: (message, callback) => callback(window.confirm(message))
+    // getUserConfirmation: (message, callback) => callback(window.confirm(message))
 });
   const { authState, oktaAuth } = useOktaAuth();
   const login = async () => history.push('/login');
@@ -188,11 +188,11 @@ export default function CustomNavbar() {
             </NavItem>
 
             {/* Okta */}
-            {authState.isAuthenticated && (
+            {/* {authState.isAuthenticated && (
               <NavItem id="profile-button">
                 <Link to="/profile">Profile</Link>
               </NavItem>
-            )}
+            )} */}
             {authState.isAuthenticated && <NavItem><Button id="logout-button" onClick={logout}>Logout</Button></NavItem>}
             {!authState.isPending && !authState.isAuthenticated && <NavItem><Button onClick={login}>Login</Button></NavItem>}
             {/* Okta end */}
