@@ -38,7 +38,6 @@ function LoanedHardware() {
   const DefaultNotAvailable = () => {
     if (ToolsNotAvailable() == "")
       return NoLoanableTools();
-      // console.log(`Show null: ${ToolsNotAvailable()}`);
     return null;
   };
 
