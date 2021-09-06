@@ -5,7 +5,7 @@ import api from "../../utils/api";
 function LoanedHardware() {
 
   const [categories, setCategories] = useState([]);
-  const [categoryTrue, setCategoryTrue] = useState(false);
+  const [categoryDataTrue, setCategoryDataTrue] = useState(false);
   const LoadLoanableTools = async () => {
     const first = await api.getCategories();
     const res = await first.data[4].tools;
@@ -34,43 +34,25 @@ function LoanedHardware() {
         </div>
       )
     });
-  // setCategoryTrue(true);
 
-  // setCategoryTrue(true);
   const DefaultNotAvailable = () => {
     if (ToolsNotAvailable() == "")
       return NoLoanableTools();
-    // setCategoryTrue(true);
+      // console.log(`Show null: ${ToolsNotAvailable()}`);
     return null;
   };
-  //Does not affect component at all or in desired way
 
-
-  // useEffect(() => {
-    
-  //   const Timeout = () => {
-  //     if (!categoryTrue) {
-  //       return (
-  //         <div>
-  //           <p>Fetching tool availablility...</p>
-  //         </div>
-  //       )
-  //     }
-  //   }
-  //   Timeout();
-  // },[]);
   useEffect(() => {
     const timer = setTimeout(() => {
-        setCategoryTrue(true);
+        setCategoryDataTrue(true);
     }, 500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {ToolsNotAvailable()}
-      {/* {ToolsNotAvailable() && <DefaultNotAvailable />} */}
-      {categoryTrue && <DefaultNotAvailable />}
+      <ToolsNotAvailable/>
+      {categoryDataTrue && <DefaultNotAvailable />}
     </>
   )
 };
