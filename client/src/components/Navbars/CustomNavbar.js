@@ -28,7 +28,8 @@ export default function CustomNavbar() {
     // forceRefresh: false, // Set true to force full page refreshes
     // keyLength: 6, // The length of location.key
     // // A function to use to confirm navigation with the user (see below)
-    // getUserConfirmation: (message, callback) => callback(window.confirm(message))
+    
+    getUserConfirmation: (message, callback) => callback(window.confirm(message))
 });
   const { authState, oktaAuth } = useOktaAuth();
   const login = async () => history.push('/login');

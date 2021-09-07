@@ -1,51 +1,59 @@
+
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 
 function LoanedHardware() {
 
   const [categories, setCategories] = useState([]);
-
+  const [categoryDataTrue, setCategoryDataTrue] = useState(false);
   const LoadLoanableTools = async () => {
     const first = await api.getCategories();
     const res = await first.data[4].tools;
     setCategories(res);
-  }
+  };
 
   useEffect(() => {
     LoadLoanableTools()
-  },[]);
+  }, []);
 
-  const NoLoanableTools = () => { return (<h3>No Available Tools</h3>) }
+  const NoLoanableTools = () => { return (<h3>All Tools are in the ToolShed &there4; Available</h3>) };
 
-  const ToolsAvailable = () => categories.filter((row) => {
-    if (row.available === false) { return row } else {
+  const ToolsNotAvailable = () =>
+    categories.filter((row) => {
+      if (row.available === false) { return row } else {
+        return (
+          null
+        )
+      }
+    }).map((tool) => {
       return (
-        null
+        <div className="toolDetail" >
+          <ul>
+            <li key={tool.id}>{tool.name}</li>
+          </ul>
+        </div>
       )
-    }
-  }).map((tool) => {
-    return (
-      <div className="toolDetail" >
-        <ul>
-          <li key={tool.id}>{tool.name}</li>
-        </ul>
-      </div>
-    )
-  })
+    });
 
   const DefaultNotAvailable = () => {
-    if (ToolsAvailable() === "" || [])
+    if (ToolsNotAvailable() == "")
       return NoLoanableTools();
-
     return null;
-  }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+        setCategoryDataTrue(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      {ToolsAvailable()}
-      {DefaultNotAvailable()}
+      <ToolsNotAvailable/>
+      {categoryDataTrue && <DefaultNotAvailable />}
     </>
   )
-}
+};
 
 export default LoanedHardware;
