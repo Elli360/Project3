@@ -43,7 +43,7 @@ function LoanedWorkshopTools() {
   useEffect(() => {
     const timer = setTimeout(() => {
         setCategoryDataTrue(true);
-    }, 500);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 

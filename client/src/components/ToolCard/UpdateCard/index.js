@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../../utils/api";
 // import * as api  from '../../../utils/api.js';
 // import DeleteBtn from "../../DeleteBtn";
@@ -7,19 +7,19 @@ import api from "../../../utils/api";
 import { List } from "../../List";
 import UpdateTool from '../../UpdateTool';
 
-function UpdateCard () {
+function UpdateCard() {
 
-  const [tools,setTools]=useState("");
+  const [tools, setTools] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     loadTools()
-  },[])
-  
+  }, [])
 
-  function loadTools(){
-    api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+
+  function loadTools() {
+    api.getTools().then(res => setTools(res.data)).catch(err => console.log(err))
   };
-  
+
 
   // function handleFormSubmit(event) {
   //   event.preventDefault();
@@ -42,7 +42,7 @@ function UpdateCard () {
   //         }))
   //       .then(() => loadTools())
   //       .catch(err => console.log(err));
-        
+
   // };
 
   // const [formObject, setFormObject] = useState({
@@ -54,52 +54,57 @@ function UpdateCard () {
   // });
 
 
-    // Handles updating component state when the user types into the input field
-    function handleInputChange(id, available) {
-      // event.preventDefault();
-      // const { name, value } = event.target;
-      // setFormObject({...formObject, [name]: value})
-      api.updateTool(id,{available})
-      .then(res => loadTools())
+  // Handles updating component state when the user types into the input field
+  function handleInputChange( available) {
+    
+    for (let allId = 0; allId < 14; allId++) {
+ 
+ console.log(`Inside: ${allId}`);
+   
+    // event.preventDefault();
+    // const { name, value } = event.target;
+    // setFormObject({...formObject, [name]: value})
+    api.updateTool(allId, { available })
+      .then(() => loadTools())
       .catch(err => console.log(err));
+    }
+  };
 
-    };
-  
 
   console.log(tools);
 
-    return (
-                      <div>
-                                
-                      <h2>Sign a tool out...</h2>
-                      <hr></hr>
-                      
+  return (
+    <div>
 
-                        {tools.length ? (
-                  <ul>
-                    {tools.length ? (
-                  <List>
-                    {tools.map(tool => {
-                      return (
-                        <UpdateTool key={tool.id}
-                        handleAvailChange={handleInputChange}
-                        tool={tool}
-                        />
-                      );
-                    })}
-                  </List>
-                ) : (
-                  <h3>No Results to Display</h3>
-                )}
+      <h2>Sign a tool out...</h2>
+      <hr></hr>
 
-                  </ul>
-                ) : (
-                  <h3>No Tools were found.</h3>
-                )}
-                  
-                    </div>
 
-    )
+      {tools.length ? (
+        <ul>
+          {tools.length ? (
+            <List>
+              {tools.map(tool => {
+                return (
+                  <UpdateTool key={tool.id}
+                    handleAvailableChange={handleInputChange}
+                    tool={tool}
+                  />
+                );
+              })}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+
+        </ul>
+      ) : (
+        <h3>No Tools were found.</h3>
+      )}
+
+    </div>
+
+  )
 }
 
 

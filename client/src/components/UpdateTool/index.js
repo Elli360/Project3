@@ -4,13 +4,13 @@ import { ListItem } from "../../components/List";
 
 
 
-export default function UpdateTool({tool, handleAvailChange}){
+export default function UpdateTool({tool, handleAvailableChange}){
 
 
     function handleChange(event){
         const check =event.target.checked;
         // console.log("i updated")
-        handleAvailChange(tool.id, check)
+        handleAvailableChange(tool.id, check)
     }
 
 return(
