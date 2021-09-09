@@ -53,12 +53,19 @@ function UpdateCard() {
   //   available:true
   // });
 
+  //changes tool availability array individually
+  function handleInputChange(id, available) {
+    // event.preventDefault();
+    // const { name, value } = event.target;
+    // setFormObject({...formObject, [name]: value})
+    api.updateTool(id, { available })
+      .then(() => loadTools())
+      .catch(err => console.log(err));
+  };
 
-  // Handles updating component state when the user types into the input field
-  function handleInputChange( available) {
-    
+   //changes tool availability array in unison
+  function handleAllInputChange( available) {
     for (let allId = 0; allId < tools.length; allId++) {
- 
  console.log(`Inside: ${allId}`);
  console.log(`Length: ${tools.length}`);
     // event.preventDefault();
@@ -70,6 +77,11 @@ function UpdateCard() {
     }
   };
 
+  function handleAllChange(event){
+    const check =event.target.checked;
+    // console.log("i updated")
+    handleAllInputChange(check)
+}
 
   console.log(tools);
 
@@ -79,7 +91,12 @@ function UpdateCard() {
       <h2>Sign a tool out...</h2>
       <hr></hr>
 
-
+      <h3>Change Availability of ALL tools:  
+        <input type="checkbox"
+    onChange={handleAllChange}
+    defaultChecked={false}
+    />
+</h3>
       {tools.length ? (
         <ul>
           {tools.length ? (

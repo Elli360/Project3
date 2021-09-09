@@ -6,11 +6,11 @@ import { ListItem } from "../../components/List";
 
 export default function UpdateTool({tool, handleAvailableChange}){
 
-
+//changes tool availability array individually
     function handleChange(event){
         const check =event.target.checked;
         // console.log("i updated")
-        handleAvailableChange(check, check)
+        handleAvailableChange(tool.id, check)
     }
 
 return(

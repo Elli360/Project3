@@ -24,7 +24,7 @@ export default function UpdateTool({ tool, handleAvailableChange }) {
 
   //==============================================
   // const [tools, setTools] = useState("");
-  const [tools, setTools] = useState("");
+  const [setTools] = useState("");
 
   function loadTools() {
     api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
