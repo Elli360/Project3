@@ -57,10 +57,10 @@ function UpdateCard() {
   // Handles updating component state when the user types into the input field
   function handleInputChange( available) {
     
-    for (let allId = 0; allId < 14; allId++) {
+    for (let allId = 0; allId < tools.length; allId++) {
  
  console.log(`Inside: ${allId}`);
-   
+ console.log(`Length: ${tools.length}`);
     // event.preventDefault();
     // const { name, value } = event.target;
     // setFormObject({...formObject, [name]: value})
