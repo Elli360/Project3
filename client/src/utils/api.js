@@ -36,16 +36,3 @@ import axios from "axios";
   },
   };
   
-//   updateTool: function ( toolData) {
-    
-//     for (let allId = 0; allId < 14; allId++) {
-
-//  console.log(`Inside: ${allId}`);
-   
-//     return axios.put(`/api/tools/${allId}`, toolData);
-//   }},
-
-//   };
-
-// });
-// export default api;

@@ -10,14 +10,22 @@ import UpdateTool from '../../UpdateTool';
 function UpdateCard() {
 
   const [tools, setTools] = useState("");
+  const [allCheckbox, setAllCheckbox] = useState("");
 
   useEffect(() => {
-    loadTools()
+    loadTools();
+
   }, [])
 
+  useEffect(() => {
 
+    loadForAllTools();
+  }, [])
   function loadTools() {
     api.getTools().then(res => setTools(res.data)).catch(err => console.log(err))
+  };
+  function loadForAllTools() {
+    api.getTools().then(res => setAllCheckbox(res.data[0].available)).catch(err => console.log(err))
   };
 
 
@@ -63,40 +71,46 @@ function UpdateCard() {
       .catch(err => console.log(err));
   };
 
-   //changes tool availability array in unison
-  function handleAllInputChange( available) {
-    for (let allId = 0; allId < tools.length; allId++) {
- console.log(`Inside: ${allId}`);
- console.log(`Length: ${tools.length}`);
-    // event.preventDefault();
-    // const { name, value } = event.target;
-    // setFormObject({...formObject, [name]: value})
-    api.updateTool(allId, { available })
-      .then(() => loadTools())
-      .catch(err => console.log(err));
-    }
-  };
+  //changes tool availability array in unison
+  function handleAllChange(event) {
+    const check = event.target.checked;
 
-  function handleAllChange(event){
-    const check =event.target.checked;
-    // console.log("i updated")
-    handleAllInputChange(check)
-}
-
-  console.log(tools);
+    function handleAllInputChange(available) {
+      for (let allId = 0; allId < tools.length; allId++) {
+        // event.preventDefault();
+        // const { name, value } = event.target;
+        // setFormObject({...formObject, [name]: value})
+        api.updateTool(allId, { available })
+          .then(() => loadTools())
+          .catch(err => console.log(err));
+      }
+    };
+    handleAllInputChange(check);
+  }
+  // const allCheckbox = tools[0].available;
+  console.log(`This is not tools: ${allCheckbox}`);
 
   return (
     <div>
 
       <h2>Sign a tool out...</h2>
       <hr></hr>
-
-      <h3>Change Availability of ALL tools:  
+      {/* {tools.length ? (<h3>
+        Change Availability of ALL tools: {allCheckbox.toString()}
         <input type="checkbox"
-    onChange={handleAllChange}
-    defaultChecked={false}
-    />
-</h3>
+          onChange={handleAllChange}
+          defaultChecked={allCheckbox}
+        />
+      </h3>) : (<h3>No Toolz</h3>)
+      }; */}
+
+       <h3 className="allToolsCheckbox">
+         Change Availability of ALL tools: {allCheckbox.toString()}
+        <input type="checkbox" 
+           onChange={handleAllChange}
+           defaultChecked={allCheckbox}
+         />
+       </h3>
       {tools.length ? (
         <ul>
           {tools.length ? (
