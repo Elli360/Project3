@@ -44,6 +44,7 @@ return(
     <input type="checkbox"
     onChange={handleChange}
     defaultChecked={tool.available}
+    checked ={tool.available}
     />
 
  

@@ -11,7 +11,8 @@ function UpdateCard() {
 
   const [tools, setTools] = useState("");
   const [allCheckbox, setAllCheckbox] = useState("");
-
+  const [checkMark, setCheckMark] = useState(true);
+  const [checkMarkz, setCheckMarkz] = useState(false);
   useEffect(() => {
     loadTools();
 
@@ -20,6 +21,7 @@ function UpdateCard() {
   useEffect(() => {
 
     loadForAllTools();
+    // setCheckMark();
   }, [])
   function loadTools() {
     api.getTools().then(res => setTools(res.data)).catch(err => console.log(err))
@@ -73,8 +75,8 @@ function UpdateCard() {
 
   //changes tool availability array in unison
   function handleAllChange(event) {
-    const check = event.target.checked;
-
+    // const checkMark = event.target.checked;
+    setCheckMark(event.target.checked);
     function handleAllInputChange(available) {
       for (let allId = 0; allId < tools.length; allId++) {
         // event.preventDefault();
@@ -85,7 +87,8 @@ function UpdateCard() {
           .catch(err => console.log(err));
       }
     };
-    handleAllInputChange(check);
+    handleAllInputChange(checkMark);
+setCheckMarkz(checkMark);
   }
   // const allCheckbox = tools[0].available;
   console.log(`This is not tools: ${allCheckbox}`);
@@ -104,13 +107,13 @@ function UpdateCard() {
       </h3>) : (<h3>No Toolz</h3>)
       }; */}
 
-       <h3 className="allToolsCheckbox">
-         Change Availability of ALL tools: {allCheckbox.toString()}
-        <input type="checkbox" 
-           onChange={handleAllChange}
-           defaultChecked={allCheckbox}
-         />
-       </h3>
+      <h3 className="allToolsCheckbox">
+        Change Availability of ALL tools: {checkMark.toString()}
+        <input type="checkbox"
+          onChange={handleAllChange}
+          defaultChecked={checkMarkz}
+        />
+      </h3>
       {tools.length ? (
         <ul>
           {tools.length ? (
