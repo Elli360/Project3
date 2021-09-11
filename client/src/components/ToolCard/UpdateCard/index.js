@@ -11,25 +11,28 @@ function UpdateCard() {
 
   const [tools, setTools] = useState("");
   const [allCheckbox, setAllCheckbox] = useState("");
-  const [checkMark, setCheckMark] = useState(true);
+  const [checkMark, setCheckMark] = useState(false);
   const [checkMarkz, setCheckMarkz] = useState(false);
   useEffect(() => {
     loadTools();
-
   }, [])
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    loadForAllTools();
-    // setCheckMark();
-  }, [])
+  //   loadForAllTools();
+  //   // setCheckMark();
+  // }, [])
   function loadTools() {
     api.getTools().then(res => setTools(res.data)).catch(err => console.log(err))
   };
   function loadForAllTools() {
     api.getTools().then(res => setAllCheckbox(res.data[0].available)).catch(err => console.log(err))
   };
+  useEffect(() => {
 
+    loadForAllTools();
+    // setCheckMark();
+  }, [])
 
   // function handleFormSubmit(event) {
   //   event.preventDefault();
@@ -76,7 +79,8 @@ function UpdateCard() {
   //changes tool availability array in unison
   function handleAllChange(event) {
     // const checkMark = event.target.checked;
-    setCheckMark(event.target.checked);
+    // setCheckMark(event.target.checked);
+    if(!event.target.checked){
     function handleAllInputChange(available) {
       for (let allId = 0; allId < tools.length; allId++) {
         // event.preventDefault();
@@ -87,9 +91,26 @@ function UpdateCard() {
           .catch(err => console.log(err));
       }
     };
-    handleAllInputChange(checkMark);
-setCheckMarkz(checkMark);
+    handleAllInputChange(false);
+  }else if(event.target.checked){
+    function handleAllInputChange(available) {
+      for (let allId = 0; allId < tools.length; allId++) {
+        // event.preventDefault();
+        // const { name, value } = event.target;
+        // setFormObject({...formObject, [name]: value})
+        api.updateTool(allId, { available })
+          .then(() => loadTools())
+          .catch(err => console.log(err));
+      }
+    };
+    handleAllInputChange(true);
   }
+// setCheckMarkz(checkMark);
+setCheckMark(event.target.checked);
+// setCheckMark(()=>(event)=>event.target.checked);
+setCheckMarkz(checkMark);
+  
+}
   // const allCheckbox = tools[0].available;
   console.log(`This is not tools: ${allCheckbox}`);
 
@@ -108,10 +129,10 @@ setCheckMarkz(checkMark);
       }; */}
 
       <h3 className="allToolsCheckbox">
-        Change Availability of ALL tools: {checkMark.toString()}
+        Change Availability of ALL tools: {allCheckbox.toString()}
         <input type="checkbox"
           onChange={handleAllChange}
-          defaultChecked={checkMarkz}
+          defaultChecked={allCheckbox}
         />
       </h3>
       {tools.length ? (
