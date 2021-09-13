@@ -18,7 +18,7 @@ export default function Welcome() {
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "5vw" }}>
+                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "8vw" }}>
                     Welcome!  <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" />
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
