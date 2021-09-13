@@ -32,12 +32,12 @@ export default function Welcome() {
                     <NavLink tag={Link} to="/home" style={{ "color": "white" }}>
                         Click Here
                     </NavLink>
-                </Button> or the 'Home' link above or logout with
+                </Button> or click the 'Home' link above or logout with
                 <Button onClick={logout} style={{ "color": "white" }}>
                         Click Here
                 </Button>
             </NavItem>
-            Or the 'Logout' link above!
+            Or click the 'Logout' link above!
         </div>
            }
 
@@ -48,7 +48,7 @@ export default function Welcome() {
                         Click Here
                 </Button>
             </NavItem>
-            Or above to login!
+            Or click above to login!
         </div>
             }
 

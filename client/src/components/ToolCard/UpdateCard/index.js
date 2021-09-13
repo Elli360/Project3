@@ -95,8 +95,7 @@ function UpdateCard() {
         <input type="checkbox"
           onChange={handleAllChange}
           // defaultChecked={allCheckbox}
-          checked={allCheckbox}
-          
+          checked={allCheckbox}  
         />
       </h3>
       {tools.length ? (
