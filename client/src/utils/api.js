@@ -35,6 +35,4 @@ import axios from "axios";
     return axios.put("/api/tools/" + id, toolData);
   },
   };
-
-// });
-// export default api;
+  

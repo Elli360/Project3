@@ -57,6 +57,18 @@ module.exports = function (app) {
       });
   });
 
+//    for (let allId = 0; allId < 14; allId++) {
+
+// console.log(`Inside: ${allId}`);
+
+//   app.put(`/api/tools/:${allId}`, (req, res) => {
+//     db.tool
+//       .update(req.body)
+//       .then(item => {
+//         res.json(item);
+//       });
+//   });};
+
   //GET A SINGLE  TOOL
   app.get("/api/tools/:id", (req, res) => {
     db.tool

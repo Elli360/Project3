@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../../utils/api";
 // import * as api  from '../../../utils/api.js';
 // import DeleteBtn from "../../DeleteBtn";
@@ -7,20 +7,17 @@ import api from "../../../utils/api";
 import { List } from "../../List";
 import UpdateTool from '../../UpdateTool';
 
-function UpdateCard () {
+function UpdateCard() {
+  const [tools, setTools] = useState("");
+  const [allCheckbox, setAllCheckbox] = useState([true, false]);
+  useEffect(() => {
+    loadTools();
+  }, [])
 
-  const [tools,setTools]=useState("");
-
-  useEffect(()=>{
-    loadTools()
-  },[])
-  
-
-  function loadTools(){
-    api.getTools().then(res=>setTools(res.data)).catch(err=>console.log(err))
+  function loadTools() {
+    api.getTools().then(res => setTools(res.data)).catch(err => console.log(err))
   };
   
-
   // function handleFormSubmit(event) {
   //   event.preventDefault();
   //     api.updateTool({
@@ -42,7 +39,7 @@ function UpdateCard () {
   //         }))
   //       .then(() => loadTools())
   //       .catch(err => console.log(err));
-        
+
   // };
 
   // const [formObject, setFormObject] = useState({
@@ -53,53 +50,80 @@ function UpdateCard () {
   //   available:true
   // });
 
-
-    // Handles updating component state when the user types into the input field
-    function handleInputChange(id, available) {
-      // event.preventDefault();
-      // const { name, value } = event.target;
-      // setFormObject({...formObject, [name]: value})
-      api.updateTool(id,{available})
-      .then(res => loadTools())
+  //changes tool availability array individually
+  function handleInputChange(id, available) {
+    // event.preventDefault();
+    // const { name, value } = event.target;
+    // setFormObject({...formObject, [name]: value})
+    api.updateTool(id, { available })
+      .then(() => loadTools())
       .catch(err => console.log(err));
+  };
 
+  //changes tool availability array in unison
+  function handleAllChange(event) {
+    setAllCheckbox(event.target.checked);
+
+    if(!event.target.checked){
+    function handleAllInputChange(available) {
+      for (let allId = 0; allId < tools.length; allId++) {
+        api.updateTool(allId, { available })
+          .then(() => loadTools())
+          .catch(err => console.log(err));
+      }
     };
-  
+    handleAllInputChange(false);
+  }else if(event.target.checked){
+    function handleAllInputChange(available) {
+      for (let allId = 0; allId < tools.length; allId++) {
+        api.updateTool(allId, { available })
+          .then(() => loadTools())
+          .catch(err => console.log(err));
+      }
+    };
+    handleAllInputChange(true);
+  }
+}
 
-  console.log(tools);
+  return (
+    <div>
 
-    return (
-                      <div>
-                                
-                      <h2>Sign a tool out...</h2>
-                      <hr></hr>
-                      
+      <h2>Sign a tool out...</h2>
+      <hr></hr>
+      <h3 className="allToolsCheckbox">
+      Change Availability of ALL tools: {allCheckbox.toString()}
+        <input type="checkbox"
+          onChange={handleAllChange}
+          // defaultChecked={allCheckbox}
+          checked={allCheckbox}
+          
+        />
+      </h3>
+      {tools.length ? (
+        <ul>
+          {tools.length ? (
+            <List>
+              {tools.map(tool => {
+                return (
+                  <UpdateTool key={tool.id}
+                    handleAvailableChange={handleInputChange}
+                    tool={tool}
+                  />
+                );
+              })}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
 
-                        {tools.length ? (
-                  <ul>
-                    {tools.length ? (
-                  <List>
-                    {tools.map(tool => {
-                      return (
-                        <UpdateTool key={tool.id}
-                        handleAvailChange={handleInputChange}
-                        tool={tool}
-                        />
-                      );
-                    })}
-                  </List>
-                ) : (
-                  <h3>No Results to Display</h3>
-                )}
+        </ul>
+      ) : (
+        <h3>No Tools were found.</h3>
+      )}
 
-                  </ul>
-                ) : (
-                  <h3>No Tools were found.</h3>
-                )}
-                  
-                    </div>
+    </div>
 
-    )
+  )
 }
 
 
