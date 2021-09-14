@@ -50,6 +50,7 @@ export default function Borrowed() {
     }
 
   }, []);
+  
   return (
     <>
       <CustomNavbar />
