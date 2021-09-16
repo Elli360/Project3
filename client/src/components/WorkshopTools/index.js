@@ -3,23 +3,18 @@ import api from "../../utils/api";
 
 
 function WorkshopTools() {
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     loadTools()
   }, [])
 
-
   function loadTools() {
     api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
   };
-
-  console.log(categories);
-
+  // console.log(categories);
   return (
-
-    <div>
+    <>
       {categories.length ? (
         <ul>
           {categories.map(category => {
@@ -52,12 +47,7 @@ function WorkshopTools() {
       ) : (
         null
       )}
-
-    </div>
-
-
-
-
+    </>
   )
 }
 
