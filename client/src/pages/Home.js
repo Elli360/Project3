@@ -67,6 +67,7 @@ import Available from "../components/ToolCard/Available";
 //import NotAvailable from "../components/ToolCard/NotAvailable";
 import AddTool from "../components/AddToolBtnHome";
 import SearchBtnHome from "../components/SearchBtnHome";
+import ScrollToTop from "components/ScrollToTop";
 //import Loaned from "./Loaned";
 //==========================
 
@@ -81,7 +82,7 @@ export default function Home() {
     toolsByCategory.current.scrollIntoView({
       behavior: "smooth",
     });
-   
+
   };
 
   let close = () => {
@@ -95,7 +96,7 @@ export default function Home() {
     setToolshedImgOpacity(0.2);
   }
   //  handleClick();    
- useEffect(() => {
+  useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
     return function cleanup() {
@@ -241,6 +242,8 @@ export default function Home() {
 
 </div>*/}
 
+      {!displayAllByCategory && <ScrollToTop />}
+
       <div>
         <section className="section section-lg section-coins">
           {/* ToolChest list section */}
@@ -255,7 +258,7 @@ export default function Home() {
           </Button>}
 
           {displayAllByCategory &&
-            <AllToolsByCategory/>
+            <AllToolsByCategory />
             // <AllToolsByCategory toolsByCategory={toolsByCategory}/>
           }
         </section>

@@ -50,6 +50,7 @@ import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 //import TestNavbar from "components/TestNavbar";
 import UpdateCard from "components/ToolCard/UpdateCard";
 import Spacer from "components/Spacer";
+import ScrollToTop from "components/ScrollToTop/index.js";
 const carouselItems = [
   {
     src: require("assets/img/hands-grabbing-tools.jpg").default,
@@ -370,6 +371,9 @@ export default function Loaned() {
             </div>
 
           </div>
+
+          {!displayUpdateCard && <ScrollToTop />}
+
           <div ref={loanedUpdate} />
           <div >
             {displayUpdateCard && <Button
@@ -396,6 +400,9 @@ export default function Loaned() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
+
+            {!displayLoanedByCategory && <ScrollToTop />}
+
             {displayLoanedByCategory && <Button
               className="button"
               color="danger"
