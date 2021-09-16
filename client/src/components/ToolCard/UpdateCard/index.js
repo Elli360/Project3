@@ -66,7 +66,9 @@ function UpdateCard() {
 
     if(!event.target.checked){
     function handleAllInputChange(available) {
-      for (let allId = 0; allId < tools.length; allId++) {
+      // const toolLength = tools.length + 2;
+      // console.log(`Tool length: ${toolLength}`);
+      for (let allId = 0; allId < tools.length + 2; allId++) {
         api.updateTool(allId, { available })
           .then(() => loadTools())
           .catch(err => console.log(err));
@@ -75,7 +77,9 @@ function UpdateCard() {
     handleAllInputChange(false);
   }else if(event.target.checked){
     function handleAllInputChange(available) {
-      for (let allId = 0; allId < tools.length; allId++) {
+      // const toolLength = tools.length + 2;
+      // console.log(`Tool length: ${toolLength}`);
+      for (let allId = 0; allId < tools.length + 2; allId++) {
         api.updateTool(allId, { available })
           .then(() => loadTools())
           .catch(err => console.log(err));
@@ -95,8 +99,7 @@ function UpdateCard() {
         <input type="checkbox"
           onChange={handleAllChange}
           // defaultChecked={allCheckbox}
-          checked={allCheckbox}
-          
+          checked={allCheckbox}  
         />
       </h3>
       {tools.length ? (

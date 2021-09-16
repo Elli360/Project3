@@ -18,7 +18,7 @@ export default function Welcome() {
             <CustomNavbar />
             <div style={{ "height": "10vw" }}></div>
             <div>
-                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "5vw" }}>
+                <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "8vw" }}>
                     Welcome!  <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" />
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
@@ -32,12 +32,12 @@ export default function Welcome() {
                     <NavLink tag={Link} to="/home" style={{ "color": "white" }}>
                         Click Here
                     </NavLink>
-                </Button> or the 'Home' link above or logout with
+                </Button> or click the 'Home' link above or logout with
                 <Button onClick={logout} style={{ "color": "white" }}>
                         Click Here
                 </Button>
             </NavItem>
-            Or the 'Logout' link above!
+            Or click the 'Logout' link above!
         </div>
            }
 
@@ -48,7 +48,7 @@ export default function Welcome() {
                         Click Here
                 </Button>
             </NavItem>
-            Or above to login!
+            Or click above to login!
         </div>
             }
 

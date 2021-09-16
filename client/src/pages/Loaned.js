@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useOktaAuth } from '@okta/okta-react';
+
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -45,10 +45,12 @@ import {
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import LoanedToolsByCategory from "components/LoanedToolsByCategory";
+import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 // import UpdateTool from 'components/AddToolBtnHome';
 //import TestNavbar from "components/TestNavbar";
 import UpdateCard from "components/ToolCard/UpdateCard";
 import Spacer from "components/Spacer";
+import ScrollToTop from "components/ScrollToTop/index.js";
 const carouselItems = [
   {
     src: require("assets/img/hands-grabbing-tools.jpg").default,
@@ -64,7 +66,7 @@ export default function Loaned() {
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   // const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
-  const [ setToolshedImgOpacity] = useState(0.2);
+  const [setToolshedImgOpacity] = useState(0.2);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
   //display Loaned Tools by category
@@ -95,7 +97,7 @@ export default function Loaned() {
   //for the search modal(on the search button) that is not connected to db yet
   const [formModal, setFormModal] = useState(false);
   // const [tabs, setTabs] = useState(1);
-  
+
   useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -108,27 +110,27 @@ export default function Loaned() {
     }
   }, []);
 
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
+  // const { authState, oktaAuth } = useOktaAuth();
+  // const [userInfo, setUserInfo] = useState(null);
 
-  useEffect(() => {
-    if (!authState.isAuthenticated) {
-      // When user isn't authenticated, forget any user info
-      setUserInfo(null);
-    } else {
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-      });
-    }
-  }, [authState, oktaAuth]); // Update if authState changes
+  // useEffect(() => {
+  //   if (!authState.isAuthenticated) {
+  //     // When user isn't authenticated, forget any user info
+  //     setUserInfo(null);
+  //   } else {
+  //     oktaAuth.getUser().then((info) => {
+  //       setUserInfo(info);
+  //     });
+  //   }
+  // }, [authState, oktaAuth]); // Update if authState changes
 
-  if (!userInfo) {
-    return (
-      <div>
-        <p>Fetching user profile...</p>
-      </div>
-    );
-  }
+  // if (!userInfo) {
+  //   return (
+  //     <div>
+  //       <p>Fetching user profile...</p>
+  //     </div>
+  //   );
+  // }
 
   // const [tools, setTools] = useState([]);
 
@@ -363,23 +365,18 @@ export default function Loaned() {
                   </Col>
                 </Row>
 
-                <Row>
-                  <Col lg="6" md="6">
-                    {/* <h2 className="profile-title text-left">Michelle Fairbanks</h2> */}
-
-                    {/*using okta object, key is preferred_name */}
-                    <h2>{Object.values(userInfo)[4]}</h2>
-                    <h4 className="text-on-back">UserName</h4>
-                  </Col>
-                </Row>
+                <UserNameDisplay />
               </Container>
 
             </div>
 
           </div>
+
+          {!displayUpdateCard && <ScrollToTop />}
+
           <div ref={loanedUpdate} />
           <div >
-          {displayUpdateCard && <Button
+            {displayUpdateCard && <Button
               className="button"
               color="danger"
               onClick={closeUpdateCard}
@@ -403,6 +400,9 @@ export default function Loaned() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
+
+            {!displayLoanedByCategory && <ScrollToTop />}
+
             {displayLoanedByCategory && <Button
               className="button"
               color="danger"
