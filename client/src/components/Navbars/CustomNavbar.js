@@ -1,8 +1,8 @@
 
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
-import { useOktaAuth } from '@okta/okta-react';
-
+import { useOktaAuth } from "@okta/okta-react";
+import ScrollToTop from "../ScrollToTop/index.js";
 // reactstrap components
 import {
   Button,
@@ -70,6 +70,8 @@ export default function CustomNavbar() {
 
 
   return (
+    <>
+    <ScrollToTop />
     <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
       <Container>
         <div className="navbar-translate">
@@ -212,5 +214,6 @@ export default function CustomNavbar() {
         </Collapse>
       </Container>
     </Navbar>
+    </>
   );
 }
