@@ -27,12 +27,13 @@ export default function Welcome() {
             {authState.isAuthenticated && 
             <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
             <NavItem>
-                Hope you are enjoying theToolshed! Return to Home with  
+                Hope you are enjoying The Toolshed! 
+                <div>- Return to Home with  
                 <Button>
                     <NavLink tag={Link} to="/home" style={{ "color": "white" }}>
                         Click Here
                     </NavLink>
-                </Button> or click the 'Home' link above or logout with
+                </Button></div> <div>- click the 'Home' link above</div> - logout with
                 <Button onClick={logout} style={{ "color": "white" }}>
                         Click Here
                 </Button>

@@ -95,7 +95,7 @@ function UpdateCard() {
       <h2>Sign a tool out...</h2>
       <hr></hr>
       <h3 className="allToolsCheckbox">
-      Change Availability of ALL tools: {allCheckbox.toString()}
+     <div> Change Availability of ALL tools: <div>  {allCheckbox.toString()} </div> </div>
         <input type="checkbox"
           onChange={handleAllChange}
           // defaultChecked={allCheckbox}
