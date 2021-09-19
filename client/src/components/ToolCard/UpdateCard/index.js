@@ -5,7 +5,8 @@ import api from "../../../utils/api";
 // import { Inputs, TextArea, FormBtn } from "../../Form";
 // import { List, ListItem } from "../../List";
 import { List } from "../../List";
-import UpdateTool from '../../UpdateTool';
+import UpdateTool from "../../UpdateTool";
+import "./style.css";
 
 function UpdateCard() {
   const [tools, setTools] = useState("");
@@ -92,10 +93,10 @@ function UpdateCard() {
   return (
     <div>
 
-      <h2>Sign a tool out...</h2>
+      <h1>Sign a tool out...</h1>
       <hr></hr>
       <h3 className="allToolsCheckbox">
-     <div> Change Availability of ALL tools: <div>  {allCheckbox.toString()} </div> </div>
+         Change Availability of ALL tools: <span className="allCheckbox">{allCheckbox.toString()}</span> 
         <input type="checkbox"
           onChange={handleAllChange}
           // defaultChecked={allCheckbox}

@@ -57,22 +57,22 @@ function App() {
                     <Route path="/login" component={CustomLoginComponent} />
                     <SecureRoute
                         path="/home"
-                        exact={false}
+                        exact={true}
                         render={(props) => <Home {...props} />}
                     />
                     <SecureRoute
                         path="/loaned"
-                        exact={false}
+                        exact={true}
                         render={(props) => <Loaned {...props} />}
                     />
                     <SecureRoute
                         path="/borrowed"
-                        exact={false}
+                        exact={true}
                         render={(props) => <Borrowed {...props} />}
                     />
                      <SecureRoute
                         path="/profile"
-                        exact={false}
+                        exact={true}
                         render={(props) => <Profile {...props} />}
                     />
                     {/* <Redirect from="/" to="/home" /> */}
