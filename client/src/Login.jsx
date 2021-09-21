@@ -56,6 +56,7 @@ const Login = () => {
       (res) => {
         // console.log(res);
         oktaAuth.handleLoginRedirect(res.tokens);
+        
       },
       (err) => {
         throw err;

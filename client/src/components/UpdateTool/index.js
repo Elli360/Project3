@@ -14,7 +14,7 @@ export default function UpdateTool({tool, handleAvailableChange}){
     }
 
 return(
-    <ListItem>
+    <ListItem title="updateListItem">
       {/* create modal(s) or page(s) for tool.id, then uncomment the anchor element */}
     {/* <a href={"/tools/" + tool.id}> */}
       <strong style={{color:"black"}}>

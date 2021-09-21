@@ -44,7 +44,7 @@ export default function Welcome() {
 
             {!authState.isPending && !authState.isAuthenticated && 
             <div style={{ fontFamily: "monospace", fontSize: "3vw", "color": "grey" }}>
-            <NavItem>
+            <NavItem title="notWelcomeNavItem">
                 <Button style={{ "color": "white" }} onClick={login}>
                         Click Here
                 </Button>
