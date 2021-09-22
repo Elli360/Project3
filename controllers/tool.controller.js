@@ -4,37 +4,37 @@ const Op = db.Sequelize.Op;
 
 //THIS FILE IS CURRENTLY NOT BEING USED - THIS COULD BE REMOVED
 
-// Create and Save a new tool
+// Create and Save a new Tutorial
 exports.create = (req, res) => {
   
 };
 
-// Retrieve all tools from the database..
+// Retrieve all Tutorials from the database..
 exports.findAll = (req, res) => {
 
 };
 
-// Find a single tool with an id
+// Find a single Tutorial with an id
 exports.findOne = (req, res) => {
   
 };
 
-// Update a tool by the id in the request
+// Update a Tutorial by the id in the request
 exports.update = (req, res) => {
   
 };
 
-// Delete a tool with the specified id in the request
+// Delete a Tutorial with the specified id in the request
 exports.delete = (req, res) => {
   
 };
 
-// Delete all tools from the database.
+// Delete all Tutorials from the database.
 exports.deleteAll = (req, res) => {
   
 };
 
-// Find all published tools
+// Find all published Tutorials
 exports.findAllPublished = (req, res) => {
   
 };
