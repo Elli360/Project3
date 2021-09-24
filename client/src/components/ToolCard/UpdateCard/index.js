@@ -5,7 +5,7 @@ import api from "../../../utils/api";
 // import { Inputs, TextArea, FormBtn } from "../../Form";
 // import { List, ListItem } from "../../List";
 import { List } from "../../List";
-import UpdateTool from "../../UpdateTool";
+import UpdateTool from "../../UpdateAvailableTool";
 import "./style.css";
 
 function UpdateCard() {

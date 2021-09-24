@@ -1,6 +1,6 @@
 // import { Inputs, TextArea, FormBtn } from "../../components/Form";
 // import { List, ListItem } from "../../components/List";
-import { ListItem } from "../../components/List";
+import { ListItem } from "../List";
 
 
 
