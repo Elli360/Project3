@@ -21,7 +21,7 @@ return(
         Name: {tool.name}
       </strong>
       <strong style={{color:"purple"}}>
-       | Available: {tool.borrowed.toString()}
+       | Borrowed: {tool.borrowed.toString()}
       </strong>
       
     {/* </a> */}

@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import "./style.css";
 
-export default function UpdateTool({ tool, handleAvailableChange }) {
+export default function UpdateTool({ tool, handleAvailableChange, handleBorrowedChange }) {
 
   const [formModal, setFormModal] = React.useState(false);
   React.useEffect(() => {

@@ -156,7 +156,7 @@ module.exports = function (app) {
       include: [{
         model: db.tool,
         nested: true,
-        attributes: ["id", "name", "description", "price", "available"]
+        attributes: ["id", "name", "description", "price", "available", "borrowed"]
       }]
     }).then(items => {
       res.json(items);
@@ -181,7 +181,7 @@ module.exports = function (app) {
         include: [{
           model: db.tool,
           nested: true,
-          attributes: ["id", "name", "description", "price", "available"]
+          attributes: ["id", "name", "description", "price", "available", "borrowed"]
         }]
       })
       .then(item => {
