@@ -1,8 +1,7 @@
 
 // import api from 'utils/api';
 import React, { useEffect, useState, useRef } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows

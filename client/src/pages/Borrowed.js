@@ -1,15 +1,17 @@
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState, useRef} from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {
 
   Container,
   Row,
   Col,
-  // Button,
+  Button,
+  UncontrolledTooltip,
   UncontrolledCarousel,
 } from "reactstrap";
 
@@ -22,6 +24,8 @@ import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed
 import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
+import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
+import ScrollToTop from "components/ScrollToTop/index.js";
 import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
 const carouselItems = [
@@ -36,7 +40,21 @@ const carouselItems = [
 // let ps = null;
 
 export default function Borrowed() {
-  
+ 
+ 
+  const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
+  const loanedUpdate = useRef();
+
+  let handleClickAdd = () => {
+    setDisplayUpdateCard(true);
+    loanedUpdate.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+  let closeUpdateCard = () => {
+    setDisplayUpdateCard(false);
+  }
+
   useEffect(() => {
     
     if (navigator.platform.indexOf("Win") > -1) {
@@ -54,6 +72,7 @@ export default function Borrowed() {
   return (
     <>
       <CustomNavbar />
+      <Router>
       <div className="wrapper">
         <div className="page-header">
           <img
@@ -97,8 +116,18 @@ export default function Borrowed() {
                         <AddBtnBorrowed />
 
                         <SearchBtnBorrowed />
-
+                        
                       </div>
+                      <Button
+                                className="btn-icon btn-simple btn-round btn-neutral"
+                                color="danger" id="tooltip20"
+                                tag={Link} to="/update"
+                                onClick={handleClickAdd}>
+                                <i className="tim-icons icon-simple-add" />
+                              </Button>
+                              <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
+                                Add Borrowed Tool from Tool Directory
+                              </UncontrolledTooltip>
                       <SearchOutNetwork />
                     </div>
 
@@ -113,6 +142,27 @@ export default function Borrowed() {
           </div>
 
         </div>
+
+        {!displayUpdateCard && <ScrollToTop />}
+
+<div ref={loanedUpdate} />
+<div >
+  {displayUpdateCard && <Button
+    className="button"
+    color="danger"
+    onClick={closeUpdateCard}
+    size="lg"
+  >Close The Window
+  </Button>}
+  {displayUpdateCard && <Container>
+    <Row>
+      <Col lg="6" md="6">
+        <Route exact path="/update" component={UpdateBorrowedCard} />
+      </Col>
+    </Row>
+  </Container>}
+
+</div>
 
         <section className="section section-lg section-coins">
           <img
@@ -137,6 +187,7 @@ export default function Borrowed() {
         </section>
         <Footer />
       </div>
+      </Router>
     </>
   );
 }

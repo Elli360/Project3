@@ -19,6 +19,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: true      
     },
+    borrowed:{
+      type: DataTypes.BOOLEAN,
+      defaultValue: false      
+    },
     dateOut:{
       type:DataTypes.DATE
     }
