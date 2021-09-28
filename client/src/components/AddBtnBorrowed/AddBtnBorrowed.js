@@ -21,7 +21,7 @@ export default function AddBtnBorrowed() {
                 color="success" id="tooltip20" onClick={() => setFormModal(true)}>
                 <i className="tim-icons icon-simple-add" />
             </Button>
-            <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
+            <UncontrolledTooltip delay={0} placement="right" target="tooltip20">
                 Add Borrowed Tool
                         </UncontrolledTooltip>
             {/* Start Add Form Modal */}
