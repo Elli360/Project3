@@ -22,6 +22,7 @@ import AddBtnBorrowed from "../components/AddBtnBorrowed/AddBtnBorrowed.js";
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed.js";
 import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
+import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
@@ -61,6 +62,9 @@ export default function Borrowed() {
   };
   let closeUpdateCard = () => {
     setDisplayUpdateCard(false);
+  }
+  let close = () => {
+    setDisplayBorrowedByCategory(false);
   }
   let handleHover = () => {
     setToolshedImgOpacity(1);
@@ -139,7 +143,7 @@ export default function Borrowed() {
 
                           </Button>
                           <p className="category text-success d-inline">
-                            View Loaned Tools
+                            View Borrowed Tools
                           </p>
 
                         <Button
@@ -215,6 +219,7 @@ export default function Borrowed() {
               {/* <ExampleToolList /> */}
 
             </Container>
+            {/* Borrowed Tools list section */}
           </section>
           <section className="section section-lg section-coins">
             <img
