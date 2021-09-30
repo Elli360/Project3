@@ -41,10 +41,18 @@ const carouselItems = [
 
 export default function Borrowed() {
 
-
+  const toolsByCategory = useRef();
+  const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const loanedUpdate = useRef();
-
+  const [setToolshedImgOpacity] = useState(0.2);
+ //display Borrowed Tools by category
+ let handleClick = () => {
+  setDisplayBorrowedByCategory(true);
+  toolsByCategory.current.scrollIntoView({
+    behavior: "smooth",
+  });
+};
   let handleClickAdd = () => {
     setDisplayUpdateCard(true);
     loanedUpdate.current.scrollIntoView({
@@ -54,7 +62,12 @@ export default function Borrowed() {
   let closeUpdateCard = () => {
     setDisplayUpdateCard(false);
   }
-
+  let handleHover = () => {
+    setToolshedImgOpacity(1);
+  }
+  let handleHover2 = () => {
+    setToolshedImgOpacity(0.2);
+  }
   useEffect(() => {
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -112,6 +125,22 @@ export default function Borrowed() {
                     <div className="btn-wrapper pt-3">
                       <div className="btn-wrapper">
                         <div className="button-container">
+                        <Button
+                            className="btn-link"
+                            color="success"
+                            onClick={handleClick}
+                            // onHover={handleHover}
+                            onMouseOver={() => handleHover}
+                            onMouseOut={() => handleHover2}
+
+                            size="sm"
+                          >
+                            <i className="tim-icons icon-minimal-left" />
+
+                          </Button>
+                          <p className="category text-success d-inline">
+                            View Loaned Tools
+                          </p>
 
                         <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
@@ -187,6 +216,30 @@ export default function Borrowed() {
 
             </Container>
           </section>
+          <section className="section section-lg section-coins">
+            <img
+              alt="..."
+              className="path"
+              src={require("assets/img/path3.png").default}
+            />
+          {!displayBorrowedByCategory && <ScrollToTop />}
+
+            {displayBorrowedByCategory && <Button
+              className="button"
+              color="danger"
+              onClick={close}
+              size="lg"
+            >Close The Door
+            </Button>}
+
+            {displayBorrowedByCategory &&
+              <BorrowedToolsByCategory />
+            }
+
+
+
+          </section>
+          <div ref={toolsByCategory} />
           <Footer />
         </div>
       </Router>
