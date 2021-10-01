@@ -142,10 +142,13 @@ export default function Borrowed() {
                             <i className="tim-icons icon-minimal-left" />
 
                           </Button>
+                          
                           <p className="category text-success d-inline">
                             View Borrowed Tools
                           </p>
-
+                          </div>
+                          <div className="btn-wrapper">
+                            <div className="button-container">
                         <Button
                           className="btn-icon btn-simple btn-round btn-neutral"
                           color="danger" id="tooltip24"
@@ -162,7 +165,7 @@ export default function Borrowed() {
                           <AddBtnBorrowed />
 
                         </div>
-                      
+                      </div>
                         <SearchOutNetwork />
                       </div>
 

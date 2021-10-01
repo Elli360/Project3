@@ -16,11 +16,11 @@ function BorrowedHardware() {
     LoadBorrowableTools()
   }, []);
 
-  const NoBorrowableTools = () => { return (<h3>All Tools are in the ToolShed &there4; Available</h3>) };
+  const NoBorrowableTools = () => { return (<h3>All these Tools originate from this ToolShed &there4; Never Borrowed</h3>) };
 
-  const ToolsNotAvailable = () =>
+  const ToolsNotBorrowed = () =>
     categories.filter((row) => {
-      if (row.available === false) { return row } else {
+      if (row.borrowed === true) { return row } else {
         return (
           null
         )
@@ -35,8 +35,8 @@ function BorrowedHardware() {
       )
     });
 
-  const DefaultNotAvailable = () => {
-    if (ToolsNotAvailable() == "")
+  const DefaultNotBorrowed = () => {
+    if (ToolsNotBorrowed() == "")
       return NoBorrowableTools();
     return null;
   };
@@ -50,8 +50,8 @@ function BorrowedHardware() {
 
   return (
     <>
-      <ToolsNotAvailable/>
-      {categoryDataTrue && <DefaultNotAvailable />}
+      <ToolsNotBorrowed/>
+      {categoryDataTrue && <DefaultNotBorrowed />}
     </>
   )
 };
