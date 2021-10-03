@@ -14,7 +14,7 @@ import {
 import  "./style.css";
 
 export default function SearchBtnHome() {
-    const [formModalSearch, setFormModalSearch] = React.useState(false);
+    const [formModalSearch, setFormModalSearch] = useState(false);
 
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
