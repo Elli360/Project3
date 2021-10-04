@@ -5,21 +5,22 @@ import {
     Button,
 } from "reactstrap";
 
-export default function ViewToolsBtn(props) {
+export default function ViewToolsBtn({handleClick}) {
 
-    const toolsByCategory = useRef();
+    // const toolsByCategory = useRef();
     const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
     const [setToolshedImgOpacity] = useState(0.2);
- props.fix = 
-    toolsByCategory.current.scrollIntoView({
-    behavior: "smooth",
-  });
+//  props.fix = 
+//     toolsByCategory.current.scrollIntoView({
+//     behavior: "smooth",
+//   });
 
-    let handleClick = () => {
-        setDisplayBorrowedByCategory(true);
-       props.fix();
-      };
-
+    // let handleClick = () => {
+    //     setDisplayBorrowedByCategory(true);
+    //   //  toolsByCategory.fixer;
+    //  fix={fix};
+    //   };
+    handleClick={handleClick}
 
     let handleHover = () => {
         setToolshedImgOpacity(1);

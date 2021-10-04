@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
     Button,
     Modal,
@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 
 export default function AddBtnBorrowed() {
-    const [formModal, setFormModal] = React.useState(false);
+    const [formModal, setFormModal] = useState(false);
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function AddBtnBorrowed() {
                 <i className="tim-icons icon-simple-add" />
             </Button>
             <UncontrolledTooltip delay={0} placement="right" target="tooltip20">
-                Add Borrowed Tool
+                Add Borrowed Tool TO Tool Directory
                         </UncontrolledTooltip>
             {/* Start Add Form Modal */}
             <Modal

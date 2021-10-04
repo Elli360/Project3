@@ -19,7 +19,7 @@ import {
 
 //import ToolShedNavbar from "../components/Navbars/ToolShedNavbar.js";
 import AddBtnBorrowed from "../components/AddBtnBorrowed/AddBtnBorrowed.js";
-import ViewToolsBtn from "../components/ViewToolsBtn/index.js"
+// import ViewToolsBtn from "../components/ViewToolsBtn/index.js"
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed.js";
 import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
@@ -47,14 +47,16 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const loanedUpdate = useRef();
-  // const [setToolshedImgOpacity] = useState(0.2);
+  const [setToolshedImgOpacity] = useState(0.2);
  //display Borrowed Tools by category
-//  let handleClick = () => {
-//   setDisplayBorrowedByCategory(true);
-//   toolsByCategory.current.scrollIntoView({
-//     behavior: "smooth",
-//   });
-// };
+ let handleClick = () => {
+  setDisplayBorrowedByCategory(true);
+  toolsByCategory.current.scrollIntoView({
+    behavior: "smooth",
+  });
+};
+
+
   let handleClickAdd = () => {
     setDisplayUpdateCard(true);
     loanedUpdate.current.scrollIntoView({
@@ -67,12 +69,12 @@ export default function Borrowed() {
   let close = () => {
     setDisplayBorrowedByCategory(false);
   }
-  // let handleHover = () => {
-  //   setToolshedImgOpacity(1);
-  // }
-  // let handleHover2 = () => {
-  //   setToolshedImgOpacity(0.2);
-  // }
+  let handleHover = () => {
+    setToolshedImgOpacity(1);
+  }
+  let handleHover2 = () => {
+    setToolshedImgOpacity(0.2);
+  }
   useEffect(() => {
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -130,7 +132,21 @@ export default function Borrowed() {
                     <div className="btn-wrapper pt-3">
                       <div className="btn-wrapper">
                         <div className="button-container">
-                  <ViewToolsBtn   fix/>
+
+
+                <Button
+                            className="btn-link"
+                            color="success"
+                            onClick={handleClick}
+                            // onHover={handleHover}
+                            onMouseOver={() => handleHover}
+                            onMouseOut={() => handleHover2}
+
+                            size="sm"
+                          >
+                            <i className="tim-icons icon-minimal-left" />
+
+                          </Button>
                           
                           <p className="category text-success d-inline">
                             View Borrowed Tools
@@ -146,7 +162,7 @@ export default function Borrowed() {
                           <i className="tim-icons icon-simple-add" />
                         </Button>
                         <UncontrolledTooltip delay={0} placement="left" target="tooltip24">
-                          Add Borrowed Tool from Tool Directory
+                          Add Borrowed Tool FROM Tool Directory
                         </UncontrolledTooltip>
 
                           <SearchBtnBorrowed />
