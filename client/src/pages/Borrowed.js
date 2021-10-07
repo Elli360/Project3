@@ -19,6 +19,7 @@ import {
 
 //import ToolShedNavbar from "../components/Navbars/ToolShedNavbar.js";
 import AddBtnBorrowed from "../components/AddBtnBorrowed/AddBtnBorrowed.js";
+
 // import ViewToolsBtn from "../components/ViewToolsBtn/index.js"
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed.js";
@@ -30,6 +31,7 @@ import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
 import ScrollToTop from "components/ScrollToTop/index.js";
 import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
+import AddBtnBorrowedDirectory from "components/AddBtnBorrowedDirectory/index.js";
 const carouselItems = [
   {
     src: require("assets/img/borrow-tools.jpg").default,
@@ -48,13 +50,13 @@ export default function Borrowed() {
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const loanedUpdate = useRef();
   const [setToolshedImgOpacity] = useState(0.2);
- //display Borrowed Tools by category
- let handleClick = () => {
-  setDisplayBorrowedByCategory(true);
-  toolsByCategory.current.scrollIntoView({
-    behavior: "smooth",
-  });
-};
+  //display Borrowed Tools by category
+  let handleClick = () => {
+    setDisplayBorrowedByCategory(true);
+    toolsByCategory.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
 
   let handleClickAdd = () => {
@@ -134,7 +136,7 @@ export default function Borrowed() {
                         <div className="button-container">
 
 
-                <Button
+                          <Button
                             className="btn-link"
                             color="success"
                             onClick={handleClick}
@@ -147,30 +149,30 @@ export default function Borrowed() {
                             <i className="tim-icons icon-minimal-left" />
 
                           </Button>
-                          
+
                           <p className="category text-success d-inline">
                             View Borrowed Tools
                           </p>
-                          </div>
-                          <div className="btn-wrapper">
-                            <div className="button-container">
-                        <Button
-                          className="btn-icon btn-simple btn-round btn-neutral"
-                          color="danger" id="tooltip24"
-                          tag={Link} to="/update"
-                          onClick={handleClickAdd}>
-                          <i className="tim-icons icon-simple-add" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} placement="left" target="tooltip24">
-                          Add Borrowed Tool FROM Tool Directory
-                        </UncontrolledTooltip>
-
-                          <SearchBtnBorrowed />
-                      
-                          <AddBtnBorrowed />
-
                         </div>
-                      </div>
+                        <div className="btn-wrapper">
+                          <div className="button-container">
+                            {/* <Button
+                              className="btn-icon btn-simple btn-round btn-neutral"
+                              color="danger" id="tooltip24"
+                              tag={Link} to="/update"
+                              onClick={handleClickAdd}>
+                              <i className="tim-icons icon-simple-add" />
+                            </Button>
+                            <UncontrolledTooltip delay={0} placement="left" target="tooltip24">
+                              Add Borrowed Tool FROM Tool Directory
+                            </UncontrolledTooltip> */}
+<AddBtnBorrowedDirectory handleClickAdd={() => handleClickAdd()}/>
+                            <SearchBtnBorrowed />
+
+                            <AddBtnBorrowed />
+
+                          </div>
+                        </div>
                         <SearchOutNetwork />
                       </div>
 
@@ -235,7 +237,7 @@ export default function Borrowed() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
-          {!displayBorrowedByCategory && <ScrollToTop />}
+            {!displayBorrowedByCategory && <ScrollToTop />}
 
             {displayBorrowedByCategory && <Button
               className="button"
