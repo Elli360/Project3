@@ -32,6 +32,7 @@ import ScrollToTop from "components/ScrollToTop/index.js";
 import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
 import AddBtnBorrowedDirectory from "components/AddBtnBorrowedDirectory/index.js";
+import ViewToolsBtn from "components/ViewToolsBtn/index.js";
 const carouselItems = [
   {
     src: require("assets/img/borrow-tools.jpg").default,
@@ -135,20 +136,8 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-
-                          <Button
-                            className="btn-link"
-                            color="success"
-                            onClick={handleClick}
-                            // onHover={handleHover}
-                            onMouseOver={() => handleHover}
-                            onMouseOut={() => handleHover2}
-
-                            size="sm"
-                          >
-                            <i className="tim-icons icon-minimal-left" />
-
-                          </Button>
+<ViewToolsBtn handleClick={()=>handleClick()}/>
+                       
 
                           <p className="category text-success d-inline">
                             View Borrowed Tools
@@ -156,16 +145,7 @@ export default function Borrowed() {
                         </div>
                         <div className="btn-wrapper">
                           <div className="button-container">
-                            {/* <Button
-                              className="btn-icon btn-simple btn-round btn-neutral"
-                              color="danger" id="tooltip24"
-                              tag={Link} to="/update"
-                              onClick={handleClickAdd}>
-                              <i className="tim-icons icon-simple-add" />
-                            </Button>
-                            <UncontrolledTooltip delay={0} placement="left" target="tooltip24">
-                              Add Borrowed Tool FROM Tool Directory
-                            </UncontrolledTooltip> */}
+                  
 <AddBtnBorrowedDirectory handleClickAdd={() => handleClickAdd()}/>
                             <SearchBtnBorrowed />
 

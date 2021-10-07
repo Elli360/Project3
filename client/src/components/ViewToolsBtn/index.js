@@ -8,8 +8,11 @@ import {
 export default function ViewToolsBtn({handleClick}) {
 
     // const toolsByCategory = useRef();
+    
     const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
     const [setToolshedImgOpacity] = useState(0.2);
+
+
 //  props.fix = 
 //     toolsByCategory.current.scrollIntoView({
 //     behavior: "smooth",
@@ -20,7 +23,7 @@ export default function ViewToolsBtn({handleClick}) {
     //   //  toolsByCategory.fixer;
     //  fix={fix};
     //   };
-    handleClick={handleClick}
+    // handleClick={handleClick}
 
     let handleHover = () => {
         setToolshedImgOpacity(1);
