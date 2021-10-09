@@ -50,7 +50,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const loanedUpdate = useRef();
-  const [setToolshedImgOpacity] = useState(0.2);
+  // const [setToolshedImgOpacity] = useState(0.2);
   //display Borrowed Tools by category
   let handleClick = () => {
     setDisplayBorrowedByCategory(true);
@@ -72,25 +72,20 @@ export default function Borrowed() {
   let close = () => {
     setDisplayBorrowedByCategory(false);
   }
-  let handleHover = () => {
-    setToolshedImgOpacity(1);
-  }
-  let handleHover2 = () => {
-    setToolshedImgOpacity(0.2);
-  }
-  useEffect(() => {
 
-    if (navigator.platform.indexOf("Win") > -1) {
-      document.documentElement.className += " perfect-scrollbar-on";
-      document.documentElement.classList.remove("perfect-scrollbar-off");
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        // ps = new PerfectScrollbar(tables[i]);
-        PerfectScrollbar(tables[i]);
-      }
-    }
+  // useEffect(() => {
 
-  }, []);
+  //   if (navigator.platform.indexOf("Win") > -1) {
+  //     document.documentElement.className += " perfect-scrollbar-on";
+  //     document.documentElement.classList.remove("perfect-scrollbar-off");
+  //     let tables = document.querySelectorAll(".table-responsive");
+  //     for (let i = 0; i < tables.length; i++) {
+  //       // ps = new PerfectScrollbar(tables[i]);
+  //       PerfectScrollbar(tables[i]);
+  //     }
+  //   }
+
+  // }, []);
 
   return (
     <>
@@ -136,8 +131,8 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-<ViewToolsBtn handleClick={()=>handleClick()}/>
-                       
+                          <ViewToolsBtn handleClick={() => handleClick()} />
+
 
                           <p className="category text-success d-inline">
                             View Borrowed Tools
@@ -145,8 +140,8 @@ export default function Borrowed() {
                         </div>
                         <div className="btn-wrapper">
                           <div className="button-container">
-                  
-<AddBtnBorrowedDirectory handleClickAdd={() => handleClickAdd()}/>
+
+                            <AddBtnBorrowedDirectory handleClickAdd={() => handleClickAdd()} />
                             <SearchBtnBorrowed />
 
                             <AddBtnBorrowed />
@@ -195,7 +190,7 @@ export default function Borrowed() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
-            <Container>
+            {/* <Container>
               <Row>
                 <Col md="4">
                   <hr className="line-info" />
@@ -204,11 +199,11 @@ export default function Borrowed() {
                     <span className="text-info">Be curtious to Ur Neighbor</span>
                   </h1>
                 </Col>
-              </Row>
+              </Row> */}
 
               {/* <ExampleToolList /> */}
 
-            </Container>
+            {/* </Container> */}
             {/* Borrowed Tools list section */}
           </section>
           <section className="section section-lg section-coins">
