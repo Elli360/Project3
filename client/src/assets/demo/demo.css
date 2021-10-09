@@ -559,5 +559,5 @@ color: rgb(55, 55, 122);
 
 /* on smaller viewports buttons were not being recognized since images had a higher z-index than said buttons */
 .button {
-  z-index: 50;
+  z-index: 10;
 }

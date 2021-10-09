@@ -68,6 +68,7 @@ import Available from "../components/ToolCard/Available";
 import AddTool from "../components/Buttons/AddToolBtnHome";
 import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
+import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay.js";
 //import Loaned from "./Loaned";
 //==========================
 
@@ -229,6 +230,7 @@ export default function Home() {
                   />
                 </Col>
               </Row>
+              <UserNameDisplay />
             </div>
           </div>
         </div>
