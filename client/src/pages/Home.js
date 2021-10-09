@@ -89,11 +89,11 @@ export default function Home() {
   let close = () => {
     setDisplayAllByCategory(false);
   }
-  //onHover of button, changes opacity of toolshed image (NOT WORKING)
-  let handleHover = () => {
+  
+  let handleHoverOver = () => {
     setToolshedImgOpacity(1);
   }
-  let handleHover2 = () => {
+  let handleHoverOut = () => {
     setToolshedImgOpacity(0.2);
   }
   //  handleClick();    
@@ -116,7 +116,9 @@ export default function Home() {
   // useEffect(() => {
   //   loadTools()
   // }, [])
-
+const toolshedStyle = {
+  opacity: toolshedImgOpacity ,
+};
 
 
 
@@ -183,8 +185,8 @@ export default function Home() {
                         color="success"
                         onClick={handleClick}
                         // onHover={handleHover}
-                        onMouseOver={() => handleHover}
-                        onMouseOut={() => handleHover2}
+                        onMouseOver={() => handleHoverOver()}
+                        onMouseOut={() => handleHoverOut()}
 
                         size="sm"
                       >
@@ -226,7 +228,8 @@ export default function Home() {
                     alt="toolshed"
                     className="img-fluid"
                     src={require("assets/img/shedpic.jpg").default}
-                    opacity={toolshedImgOpacity}
+                    // opacity={toolshedImgOpacity}
+                    style={toolshedStyle}
                   />
                 </Col>
               </Row>
