@@ -7,7 +7,6 @@ import {
 
 export default function ViewToolsBtn({ handleClick }) {
 
-
   const [setToolshedImgOpacity] = useState(0.2);
 
 
