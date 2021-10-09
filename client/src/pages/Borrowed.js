@@ -18,12 +18,12 @@ import {
 // core components
 
 //import ToolShedNavbar from "../components/Navbars/ToolShedNavbar.js";
-import AddBtnBorrowed from "../components/AddBtnBorrowed/AddBtnBorrowed.js";
+import AddBtnBorrowed from "../components/Buttons/AddBtnBorrowed.js";
 
 // import ViewToolsBtn from "../components/ViewToolsBtn/index.js"
 import Footer from "../components/Footer/Footer.js";
-import SearchBtnBorrowed from "../components/SearchBtnBorrowed/SearchBtnBorrowed.js";
-import SearchOutNetwork from "../components/SearchOutNetwork/SearchOutNetwork.js";
+import SearchBtnBorrowed from "../components/Buttons/SearchBtnBorrowed.js";
+import SearchOutNetwork from "../components/Buttons/SearchBtnOutNetwork.js";
 import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
