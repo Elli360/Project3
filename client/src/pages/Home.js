@@ -65,7 +65,7 @@ import AllCard from "../components/ToolCard/AllCard";
 // import UpdateCard from "../components/ToolCard/UpdateCard"
 import Available from "../components/ToolCard/Available";
 //import NotAvailable from "../components/ToolCard/NotAvailable";
-import AddTool from "../components/AddToolBtnHome";
+import AddTool from "../components/Buttons/AddToolBtnHome";
 import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
 //import Loaned from "./Loaned";

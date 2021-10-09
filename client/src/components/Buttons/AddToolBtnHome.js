@@ -9,12 +9,12 @@ import {
   Modal,
 
 } from "reactstrap";
-import "./style.css";
+// import "./style.css";
 
 export default function UpdateTool({ tool, handleAvailableChange, handleBorrowedChange }) {
 
-  const [formModal, setFormModal] = React.useState(false);
-  React.useEffect(() => {
+  const [formModal, setFormModal] = useState(false);
+  useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
     return function cleanup() {

@@ -4,7 +4,7 @@ import {
     UncontrolledTooltip,
 } from "reactstrap";
 
-export default function SearchOutNetwork(){
+export default function SearchBtnOutNetwork(){
 return(
 <>
 <Button

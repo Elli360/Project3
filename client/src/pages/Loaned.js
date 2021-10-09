@@ -21,9 +21,9 @@ import {
   Col,
   Button,
   // Label,
-  FormGroup,
-  Form,
-  Input,
+  // FormGroup,
+  // Form,
+  // Input,
   // FormText,
   // NavItem,
   // NavLink,
@@ -32,12 +32,12 @@ import {
   // Table,
   // TabContent,
   // TabPane,
-  UncontrolledTooltip,
+  // UncontrolledTooltip,
   UncontrolledCarousel,
-  Modal,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
+  // Modal,
+  // InputGroup,
+  // InputGroupAddon,
+  // InputGroupText,
 } from "reactstrap";
 
 // core components
@@ -50,7 +50,10 @@ import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 import UpdateCard from "components/ToolCard/UpdateCard";
 import Spacer from "components/Spacer";
 import ScrollToTop from "components/ScrollToTop/index.js";
-import ViewToolsBtn from "components/ViewToolsBtn/index.js";
+import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
+import AddBtnLoanedDirectory from "components/Buttons/AddBtnLoanedDirectory.js";
+import AddBtnLoaned from "components/Buttons/AddBtnLoaned.js";
+import SearchBtnOutNetwork from "components/Buttons/SearchBtnOutNetwork.js";
 const carouselItems = [
   {
     src: require("assets/img/hands-grabbing-tools.jpg").default,
@@ -95,7 +98,7 @@ export default function Loaned() {
   //   setToolshedImgOpacity(0.2);
 // }
 //for the search modal(on the search button) that is not connected to db yet
-const [formModal, setFormModal] = useState(false);
+// const [formModal, setFormModal] = useState(false);
 // const [tabs, setTabs] = useState(1);
 
 // useEffect(() => {
@@ -201,6 +204,7 @@ return (
 
                           </Button> */}
                         <ViewToolsBtn handleClick={() => handleClick()} />
+                        
                         <p className="category text-success d-inline">
                           View Loaned Tools
                         </p>
@@ -213,7 +217,7 @@ return (
                          
                         </Button> */}
 
-                            <Button
+                            {/* <Button
                               className="btn-icon btn-simple btn-round btn-neutral"
                               color="success" id="tooltip20"
                               tag={Link} to="/update"
@@ -223,10 +227,10 @@ return (
 
                             <UncontrolledTooltip delay={0} placement="left" target="tooltip20">
                               Add Loaned Tool from Tool Directory
-                            </UncontrolledTooltip>
-
-
-                            <Button
+                            </UncontrolledTooltip> */}
+<AddBtnLoanedDirectory handleClickAdd={() => handleClickAdd()}/>
+<AddBtnLoaned />
+                            {/* <Button
                               className="btn-icon btn-simple btn-round btn-neutral"
                               color="success" id="tooltip21" onClick={() => setFormModal(true)}>
                               <i className="tim-icons icon-zoom-split" />
@@ -234,7 +238,7 @@ return (
                             <UncontrolledTooltip delay={0} placement="right" target="tooltip21">
                               Search Loaned Tools
                             </UncontrolledTooltip>
-                            {/* Start Search Form Modal */}
+                            {/* Start Search Form Modal 
                             <Modal
                               modalClassName="modal-black"
                               isOpen={formModal}
@@ -343,9 +347,9 @@ return (
                                 </Form>
                               </div>
                             </Modal>
-                            {/* End Search Form Modal */}
+                            End Search Form Modal */}
                           </div>
-                          <Button
+                          {/* <Button
                             className="btn-simple"
                             color="info"
                             href="#pablo"
@@ -356,7 +360,8 @@ return (
                           </Button>
                           <UncontrolledTooltip delay={0} placement="bottom" target="tooltip22">
                             Search Outside of Directory
-                          </UncontrolledTooltip>
+                          </UncontrolledTooltip> */}
+                          <SearchBtnOutNetwork />
                         </div>
 
 

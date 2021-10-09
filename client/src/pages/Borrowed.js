@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
+// import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {
@@ -11,7 +11,7 @@ import {
   Row,
   Col,
   Button,
-  UncontrolledTooltip,
+  // UncontrolledTooltip,
   UncontrolledCarousel,
 } from "reactstrap";
 
@@ -23,7 +23,7 @@ import AddBtnBorrowed from "../components/Buttons/AddBtnBorrowed.js";
 // import ViewToolsBtn from "../components/ViewToolsBtn/index.js"
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/Buttons/SearchBtnBorrowed.js";
-import SearchOutNetwork from "../components/Buttons/SearchBtnOutNetwork.js";
+import SearchBtnOutNetwork from "../components/Buttons/SearchBtnOutNetwork.js";
 import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
@@ -31,8 +31,8 @@ import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
 import ScrollToTop from "components/ScrollToTop/index.js";
 import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
-import AddBtnBorrowedDirectory from "components/AddBtnBorrowedDirectory/index.js";
-import ViewToolsBtn from "components/ViewToolsBtn/index.js";
+import AddBtnBorrowedDirectory from "components/Buttons/AddBtnBorrowedDirectory.js";
+import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 const carouselItems = [
   {
     src: require("assets/img/borrow-tools.jpg").default,
@@ -148,7 +148,7 @@ export default function Borrowed() {
 
                           </div>
                         </div>
-                        <SearchOutNetwork />
+                        <SearchBtnOutNetwork />
                       </div>
 
 
