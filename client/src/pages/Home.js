@@ -65,9 +65,12 @@ import AllCard from "../components/ToolCard/AllCard";
 // import UpdateCard from "../components/ToolCard/UpdateCard"
 import Available from "../components/ToolCard/Available";
 //import NotAvailable from "../components/ToolCard/NotAvailable";
-import AddTool from "../components/AddToolBtnHome";
-import SearchBtnHome from "../components/SearchBtnHome";
+import AddTool from "../components/Buttons/AddToolBtnHome";
+import Spacer from "components/Spacer/index.js";
+import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
+import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay.js";
+import ViewToolsBtnHome from "components/Buttons/ViewToolsBtnHome";
 //import Loaned from "./Loaned";
 //==========================
 
@@ -88,13 +91,13 @@ export default function Home() {
   let close = () => {
     setDisplayAllByCategory(false);
   }
-  //onHover of button, changes opacity of toolshed image (NOT WORKING)
-  let handleHover = () => {
-    setToolshedImgOpacity(1);
-  }
-  let handleHover2 = () => {
-    setToolshedImgOpacity(0.2);
-  }
+  
+  // let handleHoverOver = () => {
+  //   setToolshedImgOpacity(1);
+  // }
+  // let handleHoverOut = () => {
+  //   setToolshedImgOpacity(0.2);
+  // }
   //  handleClick();    
   useEffect(() => {
     document.body.classList.toggle("landing-page");
@@ -116,6 +119,9 @@ export default function Home() {
   //   loadTools()
   // }, [])
 
+const toolshedStyle = {
+  opacity: toolshedImgOpacity ,
+};
 
 
 
@@ -160,7 +166,7 @@ export default function Home() {
             <div className="content-center">
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
-
+<Spacer />
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
                     <h1 className="text-white">
@@ -177,18 +183,19 @@ export default function Home() {
                       </p>
 
 
-                      <Button
+                      {/* <Button
                         className="btn-link"
                         color="success"
                         onClick={handleClick}
                         // onHover={handleHover}
-                        onMouseOver={() => handleHover}
-                        onMouseOut={() => handleHover2}
+                        onMouseOver={() => handleHoverOver()}
+                        onMouseOut={() => handleHoverOut()}
 
                         size="sm"
                       >
                         <i className="tim-icons icon-minimal-right" />
-                      </Button>
+                      </Button> */}
+                      <ViewToolsBtnHome handleClick={() => handleClick()} directionArrow='right'  setToolshedImgOpacity={setToolshedImgOpacity}/>
                     </div>
                   </div>
                   {/* <Intro /> */}
@@ -225,10 +232,13 @@ export default function Home() {
                     alt="toolshed"
                     className="img-fluid"
                     src={require("assets/img/shedpic.jpg").default}
-                    opacity={toolshedImgOpacity}
+                    // opacity={toolshedImgOpacity}
+
+                    style={toolshedStyle}
                   />
                 </Col>
               </Row>
+              <UserNameDisplay />
             </div>
           </div>
         </div>

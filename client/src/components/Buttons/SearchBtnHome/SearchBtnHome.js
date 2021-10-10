@@ -51,7 +51,7 @@ export default function SearchBtnHome() {
                         <i className="tim-icons icon-simple-remove text-white" />
                     </button>
                     <div className="text-muted text-center ml-auto mr-auto">
-                        <h3 className="mb-0">Search Your Loaned Tools</h3>
+                        <h3 className="mb-0">Search Through Your Tool Shed</h3>
                     </div>
                 </div>
                 <div className="modal-body">
