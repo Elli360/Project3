@@ -68,7 +68,8 @@ const carouselItems = [
 export default function Loaned() {
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
-  // const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
+  
+  const [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
   // const [setToolshedImgOpacity] = useState(0.2);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
@@ -203,7 +204,7 @@ return (
                             <i className="tim-icons icon-minimal-left" />
 
                           </Button> */}
-                        <ViewToolsBtn handleClick={() => handleClick()} />
+                        <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' />
                         
                         <p className="category text-success d-inline">
                           View Loaned Tools

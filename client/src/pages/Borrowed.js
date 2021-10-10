@@ -50,6 +50,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const loanedUpdate = useRef();
+  
   // const [setToolshedImgOpacity] = useState(0.2);
   //display Borrowed Tools by category
   let handleClick = () => {
@@ -131,7 +132,7 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-                          <ViewToolsBtn handleClick={() => handleClick()} />
+                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' />
 
 
                           <p className="category text-success d-inline">
