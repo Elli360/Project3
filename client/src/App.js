@@ -16,7 +16,8 @@ import Welcome from "pages/Welcome.js";
 import Profile from "./Profile.jsx";
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
-import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+// import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { Security } from '@okta/okta-react';
 import config from './config';
 
 // import AdminLogin from "pages/AdminLogin"
@@ -27,6 +28,74 @@ import config from './config';
 
 //   const oktaAuth = new OktaAuth(config);
 const oktaAuth = new OktaAuth(config.oidc);
+
+// function App() {
+//     // require("dotenv");
+//     // require("dotenv").config();
+//     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+//     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
+//     // };
+//     const history = useHistory();
+
+//     const onAuthRequired = () => {
+
+//         // Redirect to the /login page that has a CustomLoginComponent
+//         history.push('/login');
+//     };
+//     return (
+//         //moving Router to index.js cleared logout and history.push issue
+//             <Security
+//                 onAuthRequired={onAuthRequired}
+//                 oktaAuth={oktaAuth}
+//             >
+// {/* {console.log(config.oidc.userContext.userinfo.name)} */}
+//                 <Switch>
+//                 {/* <Route path="/" exact component={Welcome} /> */}
+//         <Route path="/" exact component={Welcome} >
+//             {/* {console.log(`CHECK THIS: CLIENTID=${process.env.REACT_APP_CLIENT_ID}`)}  */}
+//             </Route>
+//                     {/* <Route path="/login/callback" component={LoginCallback} /> */}
+//                     <Route path="/login" component={CustomLoginComponent} />
+//                     <SecureRoute
+//                         path="/home"
+//                         exact={true}
+//                         render={(props) => <Home {...props} />}
+//                     />
+//                     <SecureRoute
+//                         path="/loaned"
+//                         exact={true}
+//                         render={(props) => <Loaned {...props} />}
+//                     />
+//                     <SecureRoute
+//                         path="/borrowed"
+//                         exact={true}
+//                         render={(props) => <Borrowed {...props} />}
+//                     />
+//                      <SecureRoute
+//                         path="/profile"
+//                         exact={true}
+//                         render={(props) => <Profile {...props} />}
+//                     />
+//                     {/* <Redirect from="/" to="/home" /> */}
+
+//                 </Switch>
+//             </Security>
+
+
+       
+//     )
+// }
+
+// // export { App, config}
+// export default App
+
+
+
+
+
+//Testing without Okta
+
+
 
 function App() {
     // require("dotenv");
@@ -55,22 +124,22 @@ function App() {
             </Route>
                     {/* <Route path="/login/callback" component={LoginCallback} /> */}
                     <Route path="/login" component={CustomLoginComponent} />
-                    <SecureRoute
+                    <Route
                         path="/home"
                         exact={true}
                         render={(props) => <Home {...props} />}
                     />
-                    <SecureRoute
+                    <Route
                         path="/loaned"
                         exact={true}
                         render={(props) => <Loaned {...props} />}
                     />
-                    <SecureRoute
+                    <Route
                         path="/borrowed"
                         exact={true}
                         render={(props) => <Borrowed {...props} />}
                     />
-                     <SecureRoute
+                     <Route
                         path="/profile"
                         exact={true}
                         render={(props) => <Profile {...props} />}
@@ -87,3 +156,50 @@ function App() {
 
 // export { App, config}
 export default App
+
+
+
+
+
+// import ReactDOM from "react-dom";
+// import { HashRouter as Router, Redirect } from "react-router-dom";
+
+// ReactDOM.render(
+  
+//     <Router>
+//    <Security oktaAuth={oktaAuth}>
+   
+ 
+//      <Switch>
+
+ 
+    
+ 
+//        <Route
+//          path="/home"
+//          render={(props) => <Home {...props} />}
+//        />
+   
+ 
+       
+//        <Route
+//          path="/loaned"
+//          render={(props) => <Loaned {...props} />}
+//        />
+       
+//        <Route
+//          path="/borrowed"
+//          render={(props) => <Borrowed {...props} />}
+//        />
+      
+ 
+//        <Redirect from="/" to="/home" />
+ 
+//      </Switch>
+//      </Security>
+     
+ 
+//    </Router>,
+ 
+//    document.getElementById("root")
+//  );
