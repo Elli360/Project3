@@ -56,7 +56,7 @@ export default function Borrowed() {
   let handleClick = () => {
     setDisplayBorrowedByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth", inline: 'center', block: 'center'
     });
   };
 
@@ -64,7 +64,7 @@ export default function Borrowed() {
   let handleClickAdd = () => {
     setDisplayUpdateCard(true);
     loanedUpdate.current.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth", inline: 'center', block: 'center'
     });
   };
   let closeUpdateCard = () => {

@@ -83,7 +83,7 @@ export default function Home() {
   let handleClick = () => {
     setDisplayAllByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth", inline: 'center', block: 'nearest'
     });
 
   };
