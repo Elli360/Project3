@@ -192,6 +192,7 @@ export default function Loaned() {
                       <span>Click Here To</span>
                     </Link>
                   </Button>}
+                  
                   <h1>Sign a tool out...</h1>
                   <Route exact path="/update" component={UpdateCard} />
                 </Col>

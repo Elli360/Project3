@@ -16,7 +16,7 @@ import Welcome from "pages/Welcome.js";
 import Profile from "./Profile.jsx";
 //IMPORT AUTHENTICATION
 import { OktaAuth } from '@okta/okta-auth-js';
-import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { Security, SecureRoute } from '@okta/okta-react';
 import config from './config';
 
 // import AdminLogin from "pages/AdminLogin"

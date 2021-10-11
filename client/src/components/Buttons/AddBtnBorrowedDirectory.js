@@ -15,7 +15,7 @@ export default function AddBtnBorrowedDirectory({handleClickAdd}) {
             <Button
                               className="btn-icon btn-simple btn-round btn-neutral"
                               color="danger" id="tooltip24"
-                              tag={Link} to="/update"
+                            //   tag={Link} to="/update"
                               onClick={handleClickAdd}>
                               <i className="tim-icons icon-simple-add" />
                             </Button>
