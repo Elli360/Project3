@@ -1,7 +1,7 @@
 
 // import api from 'utils/api';
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Route, useHistory, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 // import { HashRouter as Router, Route } from "react-router-dom";
 
 // import classnames from "classnames";
@@ -86,19 +86,15 @@ export default function Loaned() {
   //for the search modal(on the search button) that is not connected to db yet
   // const [formModal, setFormModal] = useState(false);
   // const [tabs, setTabs] = useState(1);
+
   const location = useLocation();
 
-  const handleClickUpdateLoan = () => {
+  const handleClickUpdateLoaned = () => {
     //close button
     setRemoveButton(true);
     loanedUpdate.current.scrollIntoView({
       behavior: 'smooth', inline: 'center', block: 'nearest'
     });
-    // return(
-    // <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
-    // <span>Click Here To</span>
-    // </Link>
-    // )
   }
 
   return (
@@ -191,7 +187,7 @@ export default function Loaned() {
             {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
-                  {!removeButton && <Button onClick={() => handleClickUpdateLoan()} >
+                  {!removeButton && <Button onClick={() => handleClickUpdateLoaned()} >
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
@@ -212,7 +208,9 @@ export default function Loaned() {
             />
 
             {!displayLoanedByCategory && <ScrollToTop />}
+
             <div ref={loanedUpdate} />
+            
             {displayLoanedByCategory && <Button
               className="button"
               color="danger"

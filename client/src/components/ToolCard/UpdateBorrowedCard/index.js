@@ -62,7 +62,7 @@ function UpdateBorrowedCard() {
   return (
     <div>
 
-      <h1>Designate a tool as being borrowed</h1>
+      {/* <h1>Designate a tool as being borrowed</h1> */}
       <hr></hr>
       <h3 className="allToolsCheckbox">
          Change Borrowed property of ALL tools: <span className="allCheckbox">{allCheckbox.toString()}</span> 
