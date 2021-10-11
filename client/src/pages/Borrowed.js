@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
-import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useLocation, useHistory } from "react-router-dom";
 import {
 
   Container,
@@ -44,6 +44,7 @@ const carouselItems = [
 // let ps = null;
 
 export default function Borrowed() {
+  let history = useHistory();
   const [handleClickUpdateBorrowed, setHandleClickUpdateBorrowed] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const toolsByCategory = useRef();
@@ -76,13 +77,18 @@ export default function Borrowed() {
   const location = useLocation();
 
   let handleClickUpdateBorrowedBtn = () => {
+  //  let handleClickUpdateBorrowedBtn= new Promise(()=>{
     //close button
     setRemoveButton(true);
     setHandleClickUpdateBorrowed(true);
-    borrowedUpdate.current.scrollIntoView({
+   setInterval(borrowedUpdate.current.scrollIntoView({
       behavior: 'smooth', inline: 'center', block: 'nearest'
-    });
+    }),2000);
+  
   };
+  // handleClickUpdateBorrowedBtn.then(()=>{
+  // console.log('test');
+  // });
   return (
     <>
       <CustomNavbar />
@@ -187,13 +193,14 @@ export default function Borrowed() {
                   {/* display borrowed db conditional */}
                   <h1>Designate a tool as being borrowed</h1>
                   {handleClickUpdateBorrowed && <Route exact path="/update" component={UpdateBorrowedCard} />}
+                
                 </Col>
               </Row>
             </Container>}
 
           </div>
 
-          <section className="section section-lg section-coins">
+          <section className="section section-lg section-coins" id="testSlashUpdate">
             <img
               alt="..."
               className="path"
@@ -232,6 +239,7 @@ export default function Borrowed() {
 
 
           </section>
+
           <div ref={toolsByCategory} />
           <Footer />
         </div>

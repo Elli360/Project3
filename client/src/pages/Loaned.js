@@ -54,11 +54,12 @@ export default function Loaned() {
   // });
 
   // const update = async () => history.push('/update');
+  const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
-  const loanedUpdate = useRef(null);
+  const loanedUpdate = useRef();
   //display Loaned Tools by category
   const handleClick = () => {
     setDisplayLoanedByCategory(true);
@@ -92,10 +93,17 @@ export default function Loaned() {
   const handleClickUpdateLoaned = () => {
     //close button
     setRemoveButton(true);
+  //  setInterval(loanedUpdate.current.scrollIntoView({
+  //     behavior: 'smooth', inline: 'center', block: 'nearest'
+  //   }),2000);
+  setScrollIntoViewDelay(true);
+  };
+
+  if(scrollIntoViewDelay){
     loanedUpdate.current.scrollIntoView({
-      behavior: 'smooth', inline: 'center', block: 'nearest'
-    });
-  }
+          behavior: 'smooth', inline: 'center', block: 'nearest'
+        });
+  };
 
   return (
     <>
@@ -175,7 +183,7 @@ export default function Loaned() {
 
           {!displayUpdateCard && <ScrollToTop />}
 
-          {/* <div ref={loanedUpdate} /> */}
+         
           <div >
             {displayUpdateCard && <Button
               className="button"
@@ -192,7 +200,7 @@ export default function Loaned() {
                       <span>Click Here To</span>
                     </Link>
                   </Button>}
-                  
+
                   <h1>Sign a tool out...</h1>
                   <Route exact path="/update" component={UpdateCard} />
                 </Col>
@@ -221,14 +229,15 @@ export default function Loaned() {
             </Button>}
 
             {displayLoanedByCategory &&
-              <LoanedToolsByCategory />
+              <LoanedToolsByCategory   />
+              
             }
 
           </section>
-          <div ref={toolsByCategory} />
+       
 
           <Footer />
-
+          <div ref={toolsByCategory} />
         </div>
       </Router>
     </>
