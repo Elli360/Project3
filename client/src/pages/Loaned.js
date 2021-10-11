@@ -1,7 +1,8 @@
 
 // import api from 'utils/api';
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory, Link, useLocation } from "react-router-dom";
+// import { HashRouter as Router, Route } from "react-router-dom";
 
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
@@ -42,6 +43,18 @@ const carouselItems = [
 // let ps = null;
 
 export default function Loaned() {
+
+  //   const history = useHistory({
+  //     // basename: "", // The base URL of the app (see below)
+  //     // forceRefresh: false, // Set true to force full page refreshes
+  //     // keyLength: 6, // The length of location.key
+  //     // // A function to use to confirm navigation with the user (see below)
+
+  //     getUserConfirmation: (message, callback) => callback(window.confirm(message))
+  // });
+
+  // const update = async () => history.push('/update');
+  const [removeButton, setRemoveButton] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
@@ -73,7 +86,20 @@ export default function Loaned() {
   //for the search modal(on the search button) that is not connected to db yet
   // const [formModal, setFormModal] = useState(false);
   // const [tabs, setTabs] = useState(1);
+  const location = useLocation();
 
+  const handleClickUpdateLoan = () => {
+    //close button
+    setRemoveButton(true);
+    loanedUpdate.current.scrollIntoView({
+      behavior: 'smooth', inline: 'center', block: 'nearest'
+    });
+    // return(
+    // <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
+    // <span>Click Here To</span>
+    // </Link>
+    // )
+  }
 
   return (
     <>
@@ -165,6 +191,12 @@ export default function Loaned() {
             {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
+                  {!removeButton && <Button onClick={() => handleClickUpdateLoan()} >
+                    <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
+                      <span>Click Here To</span>
+                    </Link>
+                  </Button>}
+                  <h1>Sign a tool out...</h1>
                   <Route exact path="/update" component={UpdateCard} />
                 </Col>
               </Row>
@@ -197,7 +229,7 @@ export default function Loaned() {
           <div ref={toolsByCategory} />
 
           <Footer />
-          
+
         </div>
       </Router>
     </>

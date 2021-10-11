@@ -93,7 +93,7 @@ console.log(tools);
   return (
     <div>
 
-      <h1>Sign a tool out...</h1>
+      {/* <h1>Sign a tool out...</h1> */}
       <hr></hr>
       <h3 className="allToolsCheckbox">
          Change Availability of ALL tools: <span className="allCheckbox">{allCheckbox.toString()}</span> 
