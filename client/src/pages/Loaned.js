@@ -55,6 +55,7 @@ export default function Loaned() {
 
   // const update = async () => history.push('/update');
   const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
+  const [handleClickUpdateLoaned, setHandleClickUpdateLoaned] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
@@ -90,20 +91,30 @@ export default function Loaned() {
 
   const location = useLocation();
 
-  const handleClickUpdateLoaned = () => {
+  const handleClickUpdateLoanedBtn = () => {
     //close button
     setRemoveButton(true);
   //  setInterval(loanedUpdate.current.scrollIntoView({
   //     behavior: 'smooth', inline: 'center', block: 'nearest'
   //   }),2000);
-  setScrollIntoViewDelay(true);
-  };
+  let updateUrl = new Promise((resolve)=>{
+resolve(setHandleClickUpdateLoaned(true));
+  });
 
-  if(scrollIntoViewDelay){
-    loanedUpdate.current.scrollIntoView({
-          behavior: 'smooth', inline: 'center', block: 'nearest'
-        });
-  };
+  updateUrl.then(()=>{
+  //   setScrollIntoViewDelay(true);
+  // }).then(()=>{
+  
+  // if(scrollIntoViewDelay){
+  //   loanedUpdate.current.scrollIntoView({
+  //         behavior: 'smooth', inline: 'center', block: 'nearest'
+  //       });
+  // };
+  loanedUpdate.current.scrollIntoView({
+    behavior: 'smooth', inline: 'center', block: 'nearest'
+  });
+});
+};
 
   return (
     <>
@@ -195,14 +206,14 @@ export default function Loaned() {
             {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
-                  {!removeButton && <Button onClick={() => handleClickUpdateLoaned()} >
+                  {!removeButton && <Button onClick={() => handleClickUpdateLoanedBtn()} >
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
                   </Button>}
 
                   <h1>Sign a tool out...</h1>
-                  <Route exact path="/update" component={UpdateCard} />
+                 { handleClickUpdateLoaned && <Route exact path="/update" component={UpdateCard} /> }
                 </Col>
               </Row>
             </Container>}

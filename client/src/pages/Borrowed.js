@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
-import { BrowserRouter as Router, Route, Link, useLocation, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 import {
 
   Container,
@@ -44,7 +44,6 @@ const carouselItems = [
 // let ps = null;
 
 export default function Borrowed() {
-  let history = useHistory();
   const [handleClickUpdateBorrowed, setHandleClickUpdateBorrowed] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const toolsByCategory = useRef();
@@ -77,18 +76,18 @@ export default function Borrowed() {
   const location = useLocation();
 
   let handleClickUpdateBorrowedBtn = () => {
-  //  let handleClickUpdateBorrowedBtn= new Promise(()=>{
     //close button
     setRemoveButton(true);
-    setHandleClickUpdateBorrowed(true);
-   setInterval(borrowedUpdate.current.scrollIntoView({
-      behavior: 'smooth', inline: 'center', block: 'nearest'
-    }),2000);
-  
+
+    let updateUrl = new Promise ((resolve)=>
+    resolve(setHandleClickUpdateBorrowed(true)
+     ));
+     updateUrl.then(()=>{
+      setInterval(borrowedUpdate.current.scrollIntoView({
+            behavior: 'smooth', inline: 'center', block: 'nearest'
+          }),500);
+  });
   };
-  // handleClickUpdateBorrowedBtn.then(()=>{
-  // console.log('test');
-  // });
   return (
     <>
       <CustomNavbar />
@@ -178,7 +177,9 @@ export default function Borrowed() {
               size="lg"
             >Close The Window
             </Button>}
-            <div ref={borrowedUpdate} />
+
+           
+
             {/* display update borrowed section/container conditional */}
             {displayUpdateCard && <Container>
               <Row>
@@ -197,7 +198,7 @@ export default function Borrowed() {
                 </Col>
               </Row>
             </Container>}
-
+            <div ref={borrowedUpdate} />
           </div>
 
           <section className="section section-lg section-coins" id="testSlashUpdate">
