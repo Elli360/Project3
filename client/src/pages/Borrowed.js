@@ -1,17 +1,16 @@
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 import {
 
   Container,
   Row,
   Col,
   Button,
-  // UncontrolledTooltip,
   UncontrolledCarousel,
 } from "reactstrap";
 
@@ -45,26 +44,27 @@ const carouselItems = [
 // let ps = null;
 
 export default function Borrowed() {
-
+  const [handleClickUpdateBorrowed, setHandleClickUpdateBorrowed] = useState(false);
+  const [removeButton, setRemoveButton] = useState(false);
   const toolsByCategory = useRef();
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
-  const loanedUpdate = useRef();
-  
+  const borrowedUpdate = useRef();
+
   // const [setToolshedImgOpacity] = useState(0.2);
   //display Borrowed Tools by category
   let handleClick = () => {
     setDisplayBorrowedByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth", inline: 'center', block: 'center'
     });
   };
 
 
   let handleClickAdd = () => {
     setDisplayUpdateCard(true);
-    loanedUpdate.current.scrollIntoView({
-      behavior: "smooth",
+    borrowedUpdate.current.scrollIntoView({
+      behavior: "smooth", inline: 'center', block: 'center'
     });
   };
   let closeUpdateCard = () => {
@@ -73,21 +73,21 @@ export default function Borrowed() {
   let close = () => {
     setDisplayBorrowedByCategory(false);
   }
+  const location = useLocation();
 
-  // useEffect(() => {
+  let handleClickUpdateBorrowedBtn = () => {
+    //close button
+    setRemoveButton(true);
 
-  //   if (navigator.platform.indexOf("Win") > -1) {
-  //     document.documentElement.className += " perfect-scrollbar-on";
-  //     document.documentElement.classList.remove("perfect-scrollbar-off");
-  //     let tables = document.querySelectorAll(".table-responsive");
-  //     for (let i = 0; i < tables.length; i++) {
-  //       // ps = new PerfectScrollbar(tables[i]);
-  //       PerfectScrollbar(tables[i]);
-  //     }
-  //   }
-
-  // }, []);
-
+    let updateUrl = new Promise ((resolve)=>
+    resolve(setHandleClickUpdateBorrowed(true)
+     ));
+     updateUrl.then(()=>{
+      setInterval(borrowedUpdate.current.scrollIntoView({
+            behavior: 'smooth', inline: 'center', block: 'nearest'
+          }),500);
+  });
+  };
   return (
     <>
       <CustomNavbar />
@@ -166,8 +166,10 @@ export default function Borrowed() {
 
           {!displayUpdateCard && <ScrollToTop />}
 
-          <div ref={loanedUpdate} />
+
           <div >
+
+            {/* close window conditional */}
             {displayUpdateCard && <Button
               className="button"
               color="danger"
@@ -175,36 +177,42 @@ export default function Borrowed() {
               size="lg"
             >Close The Window
             </Button>}
+
+           
+
+            {/* display update borrowed section/container conditional */}
             {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
-                  <Route exact path="/update" component={UpdateBorrowedCard} />
+
+                  {/* close button conditional */}
+                  {!removeButton && <Button onClick={() => handleClickUpdateBorrowedBtn()} >
+                    <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
+                      <span>Click Here To</span>
+                    </Link>
+                  </Button>}
+                  {/* display borrowed db conditional */}
+                  <h1>Designate a tool as being borrowed</h1>
+                  {handleClickUpdateBorrowed && <Route exact path="/update" component={UpdateBorrowedCard} />}
+                
                 </Col>
               </Row>
             </Container>}
-
+            <div ref={borrowedUpdate} />
           </div>
 
-          <section className="section section-lg section-coins">
+          <section className="section section-lg section-coins" id="testSlashUpdate">
             <img
               alt="..."
               className="path"
               src={require("assets/img/path3.png").default}
             />
-            {/* <Container>
-              <Row>
-                <Col md="4">
-                  <hr className="line-info" />
-                  <h1>
-                    Borrowed{" "}
-                    <span className="text-info">Be curtious to Ur Neighbor</span>
-                  </h1>
-                </Col>
-              </Row> */}
 
-              {/* <ExampleToolList /> */}
+
+            {/* <ExampleToolList /> */}
 
             {/* </Container> */}
+
             {/* Borrowed Tools list section */}
           </section>
           <section className="section section-lg section-coins">
@@ -214,6 +222,8 @@ export default function Borrowed() {
               src={require("assets/img/path3.png").default}
             />
             {!displayBorrowedByCategory && <ScrollToTop />}
+
+           
 
             {displayBorrowedByCategory && <Button
               className="button"
@@ -230,6 +240,7 @@ export default function Borrowed() {
 
 
           </section>
+
           <div ref={toolsByCategory} />
           <Footer />
         </div>

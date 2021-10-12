@@ -83,7 +83,7 @@ export default function Home() {
   let handleClick = () => {
     setDisplayAllByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth", inline: 'center', block: 'nearest'
     });
 
   };
@@ -167,6 +167,7 @@ const toolshedStyle = {
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
 <Spacer />
+<UserNameDisplay />
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
                     <h1 className="text-white">
@@ -227,6 +228,7 @@ const toolshedStyle = {
 
                   </div>
                 </Col>
+                
                 <Col lg="4" md="5">
                   <img id="toolshed"
                     alt="toolshed"
@@ -237,11 +239,15 @@ const toolshedStyle = {
                     style={toolshedStyle}
                   />
                 </Col>
+                
               </Row>
-              <UserNameDisplay />
+              
             </div>
+            
           </div>
+          
         </div>
+        
       </Router>
 
 
