@@ -91,7 +91,7 @@ export default function Borrowed() {
   return (
     <>
       <CustomNavbar />
-      <Router>
+      <Router forceRefresh={true} >
         <div className="wrapper">
           <div className="page-header">
             <img

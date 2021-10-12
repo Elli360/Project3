@@ -43,7 +43,7 @@ import {
               </Col>
             </Row>
             
-            <Router>
+            <Router forceRefresh={true} >
             <Row>
   
   {/* ========================= 1st category */}

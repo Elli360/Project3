@@ -54,7 +54,7 @@ export default function Loaned() {
   // });
 
   // const update = async () => history.push('/update');
-  const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
+  // const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
   const [handleClickUpdateLoaned, setHandleClickUpdateLoaned] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
@@ -120,7 +120,7 @@ resolve(setHandleClickUpdateLoaned(true));
     <>
       <CustomNavbar />
 
-      <Router>
+      <Router forceRefresh={true} >
         <div className="wrapper">
           <div className="page-header">
             <img

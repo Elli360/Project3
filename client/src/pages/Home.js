@@ -128,7 +128,7 @@ const toolshedStyle = {
   return (
     <>
       <CustomNavbar />
-      <Router>
+      <Router forceRefresh={true} >
 
         {/* <ExamplesNavbar /> */}
         <div className="wrapper">
