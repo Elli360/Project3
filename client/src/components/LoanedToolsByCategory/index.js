@@ -11,7 +11,9 @@ import {
   
   import React from "react";
   import { Link, useLocation } from "react-router-dom";
-  import { BrowserRouter as Router, Route } from "react-router-dom";
+  // import { BrowserRouter as Router, Route } from "react-router-dom";
+  import {HashRouter as Router, Route } from "react-router-dom";
+
   import LoanedPowerTools from "../LoanedPowerTools";
   import LoanedOutdoorTools from "../LoanedOutdoorTools";
   import LoanedWorkshopTools from "../LoanedWorkshopTools";
@@ -44,6 +46,7 @@ import {
             </Row>
             
             <Router forceRefresh={true} >
+            {/* <Router > */}
             <Row>
   
   {/* ========================= 1st category */}

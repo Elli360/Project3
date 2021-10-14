@@ -1,8 +1,8 @@
 
 // import api from 'utils/api';
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
-// import { HashRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
+import { HashRouter as Router, Route, Link, useLocation } from "react-router-dom";
 
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
@@ -121,6 +121,7 @@ resolve(setHandleClickUpdateLoaned(true));
       <CustomNavbar />
 
       <Router forceRefresh={true} >
+      {/* <Router > */}
         <div className="wrapper">
           <div className="page-header">
             <img

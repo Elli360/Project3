@@ -5,7 +5,8 @@ import React, { useEffect, useState, useRef } from "react";
 // import classnames from "classnames";
 // react plugin used to create datetimepicker
 // import ReactDatetime from "react-datetime";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import {HashRouter as Router, Route } from "react-router-dom";
 
 
 
@@ -129,7 +130,7 @@ const toolshedStyle = {
     <>
       <CustomNavbar />
       <Router forceRefresh={true} >
-
+      {/* <Router > */}
         {/* <ExamplesNavbar /> */}
         <div className="wrapper">
           <div className="page-header">

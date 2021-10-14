@@ -28,7 +28,9 @@ import {
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import {HashRouter as Router, Route } from "react-router-dom";
+
 import PowerTools from "../PowerTools";
 import HandTools from "../HandTools";
 import OutdoorTools from "../OutdoorTools";
@@ -63,6 +65,7 @@ function AllToolsByCategory(props) {
           </Row>
           
           <Router forceRefresh={true} >
+          {/* <Router > */}
           <Row>
 
 {/* ========================= 1st category */}

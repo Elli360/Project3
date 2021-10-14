@@ -4,7 +4,9 @@ import React, { useState, useRef } from "react";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
-import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
+import { HashRouter as Router, Route, Link, useLocation } from "react-router-dom";
+
 import {
 
   Container,
@@ -92,6 +94,7 @@ export default function Borrowed() {
     <>
       <CustomNavbar />
       <Router forceRefresh={true} >
+      {/* <Router > */}
         <div className="wrapper">
           <div className="page-header">
             <img
