@@ -129,8 +129,8 @@ const toolshedStyle = {
   return (
     <>
       <CustomNavbar />
-      <Router forceRefresh={true} >
-      {/* <Router > */}
+      {/* <Router forceRefresh={true} > */}
+      <Router >
         {/* <ExamplesNavbar /> */}
         <div className="wrapper">
           <div className="page-header">

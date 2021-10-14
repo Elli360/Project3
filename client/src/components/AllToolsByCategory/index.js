@@ -63,9 +63,9 @@ function AllToolsByCategory(props) {
               </h1>
             </Col>
           </Row>
-          
-          <Router forceRefresh={true} >
-          {/* <Router > */}
+{/*           
+          <Router forceRefresh={true} > */}
+          <Router >
           <Row>
 
 {/* ========================= 1st category */}

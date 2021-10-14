@@ -120,8 +120,8 @@ resolve(setHandleClickUpdateLoaned(true));
     <>
       <CustomNavbar />
 
-      <Router forceRefresh={true} >
-      {/* <Router > */}
+      {/* <Router forceRefresh={true} > */}
+      <Router >
         <div className="wrapper">
           <div className="page-header">
             <img

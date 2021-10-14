@@ -14,8 +14,8 @@ import App from './App';
 ReactDOM.render(
 
   <React.StrictMode>
-    <Router forceRefresh={true}>
-    {/* <Router> */}
+    {/* <Router forceRefresh={true}> */}
+    <Router>
       <App />
     </Router>
   </React.StrictMode>,
