@@ -131,7 +131,6 @@ const toolshedStyle = {
       <CustomNavbar />
       {/* <Router forceRefresh={true} > */}
       <Router >
-        {/* <ExamplesNavbar /> */}
         <div className="wrapper">
           <div className="page-header">
             <img
@@ -167,10 +166,12 @@ const toolshedStyle = {
             <div className="content-center">
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
-<Spacer />
-<UserNameDisplay />
+{/* <Spacer /> */}
+{/* <UserNameDisplay /> */}
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
+                    <Spacer />
+                    <UserNameDisplay />
                     <h1 className="text-white">
                       Welcome to the ToolShed! <br />
                       <span className="text-white"></span>
