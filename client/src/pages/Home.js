@@ -5,7 +5,8 @@ import React, { useEffect, useState, useRef } from "react";
 // import classnames from "classnames";
 // react plugin used to create datetimepicker
 // import ReactDatetime from "react-datetime";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import {HashRouter as Router, Route } from "react-router-dom";
 
 
 
@@ -128,9 +129,8 @@ const toolshedStyle = {
   return (
     <>
       <CustomNavbar />
-      <Router>
-
-        {/* <ExamplesNavbar /> */}
+      {/* <Router forceRefresh={true} > */}
+      <Router >
         <div className="wrapper">
           <div className="page-header">
             <img
@@ -166,10 +166,12 @@ const toolshedStyle = {
             <div className="content-center">
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
-<Spacer />
-<UserNameDisplay />
+{/* <Spacer /> */}
+{/* <UserNameDisplay /> */}
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
+                    <Spacer />
+                    <UserNameDisplay />
                     <h1 className="text-white">
                       Welcome to the ToolShed! <br />
                       <span className="text-white"></span>
