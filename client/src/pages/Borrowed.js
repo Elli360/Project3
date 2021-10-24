@@ -65,6 +65,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const borrowedUpdate = useRef();
+  // const toolsCategory1 = useRef();
 
   // const [setToolshedImgOpacity] = useState(0.2);
   //display Borrowed Tools by category
@@ -106,23 +107,31 @@ export default function Borrowed() {
 
 
 
-
-  const [categoryBtn, setCategoryBtn] = useState(true);
-  const [revisedBtn, setRevisedBtn] = useState(false);
   const [categoryData, setCategoryData] = useState(false);
-
+  const [category1Btn, setCategory1Btn] = useState(true);
+  const [revised1Btn, setRevised1Btn] = useState(false);
+  const [category2Btn, setCategory2Btn] = useState(true);
+  const [revised2Btn, setRevised2Btn] = useState(false);
+  const [category3Btn, setCategory3Btn] = useState(true);
+  const [revised3Btn, setRevised3Btn] = useState(false);
+  const [category4Btn, setCategory4Btn] = useState(true);
+  const [revised4Btn, setRevised4Btn] = useState(false);
+  const [category5Btn, setCategory5Btn] = useState(true);
+  const [revised5Btn, setRevised5Btn] = useState(false);
 
   const handleClickCategoryBtn = useCallback(
-    () => {
-      const handleClickCategoryBtn2 = new Promise((resolve, reject) => {
+    (catNumber) => {
+      const handleClickCategoryBtnPromise = new Promise((resolve, reject) => {
         // close button
-        setCategoryBtn(false);
-        setRevisedBtn(true);
+        const setCatBtnName = () => `setCategory${catNumber}Btn(false)`;
+        const setRevBtnName = () => `setRevised${catNumber}Btn(true)`;
+        setCatBtnName();
+        setRevBtnName();
 
         // setCategoryData(true);
         resolve(setCategoryData(true));
       });
-      handleClickCategoryBtn2.then(() => {
+      handleClickCategoryBtnPromise.then(() => {
         setTimeout(() => {
           toolsByCategory.current.scrollIntoView({
             behavior: "smooth", inline: 'center', block: 'center'
@@ -281,6 +290,7 @@ export default function Borrowed() {
             </Button>}
 
             {displayBorrowedByCategory &&
+            
               //   <BorrowedToolsByCategory handleClickCat={() => handleClickCategoryBtn()} catBtn={categoryBtn} revBtn={revisedBtn} catData={categoryData} catDataRouteChild2 />
               // }
               // ---------------------------------------------------------------------------------------------
@@ -325,21 +335,19 @@ export default function Borrowed() {
 
                                 <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"}
                                   onClick={() => {
-                                    handleClickCategoryBtn();
+                                    handleClickCategoryBtn(1);
                                     console.log(`INSIDE Route=>categoryData:${categoryData}`);
                                   }} >
 
-                                  {categoryBtn && <span>Click Here To Show</span>}
-                                  {revisedBtn && <span>Click Here To Reload Data</span>}
+                                  {category1Btn && <span>Click Here To Show</span>}
+                                  {revised1Btn && <span>Click Here To Reload Data</span>}
                                   {/* <span>Click Here To Show/Reload Data</span> */}
                                   <h4 className="text-uppercase">Borrowed Power Tools</h4>
                                 </Link>
 
                                 <span>Category 1</span>
 
-                                {categoryData && <Route exact path="/powertools" component={BorrowedPowerTools}
-
-                                />}
+                                {categoryData && <Route exact path="/powertools" component={BorrowedPowerTools} />}
                                 <hr className="line-primary" />
                               </Col>
                             </Row>
@@ -367,8 +375,13 @@ export default function Borrowed() {
                             <Row>
                               <Col className="text-center" md="12">
 
-                                <Link to="/Borrowedtools" className={location.pathname === "/Borrowedtools" ? "nav-link active" : "nav-link"} >
-                                  <span>Click Here To Show</span>
+                                <Link to="/Borrowedtools" className={location.pathname === "/Borrowedtools" ? "nav-link active" : "nav-link"}
+                                  onClick={() => {
+                                    handleClickCategoryBtn(2);
+                                  }} >
+
+                                  {category2Btn && <span>Click Here To Show</span>}
+                                  {revised2Btn && <span>Click Here To Reload Data</span>}
                                   <h4 className="text-uppercase">Borrowed Hand Tools</h4>
                                 </Link>
                                 <span>Category 2</span>
@@ -401,8 +414,13 @@ export default function Borrowed() {
                               <Col className="text-center" md="12">
 
 
-                                <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"} >
-                                  <span>Click Here To Show</span>
+                                <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}
+                                  onClick={() => {
+                                    handleClickCategoryBtn(3);
+                                  }} >
+
+                                  {category3Btn && <span>Click Here To Show</span>}
+                                  {revised3Btn && <span>Click Here To Reload Data</span>}
                                   <h4 className="text-uppercase">Borrowed Outdoor Tools</h4>
                                 </Link>
                                 <span>Category 3</span>
@@ -433,8 +451,13 @@ export default function Borrowed() {
                             <Row>
                               <Col className="text-center" md="12">
 
-                                <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"} >
-                                  <span>Click Here To Show</span>
+                                <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"}
+                                  onClick={() => {
+                                    handleClickCategoryBtn(4);
+                                  }} >
+
+                                  {category4Btn && <span>Click Here To Show</span>}
+                                  {revised4Btn && <span>Click Here To Reload Data</span>}
                                   <h4 className="text-uppercase">Borrowed Workshop Tools</h4>
                                 </Link>
                                 <span>Category 4</span>
@@ -464,8 +487,13 @@ export default function Borrowed() {
                           <CardBody>
                             <Row>
                               <Col className="text-center" md="12">
-                                <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} >
-                                  <span>Click Here To Show</span>
+                                <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"}
+                                  onClick={() => {
+                                    handleClickCategoryBtn(5);
+                                  }} >
+
+                                  {category5Btn && <span>Click Here To Show</span>}
+                                  {revised5Btn && <span>Click Here To Reload Data</span>}
                                   <h4 className="text-uppercase">Borrowed Hardware</h4>
                                 </Link>
                                 <span>Category 5</span>
