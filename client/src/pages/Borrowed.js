@@ -1,5 +1,9 @@
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+} from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
@@ -14,10 +18,6 @@ import {
   Col,
   Button,
   UncontrolledCarousel,
-  Card,
-  CardBody,
-  CardHeader,
-  CardFooter,
 } from "reactstrap";
 
 // core components
@@ -29,7 +29,7 @@ import AddBtnBorrowed from "../components/Buttons/AddBtnBorrowed.js";
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/Buttons/SearchBtnBorrowed.js";
 import SearchBtnOutNetwork from "../components/Buttons/SearchBtnOutNetwork.js";
-// import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
+import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
@@ -38,14 +38,6 @@ import CustomNavbar from "../components/Navbars/CustomNavbar.js";
 import Spacer from "../components/Spacer/index.js";
 import AddBtnBorrowedDirectory from "components/Buttons/AddBtnBorrowedDirectory.js";
 import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
-
-
-import BorrowedPowerTools from "components/BorrowedPowerTools";
-import BorrowedOutdoorTools from "components/BorrowedOutdoorTools";
-import BorrowedWorkshopTools from "components/BorrowedWorkshopTools";
-import BorrowedHardware from "components/BorrowedHardware"
-import BorrowedHandTools from "components/BorrowedHandTools"
-
 
 const carouselItems = [
   {
@@ -108,40 +100,29 @@ export default function Borrowed() {
 
 
   const [categoryData, setCategoryData] = useState(false);
-  const [category1Btn, setCategory1Btn] = useState(true);
-  const [revised1Btn, setRevised1Btn] = useState(false);
-  const [category2Btn, setCategory2Btn] = useState(true);
-  const [revised2Btn, setRevised2Btn] = useState(false);
-  const [category3Btn, setCategory3Btn] = useState(true);
-  const [revised3Btn, setRevised3Btn] = useState(false);
-  const [category4Btn, setCategory4Btn] = useState(true);
-  const [revised4Btn, setRevised4Btn] = useState(false);
-  const [category5Btn, setCategory5Btn] = useState(true);
-  const [revised5Btn, setRevised5Btn] = useState(false);
 
   const handleClickCategoryBtn = useCallback(
-    (catNumber) => {
+    // (catNumber) => {
+    () => {
       const handleClickCategoryBtnPromise = new Promise((resolve, reject) => {
         // close button
-        const setCatBtnName = () => `setCategory${catNumber}Btn(false)`;
-        const setRevBtnName = () => `setRevised${catNumber}Btn(true)`;
-        setCatBtnName();
-        setRevBtnName();
-
-        // setCategoryData(true);
+ 
         resolve(setCategoryData(true));
+
       });
+
       handleClickCategoryBtnPromise.then(() => {
         setTimeout(() => {
           toolsByCategory.current.scrollIntoView({
             behavior: "smooth", inline: 'center', block: 'center'
           });
           console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
+          // console.log(`setCatBtnName${setCatBtnName}`);
         }, 50);
 
       });
-
     }, [categoryData]);
+  // }, [categoryData,handleClickCatBtnMemo]);
 
   return (
     <>
@@ -290,241 +271,8 @@ export default function Borrowed() {
             </Button>}
 
             {displayBorrowedByCategory &&
-            
-              //   <BorrowedToolsByCategory handleClickCat={() => handleClickCategoryBtn()} catBtn={categoryBtn} revBtn={revisedBtn} catData={categoryData} catDataRouteChild2 />
-              // }
-              // ---------------------------------------------------------------------------------------------
-              // Start of BorrowedToolsByCategory
-              // --------------------------------------------------------------------------------------------- 
-              <>
-                <img
-                  alt="..."
-                  className="path"
-                  src={require("assets/img/path3.png").default}
-                />
-
-                <Container id="loaned_by_cat">
-                  <Row>
-                    <Col md="4" >
-                      <hr className="line-info" />
-                      <h1>
-                        Borrowed,{" "}
-                        <span className="text-info"> Be Curtious to Ur Neighbor</span>
-                      </h1>
-                    </Col>
-                  </Row>
-
-                  {/* <Router forceRefresh={true} > */}
-                  <Router >
-                    <Row>
-
-                      {/* ========================= 1st category */}
-                      <Col md="4">
-                        <Card className="card-coin card-plain">
-                          <CardHeader>
-                            <img
-                              alt="..."
-                              className="img-center img-fluid"
-                              src={require("assets/img/power-tools.jpg").default}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <Row>
-                              <Col className="text-center" md="12">
-
-
-                                <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"}
-                                  onClick={() => {
-                                    handleClickCategoryBtn(1);
-                                    console.log(`INSIDE Route=>categoryData:${categoryData}`);
-                                  }} >
-
-                                  {category1Btn && <span>Click Here To Show</span>}
-                                  {revised1Btn && <span>Click Here To Reload Data</span>}
-                                  {/* <span>Click Here To Show/Reload Data</span> */}
-                                  <h4 className="text-uppercase">Borrowed Power Tools</h4>
-                                </Link>
-
-                                <span>Category 1</span>
-
-                                {categoryData && <Route exact path="/powertools" component={BorrowedPowerTools} />}
-                                <hr className="line-primary" />
-                              </Col>
-                            </Row>
-                            <Row>
-
-                            </Row>
-                          </CardBody>
-                          <CardFooter className="text-center">
-
-                          </CardFooter>
-                        </Card>
-                      </Col>
-
-                      {/* ========================= 2nd category */}
-                      <Col md="4">
-                        <Card className="card-coin card-plain">
-                          <CardHeader>
-                            <img
-                              alt="..."
-                              className="img-center img-fluid"
-                              src={require("assets/img/mechanic-toolset.jpg").default}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <Row>
-                              <Col className="text-center" md="12">
-
-                                <Link to="/Borrowedtools" className={location.pathname === "/Borrowedtools" ? "nav-link active" : "nav-link"}
-                                  onClick={() => {
-                                    handleClickCategoryBtn(2);
-                                  }} >
-
-                                  {category2Btn && <span>Click Here To Show</span>}
-                                  {revised2Btn && <span>Click Here To Reload Data</span>}
-                                  <h4 className="text-uppercase">Borrowed Hand Tools</h4>
-                                </Link>
-                                <span>Category 2</span>
-
-                                <Route path="/Borrowedtools" component={BorrowedHandTools} />
-
-                                <hr className="line-success" />
-                              </Col>
-                            </Row>
-
-                          </CardBody>
-                          <CardFooter className="text-center">
-
-                          </CardFooter>
-                        </Card>
-                      </Col>
-
-                      {/* ========================= 3rd category */}
-                      <Col md="4">
-                        <Card className="card-coin card-plain">
-                          <CardHeader>
-                            <img
-                              alt="..."
-                              className="img-center img-fluid"
-                              src={require("assets/img/power-tools.jpg").default}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <Row>
-                              <Col className="text-center" md="12">
-
-
-                                <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}
-                                  onClick={() => {
-                                    handleClickCategoryBtn(3);
-                                  }} >
-
-                                  {category3Btn && <span>Click Here To Show</span>}
-                                  {revised3Btn && <span>Click Here To Reload Data</span>}
-                                  <h4 className="text-uppercase">Borrowed Outdoor Tools</h4>
-                                </Link>
-                                <span>Category 3</span>
-                                <Route path="/outdoortools" component={BorrowedOutdoorTools} />
-                                <hr className="line-info" />
-                              </Col>
-                            </Row>
-
-                          </CardBody>
-                          <CardFooter className="text-center">
-
-                          </CardFooter>
-                        </Card>
-                      </Col>
-
-
-                      {/* ========================= 4rd category */}
-                      <Col md="4">
-                        <Card className="card-coin card-plain">
-                          <CardHeader>
-                            <img
-                              alt="..."
-                              className="img-center img-fluid"
-                              src={require("assets/img/protective-gear.jpg").default}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <Row>
-                              <Col className="text-center" md="12">
-
-                                <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"}
-                                  onClick={() => {
-                                    handleClickCategoryBtn(4);
-                                  }} >
-
-                                  {category4Btn && <span>Click Here To Show</span>}
-                                  {revised4Btn && <span>Click Here To Reload Data</span>}
-                                  <h4 className="text-uppercase">Borrowed Workshop Tools</h4>
-                                </Link>
-                                <span>Category 4</span>
-                                <Route path="/workshoptools" component={BorrowedWorkshopTools} />
-                                <hr className="line-danger" />
-                              </Col>
-                            </Row>
-
-                          </CardBody>
-                          <CardFooter className="text-center">
-
-                          </CardFooter>
-                        </Card>
-                      </Col>
-
-
-                      {/* ========================= 5th category */}
-                      <Col md="4">
-                        <Card className="card-coin card-plain">
-                          <CardHeader>
-                            <img
-                              alt="..."
-                              className="img-center img-fluid"
-                              src={require("assets/img/power-tools.jpg").default}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <Row>
-                              <Col className="text-center" md="12">
-                                <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"}
-                                  onClick={() => {
-                                    handleClickCategoryBtn(5);
-                                  }} >
-
-                                  {category5Btn && <span>Click Here To Show</span>}
-                                  {revised5Btn && <span>Click Here To Reload Data</span>}
-                                  <h4 className="text-uppercase">Borrowed Hardware</h4>
-                                </Link>
-                                <span>Category 5</span>
-                                <Route path="/hardware" component={BorrowedHardware} />
-                                <hr className="line-primary" />
-                              </Col>
-                            </Row>
-                            <Row>
-
-                            </Row>
-                          </CardBody>
-                          <CardFooter className="text-center">
-
-                          </CardFooter>
-                        </Card>
-                      </Col>
-
-
-
-                    </Row>
-                  </Router>
-                </Container>
-
-
-
-
-                {/* ---------------------------------------------------------------------------------------------
-End of BorrowedToolsByCategory
---------------------------------------------------------------------------------------------- */}
-              </>
-            }
+              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  /> }
+     
 
           </section>
 

@@ -33,10 +33,11 @@ require("./routes/toolshed-api.js")(app);
   // Serve any static files
   app.use(express.static('client/build'));
 // Handle React routing, return all requests to React app
-  app.get('/', function(req, res) {
-    res.sendFile('client/build', 'index.html');
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+    // res.sendFile('client/build', 'index.html');
   });
-// }
+// 
 
 
 // set port, listen for requests

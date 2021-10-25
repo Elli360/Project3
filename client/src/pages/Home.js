@@ -70,7 +70,7 @@ import AddTool from "../components/Buttons/AddToolBtnHome";
 import Spacer from "components/Spacer/index.js";
 import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
-import UserNameDisplay from "components/UserNameDisplay/UserNameDisplay.js";
+import UserNameDisplayHome from "components/UserNameDisplay/UserNameDisplayHome.js";
 import ViewToolsBtnHome from "components/Buttons/ViewToolsBtnHome";
 //import Loaned from "./Loaned";
 //==========================
@@ -171,7 +171,7 @@ const toolshedStyle = {
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
                     <Spacer />
-                    <UserNameDisplay />
+                    <UserNameDisplayHome />
                     <h1 className="text-white">
                       Welcome to the ToolShed! <br />
                       <span className="text-white"></span>
