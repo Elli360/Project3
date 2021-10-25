@@ -23,19 +23,20 @@ import BorrowedHandTools from "../BorrowedHandTools"
 import "./style.css";
 
 
-function BorrowedToolsByCategory(params,{ handleClickCat, catBtn, revBtn, catData}) {
-  const[catDataRouteChild, setCatDataRouteChild] = useState(false);
+// function BorrowedToolsByCategory(params,{ handleClickCat, catBtn, revBtn, catData}) {
+  function BorrowedToolsByCategory({ handleClickCat}) {
+  // const[catDataRouteChild, setCatDataRouteChild] = useState(false);
   const location = useLocation();
-const catDataRouteFunc=new Promise((resolve, reject)=>{
-  const nextState=true;
-setCatDataRouteChild(nextState);
+// const catDataRouteFunc=new Promise((resolve, reject)=>{
+//   const nextState=true;
+// setCatDataRouteChild(nextState);
 // catDataRoute(nextState);
-resolve();
-});
-catDataRouteFunc.then(()=>{
-console.log(`Message from the Child (catDataRouteChild): ${catDataRouteChild}`);
-params.catDataRouteChild2=catDataRouteChild;
-});
+// resolve();
+// });
+// catDataRouteFunc.then(()=>{
+// console.log(`Message from the Child (catDataRouteChild): ${catDataRouteChild}`);
+// params.catDataRouteChild2=catDataRouteChild;
+// });
 // const [categoryBtn, setCategoryBtn] = useState(true);
   //   const [revisedBtn, setRevisedBtn] = useState(false);
   //      const [categoryData, setCategoryData] = useState(false);
@@ -91,17 +92,21 @@ params.catDataRouteChild2=catDataRouteChild;
                     <Col className="text-center" md="12">
 
 
-                      <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"} onClick={handleClickCat} >
-                        {catBtn && <span>Click Here To Show</span>}
-                        {revBtn && <span>Click Here To Reload Data</span>}
+                      <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"} 
+                        onClick={handleClickCat}
+                      >
+                        <span>Click Here To Show/Reload Data</span>
+                        {/* {catBtn && <span>Click Here To Show</span>}
+                        {revBtn && <span>Click Here To Reload Data</span>} */}
                         <h4 className="text-uppercase">Borrowed Power Tools</h4>
                       </Link>
 
                       <span>Category 1</span>
 
-                      {catData && <Route exact path="/powertools" component={BorrowedPowerTools}
+                      {/* {catData && <Route exact path="/powertools" component={BorrowedPowerTools}
                        catDataRouteExec={()=>{catDataRouteFunc()}}
-                        />}
+                        />} */}
+                       <Route exact path="/powertools" component={BorrowedPowerTools} />
                       <hr className="line-primary" />
                     </Col>
                   </Row>
@@ -139,8 +144,10 @@ params.catDataRouteChild2=catDataRouteChild;
                   <Row>
                     <Col className="text-center" md="12">
 
-                      <Link to="/Borrowedtools" className={location.pathname === "/Borrowedtools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                      <Link to="/Borrowedtools" className={location.pathname === "/Borrowedtools" ? "nav-link active" : "nav-link"} 
+                        onClick={handleClickCat}
+                      >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Borrowed Hand Tools</h4>
                       </Link>
                       <span>Category 2</span>
@@ -178,8 +185,10 @@ params.catDataRouteChild2=catDataRouteChild;
                     <Col className="text-center" md="12">
 
 
-                      <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                      <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}
+                        onClick={handleClickCat}
+                      >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Borrowed Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
@@ -215,8 +224,10 @@ params.catDataRouteChild2=catDataRouteChild;
                   <Row>
                     <Col className="text-center" md="12">
 
-                      <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                      <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"}
+                        onClick={handleClickCat}
+                      >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Borrowed Workshop Tools</h4>
                       </Link>
                       <span>Category 4</span>
@@ -251,8 +262,10 @@ params.catDataRouteChild2=catDataRouteChild;
                 <CardBody>
                   <Row>
                     <Col className="text-center" md="12">
-                      <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                      <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} 
+                        onClick={handleClickCat}
+                      >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Borrowed Hardware</h4>
                       </Link>
                       <span>Category 5</span>

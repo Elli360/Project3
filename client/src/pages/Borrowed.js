@@ -20,10 +20,10 @@ import {
   Col,
   Button,
   UncontrolledCarousel,
-  Card,
-  CardBody,
-  CardHeader,
-  CardFooter,
+  // Card,
+  // CardBody,
+  // CardHeader,
+  // CardFooter,
 } from "reactstrap";
 
 // core components
@@ -35,7 +35,7 @@ import AddBtnBorrowed from "../components/Buttons/AddBtnBorrowed.js";
 import Footer from "../components/Footer/Footer.js";
 import SearchBtnBorrowed from "../components/Buttons/SearchBtnBorrowed.js";
 import SearchBtnOutNetwork from "../components/Buttons/SearchBtnOutNetwork.js";
-// import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
+import BorrowedToolsByCategory from "components/BorrowedToolsByCategory";
 // import ExampleToolList from "../components/ExampleToolList/ExampleToolList";
 import UserNameDisplay from "../components/UserNameDisplay/UserNameDisplay.js";
 import UpdateBorrowedCard from "components/ToolCard/UpdateBorrowedCard";
@@ -46,11 +46,11 @@ import AddBtnBorrowedDirectory from "components/Buttons/AddBtnBorrowedDirectory.
 import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 
 
-import BorrowedPowerTools from "components/BorrowedPowerTools";
-import BorrowedOutdoorTools from "components/BorrowedOutdoorTools";
-import BorrowedWorkshopTools from "components/BorrowedWorkshopTools";
-import BorrowedHardware from "components/BorrowedHardware"
-import BorrowedHandTools from "components/BorrowedHandTools"
+// import BorrowedPowerTools from "components/BorrowedPowerTools";
+// import BorrowedOutdoorTools from "components/BorrowedOutdoorTools";
+// import BorrowedWorkshopTools from "components/BorrowedWorkshopTools";
+// import BorrowedHardware from "components/BorrowedHardware"
+// import BorrowedHandTools from "components/BorrowedHandTools"
 
 
 const carouselItems = [
@@ -310,8 +310,11 @@ export default function Borrowed() {
               size="lg"
             >Close The Door
             </Button>}
-
             {displayBorrowedByCategory &&
+              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  />
+              
+            }
+            {/* {displayBorrowedByCategory &&
 
               //   <BorrowedToolsByCategory handleClickCat={() => handleClickCategoryBtn()} catBtn={categoryBtn} revBtn={revisedBtn} catData={categoryData} catDataRouteChild2 />
               // }
@@ -336,11 +339,11 @@ export default function Borrowed() {
                     </Col>
                   </Row>
 
-                  {/* <Router forceRefresh={true} > */}
+                  {/* <Router forceRefresh={true} > 
                   <Router >
                     <Row>
 
-                      {/* ========================= 1st category */}
+                      {/* ========================= 1st category 
                       <Col md="4">
                         <Card className="card-coin card-plain">
                           <CardHeader>
@@ -363,7 +366,7 @@ export default function Borrowed() {
                                   }} >
 
                                   {/* {category1Btn && <span>Click Here To Show</span>}
-                                  {revised1Btn && <span>Click Here To Reload Data</span>} */}
+                                  {revised1Btn && <span>Click Here To Reload Data</span>} 
                                   <span>Click Here To Show/Reload Data</span>
                                   <h4 className="text-uppercase">Borrowed Power Tools</h4>
                                 </Link>
@@ -384,7 +387,7 @@ export default function Borrowed() {
                         </Card>
                       </Col>
 
-                      {/* ========================= 2nd category */}
+                      {/* ========================= 2nd category 
                       <Col md="4">
                         <Card className="card-coin card-plain">
                           <CardHeader>
@@ -404,7 +407,7 @@ export default function Borrowed() {
                                   }} >
 
                                   {/* {category2Btn && <span>Click Here To Show</span>}
-                                  {revised2Btn && <span>Click Here To Reload Data</span>} */}
+                                  {revised2Btn && <span>Click Here To Reload Data</span>} 
                                   <span>Click Here To Show/Reload Data</span>
                                   <h4 className="text-uppercase">Borrowed Hand Tools</h4>
                                 </Link>
@@ -423,7 +426,7 @@ export default function Borrowed() {
                         </Card>
                       </Col>
 
-                      {/* ========================= 3rd category */}
+                      {/* ========================= 3rd category 
                       <Col md="4">
                         <Card className="card-coin card-plain">
                           <CardHeader>
@@ -444,7 +447,7 @@ export default function Borrowed() {
                                   }} >
                                   {/* 
                                   {category3Btn && <span>Click Here To Show</span>}
-                                  {revised3Btn && <span>Click Here To Reload Data</span>} */}
+                                  {revised3Btn && <span>Click Here To Reload Data</span>}
                                   <span>Click Here To Show/Reload Data</span>
                                   <h4 className="text-uppercase">Borrowed Outdoor Tools</h4>
                                 </Link>
@@ -462,7 +465,7 @@ export default function Borrowed() {
                       </Col>
 
 
-                      {/* ========================= 4rd category */}
+                      {/* ========================= 4rd category 
                       <Col md="4">
                         <Card className="card-coin card-plain">
                           <CardHeader>
@@ -482,7 +485,7 @@ export default function Borrowed() {
                                   }} >
 
                                   {/* {category4Btn && <span>Click Here To Show</span>}
-                                  {revised4Btn && <span>Click Here To Reload Data</span>} */}
+                                  {revised4Btn && <span>Click Here To Reload Data</span>} 
                                   <span>Click Here To Show/Reload Data</span>
                                   <h4 className="text-uppercase">Borrowed Workshop Tools</h4>
                                 </Link>
@@ -500,7 +503,7 @@ export default function Borrowed() {
                       </Col>
 
 
-                      {/* ========================= 5th category */}
+                      {/* ========================= 5th category 
                       <Col md="4">
                         <Card className="card-coin card-plain">
                           <CardHeader>
@@ -519,7 +522,7 @@ export default function Borrowed() {
                                   }} >
 
                                   {/* {category5Btn && <span>Click Here To Show</span>}
-                                  {revised5Btn && <span>Click Here To Reload Data</span>} */}
+                                  {revised5Btn && <span>Click Here To Reload Data</span>}
                                   <span>Click Here To Show/Reload Data</span>
                                   <h4 className="text-uppercase">Borrowed Hardware</h4>
                                 </Link>
@@ -549,9 +552,9 @@ export default function Borrowed() {
 
                 {/* ---------------------------------------------------------------------------------------------
 End of BorrowedToolsByCategory
---------------------------------------------------------------------------------------------- */}
+--------------------------------------------------------------------------------------------- 
               </>
-            }
+            } */}
 
           </section>
 
