@@ -9,7 +9,7 @@ import {
   Col
 } from "reactstrap";
 
-import React, {useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
