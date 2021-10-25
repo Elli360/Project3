@@ -1,6 +1,6 @@
 
 // import api from 'utils/api';
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useCallback } from "react";
 // import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 import { HashRouter as Router, Route, Link, useLocation } from "react-router-dom";
 
@@ -61,6 +61,9 @@ export default function Loaned() {
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
+
+  const [categoryData, setCategoryData] = useState(false);
+ 
   //display Loaned Tools by category
   const handleClick = () => {
     setDisplayLoanedByCategory(true);
@@ -94,27 +97,39 @@ export default function Loaned() {
   const handleClickUpdateLoanedBtn = () => {
     //close button
     setRemoveButton(true);
-  //  setInterval(loanedUpdate.current.scrollIntoView({
-  //     behavior: 'smooth', inline: 'center', block: 'nearest'
-  //   }),2000);
+
   let updateUrl = new Promise((resolve)=>{
 resolve(setHandleClickUpdateLoaned(true));
   });
 
   updateUrl.then(()=>{
-  //   setScrollIntoViewDelay(true);
-  // }).then(()=>{
-  
-  // if(scrollIntoViewDelay){
-  //   loanedUpdate.current.scrollIntoView({
-  //         behavior: 'smooth', inline: 'center', block: 'nearest'
-  //       });
-  // };
+
   loanedUpdate.current.scrollIntoView({
     behavior: 'smooth', inline: 'center', block: 'nearest'
   });
 });
 };
+
+
+
+const handleClickCategoryBtn = useCallback(
+  () => {
+    const handleClickCategoryBtnPromise = new Promise((resolve, reject) => {
+      // close button
+      // setCategoryData(true);
+      resolve(setCategoryData(true));  
+    });
+
+    handleClickCategoryBtnPromise.then(() => {
+      setTimeout(() => {
+        toolsByCategory.current.scrollIntoView({
+          behavior: "smooth", inline: 'center', block: 'center'
+        });
+        console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
+      }, 50);
+
+    });
+  }, [categoryData]);
 
   return (
     <>
@@ -241,7 +256,7 @@ resolve(setHandleClickUpdateLoaned(true));
             </Button>}
 
             {displayLoanedByCategory &&
-              <LoanedToolsByCategory   />
+              <LoanedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  />
               
             }
 

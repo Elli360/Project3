@@ -9,7 +9,7 @@ import {
     Col
   } from "reactstrap";
   
-  import React from "react";
+  import React,{} from "react";
   import { Link, useLocation } from "react-router-dom";
   // import { BrowserRouter as Router, Route } from "react-router-dom";
   import {HashRouter as Router, Route } from "react-router-dom";
@@ -23,9 +23,10 @@ import {
   import "./style.css";
   
   
-  function LoanedToolsByCategory() {
+  function LoanedToolsByCategory({handleClickCat}) {
+
       const location = useLocation();
-  
+      
       return(
           <>
           <img
@@ -64,8 +65,10 @@ import {
                       <Col className="text-center" md="12">
   
                       
-                        <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"} >
-                          <span>Click Here To Show</span>
+                        <Link to="/powertools" className={location.pathname === "/powertools" ? "nav-link active" : "nav-link"} 
+                                  onClick={handleClickCat}
+                                   >
+                        <span>Click Here To Show/Reload Data</span>
                           <h4 className="text-uppercase">Loaned Power Tools</h4>
                         </Link>
                         <span>Category 1</span>
@@ -108,8 +111,10 @@ import {
                     <Row>
                       <Col className="text-center" md="12">
                       
-                        <Link to="/loanedtools" className={location.pathname === "/loanedtools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                        <Link to="/loanedtools" className={location.pathname === "/loanedtools" ? "nav-link active" : "nav-link"}  
+                                  onClick={handleClickCat}
+                                   >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Loaned Hand Tools</h4>
                         </Link>
                         <span>Category 2</span>
@@ -147,7 +152,9 @@ import {
                       <Col className="text-center" md="12">
   
                       
-                        <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"} >
+                        <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}  
+                                  onClick={handleClickCat}
+                                   >
                         <span>Click Here To Show</span>
                         <h4 className="text-uppercase">Loaned Outdoor Tools</h4>
                         </Link>
@@ -184,8 +191,10 @@ import {
                     <Row>
                       <Col className="text-center" md="12">
                       
-                        <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                        <Link to="/workshoptools" className={location.pathname === "/workshoptools" ? "nav-link active" : "nav-link"} 
+                                  onClick={handleClickCat}
+                                   >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Loaned Workshop Tools</h4>
                         </Link>
                         <span>Category 4</span>
@@ -220,8 +229,10 @@ import {
                   <CardBody>
                     <Row>
                       <Col className="text-center" md="12">
-                        <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} >
-                        <span>Click Here To Show</span>
+                        <Link to="/hardware" className={location.pathname === "/hardware" ? "nav-link active" : "nav-link"} 
+                                  onClick={handleClickCat}
+                                   >
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Loaned Hardware</h4>
                         </Link>
                         <span>Category 5</span>
