@@ -561,3 +561,9 @@ color: rgb(55, 55, 122);
 .button {
   z-index: 10;
 }
+
+.addBtnWithLink {
+  /* removes infunctionality of surrounding padding area */
+  margin-top:5vw;
+  padding:0;
+}

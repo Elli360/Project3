@@ -89,7 +89,9 @@ export default function Borrowed() {
 
     let updateUrl = new Promise((resolve) =>
       resolve(setHandleClickUpdateBorrowed(true)
-      ));
+      )
+      
+      );
     updateUrl.then(() => {
       setInterval(borrowedUpdate.current.scrollIntoView({
         behavior: 'smooth', inline: 'center', block: 'nearest'
@@ -223,7 +225,7 @@ export default function Borrowed() {
                 <Col lg="6" md="6">
 
                   {/* close button conditional */}
-                  {!removeButton && <Button onClick={() => handleClickUpdateBorrowedBtn()} >
+                  {!removeButton && <Button className="addBtnWithLink" onClick={() => {handleClickUpdateBorrowedBtn()}}>
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
