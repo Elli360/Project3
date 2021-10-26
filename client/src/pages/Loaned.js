@@ -222,7 +222,7 @@ const handleClickCategoryBtn = useCallback(
             {displayUpdateCard && <Container>
               <Row>
                 <Col lg="6" md="6">
-                  {!removeButton && <Button onClick={() => handleClickUpdateLoanedBtn()} >
+                  {!removeButton && <Button className="addBtnWithLink" onClick={() => handleClickUpdateLoanedBtn()} >
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
