@@ -57,6 +57,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const borrowedUpdate = useRef();
+  const [borrowedImgOpacity,setBorrowedImgOpacity] = useState(0.2);
   // const toolsCategory1 = useRef();
 
   // const [setToolshedImgOpacity] = useState(0.2);
@@ -99,7 +100,9 @@ export default function Borrowed() {
     });
   };
 
-
+  const borrowedImgStyle = {
+    opacity: borrowedImgOpacity,
+  };
 
   const [categoryData, setCategoryData] = useState(false);
 
@@ -157,11 +160,10 @@ export default function Borrowed() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} />
+                      <UncontrolledCarousel items={carouselItems} style={borrowedImgStyle}/>
                     </Row>
                   </Col>
                   <Col md="5">
-                    {/* <h1 className="profile-title text-left">Tools</h1> */}
                     <h5 className="text-on-back">Borrowed</h5>
                     <h1 className="profile-title text-left">Tools</h1>
                     <p className="profile-description text-left">
@@ -171,7 +173,7 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' />
+                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setBorrowedImgOpacity={setBorrowedImgOpacity}/>
 
 
                           <p className="category text-success d-inline">
@@ -246,11 +248,6 @@ export default function Borrowed() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
-
-
-            {/* <ExampleToolList /> */}
-
-            {/* </Container> */}
 
             {/* Borrowed Tools list section */}
           </section>
