@@ -39,14 +39,15 @@ import Spacer from "../components/Spacer/index.js";
 import AddBtnBorrowedDirectory from "components/Buttons/AddBtnBorrowedDirectory.js";
 import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 
-const carouselItems = [
-  {
-    src: require("assets/img/borrow-tools.jpg").default,
-    altText: "Slide 1",
-    caption: "",
-  },
+// const carouselItems = [
+//   {
+//     src: require("assets/img/borrow-tools.jpg").default,
+//     altText: "Slide 1",
+//     caption: "",
+//     dark: borrowedImgOpacity,
+//   },
 
-];
+// ];
 
 // let ps = null;
 
@@ -57,7 +58,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const borrowedUpdate = useRef();
-  const [borrowedImgOpacity,setBorrowedImgOpacity] = useState(0.2);
+  const [borrowedImgOpacity,setBorrowedImgOpacity] = useState(1);
   // const toolsCategory1 = useRef();
 
   // const [setToolshedImgOpacity] = useState(0.2);
@@ -100,9 +101,9 @@ export default function Borrowed() {
     });
   };
 
-  const borrowedImgStyle = {
-    opacity: borrowedImgOpacity,
-  };
+  // const borrowedImgStyle = {
+  //   opacity: borrowedImgOpacity,
+  // };
 
   const [categoryData, setCategoryData] = useState(false);
 
@@ -129,8 +130,22 @@ export default function Borrowed() {
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);
 
+  const carouselItems = [
+    {
+      src: require("assets/img/borrow-tools.jpg").default,
+      altText: "Slide 1",
+      caption: " ",
+    },
+  
+  ];
+
   return (
     <>
+    <style>
+    {`.borrowedImg {
+                  opacity:${borrowedImgOpacity}
+                }`}
+    </style>
       <CustomNavbar />
       {/* <Router forceRefresh={true} > */}
       <Router >
@@ -160,7 +175,7 @@ export default function Borrowed() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} style={borrowedImgStyle}/>
+                      <UncontrolledCarousel items={carouselItems} className="borrowedImg"/>
                     </Row>
                   </Col>
                   <Col md="5">

@@ -11,10 +11,10 @@ export default function ViewToolsBtn( { handleClick, directionArrow,setBorrowedI
   // let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
 
   let handleHoverOver = () => {
-    setBorrowedImgOpacity(1);
+    setBorrowedImgOpacity(0.2);
   }
   let handleHoverOut = () => {
-    setBorrowedImgOpacity(0.2);
+    setBorrowedImgOpacity(1);
   }
 //   function handleChange(event) {
 //     // Here, we invoke the callback with the new value
