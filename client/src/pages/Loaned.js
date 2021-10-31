@@ -61,7 +61,7 @@ export default function Loaned() {
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
-
+const [loanedImgOpacity, setLoanedImgOpacity] = useState(1);
   const [categoryData, setCategoryData] = useState(false);
  
   //display Loaned Tools by category
@@ -133,6 +133,11 @@ const handleClickCategoryBtn = useCallback(
 
   return (
     <>
+    <style>
+    {`.loanedImg {
+                  opacity:${loanedImgOpacity}
+                }`}
+    </style>
       <CustomNavbar />
 
       {/* <Router forceRefresh={true} > */}
@@ -165,7 +170,7 @@ const handleClickCategoryBtn = useCallback(
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} />
+                      <UncontrolledCarousel items={carouselItems} className= "loanedImg"/>
                     </Row>
                   </Col>
                   <Col md="5">
@@ -179,7 +184,7 @@ const handleClickCategoryBtn = useCallback(
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' />
+                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setImgOpacity={setLoanedImgOpacity} opacityOver={0.2} opacityOut={1}/>
 
                           <p className="category text-success d-inline">
                             View Loaned Tools

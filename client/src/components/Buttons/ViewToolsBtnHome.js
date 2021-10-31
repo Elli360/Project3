@@ -5,16 +5,16 @@ import {
   Button,
 } from "reactstrap";
 
-export default function ViewToolsBtnHome( { handleClick, directionArrow,setToolshedImgOpacity }) {
+export default function ViewToolsBtnHome( { handleClick, directionArrow,setImgOpacity }) {
 
 
   // let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
 
   let handleHoverOver = () => {
-    setToolshedImgOpacity(1);
+    setImgOpacity(1);
   }
   let handleHoverOut = () => {
-    setToolshedImgOpacity(0.2);
+    setImgOpacity(0.2);
   }
 //   function handleChange(event) {
 //     // Here, we invoke the callback with the new value

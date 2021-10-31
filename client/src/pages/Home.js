@@ -66,7 +66,7 @@ import Spacer from "components/Spacer/index.js";
 import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
 import UserNameDisplayHome from "components/UserNameDisplay/UserNameDisplayHome.js";
-import ViewToolsBtnHome from "components/Buttons/ViewToolsBtnHome";
+import ViewToolsBtn from "components/Buttons/ViewToolsBtn";
 //import Loaned from "./Loaned";
 //==========================
 
@@ -191,10 +191,12 @@ export default function Home() {
                       >
                         <i className="tim-icons icon-minimal-right" />
                       </Button> */}
-                      <ViewToolsBtnHome
+                      <ViewToolsBtn
                         handleClick={() => handleClick()}
                         directionArrow="right"
-                        setToolshedImgOpacity={setToolshedImgOpacity}
+                        setImgOpacity={setToolshedImgOpacity}
+                        opacityOver={1}
+                         opacityOut={0.2}
                       />
                     </div>
                   </div>

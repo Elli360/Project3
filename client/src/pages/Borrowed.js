@@ -188,7 +188,7 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setBorrowedImgOpacity={setBorrowedImgOpacity}/>
+                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setImgOpacity={setBorrowedImgOpacity} opacityOver={0.2} opacityOut={1}/>
 
 
                           <p className="category text-success d-inline">
