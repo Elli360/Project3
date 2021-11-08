@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
 // import { Line } from "react-chartjs-2";
@@ -6,9 +5,7 @@ import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create datetimepicker
 // import ReactDatetime from "react-datetime";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import {HashRouter as Router, Route } from "react-router-dom";
-
-
+import { HashRouter as Router, Route } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -51,8 +48,6 @@ import Footer from "components/Footer/Footer.js";
 
 // import api from 'utils/api';
 
-
-
 import DeleteCard from "components/ToolCard/DeleteCard.js";
 // import DeleteCard from "../components/ToolCard/DeleteCard"
 // import DeleteBtn from "../components/DeleteBtn";
@@ -71,7 +66,7 @@ import Spacer from "components/Spacer/index.js";
 import SearchBtnHome from "../components/Buttons/SearchBtnHome/SearchBtnHome";
 import ScrollToTop from "components/ScrollToTop";
 import UserNameDisplayHome from "components/UserNameDisplay/UserNameDisplayHome.js";
-import ViewToolsBtnHome from "components/Buttons/ViewToolsBtnHome";
+import ViewToolsBtn from "components/Buttons/ViewToolsBtn";
 //import Loaned from "./Loaned";
 //==========================
 
@@ -84,22 +79,23 @@ export default function Home() {
   let handleClick = () => {
     setDisplayAllByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: "smooth", inline: 'center', block: 'nearest'
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
     });
-
   };
 
   let close = () => {
     setDisplayAllByCategory(false);
-  }
-  
+  };
+
   // let handleHoverOver = () => {
   //   setToolshedImgOpacity(1);
   // }
   // let handleHoverOut = () => {
   //   setToolshedImgOpacity(0.2);
   // }
-  //  handleClick();    
+  //  handleClick();
   useEffect(() => {
     document.body.classList.toggle("landing-page");
     // Specify how to clean up after this effect:
@@ -111,7 +107,6 @@ export default function Home() {
   //==============================================
   // let [tools, setTools] = useState([]);
 
-
   // function loadTools() {
   //   api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
   // };
@@ -120,17 +115,15 @@ export default function Home() {
   //   loadTools()
   // }, [])
 
-const toolshedStyle = {
-  opacity: toolshedImgOpacity ,
-};
-
-
+  const toolshedStyle = {
+    opacity: toolshedImgOpacity,
+  };
 
   return (
     <>
       <CustomNavbar />
       {/* <Router forceRefresh={true} > */}
-      <Router >
+      <Router>
         <div className="wrapper">
           <div className="page-header">
             <img
@@ -166,8 +159,8 @@ const toolshedStyle = {
             <div className="content-center">
               <Row className="row-grid justify-content-between align-items-center text-left">
                 <Col lg="6" md="6">
-{/* <Spacer /> */}
-{/* <UserNameDisplay /> */}
+                  {/* <Spacer /> */}
+                  {/* <UserNameDisplay /> */}
                   {/* <Route exact path="/home" component={Intro} /> */}
                   <div>
                     <Spacer />
@@ -177,14 +170,14 @@ const toolshedStyle = {
                       <span className="text-white"></span>
                     </h1>
                     <p className="text-white mb-3">
-                      Where you can add, edit and LOAN tools from your inventory.
-                      Where you can search for NEW tools and borrow from other users' inventories!...
+                      Where you can add, edit and LOAN tools from your
+                      inventory. Where you can search for NEW tools and borrow
+                      from other users' inventories!...
                     </p>
                     <div className="btn-wrapper mb-3">
                       <p className="category text-success d-inline">
                         Open the door to your ToolShed
                       </p>
-
 
                       {/* <Button
                         className="btn-link"
@@ -198,7 +191,13 @@ const toolshedStyle = {
                       >
                         <i className="tim-icons icon-minimal-right" />
                       </Button> */}
-                      <ViewToolsBtnHome handleClick={() => handleClick()} directionArrow='right'  setToolshedImgOpacity={setToolshedImgOpacity}/>
+                      <ViewToolsBtn
+                        handleClick={() => handleClick()}
+                        directionArrow="right"
+                        setImgOpacity={setToolshedImgOpacity}
+                        opacityOver={1}
+                         opacityOut={0.2}
+                      />
                     </div>
                   </div>
                   {/* <Intro /> */}
@@ -225,14 +224,12 @@ const toolshedStyle = {
                     {/* <div>
                           <DeleteCard/>
                         </div> */}
-
-
-
                   </div>
                 </Col>
-                
+
                 <Col lg="4" md="5">
-                  <img id="toolshed"
+                  <img
+                    id="toolshed"
                     alt="toolshed"
                     className="img-fluid"
                     src={require("assets/img/shedpic.jpg").default}
@@ -241,17 +238,11 @@ const toolshedStyle = {
                     style={toolshedStyle}
                   />
                 </Col>
-                
               </Row>
-              
             </div>
-            
           </div>
-          
         </div>
-        
       </Router>
-
 
       {/*Dynamic rendering of tools db 
   <div>
@@ -267,23 +258,20 @@ const toolshedStyle = {
           {/* ToolChest list section */}
           {/* Pre-render alter
         <Categories /> */}
-          {displayAllByCategory && <Button
-            className="button"
-            color="danger"
-            onClick={close}
-            size="lg"
-          >Close The Door
-          </Button>}
+          {displayAllByCategory && (
+            <Button className="button" color="danger" onClick={close} size="lg">
+              Close The Door
+            </Button>
+          )}
 
-          {displayAllByCategory &&
-            <AllToolsByCategory />
+          {
+            displayAllByCategory && <AllToolsByCategory />
             // <AllToolsByCategory toolsByCategory={toolsByCategory}/>
           }
         </section>
         <div ref={toolsByCategory} />
         <Footer />
       </div>
-
     </>
   );
 }

@@ -39,14 +39,15 @@ import Spacer from "../components/Spacer/index.js";
 import AddBtnBorrowedDirectory from "components/Buttons/AddBtnBorrowedDirectory.js";
 import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 
-const carouselItems = [
-  {
-    src: require("assets/img/borrow-tools.jpg").default,
-    altText: "Slide 1",
-    caption: "",
-  },
+// const carouselItems = [
+//   {
+//     src: require("assets/img/borrow-tools.jpg").default,
+//     altText: "Slide 1",
+//     caption: "",
+//     dark: borrowedImgOpacity,
+//   },
 
-];
+// ];
 
 // let ps = null;
 
@@ -57,6 +58,7 @@ export default function Borrowed() {
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const borrowedUpdate = useRef();
+  const [borrowedImgOpacity,setBorrowedImgOpacity] = useState(1);
   // const toolsCategory1 = useRef();
 
   // const [setToolshedImgOpacity] = useState(0.2);
@@ -99,7 +101,9 @@ export default function Borrowed() {
     });
   };
 
-
+  // const borrowedImgStyle = {
+  //   opacity: borrowedImgOpacity,
+  // };
 
   const [categoryData, setCategoryData] = useState(false);
 
@@ -126,8 +130,22 @@ export default function Borrowed() {
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);
 
+  const carouselItems = [
+    {
+      src: require("assets/img/borrow-tools.jpg").default,
+      altText: "Slide 1",
+      caption: " ",
+    },
+  
+  ];
+
   return (
     <>
+    <style>
+    {`.borrowedImg {
+                  opacity:${borrowedImgOpacity}
+                }`}
+    </style>
       <CustomNavbar />
       {/* <Router forceRefresh={true} > */}
       <Router >
@@ -157,11 +175,10 @@ export default function Borrowed() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} />
+                      <UncontrolledCarousel items={carouselItems} className="borrowedImg"/>
                     </Row>
                   </Col>
                   <Col md="5">
-                    {/* <h1 className="profile-title text-left">Tools</h1> */}
                     <h5 className="text-on-back">Borrowed</h5>
                     <h1 className="profile-title text-left">Tools</h1>
                     <p className="profile-description text-left">
@@ -171,7 +188,7 @@ export default function Borrowed() {
                       <div className="btn-wrapper">
                         <div className="button-container">
 
-                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' />
+                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setImgOpacity={setBorrowedImgOpacity} opacityOver={0.2} opacityOut={1}/>
 
 
                           <p className="category text-success d-inline">
@@ -246,11 +263,6 @@ export default function Borrowed() {
               className="path"
               src={require("assets/img/path3.png").default}
             />
-
-
-            {/* <ExampleToolList /> */}
-
-            {/* </Container> */}
 
             {/* Borrowed Tools list section */}
           </section>
