@@ -214,10 +214,10 @@ export default function Home() {
 
                   </div> */}
 
-                    <Route exact path="/delete" component={DeleteCard} />
-                    <Route exact path="/AllCard" component={AllCard} />
+                    {/* <Route exact path="/delete" component={DeleteCard} />
+                    <Route exact path="/AllCard" component={AllCard} /> */}
                     {/* <Route exact path="/update" component={UpdateCard} /> */}
-                    <Route exact path="/available" component={Available} />
+                    {/* <Route exact path="/available" component={Available} /> */}
                     {/* <Route exact path="/loaned" component={NotAvailable} /> */}
                     {/* <Route exact path="/loaned" component={Loaned} /> */}
 
