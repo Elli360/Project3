@@ -1,54 +1,72 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-
+import { Button, Modal } from "reactstrap";
 
 function PowerTools() {
   const [categories, setCategories] = useState([]);
-
+  const [formModal, setFormModal] = useState(false);
   useEffect(() => {
-    loadTools()
-  }, [])
+    loadTools();
+  }, []);
 
   function loadTools() {
-    api.getCategories().then(res => setCategories(res.data)).catch(err => console.log(err))
-  };
-  
+    api
+      .getCategories()
+      .then((res) => setCategories(res.data))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       {categories.length ? (
         <ul>
-          {categories.map(category => {
+          {categories.map((category) => {
             if (category.id === 1) {
               if (category.tools.length) {
                 return (
                   <div key={category.id}>
                     <ul>
-                      <div className="toolDetail" >
-                        {category.tools.map(tool => {
+                      <div className="toolDetail">
+                        {category.tools.map((tool) => {
                           return (
-                            <li key={tool.id}>{tool.name}</li>
-                          )
-                        })
-                        }
+                            <li key={tool.id}>
+                              <Button onClick={() => setFormModal(true)}>
+                                {" "}
+                                {tool.name}
+                              </Button>
+                              <Modal
+                                modalClassName="modal-black"
+                                isOpen={formModal}
+                                toggle={() => setFormModal(false)}
+                              >
+                                <div className="modal-header justify-content-center">
+                                  <button
+                                    className="close"
+                                    onClick={() => setFormModal(false)}
+                                  >
+                                    <i className="tim-icons icon-simple-remove text-white" />
+                                  </button>
+                                  <div className="text-muted text-center ml-auto mr-auto">
+                                    <h3 className="mb-0">Tool Info</h3>
+                                  </div>
+                                </div>
+                              </Modal>
+                            </li>
+                          );
+                        })}
                       </div>
                     </ul>
                   </div>
                 );
-              }
-              else {
-                return <h3>No Tools were found.</h3>
+              } else {
+                return <h3>No Tools were found.</h3>;
               }
             }
-            return null
-          }
-          )}
+            return null;
+          })}
         </ul>
-      ) : (
-        null
-      )}
+      ) : null}
     </>
-  )
+  );
 }
 export default PowerTools;
-
-
