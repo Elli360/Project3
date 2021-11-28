@@ -48,18 +48,18 @@ import Footer from "components/Footer/Footer.js";
 
 // import api from 'utils/api';
 
-import DeleteCard from "components/ToolCard/DeleteCard.js";
+// import DeleteCard from "components/ToolCard/DeleteCard.js";
 // import DeleteCard from "../components/ToolCard/DeleteCard"
 // import DeleteBtn from "../components/DeleteBtn";
 // import { List, ListItem } from "../components/List";
 //import Select from "react-dropdown-select";
 import AllToolsByCategory from "../components/AllToolsByCategory";
 // import Intro from "../components/Intro";
-import AllCard from "../components/ToolCard/AllCard";
+// import AllCard from "../components/ToolCard/AllCard";
 //import DropdownButton from 'react-bootstrap/DropdownButton';
 //import Dropdown from 'react-bootstrap/Dropdown';
 // import UpdateCard from "../components/ToolCard/UpdateCard"
-import Available from "../components/ToolCard/Available";
+// import Available from "../components/ToolCard/Available";
 //import NotAvailable from "../components/ToolCard/NotAvailable";
 import AddTool from "../components/Buttons/AddToolBtnHome";
 import Spacer from "components/Spacer/index.js";
@@ -214,10 +214,10 @@ export default function Home() {
 
                   </div> */}
 
-                    <Route exact path="/delete" component={DeleteCard} />
-                    <Route exact path="/AllCard" component={AllCard} />
+                    {/* <Route exact path="/delete" component={DeleteCard} />
+                    <Route exact path="/AllCard" component={AllCard} /> */}
                     {/* <Route exact path="/update" component={UpdateCard} /> */}
-                    <Route exact path="/available" component={Available} />
+                    {/* <Route exact path="/available" component={Available} /> */}
                     {/* <Route exact path="/loaned" component={NotAvailable} /> */}
                     {/* <Route exact path="/loaned" component={Loaned} /> */}
 
