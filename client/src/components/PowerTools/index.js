@@ -21,17 +21,6 @@ function PowerTools() {
       .then((res) => setCategories(res.data))
       .catch((err) => console.log(err));
   }
-// const ModalReadyFunc = () => {
-//   if(!toolModalData === false){
-//     setModalReady(true);
-//   }
-//   // else{
-//   //   return(
-//   //     <Modal>Unfinished Business</Modal>
-//   //   )
-//   // }
-//   console.log(`ModalReadyFunc true`);
-// }
 
   return (
     <>
@@ -48,7 +37,6 @@ function PowerTools() {
                           return (
                             <li key={tool.id}>
                               <Button onClick={() =>{
-                                // ModalReadyFunc(); 
                                 setToolModalData(tool);
                                 setToolModal(true);
                               }}>
@@ -74,10 +62,11 @@ function PowerTools() {
                                   >
                                     <i className="tim-icons icon-simple-remove text-white" />
                                   </button>
-                                  <div className="text-muted text-center ml-auto mr-auto">
-                                    <h3 className="mb-0">{toolModalData.name}</h3>
-                                    <div>{toolModalData.description}</div>
-                                    <div>{toolModalData.price}</div>
+                                  <div className="text-muted text-center ml-auto mr-auto toolInfoModal">
+                                    <h2 >Tool Info</h2>
+                                    <h5 className="mb-0">Tool Name: {toolModalData.name}</h5>
+                                    <div>Tool Description: {toolModalData.description}</div>
+                                    <div>Tool Price: ${toolModalData.price}</div>
                                   </div>
                                 </div>
                               </Modal>}

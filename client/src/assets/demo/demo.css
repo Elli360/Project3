@@ -567,3 +567,12 @@ color: rgb(55, 55, 122);
   margin-top:5vw;
   padding:0;
 }
+
+.toolInfoModal {
+
+border:1px solid purple;
+}
+.toolInfoModal h2 {
+
+  border:10px solid purple;
+  }
