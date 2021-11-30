@@ -73,6 +73,8 @@ const ModalReadyFunc = () => {
                                   </button>
                                   <div className="text-muted text-center ml-auto mr-auto">
                                     <h3 className="mb-0">{toolModalData.name}</h3>
+                                    <div>{toolModalData.description}</div>
+                                    <div>{toolModalData.price}</div>
                                   </div>
                                 </div>
                               </Modal>}
