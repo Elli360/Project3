@@ -10,7 +10,10 @@ function PowerTools() {
 
   useEffect(() => {
     loadTools();
-  }, []);
+    if(!toolModalData === false){
+      setModalReady(true);
+    }
+  }, [toolModalData]);
 
   function loadTools() {
     api
@@ -18,17 +21,17 @@ function PowerTools() {
       .then((res) => setCategories(res.data))
       .catch((err) => console.log(err));
   }
-const ModalReadyFunc = () => {
-  if(!toolModalData === false){
-    setModalReady(true);
-  }
-  // else{
-  //   return(
-  //     <Modal>Unfinished Business</Modal>
-  //   )
-  // }
-  console.log(`ModalReadyFunc true`);
-}
+// const ModalReadyFunc = () => {
+//   if(!toolModalData === false){
+//     setModalReady(true);
+//   }
+//   // else{
+//   //   return(
+//   //     <Modal>Unfinished Business</Modal>
+//   //   )
+//   // }
+//   console.log(`ModalReadyFunc true`);
+// }
 
   return (
     <>
@@ -45,7 +48,7 @@ const ModalReadyFunc = () => {
                           return (
                             <li key={tool.id}>
                               <Button onClick={() =>{
-                                ModalReadyFunc(); 
+                                // ModalReadyFunc(); 
                                 setToolModalData(tool);
                                 setToolModal(true);
                               }}>
