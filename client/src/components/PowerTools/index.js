@@ -5,7 +5,7 @@ import { Button, Modal } from "reactstrap";
 function PowerTools() {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
-  const [toolModalData, setToolModalData] = useState(false);
+  const [toolModalData, setToolModalData] = useState(null);
   const [modalReady, setModalReady] = useState(false);
 
   useEffect(() => {
