@@ -4,7 +4,10 @@ import { Button, Modal } from "reactstrap";
 
 function PowerTools() {
   const [categories, setCategories] = useState([]);
-  const [formModal, setFormModal] = useState(false);
+  const [toolModal, setToolModal] = useState(false);
+  const [toolModalData, setToolModalData] = useState(false);
+  const [modalReady, setModalReady] = useState(false);
+
   useEffect(() => {
     loadTools();
   }, []);
@@ -15,6 +18,17 @@ function PowerTools() {
       .then((res) => setCategories(res.data))
       .catch((err) => console.log(err));
   }
+const ModalReadyFunc = () => {
+  if(!toolModalData === false){
+    setModalReady(true);
+  }
+  // else{
+  //   return(
+  //     <Modal>Unfinished Business</Modal>
+  //   )
+  // }
+  console.log(`ModalReadyFunc true`);
+}
 
   return (
     <>
@@ -30,31 +44,40 @@ function PowerTools() {
                         {category.tools.map((tool) => {
                           return (
                             <li key={tool.id}>
-                              <Button onClick={() => setFormModal(true)}>
+                              <Button onClick={() =>{
+                                ModalReadyFunc(); 
+                                setToolModalData(tool);
+                                setToolModal(true);
+                              }}>
                                 {" "}
                                 {tool.name}
                               </Button>
-                              <Modal
+                            </li>
+                          );
+                        })}
+                      {console.log(`modalReady:${modalReady}`)}
+                      {console.log(`toolModalData:${toolModalData}`)}
+
+                        {modalReady &&
+                               <Modal
                                 modalClassName="modal-black"
-                                isOpen={formModal}
-                                toggle={() => setFormModal(false)}
+                                isOpen={toolModal}
+                                toggle={() => setToolModal(false)}
                               >
                                 <div className="modal-header justify-content-center">
                                   <button
                                     className="close"
-                                    onClick={() => setFormModal(false)}
+                                    onClick={() => setToolModal(false)}
                                   >
                                     <i className="tim-icons icon-simple-remove text-white" />
                                   </button>
                                   <div className="text-muted text-center ml-auto mr-auto">
-                                    <h3 className="mb-0">Tool Info</h3>
+                                    <h3 className="mb-0">{toolModalData.name}</h3>
                                   </div>
                                 </div>
-                              </Modal>
-                            </li>
-                          );
-                        })}
+                              </Modal>}
                       </div>
+               
                     </ul>
                   </div>
                 );
