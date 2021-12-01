@@ -46,27 +46,24 @@ function PowerTools() {
                             </li>
                           );
                         })}
-                      {console.log(`modalReady:${modalReady}`)}
-                      {console.log(`toolModalData:${toolModalData}`)}
-
                         {modalReady &&
                                <Modal
                                 modalClassName="modal-black"
                                 isOpen={toolModal}
                                 toggle={() => setToolModal(false)}
                               >
-                                <div className="modal-header justify-content-center">
+                                <div className="modal-header justify-content-center toolInfoModal">
                                   <button
                                     className="close"
                                     onClick={() => setToolModal(false)}
                                   >
                                     <i className="tim-icons icon-simple-remove text-white" />
                                   </button>
-                                  <div className="text-muted text-center ml-auto mr-auto toolInfoModal">
+                                  <div className="text-muted text-center ml-auto mr-auto ">
                                     <h2 >Tool Info</h2>
                                     <h5 className="mb-0">Tool Name: {toolModalData.name}</h5>
                                     <div>Tool Description: {toolModalData.description}</div>
-                                    <div>Tool Price: ${toolModalData.price}</div>
+                                    <div>Price: ${toolModalData.price}</div>
                                   </div>
                                 </div>
                               </Modal>}

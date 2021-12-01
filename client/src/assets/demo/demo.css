@@ -570,7 +570,8 @@ color: rgb(55, 55, 122);
 
 .toolInfoModal {
 
-border:1px solid purple;
+border:5px solid purple;
+margin-bottom: 100px;
 }
 .toolInfoModal h2 {
 
