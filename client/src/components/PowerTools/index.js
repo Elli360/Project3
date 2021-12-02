@@ -5,7 +5,9 @@ import { Button, Modal } from "reactstrap";
 function PowerTools() {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
-  const [toolModalData, setToolModalData] = useState([]);
+  const [toolModalData, setToolModalData] = useState(null);
+  // const [toolModalData, setToolModalData] = useState([] | false | 5 | null);
+  // const [toolToString, setToolToString] = useState(null);
   const [modalReady, setModalReady] = useState(false);
 
   useEffect(() => {
@@ -21,11 +23,19 @@ function PowerTools() {
       .then((res) => setCategories(res.data))
       .catch((err) => console.log(err));
   }
-  const dataFunction = () => {
-    return (
-      <div>{toolModalData.name}</div>
-    )
-  }
+
+
+  // const dataFunction = () => {
+  //   const toolModalDataColumn = () => {
+  //     if (toolModal === true) {
+  //       return toolModalData;
+  //     }else return null
+  //   };
+  //   const fDot = ()=>{if(toolModalDataColumn===!null){return toolModalDataColumn.name.toString()}};
+  //   setToolToString(fDot);
+  //   return <div>{toolToString}</div>;
+  // };
+
   return (
     <>
       {categories.length ? (
@@ -77,8 +87,10 @@ function PowerTools() {
                                 {/* <div>Loaned Out: {toolModalData.available.toString()}</div>
                                 <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
                                 <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
-                                <div>Loaned Out: {dataFunction()}</div>
-                                <div>Borrowed In: {toolModalData.borrowed}</div>
+                                {/* <div>Loaned Out: {dataFunction()}</div> */}
+                                <div>Loaned Out: {toolModalData.available.toString()}</div>
+                                <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
+                                <div>Added Time: {toolModalData.createdAt}</div>
                               </div>
                             </div>
                           </Modal>
