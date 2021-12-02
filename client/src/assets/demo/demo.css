@@ -577,3 +577,8 @@ margin-bottom: 100px;
 
   border:10px solid purple;
   }
+
+  .toolInfoModal h5 {
+    font-size:5vw;
+    text-decoration: underline;
+  }
