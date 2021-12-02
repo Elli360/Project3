@@ -76,21 +76,21 @@ function PowerTools() {
                                 <i className="tim-icons icon-simple-remove text-white" />
                               </button>
                               <div className="text-muted text-center ml-auto mr-auto ">
-                                <h2>Tool Info</h2>
+                                <h2><span>Tool Info</span></h2>
                                 <h5 className="mb-0">{toolModalData.name}</h5>
                                 <div>
-                                  Description: {toolModalData.description}
+                                  <span>Description:</span> {toolModalData.description}
                                 </div>
-                                <div>Price: ${toolModalData.price}</div>
+                                <div><span>Price:</span> ${toolModalData.price}</div>
                                 {/* <div>------</div> */}
                                 <br />
                                 {/* <div>Loaned Out: {toolModalData.available.toString()}</div>
                                 <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
                                 <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
                                 {/* <div>Loaned Out: {dataFunction()}</div> */}
-                                <div>Loaned Out: {toolModalData.available.toString()}</div>
-                                <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
-                                <div>Added Time: {toolModalData.createdAt}</div>
+                                <div><span>Loaned Out:</span> {toolModalData.available.toString()}</div>
+                                <div><span>Borrowed In:</span> {toolModalData.borrowed.toString()}</div>
+                                <div><span>Added Time:</span> {toolModalData.createdAt}</div>
                               </div>
                             </div>
                           </Modal>

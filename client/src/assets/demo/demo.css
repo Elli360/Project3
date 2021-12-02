@@ -582,3 +582,8 @@ margin-bottom: 100px;
     font-size:5vw;
     text-decoration: underline;
   }
+
+  .toolInfoModal span {
+    color: rgb(38, 121, 230);
+    font-weight: bold;
+  }
