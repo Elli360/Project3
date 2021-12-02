@@ -88,7 +88,7 @@ function PowerTools() {
                                 <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
                                 <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
                                 {/* <div>Loaned Out: {dataFunction()}</div> */}
-                                <div><span>Loaned Out:</span> {toolModalData.available.toString()}</div>
+                                <div><span>In the ToolShed:</span> {toolModalData.available.toString()}</div>
                                 <div><span>Borrowed In:</span> {toolModalData.borrowed.toString()}</div>
                                 <div><span>Added Time:</span> {toolModalData.createdAt}</div>
                               </div>
