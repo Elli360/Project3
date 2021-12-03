@@ -567,3 +567,23 @@ color: rgb(55, 55, 122);
   margin-top:5vw;
   padding:0;
 }
+
+.toolInfoModal {
+
+border:5px solid purple;
+margin-bottom: 100px;
+}
+.toolInfoModal h2 {
+
+  border:10px solid purple;
+  }
+
+  .toolInfoModal h5 {
+    font-size:5vw;
+    text-decoration: underline;
+  }
+
+  .toolInfoModal span {
+    color: rgb(38, 121, 230);
+    font-weight: bold;
+  }
