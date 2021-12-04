@@ -6,6 +6,9 @@ function PowerTools() {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
+
+  const [toolModalDataCreatedAt, setToolModalDataCreatedAt] = useState(null);
+
   // const [toolModalData, setToolModalData] = useState([] | false | 5 | null);
   // const [toolToString, setToolToString] = useState(null);
   const [modalReady, setModalReady] = useState(false);
@@ -48,12 +51,14 @@ function PowerTools() {
                     <ul>
                       <div className="toolDetail">
                         {category.tools.map((tool) => {
+                          // console.log(tool.createdAt.toString());
                           return (
                             <li key={tool.id}>
                               <Button
                                 onClick={() => {
                                   setToolModalData(tool);
-                                  setToolModal(true);
+                                  setToolModalDataCreatedAt(tool.createdAt);
+                                  setToolModal(true);  
                                 }}
                               >
                                 {" "}
@@ -90,7 +95,13 @@ function PowerTools() {
                                 {/* <div>Loaned Out: {dataFunction()}</div> */}
                                 <div><span>In the ToolShed:</span> {toolModalData.available.toString()}</div>
                                 <div><span>Borrowed In:</span> {toolModalData.borrowed.toString()}</div>
-                                <div><span>Added Time:</span> {toolModalData.createdAt}</div>
+
+
+                                
+                                {/* try to alter useState type */}
+                                <div><span>Added Time:</span> {console.log(toolModalData)}</div>
+                                {/* <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
+                                <div><span>NEW TIME:</span> {new Date(toolModalDataCreatedAt).toString()}</div>
                               </div>
                             </div>
                           </Modal>
