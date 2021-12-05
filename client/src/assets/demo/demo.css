@@ -568,6 +568,10 @@ color: rgb(55, 55, 122);
   padding:0;
 }
 
+.toolDetail {
+  text-align: left;
+}
+
 .toolInfoModal {
 
 border:5px solid purple;

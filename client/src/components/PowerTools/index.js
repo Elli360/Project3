@@ -33,14 +33,13 @@ function PowerTools() {
             if (category.id === 1) {
               if (category.tools.length) {
                 return (
-                  <div key={category.id}>
-                    <ul>
-                      <div className="toolDetail">
+                  <div key={category.id} className="toolDetail">
+                    <ul className="">
+                      <div className="">
                         {category.tools.map((tool) => {
                           console.log(tool);
                           return (
-                            <li key={tool.id}>
-                              <Button
+                            <li key={tool.id}
                                 onClick={() => {
                                   setToolModalData(tool);
                                   setToolModal(true);  
@@ -48,7 +47,7 @@ function PowerTools() {
                               >
                                 {" "}
                                 {tool.name}
-                              </Button>
+                              
                             </li>
                           );
                         })}
