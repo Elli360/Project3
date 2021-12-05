@@ -6,9 +6,7 @@ function PowerTools() {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
-
-  const [toolModalDataCreatedAt, setToolModalDataCreatedAt] = useState(null);
-
+  // const [toolModalDataCreatedAt, setToolModalDataCreatedAt] = useState(null);
   // const [toolModalData, setToolModalData] = useState([] | false | 5 | null);
   // const [toolToString, setToolToString] = useState(null);
   const [modalReady, setModalReady] = useState(false);
@@ -27,18 +25,6 @@ function PowerTools() {
       .catch((err) => console.log(err));
   }
 
-
-  // const dataFunction = () => {
-  //   const toolModalDataColumn = () => {
-  //     if (toolModal === true) {
-  //       return toolModalData;
-  //     }else return null
-  //   };
-  //   const fDot = ()=>{if(toolModalDataColumn===!null){return toolModalDataColumn.name.toString()}};
-  //   setToolToString(fDot);
-  //   return <div>{toolToString}</div>;
-  // };
-
   return (
     <>
       {categories.length ? (
@@ -51,13 +37,12 @@ function PowerTools() {
                     <ul>
                       <div className="toolDetail">
                         {category.tools.map((tool) => {
-                          // console.log(tool.createdAt.toString());
+                          console.log(tool);
                           return (
                             <li key={tool.id}>
                               <Button
                                 onClick={() => {
                                   setToolModalData(tool);
-                                  setToolModalDataCreatedAt(tool.createdAt);
                                   setToolModal(true);  
                                 }}
                               >
@@ -87,21 +72,18 @@ function PowerTools() {
                                   <span>Description:</span> {toolModalData.description}
                                 </div>
                                 <div><span>Price:</span> ${toolModalData.price}</div>
-                                {/* <div>------</div> */}
+
                                 <br />
-                                {/* <div>Loaned Out: {toolModalData.available.toString()}</div>
-                                <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
-                                <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
-                                {/* <div>Loaned Out: {dataFunction()}</div> */}
+                            
                                 <div><span>In the ToolShed:</span> {toolModalData.available.toString()}</div>
                                 <div><span>Borrowed In:</span> {toolModalData.borrowed.toString()}</div>
 
-
-                                
-                                {/* try to alter useState type */}
-                                <div><span>Added Time:</span> {console.log(toolModalData)}</div>
-                                {/* <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
-                                <div><span>NEW TIME:</span> {new Date(toolModalDataCreatedAt).toString()}</div>
+                                {/* first add different timestamp query then try to alter useState type */}
+                                {/* <div><span>Added Time:</span> {console.log(toolModalData)}</div>
+                                <div>TIME0: {toolModalData.createdAt.toString()}</div>
+                                <div><span>TIME1:</span> {new Date(`${toolModalDataCreatedAt}`).toLocaleString()}</div>
+                                <div><span>TIME2:</span> {new Date(toolModalData.createdAt.seconds * 1000).toLocaleDateString("en-US")}</div>
+                                <div><span>TIME3:</span> {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}</div> */}
                               </div>
                             </div>
                           </Modal>
