@@ -36,19 +36,34 @@ function PowerTools() {
                   <div key={category.id} className="toolDetail">
                     <ul className="">
                       <div className="">
+                        <br/>
                         {category.tools.map((tool) => {
                           console.log(tool);
                           return (
-                            <li key={tool.id}
-                                onClick={() => {
-                                  setToolModalData(tool);
-                                  setToolModal(true);  
-                                }}
-                              >
-                                {" "}
-                                {tool.name}
-                              
-                            </li>
+                            // <li className="glow-on-hover" key={tool.id}>
+                            // <Button
+                            //     onClick={() => {
+                            //       setToolModalData(tool);
+                            //       setToolModal(true);  
+                            //     }}
+                            //   >
+                            //     {" "}
+                            //     {tool.name}
+                            //   </Button>
+                            // </li>
+                            <div>
+                            <li key={tool.id} className="glowClass"
+                            onClick={() => {
+                              setToolModalData(tool);
+                              setToolModal(true);  
+                            }}
+                          >
+                            {" "}
+                            {tool.name}
+                          
+                        </li>
+                        <br/>
+                        </div>
                           );
                         })}
                         {modalReady && (
