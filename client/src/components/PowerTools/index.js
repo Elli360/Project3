@@ -67,12 +67,12 @@ function PowerTools() {
                           );
                         })}
                         {modalReady && (
-                          <Modal
+                          <Modal className="toolInfoModal"
                             modalClassName="modal-black"
                             isOpen={toolModal}
                             toggle={() => setToolModal(false)}
                           >
-                            <div className="modal-header justify-content-center toolInfoModal">
+                            <div className="modal-header justify-content-center">
                               <button
                                 className="close"
                                 onClick={() => setToolModal(false)}

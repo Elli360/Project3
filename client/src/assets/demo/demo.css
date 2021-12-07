@@ -577,8 +577,8 @@ color: rgb(55, 55, 122);
 } */
 
 .toolDetail li {
-  width: 220px;
-  height: 50px;
+  width: 75%;
+  height: 20%;
   border: none;
   outline: none;
   /* color: #fff; */
@@ -589,7 +589,7 @@ color: rgb(55, 55, 122);
   border-radius: 10px;
     
   background-color: grey;
-  font-size:1.5em;
+  font-size:1em;
   border-radius:10rem;
 }
 
@@ -649,12 +649,20 @@ color: rgb(55, 55, 122);
 
 
 .toolInfoModal {
-
 border:5px solid purple;
 margin-bottom: 100px;
+border-top-left-radius: 3rem ;
+border-top-right-radius: 3rem;
+}
+.toolInfoModal div {
+
+
+  border-top-left-radius: 3rem ;
+border-top-right-radius: 3rem;
 }
 .toolInfoModal h2 {
-
+  border-top-left-radius:5rem ;
+  border-top-right-radius: 5rem;
   border:10px solid purple;
   }
 
