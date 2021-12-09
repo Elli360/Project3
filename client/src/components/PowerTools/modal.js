@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "reactstrap";
 
-function ToolInfoModal({toolObject}) {
-  const [toolModal, setToolModal]=useState(false);
+function ToolInfoModal({toolObject, toolModalOpen , toolModalClose}) {
+ 
 
   return (
     <Modal
       className="toolInfoModal"
       modalClassName="modal-black"
-      isOpen={toolModal}
-      toggle={() => setToolModal(false)}
+      isOpen={toolModalOpen}
+      toggle={() => toolModalClose()}
     >
       <div className="modal-header justify-content-center">
-        <button className="close" onClick={() => setToolModal(false)}>
+         <button className="close" onClick={() => toolModalClose()}>
           <i className="tim-icons icon-simple-remove text-white" />
         </button>
+        {/* <button className="close" onClick={() => setToolModal(false)}>
+          <i className="tim-icons icon-simple-remove text-white" />
+        </button> */}
         <div className="text-muted text-center ml-auto mr-auto ">
           <h2>
             <span>Tool Info</span>

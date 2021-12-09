@@ -15,9 +15,16 @@ function PowerTools() {
     loadTools();
     if (!toolModalData === false) {
       setModalReady(true);
-    }
+    };
+    // modalReturn();
+    // return()=>{
+    //   setToolModal();
+    // }
+    
   }, [toolModalData]);
-
+// const modalReturn=()=>{
+//   setToolModal(true);
+// }
   function loadTools() {
     api
       .getCategories()
@@ -38,7 +45,7 @@ function PowerTools() {
                       <div className="">
                         <br/>
                         {category.tools.map((tool) => {
-                          console.log(tool);
+                          // console.log(tool);
                           return (
                             // <li className="glow-on-hover" key={tool.id}>
                             // <Button
@@ -55,7 +62,8 @@ function PowerTools() {
                             <li key={tool.id} className="glowClass"
                             onClick={() => {
                               setToolModalData(tool);
-                              setToolModal(true);  
+                              setToolModal(true);
+                              // modalReturn();  
                             }}
                           >
                             {" "}
@@ -69,7 +77,7 @@ function PowerTools() {
                         {modalReady && (
 
 
-<ToolModalInfo toolObject={toolModalData}/>
+ <ToolModalInfo toolModalOpen={toolModal} toolModalClose={()=>setToolModal(false)} toolObject={toolModalData}/> 
                           // <Modal className="toolInfoModal"
                           //   modalClassName="modal-black"
                           //   isOpen={toolModal}
