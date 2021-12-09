@@ -417,7 +417,7 @@
 
 .components-page .wrapper>.header,
 .tutorial-page .wrapper>.header {
-  height: 500px;
+  height: 800px;
   padding-top: 128px;
   background-size: cover;
   background-position: center center;
@@ -674,4 +674,8 @@ border-top-right-radius: 3rem;
   .toolInfoModal span {
     color: rgb(38, 121, 230);
     font-weight: bold;
+  }
+/* added to avoid cut-off of home image and buttons */
+  .page-header{
+    height:800px;
   }
