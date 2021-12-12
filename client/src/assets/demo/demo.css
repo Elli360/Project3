@@ -417,7 +417,7 @@
 
 .components-page .wrapper>.header,
 .tutorial-page .wrapper>.header {
-  height: 500px;
+  height: 800px;
   padding-top: 128px;
   background-size: cover;
   background-position: center center;
@@ -568,13 +568,101 @@ color: rgb(55, 55, 122);
   padding:0;
 }
 
-.toolInfoModal {
+/* .toolDetail  {
+  text-align: left;
+} */
 
+/* .toolDetail li {
+  color:black;
+} */
+
+.toolDetail li {
+  width: 75%;
+  height: 20%;
+  border: none;
+  outline: none;
+  /* color: #fff; */
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+    
+  background-color: grey;
+  font-size:1em;
+  border-radius:10rem;
+}
+
+.toolDetail li:before {
+  content: '';
+  background: linear-gradient(45deg,black,black,indigo, #002bff, #7a00ff, #ff00c8);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+.toolDetail li:active {
+  color: #000
+}
+.toolDetail li:active:after {
+  background: transparent;
+}
+.toolDetail li:hover:before {
+  opacity: 1;
+}
+.toolDetail li:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+.glowClass{
+  color:rgb(139, 193, 237);
+}
+.glowClass:hover{
+  background-color: indigo;
+  color:gold; 
+}
+
+/* .toolDetail {
+  align-items:left;
+} */
+
+
+
+.toolInfoModal {
 border:5px solid purple;
 margin-bottom: 100px;
+border-top-left-radius: 3rem ;
+border-top-right-radius: 3rem;
+}
+.toolInfoModal div {
+
+
+  border-top-left-radius: 3rem ;
+border-top-right-radius: 3rem;
 }
 .toolInfoModal h2 {
-
+  border-top-left-radius:5rem ;
+  border-top-right-radius: 5rem;
   border:10px solid purple;
   }
 
@@ -586,4 +674,8 @@ margin-bottom: 100px;
   .toolInfoModal span {
     color: rgb(38, 121, 230);
     font-weight: bold;
+  }
+/* added to avoid cut-off of home image and buttons */
+  .page-header{
+    height:800px;
   }

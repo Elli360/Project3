@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
-
-function PowerTools() {
+import ToolModalInfo from "./modal.js";
+function PowerTools({catNumber}) {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
+  // const [toolModalDataCreatedAt, setToolModalDataCreatedAt] = useState(null);
   // const [toolModalData, setToolModalData] = useState([] | false | 5 | null);
   // const [toolToString, setToolToString] = useState(null);
   const [modalReady, setModalReady] = useState(false);
@@ -14,9 +15,16 @@ function PowerTools() {
     loadTools();
     if (!toolModalData === false) {
       setModalReady(true);
-    }
+    };
+    // modalReturn();
+    // return()=>{
+    //   setToolModal();
+    // }
+    
   }, [toolModalData]);
-
+// const modalReturn=()=>{
+//   setToolModal(true);
+// }
   function loadTools() {
     api
       .getCategories()
@@ -24,51 +32,58 @@ function PowerTools() {
       .catch((err) => console.log(err));
   }
 
-
-  // const dataFunction = () => {
-  //   const toolModalDataColumn = () => {
-  //     if (toolModal === true) {
-  //       return toolModalData;
-  //     }else return null
-  //   };
-  //   const fDot = ()=>{if(toolModalDataColumn===!null){return toolModalDataColumn.name.toString()}};
-  //   setToolToString(fDot);
-  //   return <div>{toolToString}</div>;
-  // };
-
   return (
     <>
       {categories.length ? (
         <ul>
           {categories.map((category) => {
-            if (category.id === 1) {
+            if (category.id === catNumber) {
               if (category.tools.length) {
                 return (
-                  <div key={category.id}>
-                    <ul>
-                      <div className="toolDetail">
+                  <div key={category.id} className="toolDetail">
+                    <ul className="">
+                      <div className="">
+                        <br/>
                         {category.tools.map((tool) => {
+                          // console.log(tool);
                           return (
-                            <li key={tool.id}>
-                              <Button
-                                onClick={() => {
-                                  setToolModalData(tool);
-                                  setToolModal(true);
-                                }}
-                              >
-                                {" "}
-                                {tool.name}
-                              </Button>
-                            </li>
+                            // <li className="glow-on-hover" key={tool.id}>
+                            // <Button
+                            //     onClick={() => {
+                            //       setToolModalData(tool);
+                            //       setToolModal(true);  
+                            //     }}
+                            //   >
+                            //     {" "}
+                            //     {tool.name}
+                            //   </Button>
+                            // </li>
+                            <div>
+                            <li key={tool.id} className="glowClass"
+                            onClick={() => {
+                              setToolModalData(tool);
+                              setToolModal(true);
+                              // modalReturn();  
+                            }}
+                          >
+                            {" "}
+                            {tool.name}
+                          
+                        </li>
+                        <br/>
+                        </div>
                           );
                         })}
                         {modalReady && (
-                          <Modal
+
+
+//  <ToolModalInfo toolModalOpen={toolModal} toolModalClose={()=>setToolModal(false)} toolObject={toolModalData}/> 
+                          <Modal className="toolInfoModal"
                             modalClassName="modal-black"
                             isOpen={toolModal}
                             toggle={() => setToolModal(false)}
                           >
-                            <div className="modal-header justify-content-center toolInfoModal">
+                            <div className="modal-header justify-content-center">
                               <button
                                 className="close"
                                 onClick={() => setToolModal(false)}
@@ -82,15 +97,18 @@ function PowerTools() {
                                   <span>Description:</span> {toolModalData.description}
                                 </div>
                                 <div><span>Price:</span> ${toolModalData.price}</div>
-                                {/* <div>------</div> */}
+
                                 <br />
-                                {/* <div>Loaned Out: {toolModalData.available.toString()}</div>
-                                <div>Borrowed In: {toolModalData.borrowed.toString()}</div>
-                                <div>Added Time: {toolModalData.createdAt.toString()}</div> */}
-                                {/* <div>Loaned Out: {dataFunction()}</div> */}
+                            
                                 <div><span>In the ToolShed:</span> {toolModalData.available.toString()}</div>
                                 <div><span>Borrowed In:</span> {toolModalData.borrowed.toString()}</div>
-                                <div><span>Added Time:</span> {toolModalData.createdAt}</div>
+
+                                {/* first add different timestamp query then try to alter useState type */}
+                                {/* <div><span>Added Time:</span> {console.log(toolModalData)}</div>
+                                <div>TIME0: {toolModalData.createdAt.toString()}</div>
+                                <div><span>TIME1:</span> {new Date(`${toolModalDataCreatedAt}`).toLocaleString()}</div>
+                                <div><span>TIME2:</span> {new Date(toolModalData.createdAt.seconds * 1000).toLocaleDateString("en-US")}</div>
+                                <div><span>TIME3:</span> {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}</div> */}
                               </div>
                             </div>
                           </Modal>

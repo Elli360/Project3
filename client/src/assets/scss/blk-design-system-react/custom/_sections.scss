@@ -221,7 +221,7 @@
 
 .page-header{
     min-height: 100vh;
-    max-height: 999px;
+    max-height: 1000px;
     padding: 0;
     color: $white;
     position: relative;
@@ -284,12 +284,12 @@
 
     &.page-header-small{
         min-height: 60vh;
-        max-height: 440px;
+        max-height: 500px;
     }
 
     &.page-header-mini{
         min-height: 40vh;
-        max-height: 340px;
+        max-height: 400px;
     }
 
     .title{

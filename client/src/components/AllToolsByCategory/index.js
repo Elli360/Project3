@@ -31,7 +31,7 @@ import { Link, useLocation } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import {HashRouter as Router, Route } from "react-router-dom";
 
-import PowerTools from "../PowerTools";
+import ToolShedByCategory from "../PowerTools/ToolShedByCategory";
 import HandTools from "../HandTools";
 import OutdoorTools from "../OutdoorTools";
 import WorkshopTools from "../WorkshopTools";
@@ -88,8 +88,11 @@ function AllToolsByCategory(props) {
                         <h4 className="text-uppercase">Power Tools</h4>
                       </Link>
                       <span>Category 1</span>
-
-                      <Route  exact path="/powertools" component={PowerTools} />
+                                                  {/* Only works with React Router v6
+                      <Route  exact path="/powertools" element={<ToolShedByCategory catNumber={1} />} /> */}
+                      <Route  exact path="/powertools" 
+                      render={(props)=>(
+                      <ToolShedByCategory catNumber={1} /> )}/>
                       <hr className="line-primary" />
                     </Col>
                   </Row>
@@ -132,7 +135,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Hand Tools</h4>
                       </Link>
                       <span>Category 2</span>
-                      <Route path="/handtools" component={HandTools} />
+                      {/* <Route path="/handtools" component={HandTools} /> */}
+                      <Route path="/handtools">
+                      <ToolShedByCategory catNumber={2} /> 
+                         </Route>
                       <hr className="line-success" />
                     </Col>
                   </Row>
@@ -169,7 +175,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
-                      <Route  path="/outdoortools" component={OutdoorTools} />
+                      {/* <Route  path="/outdoortools" component={OutdoorTools} /> */}
+                      <Route path="/outdoortools">
+                      <ToolShedByCategory catNumber={3} /> 
+                        </Route>
                        <hr className="line-info" />
                     </Col>
                   </Row>
@@ -206,7 +215,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Workshop Tools</h4>
                       </Link>
                       <span>Category 4</span>
-                      <Route  path="/workshoptools" component={WorkshopTools} />
+                      {/* <Route  path="/workshoptools" component={WorkshopTools} /> */}
+                      <Route path="/workshoptools">
+                      <ToolShedByCategory catNumber={4} /> 
+                        </Route>
                       <hr className="line-danger" />
                     </Col>
                   </Row>
@@ -242,7 +254,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase"> Hardware</h4>
                       </Link>
                       <span>Category 5</span>
-                      <Route  path="/hardware" component={Hardware} />
+                      {/* <Route  path="/hardware" component={Hardware} /> */}
+                      <Route path="/Hardware">
+                      <ToolShedByCategory catNumber={5} /> 
+                        </Route>
                       <hr className="line-primary" />
                     </Col>
                   </Row>
