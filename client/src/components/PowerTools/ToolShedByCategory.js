@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
 import ToolModalInfo from "./modal.js";
-function PowerTools() {
+function PowerTools({catNumber}) {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
@@ -37,7 +37,7 @@ function PowerTools() {
       {categories.length ? (
         <ul>
           {categories.map((category) => {
-            if (category.id === 1) {
+            if (category.id === catNumber) {
               if (category.tools.length) {
                 return (
                   <div key={category.id} className="toolDetail">
