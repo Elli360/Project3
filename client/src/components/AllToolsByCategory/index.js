@@ -137,7 +137,7 @@ function AllToolsByCategory(props) {
                       <span>Category 2</span>
                       {/* <Route path="/handtools" component={HandTools} /> */}
                       <Route path="/handtools">
-                         <HandTools/> 
+                      <ToolShedByCategory catNumber={2} /> 
                          </Route>
                       <hr className="line-success" />
                     </Col>
@@ -175,7 +175,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
-                      <Route  path="/outdoortools" component={OutdoorTools} />
+                      {/* <Route  path="/outdoortools" component={OutdoorTools} /> */}
+                      <Route path="/outdoortools">
+                      <ToolShedByCategory catNumber={3} /> 
+                        </Route>
                        <hr className="line-info" />
                     </Col>
                   </Row>
@@ -212,7 +215,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase">Workshop Tools</h4>
                       </Link>
                       <span>Category 4</span>
-                      <Route  path="/workshoptools" component={WorkshopTools} />
+                      {/* <Route  path="/workshoptools" component={WorkshopTools} /> */}
+                      <Route path="/workshoptools">
+                      <ToolShedByCategory catNumber={4} /> 
+                        </Route>
                       <hr className="line-danger" />
                     </Col>
                   </Row>
@@ -248,7 +254,10 @@ function AllToolsByCategory(props) {
                       <h4 className="text-uppercase"> Hardware</h4>
                       </Link>
                       <span>Category 5</span>
-                      <Route  path="/hardware" component={Hardware} />
+                      {/* <Route  path="/hardware" component={Hardware} /> */}
+                      <Route path="/Hardware">
+                      <ToolShedByCategory catNumber={5} /> 
+                        </Route>
                       <hr className="line-primary" />
                     </Col>
                   </Row>
