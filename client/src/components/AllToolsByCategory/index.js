@@ -162,7 +162,7 @@ function AllToolsByCategory(props) {
                   <img
                     alt="..."
                     className="img-center img-fluid"
-                    src={require("assets/img/power-tools.jpg").default}
+                    src={require("assets/img/lawn-mower-35.png").default}
                   />
                 </CardHeader>
                 <CardBody>
@@ -243,7 +243,7 @@ function AllToolsByCategory(props) {
                   <img
                     alt="..."
                     className="img-center img-fluid"
-                    src={require("assets/img/power-tools.jpg").default}
+                    src={require("assets/img/hardware-vector.png").default}
                   />
                 </CardHeader>
                 <CardBody>
