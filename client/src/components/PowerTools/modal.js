@@ -29,7 +29,9 @@ function ToolInfoModal({toolObject, toolModalOpen , toolModalClose}) {
           <div>
             <span>Price:</span> ${toolObject.price}
           </div>
-
+          <div>
+            <span>Size(Length-inches):</span> ${toolObject.size}
+          </div>
           <br />
 
           <div>
