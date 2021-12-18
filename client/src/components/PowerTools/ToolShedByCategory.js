@@ -45,7 +45,7 @@ function PowerTools({catNumber}) {
                       <div className="">
                         <br/>
                         {category.tools.map((tool) => {
-                          // console.log(tool);
+                          console.log(tool);
                           return (
                             // <li className="glow-on-hover" key={tool.id}>
                             // <Button
@@ -97,6 +97,9 @@ function PowerTools({catNumber}) {
                                   <span>Description:</span> {toolModalData.description}
                                 </div>
                                 <div><span>Price:</span> ${toolModalData.price}</div>
+                                <div>
+            <span>Size(Length):</span> {toolModalData.size} inches
+          </div>
 
                                 <br />
                             
