@@ -30,7 +30,7 @@ function ToolInfoModal({toolObject, toolModalOpen , toolModalClose}) {
             <span>Price:</span> ${toolObject.price}
           </div>
           <div>
-            <span>Size(Length-inches):</span>
+            <span>Size(Length-inches): {toolObject.size}</span>
           </div>
           <br />
 
