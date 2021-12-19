@@ -32,6 +32,14 @@ function PowerTools({catNumber}) {
       .catch((err) => console.log(err));
   }
 
+  const sizeCondStatement = ()=>{
+    if(toolModalData.size == null){
+     return "Null";
+    }
+    else{
+      return `${toolModalData.size} inches`;
+    }
+  }
   return (
     <>
       {categories.length ? (
@@ -45,7 +53,7 @@ function PowerTools({catNumber}) {
                       <div className="">
                         <br/>
                         {category.tools.map((tool) => {
-                          console.log(tool);
+                          // console.log(tool);
                           return (
                             // <li className="glow-on-hover" key={tool.id}>
                             // <Button
@@ -98,7 +106,7 @@ function PowerTools({catNumber}) {
                                 </div>
                                 <div><span>Price:</span> ${toolModalData.price}</div>
                                 <div>
-            <span>Size(Length):</span> {toolModalData.size} inches
+            <span>Size(Length):</span> {sizeCondStatement()} 
           </div>
 
                                 <br />
