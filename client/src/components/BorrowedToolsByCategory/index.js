@@ -14,6 +14,7 @@ import { Link, useLocation } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
+import ToolShedByCategory from "../PowerTools/ToolShedByCategory";
 import BorrowedPowerTools from "../BorrowedPowerTools";
 import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
 import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
@@ -106,7 +107,12 @@ import "./style.css";
                       {/* {catData && <Route exact path="/powertools" component={BorrowedPowerTools}
                        catDataRouteExec={()=>{catDataRouteFunc()}}
                         />} */}
-                       <Route exact path="/powertools" component={BorrowedPowerTools} />
+                       <Route exact path="/powertools">
+                      
+                      <BorrowedPowerTools /> 
+                        
+                         </Route>
+                          {/* component={BorrowedPowerTools} /> */}
                       <hr className="line-primary" />
                     </Col>
                   </Row>
