@@ -14,8 +14,8 @@ import { Link, useLocation } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
-import BorrowedChildByCategory from "../BorrowedPowerTools/BorrowedChildByCategory.js";
-import ToolShedByCategory from "../PowerTools/ToolShedByCategory";
+import BorrowedChildByCategory from "../ToolListByCategory/BorrowedChildByCategory.js";
+import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
 import BorrowedPowerTools from "../BorrowedPowerTools";
 import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
 import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
