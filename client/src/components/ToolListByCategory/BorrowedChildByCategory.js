@@ -54,7 +54,7 @@ function BorrowedPowerTools({ catNumber }) {
           <div className="toolDetail">
             <ul className="">
               <div className="">
-                <br />
+               
 
                 <div>
                   <li
@@ -68,7 +68,7 @@ function BorrowedPowerTools({ catNumber }) {
                     {""}
                     {tool.name}
                   </li>
-                  <br />
+                 
                 </div>
 
                 {modalReady && (
