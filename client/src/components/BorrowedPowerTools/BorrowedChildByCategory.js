@@ -16,6 +16,14 @@ function BorrowedPowerTools() {
     setCategories(res);
   };
 
+  const sizeCondStatement = () => {
+    if (toolModalData.size == null) {
+      return "Null";
+    } else {
+      return `${toolModalData.size} inches`;
+    }
+  };
+
   useEffect(() => {
     LoadBorrowableTools();
     if (!toolModalData === false) {
@@ -31,7 +39,7 @@ function BorrowedPowerTools() {
     );
   };
 
-  const ToolsBorrowed = () =>
+  const ToolsBorrowed = () => 
     categories
       .filter((row) => {
         if (row.borrowed === true) {
@@ -47,6 +55,12 @@ function BorrowedPowerTools() {
           //     <li key={tool.id}>{tool.name}</li>
           //   </ul>
           // </div>
+
+<div  className="toolDetail">
+                    <ul className="">
+                      <div className="">
+                        <br />
+
           <div>
             <li
               key={tool.id}
@@ -57,57 +71,110 @@ function BorrowedPowerTools() {
                 // modalReturn();
               }}
             >
-              {" "}
+              {""}
               {tool.name}
             </li>
             <br />
           </div>
+
+         {
+    modalReady && (
+      <Modal
+        className="toolInfoModal"
+        modalClassName="modal-black"
+        isOpen={toolModal}
+        toggle={() => setToolModal(false)}
+      >
+        <div className="modal-header justify-content-center">
+          <button className="close" onClick={() => setToolModal(false)}>
+            <i className="tim-icons icon-simple-remove text-white" />
+          </button>
+          <div className="text-muted text-center ml-auto mr-auto ">
+            <h2>
+              <span>Tool Info</span>
+            </h2>
+            <h5 className="mb-0">{toolModalData.name}</h5>
+            <div>
+              <span>Description:</span> {toolModalData.description}
+            </div>
+            <div>
+              <span>Price:</span> ${toolModalData.price}
+            </div>
+            <div>
+              <span>Size(Length):</span> {sizeCondStatement()}
+            </div>
+
+            <br />
+
+            <div>
+              <span>In the ToolShed:</span> {toolModalData.available.toString()}
+            </div>
+            <div>
+              <span>Borrowed In:</span> {toolModalData.borrowed.toString()}
+            </div>
+
+            <div>
+              <span>Date Added to ToolShed:</span>{" "}
+              {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}
+            </div>
+          </div>
+        </div>
+      </Modal>
+    )
+  }
+
+
+
+          </div>
+                    </ul>
+                  </div>
+
         );
       });
   // {
-  //   modalReady && (
-  //     <Modal
-  //       className="toolInfoModal"
-  //       modalClassName="modal-black"
-  //       isOpen={toolModal}
-  //       toggle={() => setToolModal(false)}
-  //     >
-  //       <div className="modal-header justify-content-center">
-  //         <button className="close" onClick={() => setToolModal(false)}>
-  //           <i className="tim-icons icon-simple-remove text-white" />
-  //         </button>
-  //         <div className="text-muted text-center ml-auto mr-auto ">
-  //           <h2>
-  //             <span>Tool Info</span>
-  //           </h2>
-  //           <h5 className="mb-0">{toolModalData.name}</h5>
-  //           <div>
-  //             <span>Description:</span> {toolModalData.description}
-  //           </div>
-  //           <div>
-  //             <span>Price:</span> ${toolModalData.price}
-  //           </div>
-  //           <div>
-  //             <span>Size(Length):</span> {sizeCondStatement()}
-  //           </div>
+    // modalReady && (
+    //   <Modal
+    //     className="toolInfoModal"
+    //     modalClassName="modal-black"
+    //     isOpen={toolModal}
+    //     toggle={() => setToolModal(false)}
+    //   >
+    //     <div className="modal-header justify-content-center">
+    //       <button className="close" onClick={() => setToolModal(false)}>
+    //         <i className="tim-icons icon-simple-remove text-white" />
+    //       </button>
+    //       <div className="text-muted text-center ml-auto mr-auto ">
+    //         <h2>
+    //           <span>Tool Info</span>
+    //         </h2>
+    //         <h5 className="mb-0">{toolModalData.name}</h5>
+    //         <div>
+    //           <span>Description:</span> {toolModalData.description}
+    //         </div>
+    //         <div>
+    //           <span>Price:</span> ${toolModalData.price}
+    //         </div>
+    //         <div>
+    //           <span>Size(Length):</span> {sizeCondStatement()}
+    //         </div>
 
-  //           <br />
+    //         <br />
 
-  //           <div>
-  //             <span>In the ToolShed:</span> {toolModalData.available.toString()}
-  //           </div>
-  //           <div>
-  //             <span>Borrowed In:</span> {toolModalData.borrowed.toString()}
-  //           </div>
+    //         <div>
+    //           <span>In the ToolShed:</span> {toolModalData.available.toString()}
+    //         </div>
+    //         <div>
+    //           <span>Borrowed In:</span> {toolModalData.borrowed.toString()}
+    //         </div>
 
-  //           <div>
-  //             <span>Date Added to ToolShed:</span>{" "}
-  //             {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </Modal>
-  //   );
+    //         <div>
+    //           <span>Date Added to ToolShed:</span>{" "}
+    //           {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </Modal>
+    // );
   // }
 
   const DefaultNotBorrowed = () => {

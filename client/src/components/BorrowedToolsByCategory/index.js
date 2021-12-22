@@ -14,6 +14,7 @@ import { Link, useLocation } from "react-router-dom";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
+import BorrowedChildByCategory from "../BorrowedPowerTools/BorrowedChildByCategory.js";
 import ToolShedByCategory from "../PowerTools/ToolShedByCategory";
 import BorrowedPowerTools from "../BorrowedPowerTools";
 import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
@@ -109,7 +110,8 @@ import "./style.css";
                         />} */}
                        <Route exact path="/powertools">
                       
-                      <BorrowedPowerTools /> 
+                      {/* <BorrowedPowerTools />  */}
+                      <BorrowedChildByCategory />
                         
                          </Route>
                           {/* component={BorrowedPowerTools} /> */}
