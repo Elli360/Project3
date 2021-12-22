@@ -111,7 +111,7 @@ import "./style.css";
                        <Route exact path="/powertools">
                       
                       {/* <BorrowedPowerTools />  */}
-                      <BorrowedChildByCategory />
+                      <BorrowedChildByCategory catNumber={0}/>
                         
                          </Route>
                           {/* component={BorrowedPowerTools} /> */}
@@ -160,7 +160,10 @@ import "./style.css";
                       </Link>
                       <span>Category 2</span>
 
-                      <Route path="/Borrowedtools" component={BorrowedHandTools} />
+                      <Route path="/Borrowedtools">
+                      {/* <BorrowedHandTools/> */}
+                      <BorrowedChildByCategory catNumber={1}/>
+                        </Route> 
 
                       <hr className="line-success" />
                     </Col>
@@ -200,7 +203,10 @@ import "./style.css";
                         <h4 className="text-uppercase">Borrowed Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
-                      <Route path="/outdoortools" component={BorrowedOutdoorTools} />
+                      <Route path="/outdoortools">
+                      {/* <BorrowedOutdoorTools /> */}
+                      <BorrowedChildByCategory catNumber={2} />
+                      </Route>
                       <hr className="line-info" />
                     </Col>
                   </Row>
@@ -239,7 +245,10 @@ import "./style.css";
                         <h4 className="text-uppercase">Borrowed Workshop Tools</h4>
                       </Link>
                       <span>Category 4</span>
-                      <Route path="/workshoptools" component={BorrowedWorkshopTools} />
+                      <Route path="/workshoptools" >
+                      {/* <BorrowedWorkshopTools /> */}
+                      <BorrowedChildByCategory catNumber={3} />
+                      </Route>
                       <hr className="line-danger" />
                     </Col>
                   </Row>
@@ -277,7 +286,10 @@ import "./style.css";
                         <h4 className="text-uppercase">Borrowed Hardware</h4>
                       </Link>
                       <span>Category 5</span>
-                      <Route path="/hardware" component={BorrowedHardware} />
+                      <Route path="/hardware">
+                    {/* <BorrowedHardware /> */}
+                     <BorrowedChildByCategory catNumber={4} />
+                      </Route>
                       <hr className="line-primary" />
                     </Col>
                   </Row>

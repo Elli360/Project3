@@ -3,7 +3,7 @@ import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
 
 //make category.id # a prop so the # of components can be divided by 5
-function BorrowedPowerTools() {
+function BorrowedPowerTools({ catNumber }) {
   const [categories, setCategories] = useState([]);
   const [categoryDataTrue, setCategoryDataTrue] = useState(false);
   const [toolModal, setToolModal] = useState(false);
@@ -12,7 +12,7 @@ function BorrowedPowerTools() {
 
   const LoadBorrowableTools = async () => {
     const first = await api.getCategories();
-    const res = await first.data[0].tools;
+    const res = await first.data[catNumber].tools;
     setCategories(res);
   };
 
@@ -39,7 +39,7 @@ function BorrowedPowerTools() {
     );
   };
 
-  const ToolsBorrowed = () => 
+  const ToolsBorrowed = () =>
     categories
       .filter((row) => {
         if (row.borrowed === true) {
@@ -50,132 +50,83 @@ function BorrowedPowerTools() {
       })
       .map((tool) => {
         return (
-          // <div className="toolDetail" >
-          //   <ul>
-          //     <li key={tool.id}>{tool.name}</li>
-          //   </ul>
-          // </div>
+    
+          <div className="toolDetail">
+            <ul className="">
+              <div className="">
+                <br />
 
-<div  className="toolDetail">
-                    <ul className="">
-                      <div className="">
+                <div>
+                  <li
+                    key={tool.id}
+                    className="glowClass"
+                    onClick={() => {
+                      setToolModalData(tool);
+                      setToolModal(true);
+                    }}
+                  >
+                    {""}
+                    {tool.name}
+                  </li>
+                  <br />
+                </div>
+
+                {modalReady && (
+                  <Modal
+                    className="toolInfoModal"
+                    modalClassName="modal-black"
+                    isOpen={toolModal}
+                    toggle={() => setToolModal(false)}
+                  >
+                    <div className="modal-header justify-content-center">
+                      <button
+                        className="close"
+                        onClick={() => setToolModal(false)}
+                      >
+                        <i className="tim-icons icon-simple-remove text-white" />
+                      </button>
+                      <div className="text-muted text-center ml-auto mr-auto ">
+                        <h2>
+                          <span>Tool Info</span>
+                        </h2>
+                        <h5 className="mb-0">{toolModalData.name}</h5>
+                        <div>
+                          <span>Description:</span> {toolModalData.description}
+                        </div>
+                        <div>
+                          <span>Price:</span> ${toolModalData.price}
+                        </div>
+                        <div>
+                          <span>Size(Length):</span> {sizeCondStatement()}
+                        </div>
+
                         <br />
 
-          <div>
-            <li
-              key={tool.id}
-              className="glowClass"
-              onClick={() => {
-                setToolModalData(tool);
-                setToolModal(true);
-                // modalReturn();
-              }}
-            >
-              {""}
-              {tool.name}
-            </li>
-            <br />
+                        <div>
+                          <span>In the ToolShed:</span>{" "}
+                          {toolModalData.available.toString()}
+                        </div>
+                        <div>
+                          <span>Borrowed In:</span>{" "}
+                          {toolModalData.borrowed.toString()}
+                        </div>
+
+                        <div>
+                          <span>Date Added to ToolShed:</span>{" "}
+                          {new Date(
+                            `${toolModalData.createdAt}`
+                          ).toLocaleDateString()}
+                        </div>
+                      </div>
+                    </div>
+                  </Modal>
+                )}
+              </div>
+            </ul>
           </div>
-
-         {
-    modalReady && (
-      <Modal
-        className="toolInfoModal"
-        modalClassName="modal-black"
-        isOpen={toolModal}
-        toggle={() => setToolModal(false)}
-      >
-        <div className="modal-header justify-content-center">
-          <button className="close" onClick={() => setToolModal(false)}>
-            <i className="tim-icons icon-simple-remove text-white" />
-          </button>
-          <div className="text-muted text-center ml-auto mr-auto ">
-            <h2>
-              <span>Tool Info</span>
-            </h2>
-            <h5 className="mb-0">{toolModalData.name}</h5>
-            <div>
-              <span>Description:</span> {toolModalData.description}
-            </div>
-            <div>
-              <span>Price:</span> ${toolModalData.price}
-            </div>
-            <div>
-              <span>Size(Length):</span> {sizeCondStatement()}
-            </div>
-
-            <br />
-
-            <div>
-              <span>In the ToolShed:</span> {toolModalData.available.toString()}
-            </div>
-            <div>
-              <span>Borrowed In:</span> {toolModalData.borrowed.toString()}
-            </div>
-
-            <div>
-              <span>Date Added to ToolShed:</span>{" "}
-              {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}
-            </div>
-          </div>
-        </div>
-      </Modal>
-    )
-  }
-
-
-
-          </div>
-                    </ul>
-                  </div>
-
         );
       });
-  // {
-    // modalReady && (
-    //   <Modal
-    //     className="toolInfoModal"
-    //     modalClassName="modal-black"
-    //     isOpen={toolModal}
-    //     toggle={() => setToolModal(false)}
-    //   >
-    //     <div className="modal-header justify-content-center">
-    //       <button className="close" onClick={() => setToolModal(false)}>
-    //         <i className="tim-icons icon-simple-remove text-white" />
-    //       </button>
-    //       <div className="text-muted text-center ml-auto mr-auto ">
-    //         <h2>
-    //           <span>Tool Info</span>
-    //         </h2>
-    //         <h5 className="mb-0">{toolModalData.name}</h5>
-    //         <div>
-    //           <span>Description:</span> {toolModalData.description}
-    //         </div>
-    //         <div>
-    //           <span>Price:</span> ${toolModalData.price}
-    //         </div>
-    //         <div>
-    //           <span>Size(Length):</span> {sizeCondStatement()}
-    //         </div>
-
-    //         <br />
-
-    //         <div>
-    //           <span>In the ToolShed:</span> {toolModalData.available.toString()}
-    //         </div>
-    //         <div>
-    //           <span>Borrowed In:</span> {toolModalData.borrowed.toString()}
-    //         </div>
-
-    //         <div>
-    //           <span>Date Added to ToolShed:</span>{" "}
-    //           {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </Modal>
-    // );
-  // }
+ 
 
   const DefaultNotBorrowed = () => {
     if (ToolsBorrowed() == "") return NoBorrowableTools();
