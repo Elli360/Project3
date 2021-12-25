@@ -125,7 +125,7 @@ export default function Borrowed() {
           console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
           // console.log(`setCatBtnName${setCatBtnName}`);
         }, 50);
-
+        setRemoveButton(false);
       });
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);

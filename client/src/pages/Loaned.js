@@ -1,21 +1,19 @@
-
 // import api from 'utils/api';
-import React, { useState, useRef,useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 // import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
-import { HashRouter as Router, Route, Link, useLocation } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 // import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  UncontrolledCarousel,
-} from "reactstrap";
+import { Container, Row, Col, Button, UncontrolledCarousel } from "reactstrap";
 
 // core components
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
@@ -37,13 +35,11 @@ const carouselItems = [
     altText: "Slide 1",
     caption: "",
   },
-
 ];
 
 // let ps = null;
 
 export default function Loaned() {
-
   //   const history = useHistory({
   //     // basename: "", // The base URL of the app (see below)
   //     // forceRefresh: false, // Set true to force full page refreshes
@@ -61,14 +57,16 @@ export default function Loaned() {
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
   const loanedUpdate = useRef();
-const [loanedImgOpacity, setLoanedImgOpacity] = useState(1);
+  const [loanedImgOpacity, setLoanedImgOpacity] = useState(1);
   const [categoryData, setCategoryData] = useState(false);
- 
+
   //display Loaned Tools by category
   const handleClick = () => {
     setDisplayLoanedByCategory(true);
     toolsByCategory.current.scrollIntoView({
-      behavior: 'smooth', inline: 'center', block: 'nearest'
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
     });
   };
   let handleClickAdd = () => {
@@ -78,7 +76,9 @@ const [loanedImgOpacity, setLoanedImgOpacity] = useState(1);
     //   behavior: 'smooth', inline: 'center', block: 'nearest'
     // }),500);
     loanedUpdate.current.scrollIntoView({
-      behavior: 'smooth', inline: 'center', block: 'nearest'
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
     });
   };
   let closeUpdateCard = () => {
@@ -98,50 +98,50 @@ const [loanedImgOpacity, setLoanedImgOpacity] = useState(1);
     //close button
     setRemoveButton(true);
 
-  let updateUrl = new Promise((resolve)=>{
-resolve(setHandleClickUpdateLoaned(true));
-  });
+    let updateUrl = new Promise((resolve) => {
+      resolve(setHandleClickUpdateLoaned(true));
+    });
 
-  updateUrl.then(()=>{
+    updateUrl.then(() => {
+      loanedUpdate.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    });
+  };
 
-  loanedUpdate.current.scrollIntoView({
-    behavior: 'smooth', inline: 'center', block: 'nearest'
-  });
-});
-};
-
-
-
-const handleClickCategoryBtn = useCallback(
-  () => {
+  const handleClickCategoryBtn = useCallback(() => {
     const handleClickCategoryBtnPromise = new Promise((resolve, reject) => {
       // close button
       // setCategoryData(true);
-      resolve(setCategoryData(true));  
+      resolve(setCategoryData(true));
     });
 
     handleClickCategoryBtnPromise.then(() => {
       setTimeout(() => {
         toolsByCategory.current.scrollIntoView({
-          behavior: "smooth", inline: 'center', block: 'center'
+          behavior: "smooth",
+          inline: "center",
+          block: "center",
         });
         console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
       }, 50);
-
+      setRemoveButton(false);
     });
   }, [categoryData]);
 
   return (
     <>
-    <style>
-    {`.loanedImg {
+      <style>
+        {`.loanedImg {
                   opacity:${loanedImgOpacity}
                 }`}
-    </style>
+      </style>
       <CustomNavbar />
 
       {/* <Router forceRefresh={true} > */}
-      <Router >
+      <Router>
         <div className="wrapper">
           <div className="page-header">
             <img
@@ -170,7 +170,10 @@ const handleClickCategoryBtn = useCallback(
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} className= "loanedImg"/>
+                      <UncontrolledCarousel
+                        items={carouselItems}
+                        className="loanedImg"
+                      />
                     </Row>
                   </Col>
                   <Col md="5">
@@ -178,28 +181,33 @@ const handleClickCategoryBtn = useCallback(
                     <h5 className="text-on-back">Loaned</h5>
                     <h1 className="profile-title text-left">Tools</h1>
                     <p className="profile-description text-left">
-                      Can't find a tool you thought you had? Check here to see if you loaned it out to someone.
+                      Can't find a tool you thought you had? Check here to see
+                      if you loaned it out to someone.
                     </p>
                     <div className="btn-wrapper pt-3">
                       <div className="btn-wrapper">
                         <div className="button-container">
-
-                          <ViewToolsBtn handleClick={() => handleClick()} directionArrow='left' setImgOpacity={setLoanedImgOpacity} opacityOver={0.2} opacityOut={1}/>
+                          <ViewToolsBtn
+                            handleClick={() => handleClick()}
+                            directionArrow="left"
+                            setImgOpacity={setLoanedImgOpacity}
+                            opacityOver={0.2}
+                            opacityOut={1}
+                          />
 
                           <p className="category text-success d-inline">
                             View Loaned Tools
                           </p>
                           <div className="btn-wrapper">
                             <div className="button-container">
-
-                              <AddBtnLoanedDirectory handleClickAdd={() => handleClickAdd()} />
+                              <AddBtnLoanedDirectory
+                                handleClickAdd={() => handleClickAdd()}
+                              />
 
                               <AddBtnLoaned />
-
                             </div>
 
                             <SearchBtnOutNetwork />
-
                           </div>
                         </div>
                       </div>
@@ -208,36 +216,53 @@ const handleClickCategoryBtn = useCallback(
                 </Row>
 
                 <UserNameDisplay />
-
               </Container>
             </div>
           </div>
 
           {!displayUpdateCard && <ScrollToTop />}
 
-         
-          <div >
-            {displayUpdateCard && <Button
-              className="button"
-              color="danger"
-              onClick={closeUpdateCard}
-              size="lg"
-            >Close The Window
-            </Button>}
-            {displayUpdateCard && <Container>
-              <Row>
-                <Col lg="6" md="6">
-                  {!removeButton && <Button className="addBtnWithLink" onClick={() => handleClickUpdateLoanedBtn()} >
-                    <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
-                      <span>Click Here To</span>
-                    </Link>
-                  </Button>}
+          <div>
+            {displayUpdateCard && (
+              <Button
+                className="button"
+                color="danger"
+                onClick={closeUpdateCard}
+                size="lg"
+              >
+                Close The Window
+              </Button>
+            )}
+            {displayUpdateCard && (
+              <Container>
+                <Row>
+                  <Col lg="6" md="6">
+                    {!removeButton && (
+                      <Button
+                        className="addBtnWithLink"
+                        onClick={() => handleClickUpdateLoanedBtn()}
+                      >
+                        <Link
+                          to="/update"
+                          className={
+                            location.pathname === "/update"
+                              ? "nav-link active"
+                              : "nav-link"
+                          }
+                        >
+                          <span>Click Here To</span>
+                        </Link>
+                      </Button>
+                    )}
 
-                  <h1>Sign a tool out...</h1>
-                 { handleClickUpdateLoaned && <Route exact path="/update" component={UpdateCard} /> }
-                </Col>
-              </Row>
-            </Container>}
+                    <h1>Sign a tool out...</h1>
+                    {handleClickUpdateLoaned && (
+                      <Route exact path="/update" component={UpdateCard} />
+                    )}
+                  </Col>
+                </Row>
+              </Container>
+            )}
           </div>
 
           {/* Loaned Tools list section */}
@@ -251,27 +276,29 @@ const handleClickCategoryBtn = useCallback(
             {!displayLoanedByCategory && <ScrollToTop />}
 
             <div ref={loanedUpdate} />
-            
-            {displayLoanedByCategory && <Button
-              className="button"
-              color="danger"
-              onClick={close}
-              size="lg"
-            >Close The Door
-            </Button>}
 
-            {displayLoanedByCategory &&
-              <LoanedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  />
-              
-            }
+            {displayLoanedByCategory && (
+              <Button
+                className="button"
+                color="danger"
+                onClick={close}
+                size="lg"
+              >
+                Close The Door
+              </Button>
+            )}
 
+            {displayLoanedByCategory && (
+              <LoanedToolsByCategory
+                handleClickCat={() => handleClickCategoryBtn()}
+              />
+            )}
           </section>
-       
 
           <Footer />
           <div ref={toolsByCategory} />
         </div>
       </Router>
     </>
-  )
+  );
 }
