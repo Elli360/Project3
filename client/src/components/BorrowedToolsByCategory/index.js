@@ -111,7 +111,7 @@ import "./style.css";
                        <Route exact path="/powertools">
                       
                       {/* <BorrowedPowerTools />  */}
-                      <BorrowedChildByCategory catNumber={0}/>
+                      <BorrowedChildByCategory catNumber={0} />
                         
                          </Route>
                           {/* component={BorrowedPowerTools} /> */}

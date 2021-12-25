@@ -3,14 +3,14 @@ import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
 
 //make category.id # a prop so the # of components can be divided by 5
-function BorrowedChildByCategory({ catNumber }) {
+function LoanedChildByCategory({ catNumber }) {
   const [categories, setCategories] = useState([]);
   const [categoryDataTrue, setCategoryDataTrue] = useState(false);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
   const [modalReady, setModalReady] = useState(false);
 
-  const LoadBorrowableTools = async () => {
+  const LoadLoanableTools = async () => {
     const first = await api.getCategories();
     const res = await first.data[catNumber].tools;
     setCategories(res);
@@ -25,24 +25,24 @@ function BorrowedChildByCategory({ catNumber }) {
   };
 
   useEffect(() => {
-    LoadBorrowableTools();
+    LoadLoanableTools();
     if (!toolModalData === false) {
       setModalReady(true);
     }
   }, [toolModalData]);
 
-  const NoBorrowableTools = () => {
+  const NoLoanableTools = () => {
     return (
       <h3>
-        All these Tools originate from this ToolShed &there4; Never Borrowed
+        All Tools are in the ToolShed &there4; Available
       </h3>
     );
   };
 
-  const ToolsBorrowed = () =>
+  const ToolsNotAvailable = () =>
     categories
       .filter((row) => {
-        if (row.borrowed === true) {
+        if (row.available === false) {
           return row;
         } else {
           return null;
@@ -128,8 +128,8 @@ function BorrowedChildByCategory({ catNumber }) {
       });
  
 
-  const DefaultNotBorrowed = () => {
-    if (ToolsBorrowed() == "") return NoBorrowableTools();
+  const DefaultNotAvailable = () => {
+    if (ToolsNotAvailable() == "") return NoLoanableTools();
     return null;
   };
 
@@ -142,10 +142,10 @@ function BorrowedChildByCategory({ catNumber }) {
 
   return (
     <>
-      <ToolsBorrowed />
-      {categoryDataTrue && <DefaultNotBorrowed />}
+      <ToolsNotAvailable />
+      {categoryDataTrue && <DefaultNotAvailable />}
     </>
   );
 }
 
-export default BorrowedChildByCategory;
+export default LoanedChildByCategory;
