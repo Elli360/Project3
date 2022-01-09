@@ -100,6 +100,7 @@ export default function Loaned() {
 
     let updateUrl = new Promise((resolve) => {
       resolve(setHandleClickUpdateLoaned(true));
+      // console.log(``);
     });
 
     updateUrl.then(() => {
@@ -115,7 +116,8 @@ export default function Loaned() {
     const handleClickCategoryBtnPromise = new Promise((resolve, reject) => {
       // close button
       // setCategoryData(true);
-      resolve(setCategoryData(true));
+      resolve(setCategoryData(true), console.log(`OK.`));
+      // console.log(`POWER.`);
     });
 
     handleClickCategoryBtnPromise.then(() => {
