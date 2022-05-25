@@ -153,12 +153,12 @@ export default function Borrowed() {
           <div className="page-header">
             <img
               alt="..."
-              className="dots"
+              // className="dots"
               src={require("assets/img/dots.png").default}
             />
             <img
               alt="..."
-              className="path"
+              // className="path"
               src={require("assets/img/path4.png").default}
             />
             <div className="section">
@@ -228,7 +228,7 @@ export default function Borrowed() {
             {/* close window conditional */}
             {displayUpdateCard && <Button
               className="button"
-              color="danger"
+              color="red"
               onClick={closeUpdateCard}
               size="lg"
             >Close The Window
@@ -278,7 +278,7 @@ export default function Borrowed() {
 
             {displayBorrowedByCategory && <Button
               className="button"
-              color="danger"
+              color="red"
               onClick={close}
               size="lg"
             >Close The Door

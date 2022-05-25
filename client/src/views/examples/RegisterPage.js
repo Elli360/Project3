@@ -30,7 +30,7 @@ import {
   FormGroup,
   Form,
   Input,
-  InputGroupAddon,
+  // InputGroup,
   InputGroupText,
   InputGroup,
   Container,
@@ -110,11 +110,11 @@ export default function RegisterPage() {
                             "input-group-focus": fullNameFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-single-02" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Full Name"
                             type="text"
@@ -127,11 +127,11 @@ export default function RegisterPage() {
                             "input-group-focus": emailFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-email-85" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Email"
                             type="text"
@@ -144,11 +144,11 @@ export default function RegisterPage() {
                             "input-group-focus": passwordFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-lock-circle" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Password"
                             type="text"

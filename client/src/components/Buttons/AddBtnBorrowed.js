@@ -5,7 +5,7 @@ import {
     Form,
     FormGroup,
     InputGroup,
-    InputGroupAddon,
+    // InputGroup,
     InputGroupText,
     Input,
     UncontrolledTooltip,
@@ -48,11 +48,11 @@ export default function AddBtnBorrowed() {
                     <Form role="addForm">
                         <FormGroup className="mb-3">
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Name:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="Tool Name"
                                     aria-label="Tool Name"
@@ -62,11 +62,11 @@ export default function AddBtnBorrowed() {
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Category:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="Tool Category"
                                     type="text"
@@ -75,11 +75,11 @@ export default function AddBtnBorrowed() {
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Description:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="Tool Description"
                                     type="text"
@@ -88,11 +88,11 @@ export default function AddBtnBorrowed() {
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Price:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="Tool Price"
                                     type="text"
@@ -101,11 +101,11 @@ export default function AddBtnBorrowed() {
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Borrowed From:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="User Name"
                                     type="text"
@@ -114,11 +114,11 @@ export default function AddBtnBorrowed() {
                         </FormGroup>
                         <FormGroup>
                             <InputGroup>
-                                <InputGroupAddon addonType="prepend">
+                                <InputGroup addonType="prepend">
                                     <InputGroupText>
                                         Promise Date:
                                     </InputGroupText>
-                                </InputGroupAddon>
+                                </InputGroup>
                                 <Input
                                     placeholder="Expected Return Date"
                                     type="text"

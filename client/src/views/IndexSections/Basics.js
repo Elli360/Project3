@@ -27,7 +27,7 @@ import {
   FormGroup,
   CustomInput,
   Input,
-  InputGroupAddon,
+  // InputGroup,
   InputGroupText,
   InputGroup,
   Container,
@@ -174,11 +174,11 @@ export default function Basics() {
                   "input-group-focus": inputFocus,
                 })}
               >
-                <InputGroupAddon addonType="prepend">
+                <InputGroup addonType="prepend">
                   <InputGroupText>
                     <i className="fa fa-user" />
                   </InputGroupText>
-                </InputGroupAddon>
+                </InputGroup>
                 <Input
                   placeholder="Left Font Awesome Icon"
                   type="text"
@@ -190,11 +190,11 @@ export default function Basics() {
             <Col lg="3" sm="6">
               <InputGroup>
                 <Input placeholder="Right Nucleo Icon" type="text" />
-                <InputGroupAddon addonType="append">
+                <InputGroup addonType="append">
                   <InputGroupText>
                     <i className="tim-icons icon-lock-circle" />
                   </InputGroupText>
-                </InputGroupAddon>
+                </InputGroup>
               </InputGroup>
             </Col>
           </Row>

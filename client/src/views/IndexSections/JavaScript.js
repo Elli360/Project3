@@ -35,7 +35,7 @@ import {
   Form,
   Input,
   InputGroup,
-  InputGroupAddon,
+  // InputGroup,
   InputGroupText,
   Label,
   UncontrolledCarousel,
@@ -210,11 +210,11 @@ export default function JavaScript() {
                       "input-group-focus": emailFocus,
                     })}
                   >
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroup addonType="prepend">
                       <InputGroupText>
                         <i className="tim-icons icon-email-85" />
                       </InputGroupText>
-                    </InputGroupAddon>
+                    </InputGroup>
                     <Input
                       placeholder="Email"
                       type="email"
@@ -229,11 +229,11 @@ export default function JavaScript() {
                       "input-group-focus": passwordFocus,
                     })}
                   >
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroup addonType="prepend">
                       <InputGroupText>
                         <i className="tim-icons icon-key-25" />
                       </InputGroupText>
-                    </InputGroupAddon>
+                    </InputGroup>
                     <Input
                       placeholder="Password"
                       type="password"

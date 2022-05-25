@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import ScrollToTop from "../ScrollToTop/index.js";
 // reactstrap components
@@ -23,7 +23,7 @@ export default function CustomNavbar() {
 
 
   //for okta
-  const history = useHistory({
+  const history = useNavigate({
     // basename: "", // The base URL of the app (see below)
     // forceRefresh: false, // Set true to force full page refreshes
     // keyLength: 6, // The length of location.key
