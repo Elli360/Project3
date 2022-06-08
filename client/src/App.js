@@ -1,7 +1,8 @@
 import React from "react";
-import {Route, Routes, useNavigate, } from "react-router-dom";
+import {Route, Switch, useHistory, } from "react-router-dom";
 // import {Route, Switch, Redirect, useHistory } from "react-router-dom";
 import "assets/css/nucleo-icons.css";
+import "assets/scss/blk-design-system-react.scss?v=1.2.0";
 import "assets/demo/demo.css";
 // import { createHashHistory } from 'history'
 
@@ -33,7 +34,7 @@ function App() {
     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     // };
-    const history = useNavigate();
+    const history = useHistory();
 
     const onAuthRequired = () => {
 
@@ -47,7 +48,7 @@ function App() {
                 oktaAuth={oktaAuth}
             >
 {/* {console.log(config.oidc.userContext.userinfo.name)} */}
-                <Routes>
+                <Switch>
                 {/* <Route path="/" exact component={Welcome} /> */}
         <Route path="/" exact component={Welcome} >
             
@@ -79,7 +80,7 @@ function App() {
                     />
                     {/* <Redirect from="/" to="/home" /> */}
 
-                </Routes>
+                </Switch>
             </Security>
 
 

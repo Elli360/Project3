@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, NavItem, NavLink } from 'reactstrap';
-import { useNavigate, Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useOktaAuth } from '@okta/okta-react';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
@@ -8,7 +8,7 @@ import Footer from "components/Footer/Footer.js";
 import shedPic from "../assets/img/shedpic.jpg"
 
 export default function Welcome() {
-    const history = useNavigate({});
+    const history = useHistory({});
     const { authState, oktaAuth } = useOktaAuth();
     const login = async () => history.push('/login');
     const logout = async () => oktaAuth.signOut();
@@ -19,7 +19,7 @@ export default function Welcome() {
             <div style={{ "height": "10vw" }}></div>
             <div>
                 <div id="welcome_text" style={{ textDecoration: "underline", fontSize: "8vw" }}>
-                    Welcome!  <img alt="toolshed_logo" src={require("../assets/img/shedpic.jpg").default} width="200" length="300" />
+                    Welcome!  <img alt="toolshed_logo"  src={require('../assets/img/shedpic.jpg').default} width="200" length="300" />
                 </div>
                 {/* <div className="welcome_image" style={{ backgroundImage: "url(" + shedPic + ")" }}/> */}
             </div>

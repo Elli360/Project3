@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import ScrollToTop from "../ScrollToTop/index.js";
 // reactstrap components
@@ -23,7 +23,7 @@ export default function CustomNavbar() {
 
 
   //for okta
-  const history = useNavigate({
+  const history = useHistory({
     // basename: "", // The base URL of the app (see below)
     // forceRefresh: false, // Set true to force full page refreshes
     // keyLength: 6, // The length of location.key
@@ -78,7 +78,7 @@ export default function CustomNavbar() {
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
 
-            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default} width="200" length="300" />
+            <img alt="toolshed logo" src={require('../../assets/img/toolshed_logo.jpg').default} width="200" length="300" />
 
 
           </NavbarBrand>
