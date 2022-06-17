@@ -39,7 +39,7 @@
     "run-all": "^1.0.1",
     "sass": "^1.52.1",
     "semantic-ui-react": "^2.0.3",
-    "sequelize": "^5.22.5",
-    "sequelize-cli": "^5.5.1"
+    "sequelize": "^6.21.0",
+    "sequelize-cli": "^6.4.1"
   }
 }
