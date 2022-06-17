@@ -156,6 +156,7 @@ module.exports = function (app) {
       include: [{
         model: db.tool,
         nested: true,
+        // attributes: ["id", "name", "description", "price", "available", "borrowed","createdAt"]
         attributes: ["id", "name", "description", "price", "available", "borrowed","size","createdAt"]
       }]
     }).then(items => {
