@@ -16642,7 +16642,7 @@ td.rdtYear:hover {
     height: 22px;
     width: 45px;
     border: none;
-    background-image: url("../../../../assets/img/darken-night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.png");
+    background-image: url("../img/square1.png");
     background-position: center center;
     background-size: cover; }
   .custom-switch .custom-control-label::after {
@@ -16652,7 +16652,7 @@ td.rdtYear:hover {
     transition: all 0.25s ease-out; }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
-  background-image: url("../../../../assets/img/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.png"); }
+  background-image: url("../img/square1.png"); }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #ffffff;

@@ -35,7 +35,7 @@ import {
   Form,
   Input,
   InputGroup,
-  InputGroupAddon,
+  // InputGroup,
   InputGroupText,
   Label,
   UncontrolledCarousel,
@@ -70,12 +70,12 @@ export default function JavaScript() {
       <img
         alt="..."
         className="path"
-        src={require("assets/img/path5.png").default}
+        src={require('assets/img/path5.png').default}
       />
       <img
         alt="..."
         className="path path1"
-        src={require("assets/img/path5.png").default}
+        src={require('assets/img/path5.png').default}
       />
       <Container>
         <h3 className="title mb-5">Javascript components</h3>
@@ -185,7 +185,7 @@ export default function JavaScript() {
                 >
                   <img
                     alt="..."
-                    src={require("assets/img/github.svg").default}
+                    src={require('assets/img/github.svg').default}
                   />
                 </Button>
                 <Button
@@ -196,7 +196,7 @@ export default function JavaScript() {
                 >
                   <img
                     alt="..."
-                    src={require("assets/img/google.svg").default}
+                    src={require('assets/img/google.svg').default}
                   />
                 </Button>
               </div>
@@ -210,11 +210,11 @@ export default function JavaScript() {
                       "input-group-focus": emailFocus,
                     })}
                   >
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroup addonType="prepend">
                       <InputGroupText>
                         <i className="tim-icons icon-email-85" />
                       </InputGroupText>
-                    </InputGroupAddon>
+                    </InputGroup>
                     <Input
                       placeholder="Email"
                       type="email"
@@ -229,11 +229,11 @@ export default function JavaScript() {
                       "input-group-focus": passwordFocus,
                     })}
                   >
-                    <InputGroupAddon addonType="prepend">
+                    <InputGroup addonType="prepend">
                       <InputGroupText>
                         <i className="tim-icons icon-key-25" />
                       </InputGroupText>
-                    </InputGroupAddon>
+                    </InputGroup>
                     <Input
                       placeholder="Password"
                       type="password"

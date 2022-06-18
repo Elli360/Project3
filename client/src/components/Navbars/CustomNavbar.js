@@ -78,7 +78,7 @@ export default function CustomNavbar() {
           <NavbarBrand to="/" id="navbar-brand" tag={Link}>
 
 
-            <img alt="toolshed logo" src={require("../../assets/img/toolshed_logo.jpg").default} width="200" length="300" />
+            <img alt="toolshed logo" src={require('../../assets/img/toolshed_logo.jpg').default} width="200" length="300" />
 
 
           </NavbarBrand>
