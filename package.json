@@ -37,7 +37,7 @@
     "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "run-all": "^1.0.1",
-    "sass": "^1.57.1",
+    "sass": "^1.77.8",
     "semantic-ui-react": "^2.1.4",
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2"

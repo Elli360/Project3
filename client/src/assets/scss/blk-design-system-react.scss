@@ -26,6 +26,9 @@ $asset-base-path: '..' !default;
 @import "blk-design-system-react/custom/variables";
 @import "~bootstrap/scss/variables";
 
+//added due to SassError: $color: theme-color("primary") is not a color 
+@import "~bootstrap/scss/maps";
+
 @import "blk-design-system-react/custom/mixins";
 @import "~bootstrap/scss/mixins";
 
