@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, NavItem, NavLink } from 'reactstrap';
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useOktaAuth } from '@okta/okta-react';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
@@ -8,7 +8,7 @@ import Footer from "components/Footer/Footer.js";
 import shedPic from "../assets/img/shedpic.jpg"
 
 export default function Welcome() {
-    const history = useHistory({});
+    const history = useNavigate({});
     const { authState, oktaAuth } = useOktaAuth();
     const login = async () => history.push('/login');
     const logout = async () => oktaAuth.signOut();

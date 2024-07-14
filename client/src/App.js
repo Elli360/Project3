@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch, useHistory, } from "react-router-dom";
+import {Route, Switch, useNavigate, } from "react-router-dom";
 // import {Route, Switch, Redirect, useHistory } from "react-router-dom";
 import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.2.0";
@@ -34,7 +34,7 @@ function App() {
     // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     //   history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     // };
-    const history = useHistory();
+    const history = useNavigate();
 
     const onAuthRequired = () => {
 
