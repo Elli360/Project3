@@ -32,10 +32,10 @@ import { Link, useLocation } from "react-router-dom";
 import {HashRouter as Router, Route } from "react-router-dom";
 
 import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
-import HandTools from "../HandTools";
-import OutdoorTools from "../OutdoorTools";
-import WorkshopTools from "../WorkshopTools";
-import Hardware from "../Hardware"
+//import HandTools from "../HandTools";
+//import OutdoorTools from "../OutdoorTools";
+//import WorkshopTools from "../WorkshopTools";
+//import Hardware from "../Hardware"
 
 
 

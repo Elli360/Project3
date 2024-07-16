@@ -16,11 +16,11 @@ import { HashRouter as Router, Route } from "react-router-dom";
 
 import BorrowedChildByCategory from "../ToolListByCategory/BorrowedChildByCategory.js";
 import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
-import BorrowedPowerTools from "../BorrowedPowerTools";
-import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
-import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
-import BorrowedHardware from "../BorrowedHardware"
-import BorrowedHandTools from "../BorrowedHandTools"
+//import BorrowedPowerTools from "../BorrowedPowerTools";
+//import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
+//import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
+//import BorrowedHardware from "../BorrowedHardware"
+//import BorrowedHandTools from "../BorrowedHandTools"
 
 import "./style.css";
 

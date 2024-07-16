@@ -15,11 +15,11 @@ import { Link, useLocation } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import LoanedChildByCategory from "../ToolListByCategory/LoanedChildByCategory.js";
-import LoanedPowerTools from "../LoanedPowerTools";
-import LoanedOutdoorTools from "../LoanedOutdoorTools";
-import LoanedWorkshopTools from "../LoanedWorkshopTools";
-import LoanedHardware from "../LoanedHardware"
-import LoanedHandTools from "../LoanedHandTools"
+//import LoanedPowerTools from "../LoanedPowerTools";
+//import LoanedOutdoorTools from "../LoanedOutdoorTools";
+//import LoanedWorkshopTools from "../LoanedWorkshopTools";
+//import LoanedHardware from "../LoanedHardware"
+//import LoanedHandTools from "../LoanedHandTools"
 
 import "./style.css";
 
