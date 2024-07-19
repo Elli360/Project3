@@ -294,8 +294,7 @@ export default function Borrowed() {
      
             <div ref={toolsByCategory} />
           </section>
-
-          {/* <div ref={toolsByCategory} /> */}
+          
           <Footer />
         </div>
       </Router>

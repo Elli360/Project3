@@ -26,7 +26,7 @@ export default function UpdateTool({ tool, handleAvailableChange, handleBorrowed
   // const [tools, setTools] = useState("");
   const [setTools] = useState("");
 
-  function loadTools() {
+  const loadTools =()=> {
     api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
   };
 

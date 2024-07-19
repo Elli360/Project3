@@ -65,7 +65,7 @@ function LoanedChildByCategory({ catNumber }) {
                       setToolModal(true);
                     }}
                   >
-                    {""}
+                    {/* {""} */}
                     {tool.name}
                   </li>
                  
