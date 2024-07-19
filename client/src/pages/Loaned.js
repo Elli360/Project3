@@ -54,7 +54,7 @@ export default function Loaned() {
   // const update = async () => history.push('/update');
   // const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
   const [handleClickUpdateLoaned, setHandleClickUpdateLoaned] = useState(false);
-  const [removeButton, setRemoveButton] = useState(false);
+  const [removeClickHereToBtn, setRemoveClickHereToBtn] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
@@ -98,7 +98,7 @@ export default function Loaned() {
 
   const handleClickUpdateLoanedBtn = () => {
     //close button
-    setRemoveButton(true);
+    setRemoveClickHereToBtn(true);
 
     let updateUrl = new Promise((resolve) => {
       resolve(setHandleClickUpdateLoaned(true));
@@ -131,7 +131,7 @@ export default function Loaned() {
         });
         console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
       }, 50);
-      setRemoveButton(false);
+      setRemoveClickHereToBtn(false);
     });
   }, [categoryData]);
 
@@ -245,7 +245,8 @@ export default function Loaned() {
               <Container>
                 <Row>
                   <Col lg="6" md="6">
-                    {!removeButton && (
+                  {/* ClickHereTo button conditional */}
+                    {!removeClickHereToBtn && (
                       <Button
                         className="addBtnWithLink"
                         onClick={() => handleClickUpdateLoanedBtn()}
@@ -295,7 +296,9 @@ export default function Loaned() {
                 Close The Door
               </Button>
             )}
+
             <div ref={toolsByCategory} />
+
             {displayLoanedByCategory && (
               <LoanedToolsByCategory
                 handleClickCat={() => handleClickCategoryBtn()}

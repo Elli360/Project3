@@ -53,7 +53,7 @@ import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 
 export default function Borrowed() {
   const [handleClickUpdateBorrowed, setHandleClickUpdateBorrowed] = useState(false);
-  const [removeButton, setRemoveButton] = useState(false);
+  const [removeClickHereToBtn, setRemoveClickHereToBtn] = useState(false);
   const toolsByCategory = useRef();
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
@@ -87,7 +87,7 @@ export default function Borrowed() {
 
   let handleClickUpdateBorrowedBtn = () => {
     //close button
-    setRemoveButton(true);
+    setRemoveClickHereToBtn(true);
 
     let updateUrl = new Promise((resolve) =>
       resolve(setHandleClickUpdateBorrowed(true)
@@ -125,7 +125,7 @@ export default function Borrowed() {
           console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
           // console.log(`setCatBtnName${setCatBtnName}`);
         }, 50);
-        setRemoveButton(false);
+        setRemoveClickHereToBtn(false);
       });
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);
@@ -243,8 +243,8 @@ export default function Borrowed() {
               <Row>
                 <Col lg="6" md="6">
 
-                  {/* close button conditional */}
-                  {!removeButton && <Button className="addBtnWithLink" onClick={() => {handleClickUpdateBorrowedBtn()}}>
+                  {/* ClickHereTo button conditional */}
+                  {!removeClickHereToBtn && <Button className="addBtnWithLink" onClick={() => {handleClickUpdateBorrowedBtn()}}>
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
@@ -287,7 +287,7 @@ export default function Borrowed() {
             </Button>}
 
             <div ref={toolsByCategory} />
-            
+
             {displayBorrowedByCategory &&
               <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  /> }
      
