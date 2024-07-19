@@ -2,7 +2,7 @@
 import React, {
   useState,
   useRef,
-  useCallback,
+  useCallback
 } from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
@@ -17,7 +17,7 @@ import {
   Row,
   Col,
   Button,
-  UncontrolledCarousel,
+  //UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
@@ -130,14 +130,15 @@ export default function Borrowed() {
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);
 
-  const carouselItems = [
-    {
-      src: require("assets/img/borrow-tools.jpg").default,
-      altText: "Slide 1",
-      caption: " ",
-    },
+  //pakcage update issue, stacking issue(place in a parent component), plus no need for carousel
+  // const carouselItemsBorrowed = [
+  //   {
+  //     src: require("assets/img/borrow-tools.jpg").default,
+  //     altText: "Slide 1",
+  //     caption: " "
+  //   },
   
-  ];
+  // ];
 
   return (
     <>
@@ -175,7 +176,8 @@ export default function Borrowed() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} className="borrowedImg"/>
+                      {/* <UncontrolledCarousel items={carouselItemsBorrowed} className="borrowedImg"/> */}
+                      <img src={require("assets/img/borrow-tools.jpg").default} className="borrowedImg"/>
                     </Row>
                   </Col>
                   <Col md="5">

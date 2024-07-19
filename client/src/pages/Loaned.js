@@ -13,7 +13,7 @@ import {
 // import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Container, Row, Col, Button, UncontrolledCarousel } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 
 // core components
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
@@ -29,13 +29,15 @@ import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 import AddBtnLoanedDirectory from "components/Buttons/AddBtnLoanedDirectory.js";
 import AddBtnLoaned from "components/Buttons/AddBtnLoaned.js";
 import SearchBtnOutNetwork from "components/Buttons/SearchBtnOutNetwork.js";
-const carouselItems = [
-  {
-    src: require("assets/img/hands-grabbing-tools.jpg").default,
-    altText: "Slide 1",
-    caption: "",
-  },
-];
+
+//pakcage update issue, stacking issue(place in a parent component), plus no need for carousel
+// const carouselItems = [
+//   {
+//     src: require("assets/img/hands-grabbing-tools.jpg").default,
+//     altText: "Slide 1",
+//     caption: "",
+//   },
+// ];
 
 // let ps = null;
 
@@ -172,8 +174,12 @@ export default function Loaned() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel
+                      {/* <UncontrolledCarousel
                         items={carouselItems}
+                        className="loanedImg"
+                      /> */}
+                      <img
+                        src={require("assets/img/hands-grabbing-tools.jpg").default}
                         className="loanedImg"
                       />
                     </Row>
