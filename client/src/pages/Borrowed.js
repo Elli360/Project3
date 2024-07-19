@@ -286,12 +286,13 @@ export default function Borrowed() {
             >Close The Door
             </Button>}
 
-            <div ref={toolsByCategory} />
-
             {displayBorrowedByCategory &&
-              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  /> }
+              <div ref={toolsByCategory} >
+              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  />
+              </div> 
+            }
      
-
+            <div ref={toolsByCategory} />
           </section>
 
           {/* <div ref={toolsByCategory} /> */}

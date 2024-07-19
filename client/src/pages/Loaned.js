@@ -296,14 +296,17 @@ export default function Loaned() {
                 Close The Door
               </Button>
             )}
-
-            <div ref={toolsByCategory} />
-
+         
             {displayLoanedByCategory && (
+               <div ref={toolsByCategory}>
               <LoanedToolsByCategory
+            
                 handleClickCat={() => handleClickCategoryBtn()}
               />
+              </div>
             )}
+
+            <div ref={toolsByCategory} />
           </section>
 
           <Footer />
