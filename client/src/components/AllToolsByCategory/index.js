@@ -67,8 +67,8 @@ function AllToolsByCategory(props) {
                                                   {/* Only works with React Router v6
                       <Route  exact path="/powertools" element={<ToolShedByCategory catNumber={1} />} /> */}
                       <Route  exact path="/powertools" 
-                      render={(props)=>(
-                      <ToolShedByCategory catNumber={1} /> )}/>
+                      render={(props)=>(<ToolShedByCategory catNumber={1}/> )}
+                      />
                       <hr className="line-primary" />
                     </Col>
                   </Row>
@@ -256,7 +256,7 @@ function AllToolsByCategory(props) {
                 </CardFooter>
               </Card>
             </Col>
-            
+
           </Row>
           </Router>
         </Container>

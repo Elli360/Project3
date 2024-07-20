@@ -161,7 +161,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}
                         onClick={handleClickCat}
                       >
-                        <span>Click Here To Show</span>
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Loaned Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
@@ -209,6 +209,9 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <Route path="/workshoptools" >
                       <LoanedChildByCategory catNumber={3} />
                       </Route>
+                       {/* <Route exact path="/workshoptools" 
+                      render={(props)=>( <LoanedChildByCategory catNumber={4} /> )}
+                      /> */}
                       <hr className="line-danger" />
                     </Col>
                   </Row>
