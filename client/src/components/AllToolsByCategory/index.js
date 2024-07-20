@@ -66,9 +66,12 @@ function AllToolsByCategory(props) {
                       <span>Category 1</span>
                                                   {/* Only works with React Router v6
                       <Route  exact path="/powertools" element={<ToolShedByCategory catNumber={1} />} /> */}
-                      <Route  exact path="/powertools" 
+                      {/* <Route  exact path="/powertools" 
                       render={(props)=>(<ToolShedByCategory catNumber={1}/> )}
-                      />
+                      /> */}
+                      <Route path="/powertools">
+                      <ToolShedByCategory catNumber={1} /> 
+                         </Route>
                       <hr className="line-primary" />
                     </Col>
                   </Row>

@@ -75,7 +75,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <span>Category 1</span>
 
                       <Route exact path="/powertools">
-                        <LoanedChildByCategory catNumber={0} />
+                        <LoanedChildByCategory catNumber={1} />
                         {/* <LoanedPowerTools/> */}
                         </Route> 
                       <hr className="line-primary" />
@@ -124,7 +124,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <span>Category 2</span>
 
                       <Route path="/loanedtools" >
-                        <LoanedChildByCategory catNumber={1} />
+                        <LoanedChildByCategory catNumber={2} />
                       </Route>
 
                       <hr className="line-success" />
@@ -166,7 +166,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 3</span>
                       <Route path="/outdoortools" >
-                      <LoanedChildByCategory catNumber={2} />
+                      <LoanedChildByCategory catNumber={3} />
                       </Route>
                       <hr className="line-info" />
                     </Col>
@@ -207,7 +207,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 4</span>
                       <Route path="/workshoptools" >
-                      <LoanedChildByCategory catNumber={3} />
+                      <LoanedChildByCategory catNumber={4} />
                       </Route>
                        {/* <Route exact path="/workshoptools" 
                       render={(props)=>( <LoanedChildByCategory catNumber={4} /> )}
@@ -250,7 +250,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 5</span>
                       <Route path="/hardware" >
-                      <LoanedChildByCategory catNumber={4} />
+                      <LoanedChildByCategory catNumber={5} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>
