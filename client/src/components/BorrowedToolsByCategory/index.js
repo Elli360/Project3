@@ -288,7 +288,7 @@ import "./style.css";
                       <span>Category 5</span>
                       <Route path="/hardware">
                     {/* <BorrowedHardware /> */}
-                     <BorrowedChildByCategory catNumber={5} />
+                     <BorrowedChildByCategory catNumber={4} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>

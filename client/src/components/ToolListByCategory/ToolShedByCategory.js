@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
-import ToolModalInfo from "../PowerTools/modal.js";
-function PowerTools({ catNumber }) {
+//import ToolModalInfo from "../PowerTools/modal.js";
+function ToolShedByCat({ catNumber }) {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
@@ -149,4 +149,4 @@ function PowerTools({ catNumber }) {
     </>
   );
 }
-export default PowerTools;
+export default ToolShedByCat;
