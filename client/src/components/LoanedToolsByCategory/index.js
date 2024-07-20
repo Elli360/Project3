@@ -250,7 +250,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 5</span>
                       <Route path="/hardware" >
-                      <LoanedChildByCategory catNumber={4} />
+                      <LoanedChildByCategory catNumber={5} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>
