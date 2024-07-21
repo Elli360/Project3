@@ -13,7 +13,7 @@ import {
 // import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Container, Row, Col, Button, UncontrolledCarousel } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 
 // core components
 import CustomNavbar from "components/Navbars/CustomNavbar.js";
@@ -29,13 +29,15 @@ import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 import AddBtnLoanedDirectory from "components/Buttons/AddBtnLoanedDirectory.js";
 import AddBtnLoaned from "components/Buttons/AddBtnLoaned.js";
 import SearchBtnOutNetwork from "components/Buttons/SearchBtnOutNetwork.js";
-const carouselItems = [
-  {
-    src: require("assets/img/hands-grabbing-tools.jpg").default,
-    altText: "Slide 1",
-    caption: "",
-  },
-];
+
+//pakcage update issue, stacking issue(place in a parent component), plus no need for carousel
+// const carouselItems = [
+//   {
+//     src: require("assets/img/hands-grabbing-tools.jpg").default,
+//     altText: "Slide 1",
+//     caption: "",
+//   },
+// ];
 
 // let ps = null;
 
@@ -52,7 +54,7 @@ export default function Loaned() {
   // const update = async () => history.push('/update');
   // const [scrollIntoViewDelay, setScrollIntoViewDelay] = useState(false);
   const [handleClickUpdateLoaned, setHandleClickUpdateLoaned] = useState(false);
-  const [removeButton, setRemoveButton] = useState(false);
+  const [removeClickHereToBtn, setRemoveClickHereToBtn] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
   const [displayLoanedByCategory, setDisplayLoanedByCategory] = useState(false);
   const toolsByCategory = useRef();
@@ -96,7 +98,7 @@ export default function Loaned() {
 
   const handleClickUpdateLoanedBtn = () => {
     //close button
-    setRemoveButton(true);
+    setRemoveClickHereToBtn(true);
 
     let updateUrl = new Promise((resolve) => {
       resolve(setHandleClickUpdateLoaned(true));
@@ -129,7 +131,7 @@ export default function Loaned() {
         });
         console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
       }, 50);
-      setRemoveButton(false);
+      setRemoveClickHereToBtn(false);
     });
   }, [categoryData]);
 
@@ -172,8 +174,12 @@ export default function Loaned() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel
+                      {/* <UncontrolledCarousel
                         items={carouselItems}
+                        className="loanedImg"
+                      /> */}
+                      <img
+                        src={require("assets/img/hands-grabbing-tools.jpg").default}
                         className="loanedImg"
                       />
                     </Row>
@@ -239,7 +245,8 @@ export default function Loaned() {
               <Container>
                 <Row>
                   <Col lg="6" md="6">
-                    {!removeButton && (
+                  {/* ClickHereTo button conditional */}
+                    {!removeClickHereToBtn && (
                       <Button
                         className="addBtnWithLink"
                         onClick={() => handleClickUpdateLoanedBtn()}
@@ -289,16 +296,21 @@ export default function Loaned() {
                 Close The Door
               </Button>
             )}
-
+         
             {displayLoanedByCategory && (
+               <div ref={toolsByCategory}>
               <LoanedToolsByCategory
+            
                 handleClickCat={() => handleClickCategoryBtn()}
               />
+              </div>
             )}
+
+            <div ref={toolsByCategory} />
           </section>
 
           <Footer />
-          <div ref={toolsByCategory} />
+          {/* <div ref={toolsByCategory} /> */}
         </div>
       </Router>
     </>

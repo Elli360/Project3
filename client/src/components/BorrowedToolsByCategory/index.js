@@ -15,12 +15,12 @@ import { Link, useLocation } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import BorrowedChildByCategory from "../ToolListByCategory/BorrowedChildByCategory.js";
-import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
-import BorrowedPowerTools from "../BorrowedPowerTools";
-import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
-import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
-import BorrowedHardware from "../BorrowedHardware"
-import BorrowedHandTools from "../BorrowedHandTools"
+//import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
+//import BorrowedPowerTools from "../BorrowedPowerTools";
+//import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
+//import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
+//import BorrowedHardware from "../BorrowedHardware"
+//import BorrowedHandTools from "../BorrowedHandTools"
 
 import "./style.css";
 
@@ -111,7 +111,7 @@ import "./style.css";
                        <Route exact path="/powertools">
                       
                       {/* <BorrowedPowerTools />  */}
-                      <BorrowedChildByCategory catNumber={0} />
+                      <BorrowedChildByCategory catNumber={1} />
                         
                          </Route>
                           {/* component={BorrowedPowerTools} /> */}
@@ -162,7 +162,7 @@ import "./style.css";
 
                       <Route path="/Borrowedtools">
                       {/* <BorrowedHandTools/> */}
-                      <BorrowedChildByCategory catNumber={1}/>
+                      <BorrowedChildByCategory catNumber={2}/>
                         </Route> 
 
                       <hr className="line-success" />
@@ -205,7 +205,7 @@ import "./style.css";
                       <span>Category 3</span>
                       <Route path="/outdoortools">
                       {/* <BorrowedOutdoorTools /> */}
-                      <BorrowedChildByCategory catNumber={2} />
+                      <BorrowedChildByCategory catNumber={3} />
                       </Route>
                       <hr className="line-info" />
                     </Col>
@@ -247,7 +247,7 @@ import "./style.css";
                       <span>Category 4</span>
                       <Route path="/workshoptools" >
                       {/* <BorrowedWorkshopTools /> */}
-                      <BorrowedChildByCategory catNumber={3} />
+                      <BorrowedChildByCategory catNumber={4} />
                       </Route>
                       <hr className="line-danger" />
                     </Col>
@@ -288,7 +288,7 @@ import "./style.css";
                       <span>Category 5</span>
                       <Route path="/hardware">
                     {/* <BorrowedHardware /> */}
-                     <BorrowedChildByCategory catNumber={4} />
+                     <BorrowedChildByCategory catNumber={5} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>

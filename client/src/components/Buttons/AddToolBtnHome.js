@@ -26,7 +26,7 @@ export default function UpdateTool({ tool, handleAvailableChange, handleBorrowed
   // const [tools, setTools] = useState("");
   const [setTools] = useState("");
 
-  function loadTools() {
+  const loadTools =()=> {
     api.getCategories().then(res => setTools(res.data)).catch(err => console.log(err))
   };
 
@@ -52,25 +52,40 @@ export default function UpdateTool({ tool, handleAvailableChange, handleBorrowed
         // price: formObject.price,
         // available:formObject.available
       })
+      //modal form uses this formObject for default value AFTER 1st iteration
         .then(() => setFormObject({
           name: "",
           description: "",
-          price: 0,
-          categoryId: 0
+          categoryId: 1,
+          price: 0
           // price: "",
           // available:null
         }))
         .then(() => loadTools())
         .catch(err => console.log(err));
     }
+    //untested alternate base code example to have default values set in form
+    /*
+    useEffect(() => {
+      let defaultValues = {};
+      defaultValues.price = 0;
+      defaultValues.categoryId = 1;
+      reset({ ...defaultValues });
+    }, []);
+  
+    <input {...register("firstName")} placeholder="First Name" />
+    <input {...register("lastName")} placeholder="Last Name" />
+
+   */
+  
     setFormModal(false);
   };
-
+//modal form uses this formObject for default value on 1st iteration
   const [formObject, setFormObject] = useState({
     name: "",
     description: "",
     price: [],
-    categoryId: []
+    categoryId: 1
   });
 
   return (
