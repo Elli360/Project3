@@ -76,7 +76,7 @@ export default function Home() {
   let [displayAllByCategory, setDisplayAllByCategory] = useState(false);
   let [toolshedImgOpacity, setToolshedImgOpacity] = useState(0.2);
 
-  let handleClick = () => {
+  const handleClick = () => {
     setDisplayAllByCategory(true);
     toolsByCategory.current.scrollIntoView({
       behavior: "smooth",

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import { Button, Modal } from "reactstrap";
-import ToolModalInfo from "../PowerTools/modal.js";
-function PowerTools({ catNumber }) {
+//import ToolModalInfo from "../PowerTools/modal.js";
+function ToolShedByCat({ catNumber }) {
   const [categories, setCategories] = useState([]);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
@@ -129,7 +129,12 @@ function PowerTools({ catNumber }) {
                                 <div>TIME0: {toolModalData.createdAt.toString()}</div>
                                 <div><span>TIME1:</span> {new Date(`${toolModalDataCreatedAt}`).toLocaleString()}</div>
                                 <div><span>TIME2:</span> {new Date(toolModalData.createdAt.seconds * 1000).toLocaleDateString("en-US")}</div> */}
-                                <div><span>Date Added to ToolShed:</span> {new Date(`${toolModalData.createdAt}`).toLocaleDateString()}</div>
+                                <div>
+                                  <span>Date Added to ToolShed:</span>{" "}
+                                  {new Date(
+                                    `${toolModalData.createdAt}`
+                                  ).toLocaleDateString()}
+                                </div>
                               </div>
                             </div>
                           </Modal>
@@ -139,6 +144,7 @@ function PowerTools({ catNumber }) {
                   </div>
                 );
               } else {
+                // return <he>No Tools in the ToolShed</he>
                 return <h3>No Tools were found.</h3>;
               }
             }
@@ -149,4 +155,4 @@ function PowerTools({ catNumber }) {
     </>
   );
 }
-export default PowerTools;
+export default ToolShedByCat;

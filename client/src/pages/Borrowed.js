@@ -2,7 +2,7 @@
 import React, {
   useState,
   useRef,
-  useCallback,
+  useCallback
 } from "react";
 // import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
@@ -17,7 +17,7 @@ import {
   Row,
   Col,
   Button,
-  UncontrolledCarousel,
+  //UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
@@ -53,7 +53,7 @@ import ViewToolsBtn from "components/Buttons/ViewToolsBtn.js";
 
 export default function Borrowed() {
   const [handleClickUpdateBorrowed, setHandleClickUpdateBorrowed] = useState(false);
-  const [removeButton, setRemoveButton] = useState(false);
+  const [removeClickHereToBtn, setRemoveClickHereToBtn] = useState(false);
   const toolsByCategory = useRef();
   const [displayBorrowedByCategory, setDisplayBorrowedByCategory] = useState(false);
   const [displayUpdateCard, setDisplayUpdateCard] = useState(false);
@@ -87,7 +87,7 @@ export default function Borrowed() {
 
   let handleClickUpdateBorrowedBtn = () => {
     //close button
-    setRemoveButton(true);
+    setRemoveClickHereToBtn(true);
 
     let updateUrl = new Promise((resolve) =>
       resolve(setHandleClickUpdateBorrowed(true)
@@ -125,19 +125,20 @@ export default function Borrowed() {
           console.log(`INSIDE setTimeout=>categoryData:${categoryData}`);
           // console.log(`setCatBtnName${setCatBtnName}`);
         }, 50);
-        setRemoveButton(false);
+        setRemoveClickHereToBtn(false);
       });
     }, [categoryData]);
   // }, [categoryData,handleClickCatBtnMemo]);
 
-  const carouselItems = [
-    {
-      src: require("assets/img/borrow-tools.jpg").default,
-      altText: "Slide 1",
-      caption: " ",
-    },
+  //pakcage update issue, stacking issue(place in a parent component), plus no need for carousel
+  // const carouselItemsBorrowed = [
+  //   {
+  //     src: require("assets/img/borrow-tools.jpg").default,
+  //     altText: "Slide 1",
+  //     caption: " "
+  //   },
   
-  ];
+  // ];
 
   return (
     <>
@@ -175,7 +176,8 @@ export default function Borrowed() {
                 <Row className="justify-content-between">
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
-                      <UncontrolledCarousel items={carouselItems} className="borrowedImg"/>
+                      {/* <UncontrolledCarousel items={carouselItemsBorrowed} className="borrowedImg"/> */}
+                      <img src={require("assets/img/borrow-tools.jpg").default} className="borrowedImg"/>
                     </Row>
                   </Col>
                   <Col md="5">
@@ -241,8 +243,8 @@ export default function Borrowed() {
               <Row>
                 <Col lg="6" md="6">
 
-                  {/* close button conditional */}
-                  {!removeButton && <Button className="addBtnWithLink" onClick={() => {handleClickUpdateBorrowedBtn()}}>
+                  {/* ClickHereTo button conditional */}
+                  {!removeClickHereToBtn && <Button className="addBtnWithLink" onClick={() => {handleClickUpdateBorrowedBtn()}}>
                     <Link to="/update" className={location.pathname === "/update" ? "nav-link active" : "nav-link"} >
                       <span>Click Here To</span>
                     </Link>
@@ -285,12 +287,14 @@ export default function Borrowed() {
             </Button>}
 
             {displayBorrowedByCategory &&
-              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  /> }
+              <div ref={toolsByCategory} >
+              <BorrowedToolsByCategory handleClickCat= {()=>handleClickCategoryBtn()}  />
+              </div> 
+            }
      
-
+            <div ref={toolsByCategory} />
           </section>
-
-          <div ref={toolsByCategory} />
+          
           <Footer />
         </div>
       </Router>

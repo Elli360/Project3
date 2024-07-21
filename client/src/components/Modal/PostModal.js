@@ -60,7 +60,7 @@ function PostModal(props){
             name: "",
             description: "",
             price:0,
-            categoryId: 0
+            categoryId: 0z
             // price: "",
             // available:null
             }))
