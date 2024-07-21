@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import { Button, Modal } from "reactstrap";
+import { Modal } from "reactstrap";
 
 //make category.id # a prop so the # of components can be divided by 5
 function LoanedChildByCategory({ catNumber }) {
   const [categories, setCategories] = useState([]);
-  const [categoryDataTrue, setCategoryDataTrue] = useState(false);
+  //const [categoryDataTrue, setCategoryDataTrue] = useState(false);
   const [toolModal, setToolModal] = useState(false);
   const [toolModalData, setToolModalData] = useState(null);
   const [modalReady, setModalReady] = useState(false);
 
-  // const LoadLoanableTools = async () => {
-  //   const first = await api.getCategories();
-  //   const res = await first.data[catNumber].tools;
-  //   setCategories(res);
-  // };
-//-----TEST-------
-  // function loadTools(catNumber) {
-  //   // api
-  //   //   .getCategories()
-  //   //   .then((res) => setCategories(res.data[catNumber].tools))
-  //   //   .catch((err) => console.log(err));
-  //   return  api.getCategories().then((res) =>setTestToo(res)).then(console.log("Test:"+ testToo.data));
-  // }
-  function loadTools() {
+
+  function LoadLoanableTools() {
     api
       .getCategories()
       .then((res) => setCategories(res.data))
       .catch((err) => console.log(err));
   }
 
-//----TEST--------
+
   const sizeCondStatement = () => {
     if (toolModalData.size == null) {
       return "Null";
@@ -40,23 +28,13 @@ function LoanedChildByCategory({ catNumber }) {
   };
 
   useEffect(() => {
-    //--TEST-----
-loadTools();
-    //---TEST-----
-    // LoadLoanableTools();
-    if (!toolModalData === false) {
-      setModalReady(true);
-    }
+    LoadLoanableTools();
+      if (!toolModalData === false) {
+        setModalReady(true);
+      }
   }, [toolModalData]);
 
-  // const NoLoanableTools = () => {
-  //   return (
-  //     <h3>
-  //       All Tools are in the ToolShed &there4; Available
-  //     </h3>
-  //   );
-  // };
-//------TEST----------------------------
+
 
 //working code that is similar to ToolShedByCategory
 return (
@@ -147,7 +125,7 @@ return (
                 </div>
               );
             } else {
-              return <h3>No Tools were found.</h3>;
+              return <h3>All Tools are in the ToolShed &there4; Available</h3>;
             }
           }
           return null;
@@ -157,10 +135,34 @@ return (
   </>
 );
 }
+export default LoanedChildByCategory;
+
 //-------TEST-----------------------------------
+//semi-working code using filter method (code breaks after tool modal closes)
+ 
+  // const LoadLoanableTools = async () => {
+  //   const first = await api.getCategories();
+  //   const res = await first.data[catNumber].tools;
+  //   setCategories(res);
+  // };
 
+  // function loadTools(catNumber) {
+  //   // api
+  //   //   .getCategories()
+  //   //   .then((res) => setCategories(res.data[catNumber-1].tools))
+  //   //   .catch((err) => console.log(err));
+  //   return  api.getCategories().then((res) =>setTestToo(res)).then(console.log("Test:"+ testToo.data));
+  // }
 
+// const NoLoanableTools = () => {
+  //   return (
+  //     <h3>
+  //       All Tools are in the ToolShed &there4; Available
+  //     </h3>
+  //   );
+  // };
 
+// return (
 //   const ToolsNotAvailable = () =>
 //     categories
 //       .filter((row) => {
@@ -269,5 +271,7 @@ return (
 //     </>
 //   );
 // }
+//export default LoanedChildByCategory;
+//------TEST-----------------------------------------
 
-export default LoanedChildByCategory;
+

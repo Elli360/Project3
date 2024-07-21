@@ -15,7 +15,7 @@ import { Link, useLocation } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import BorrowedChildByCategory from "../ToolListByCategory/BorrowedChildByCategory.js";
-import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
+//import ToolShedByCategory from "../ToolListByCategory/ToolShedByCategory";
 //import BorrowedPowerTools from "../BorrowedPowerTools";
 //import BorrowedOutdoorTools from "../BorrowedOutdoorTools";
 //import BorrowedWorkshopTools from "../BorrowedWorkshopTools";
@@ -288,7 +288,7 @@ import "./style.css";
                       <span>Category 5</span>
                       <Route path="/hardware">
                     {/* <BorrowedHardware /> */}
-                     <BorrowedChildByCategory catNumber={4} />
+                     <BorrowedChildByCategory catNumber={5} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>
