@@ -15,11 +15,11 @@ import { Link, useLocation } from "react-router-dom";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import LoanedChildByCategory from "../ToolListByCategory/LoanedChildByCategory.js";
-import LoanedPowerTools from "../LoanedPowerTools";
-import LoanedOutdoorTools from "../LoanedOutdoorTools";
-import LoanedWorkshopTools from "../LoanedWorkshopTools";
-import LoanedHardware from "../LoanedHardware"
-import LoanedHandTools from "../LoanedHandTools"
+//import LoanedPowerTools from "../LoanedPowerTools";
+//import LoanedOutdoorTools from "../LoanedOutdoorTools";
+//import LoanedWorkshopTools from "../LoanedWorkshopTools";
+//import LoanedHardware from "../LoanedHardware"
+//import LoanedHandTools from "../LoanedHandTools"
 
 import "./style.css";
 
@@ -74,8 +74,8 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 1</span>
 
-                      <Route exact path="/powertools">
-                        <LoanedChildByCategory catNumber={0} />
+                      <Route path="/powertools">
+                        <LoanedChildByCategory catNumber={1} />
                         {/* <LoanedPowerTools/> */}
                         </Route> 
                       <hr className="line-primary" />
@@ -124,7 +124,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <span>Category 2</span>
 
                       <Route path="/loanedtools" >
-                        <LoanedChildByCategory catNumber={1} />
+                        <LoanedChildByCategory catNumber={2} />
                       </Route>
 
                       <hr className="line-success" />
@@ -161,12 +161,12 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       <Link to="/outdoortools" className={location.pathname === "/outdoortools" ? "nav-link active" : "nav-link"}
                         onClick={handleClickCat}
                       >
-                        <span>Click Here To Show</span>
+                        <span>Click Here To Show/Reload Data</span>
                         <h4 className="text-uppercase">Loaned Outdoor Tools</h4>
                       </Link>
                       <span>Category 3</span>
                       <Route path="/outdoortools" >
-                      <LoanedChildByCategory catNumber={2} />
+                      <LoanedChildByCategory catNumber={3} />
                       </Route>
                       <hr className="line-info" />
                     </Col>
@@ -207,8 +207,11 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 4</span>
                       <Route path="/workshoptools" >
-                      <LoanedChildByCategory catNumber={3} />
+                      <LoanedChildByCategory catNumber={4} />
                       </Route>
+                       {/* <Route exact path="/workshoptools" 
+                      render={(props)=>( <LoanedChildByCategory catNumber={4} /> )}
+                      /> */}
                       <hr className="line-danger" />
                     </Col>
                   </Row>
@@ -247,7 +250,7 @@ function LoanedToolsByCategory({ handleClickCat }) {
                       </Link>
                       <span>Category 5</span>
                       <Route path="/hardware" >
-                      <LoanedChildByCategory catNumber={4} />
+                      <LoanedChildByCategory catNumber={5} />
                       </Route>
                       <hr className="line-primary" />
                     </Col>
