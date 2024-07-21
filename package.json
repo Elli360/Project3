@@ -11,7 +11,7 @@
     "seed": "sequelize db:seed:all",
     "fullseed": "npm-run-all start:prod seed",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+   "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
