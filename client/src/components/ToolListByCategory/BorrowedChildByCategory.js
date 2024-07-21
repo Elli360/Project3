@@ -6,10 +6,11 @@ import { Button, Modal } from "reactstrap";
 function BorrowedChildByCategory({ catNumber }) {
 
     const [categories, setCategories] = useState([]);
-    //const [categoryDataTrue, setCategoryDataTrue] = useState(false);
+    const [categoryDataFalse, setCategoryDataFalse] = useState(false);
     const [toolModal, setToolModal] = useState(false);
     const [toolModalData, setToolModalData] = useState(null);
     const [modalReady, setModalReady] = useState(false);
+    const [counterB,setCounterB]=useState(0);
 
   function LoadBorrowableTools() {
     api
@@ -33,23 +34,58 @@ function BorrowedChildByCategory({ catNumber }) {
     }
   }, [toolModalData]);
 
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (ToolsBorrowed() == null) return setCategoryDataFalse(true);
+      
+  //     console.log("FAILED");
+  //     console.log("categoryDataFalse "+categoryDataFalse);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+  const NoBorrowableTools = () => {
+    return (
+      <h3>
+        All MY Tools originate from this ToolShed &there4; Never Borrowed
+      </h3>
+    );
+  };
+  // const DefaultNotBorrowed = () => {
+  //   if (ToolsBorrowed() == null) return NoBorrowableTools();
+  //   return null;
+  // };
+
+ 
+
+//STILL NEED TO FIX DISPLAY of NoBorrowableTools component when no tools are in category array
   //working code that is similar to ToolShedByCategory
-return (
-  <>
-    {categories.length ? (
+  const ToolsBorrowed = () =>{
+
+    return(
+      
+    categories.length ? (
       <ul key={categories.name}>
+        
         {
         categories.map((category) => {
+         
           if (category.id === catNumber) {
             if (category.tools.length) {
+              // console.log("category.tools.length "+ category.tools.length)
+              //   setCategoryDataFalse(false);
+           
               return (
                 <div key={category.id} className="toolDetail">
-                  <ul key={category.id}className="">
+                  <ul key={category.id} className="">
                     <div className="">
                       <br />
-                      {category.tools.map((tool) => {
-                        // console.log(tool);
+                      {category.tools.map((tool,index) => {
+                  // console.log("counterB = " +counterB);
                         if (tool.borrowed){
+                         setCounterB(Math.max(index+1));
+                         console.log(("Math.max(index+1) = "+ Math.max(index+1) + ", counterB = " + counterB ));
                         return (
                      
                           <div>
@@ -123,15 +159,32 @@ return (
                 </div>
               );
             } else {
-              return null;
+              return setCategoryDataFalse(true);;
             }
           }
           return null;
         })}
       </ul>
-    ) : <h3>All Tools Belong To You! &there4; Available</h3>}
-  </>
-);
+    // ) : <h3>All Tools Belong To You! &there4; Available</h3>}
+  ) : null)};
+
+ 
+
+
+ 
+    return (
+
+    <>
+           {!categoryDataFalse && <ToolsBorrowed />}
+      {categoryDataFalse && <NoBorrowableTools />}
+      {console.log("counterB "+counterB)}
+      {/* {counterB && <ToolsBorrowed />}
+      {!counterB && <NoBorrowableTools />}
+      {console.log("counterB "+counterB)} */}
+    </>
+  );
+ 
+
 }
 export default BorrowedChildByCategory;
 
