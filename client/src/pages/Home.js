@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create datetimepicker
 // import ReactDatetime from "react-datetime";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 
 // reactstrap components
 import {
