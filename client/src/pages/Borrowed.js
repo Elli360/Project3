@@ -177,7 +177,7 @@ export default function Borrowed() {
                   <Col md="6">
                     <Row className="justify-content-between align-items-center">
                       {/* <UncontrolledCarousel items={carouselItemsBorrowed} className="borrowedImg"/> */}
-                      <img src={require("assets/img/borrow-tools.jpg").default} className="borrowedImg"/>
+                      <img src={require("assets/img/borrow-tools.jpg").default} className="borrowedImg" alt="borrow tools"/>
                     </Row>
                   </Col>
                   <Col md="5">
