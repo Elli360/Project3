@@ -1,5 +1,5 @@
 {
-  "name": "toolshed",
+  "name": "toolshed_react",
   "version": "1.2.0",
   "description": "",
   "main": "server.js",
@@ -10,9 +10,7 @@
     "client": "cd client && npm run start",
     "seed": "sequelize db:seed:all",
     "fullseed": "npm-run-all start:prod seed",
-    "install": "cd client && npm install",
-   "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "build": "npm install && cd client && npm run build "
   },
   "repository": {
     "type": "git",
@@ -30,6 +28,7 @@
     "@babel/plugin-transform-private-property-in-object": "^7.24.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
+    "cd": "^0.3.3",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

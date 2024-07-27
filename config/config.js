@@ -18,9 +18,6 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    // "use_env_variable": JAWSDB_URL,
-    // "dialect": "mysql"
-    
       "username": process.env.MYSQL_USER,
       "password": process.env.MYSQL_KEY,
       "database": process.env.MYSQL_DBNAME,
@@ -29,4 +26,7 @@ module.exports = {
 
 
   }
-};
+}
+
+    // "use_env_variable": JAWSDB_URL,
+    // "dialect": "mysql"
