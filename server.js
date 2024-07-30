@@ -30,7 +30,7 @@ require("./routes/toolshed-api.js")(app);
 
 //CONFIGURE FOR HEROKU DEPLoYMENT
 
- if (process.env.NODE_ENV === 'production') {
+//  if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static('client/build'));
   // Handle React routing, return all requests to React app
@@ -40,7 +40,7 @@ require("./routes/toolshed-api.js")(app);
     console.log("server in production mode");
     // res.sendFile('client/build', 'index.html');
   });
-}; 
+// }; 
 
 // if (process.env.NODE_ENV === 'production') {
 //   // Serve any static files
