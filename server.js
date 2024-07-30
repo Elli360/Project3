@@ -15,7 +15,8 @@ db.sequelize.sync({ /*alter:true*/  }).then(() => {
   });
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  // origin: "http://localhost:8081"
+  origin: "https://dev-11624122.okta.com"
 };
 //COMMENT FOR THE SAKE OF COMMENT
 app.use(cors(corsOptions));
