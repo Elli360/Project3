@@ -56,13 +56,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-
     "prestart:prod": "npm install",
     "start:prod": "react-scripts build",
-    
     "wrongpoststart:prod": "react-scripts start && npm run start2:prod",
     "wongstart2:prod": "cd .. && node server.js",
-
     "wrongAgainpoststart:prod": "react-scripts start",
     "install:next": "npm install",
     "build": "react-scripts build",
