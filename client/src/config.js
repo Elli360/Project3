@@ -25,9 +25,9 @@ const config= {
  
 
   
-    // resourceServer: {
-    //   messagesUrl: 'http://localhost:8000/api/messages',
-    // },
+    resourceServer: {
+      messagesUrl: 'https://toolshed.onrender.com/api/messages',
+    },
   }
   };
   

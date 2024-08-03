@@ -1,7 +1,7 @@
 {
   "name": "toolshed_inner",
   "version": "1.3.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://toolshed.onrender.com/",
   "description": "",
   "main": "index.js",
   "author": "Shalom Dawit",
