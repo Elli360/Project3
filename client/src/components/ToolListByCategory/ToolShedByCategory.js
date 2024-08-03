@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import { Button, Modal } from "reactstrap";
+import { Modal } from "reactstrap";
 //import ToolModalInfo from "../PowerTools/modal.js";
 function ToolShedByCat({ catNumber }) {
   const [categories, setCategories] = useState([]);

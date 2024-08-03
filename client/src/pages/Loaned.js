@@ -181,6 +181,7 @@ export default function Loaned() {
                       <img
                         src={require("assets/img/hands-grabbing-tools.jpg").default}
                         className="loanedImg"
+                        alt="hands grabbing tools"
                       />
                     </Row>
                   </Col>

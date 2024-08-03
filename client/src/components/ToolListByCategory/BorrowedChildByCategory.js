@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import { Button, Modal } from "reactstrap";
+import { Modal } from "reactstrap";
 
 //make category.id # a prop so the # of components can be divided by 5
 function BorrowedChildByCategory({ catNumber }) {

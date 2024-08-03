@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 
 const ISSUER= process.env.REACT_APP_ISSUER 
 const CLIENT_ID =process.env.REACT_APP_CLIENT_ID 
@@ -7,6 +9,9 @@ let USE_INTERACTION_CODE = true;
 // if (process.env.REACT_APP_USE_INTERACTION_CODE === 'true') {
 //   USE_INTERACTION_CODE = true;
 // }
+console.log("OKTA_TESTING_DISABLEHTTPSCHECK: " + OKTA_TESTING_DISABLEHTTPSCHECK);
+console.log("USE_INTERACTION_CODE: " + USE_INTERACTION_CODE);
+console.log("REDIRECT_URI:" + REDIRECT_URI);
 
 const config= {
     oidc: {
@@ -20,9 +25,9 @@ const config= {
  
 
   
-    // resourceServer: {
-    //   messagesUrl: 'http://localhost:8000/api/messages',
-    // },
+    resourceServer: {
+      messagesUrl: 'https://toolshed.onrender.com/api/messages',
+    },
   }
   };
   
